@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "work sans";
+    margin: 0;
+}
+
+p {
+    color: #858587;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+input {
+    border-radius: 10px;
+    border-width: 1.5px;
+    border-color: #858587;
+
+    border-style: solid;
+    height: 30px;
+    width: 270px;
+    padding: 10px 30px;
+    font-size: 15px;
+    margin: 10px 0;
+    transition: 0.25s;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 15px;
+    color: #858587;
+}
+
+input:focus {
+    outline: none;
+    border-color: #105EF5;
+    transition: 0.25s;
+    cursor: text;
+}
+
+a {
+    text-decoration: none;
+    color: #858587;
+    text-decoration: underline;
+}
+
+
+button {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background-color: #E3F5FF;
+    transition: 0.25s;
+}
+
+button span:hover {
+    color: white;
+}
+
+
+#signIn {
+    grid-column-start: 6;
+    margin-top: 100px;
+}
+
+#signIn .heading h1 {
+    font-size: 30px;
+}
+
+#signIn .heading p {
+    margin-top: 12px;
+}
+
+#signIn .buttons {
+    margin-top: 70px;
+}
+
+#signIn .buttons button {
+    height: 50px;
+    width: 333px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+#signIn .buttons button img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+#signIn .buttons button span {
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+#signIn hr {
+    width: 65%;
+    height: 1.5px;
+    background-color: black;
+    border: none;
+    margin: 40px auto;
+}
+
+
+.submit {
+    background-color: #105EF5;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    border: none;
+    width: 333px;
+    transition: 0.25s;
+}
+
+input[type="submit"]:hover {
+    background-color: #3978f6;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+
+#login {
+    grid-column-start: 4;
+}
+
+
+form p {
+    font-size: 12px;
+}
+
+.have__account {
+    color: #858587;
+    text-align: center;
+}
+
+.have__account a {
+    color: black;
+}
+
+#picture {
+    grid-column-start: 12;
+}
