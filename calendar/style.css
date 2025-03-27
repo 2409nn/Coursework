@@ -377,8 +377,8 @@ body {
 main {
     padding: 88px 30px 30px;
     display: grid;
-    grid-template-columns: repeat(16, 6.25%);
-    grid-template-rows: repeat(36, 50px); /* Верхний фиксированный хедер */
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     height: 100vh;
 }
 
@@ -387,15 +387,16 @@ main {
     background-color: var(--whiteColor);
     border: 1px solid var(--borderColor);
     border-radius: 10px;
-    grid-column: 4/9;
-    grid-row: 1/13;
-    padding: 15px 30px;
+    grid-column: 8/19;
+    padding: 10px 30px;
+    height: 520px;
 }
 
 #projects .heading {
     display: flex;
+    font-weight: 600;
     justify-content: space-between;
-    height: 40px;
+    height: fit-content;
     width: 100%;
     margin-top: 10px;
 }
@@ -428,8 +429,9 @@ main {
 
 #projects .projectName {
     text-align: center;
-    height: 40px;
-    margin-top: 20px;
+    font-weight: 500;
+    height: fit-content;
+    margin-bottom: 25px;
 }
 
 #projects .goals {
@@ -445,7 +447,7 @@ main {
     padding: 10px;
     margin-top: 12px;
     grid-template-columns: 30px auto;
-    font-size: 14px;
+    font-size: 12px;
     color: black;
     border-bottom: 2px solid var(--borderColor);
     background-color: #F4F4F5;
@@ -459,6 +461,7 @@ main {
 #projects .goal label {
     grid-column-start: 2;
     margin-left: 10px;
+    line-height: 20px;
 }
 
 #projects .progress__container {
@@ -491,8 +494,8 @@ main {
 
 
 #todayTasks {
-    grid-column: 4 / 9;
-    grid-row: 13 / 20;
+    grid-column: 8 / 19;
+    grid-row: 3 / 16;
     background-color: var(--whiteColor);
     border-radius: 10px;
     border: 1px solid var(--borderColor);
