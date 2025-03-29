@@ -27,16 +27,6 @@ aside a img {
     opacity: 60%;
 }
 
-input[type="time"] {
-    background-color: #105EF5;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-weight: 500;
-    width: fit-content;
-    padding: 5px 20px;
-}
-
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -245,6 +235,11 @@ header {
 }
 
 /* --- header nav --- */
+
+header nav .controls .special__operation svg:hover {
+    color: #105EF5;
+    cursor: pointer;
+}
 
 header nav .path {
     padding: 22.5px 26px;
@@ -514,10 +509,66 @@ main {
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     padding: 30px;
+    overflow-y: scroll;
 }
 
 #todayTasks .heading .dayDate {
     color: var(--pColor);
     font-weight: 400;
 
+}
+
+
+input[type="time"] {
+    background-color: #105EF5;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    width: fit-content;
+    padding: 5px;
+}
+
+#todayTasks .task {
+    display: grid;
+    grid-template-columns: 10% 55% 35%;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 12px 0;
+    height: 30px;
+}
+
+#todayTasks .task input[type="checkbox"] {
+    grid-column-start: 1;
+    margin: auto;
+}
+
+#todayTasks label {
+    grid-column-start: 2;
+}
+
+#todayTasks .set__time {
+    grid-column-start: 3;
+}
+
+#todayTasks .task .set__time {
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 15px;
+    width: fit-content;
+    background-color: #105EF5;
+    border-radius: 7px;
+    margin-left: auto;
+}
+
+#todayTasks .task .set__time svg {
+    color: var(--whiteColor);
+}
+
+#todayTasks .task .time__from, #todayTasks .task .time__to {
+    display: flex;
+    align-items: center;
+    background-color: #105EF5;
 }
