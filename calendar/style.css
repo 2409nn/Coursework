@@ -424,7 +424,7 @@ main {
     display: inline;
 }
 
-.arrows .back svg {
+.back svg {
     transform: rotate(-90deg);
 }
 
@@ -432,7 +432,7 @@ main {
     display: inline;
 }
 
-.arrows .next svg {
+.next svg {
     transform: rotate(90deg);
 }
 
@@ -509,13 +509,15 @@ main {
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     padding: 30px;
-    overflow-y: scroll;
 }
 
 #todayTasks .heading .dayDate {
     color: var(--pColor);
     font-weight: 400;
+}
 
+#todayTasks .tasks__list {
+    overflow-y: scroll;
 }
 
 
@@ -571,4 +573,42 @@ input[type="time"] {
     display: flex;
     align-items: center;
     background-color: #105EF5;
+}
+
+
+
+#calendar {
+    background-color: var(--whiteColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+    padding: 20px 30px;
+    grid-column: 20 / 32;
+    grid-row: 1 / 16;
+}
+
+#calendar .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.choose__month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choose__month a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.choose__month span {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
 }
