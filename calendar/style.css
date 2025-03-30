@@ -582,7 +582,7 @@ input[type="time"] {
     border: 1px solid var(--borderColor);
     border-radius: 10px;
     padding: 20px 30px;
-    grid-column: 20 / 32;
+    grid-column: 20 / 33;
     grid-row: 1 / 16;
 }
 
@@ -592,14 +592,14 @@ input[type="time"] {
     align-items: center;
 }
 
-.choose__month {
+#calendar .choose__month {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
 
-.choose__month a {
+#calendar .choose__month a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -607,8 +607,55 @@ input[type="time"] {
     height: 30px;
 }
 
-.choose__month span {
+#calendar .choose__month span {
     font-size: 18px;
     font-weight: 500;
     text-align: center;
+}
+
+#calendar .calendar__elem {
+    display: grid;
+    height: 90%;
+    width: 100%;
+    margin-top: 40px;
+    grid-gap: 4px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+#calendar .calendar__elem .weekdays {
+    display: grid;
+    grid-column: 1 / 8;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+}
+
+#calendar .calendar__elem .weekdays .weekday {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar .calendar__elem .day button {
+    border-radius: 7px;
+    width: 100%;
+    height: 100%;
+    color: var(--pColor);
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+#calendar .calendar__elem .day button:hover {
+    filter: brightness(1.05);
+    transition: 0.25s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#calendar .calendar__elem .day .selected {
+    background-color: #105EF5;
+    color: var(--whiteColor);
+}
+
+.next__month__days {
+    filter: brightness(0.90);
 }
