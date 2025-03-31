@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* 407px is breakpoint for aside */
+
+
+
+:root {
+    --whiteColor: #FFFFFF;
+    --grayDarkColor: #1e1e1e;
+    --borderColor: #F4F4F5;
+    --textColor: black;
+    --pColor: #858587;
+    --inputColor: black;
+    --backgroundColor: #FAFCFEFF;
+    --hoverButtonColor: black;
+    --hoverElementColor: #E3F5FF;
+    --goodBackgroundColor: #E7FFE3;
+    --goodTextColor: #29D381;
+    --mediumBackgroundColor: #FFF9D4;
+    --mediumTextColor: #FFAE00;
+    --badBackgroundColor: #FFD8D8;
+    --badTextColor: #F44747;
+}
+
+
+* {
+    font-family: "work sans";
+    margin: 0;
+}
+
+aside a img {
+    opacity: 60%;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 20px;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #3978f6;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 50%;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+input {
+    border-radius: 50px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 18px;
+    width: 120px;
+    padding: 10px 60px;
+    font-size: 15px;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+input::placeholder {
+    color: #0E1013;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    cursor: pointer;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--textColor);
+}
+
+h3, h4, h5 {
+    font-weight: 600;
+}
+
+input {
+    border-radius: 50px;
+    border-width: 2px;
+    border-color: var(--borderColor); /* Используем переменную */
+    border-style: solid;
+    height: 18px;
+    width: 120px;
+    padding: 10px 60px;
+    font-size: 15px;
+    color: var(--textColor);
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--textColor); /* Используем переменную */
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textColor); /* Используем переменную */
+}
+
+.inactive__btn {
+    color: var(--pColor); /* Используем переменную */
+    border: 2px solid var(--pColor); /* Используем переменную */
+    border-radius: 12px;
+    padding: 14px 100px;
+    background: none;
+    font-size: 18px;
+    transition: 0.25s;
+}
+
+.inactive__btn:hover {
+    border-color: var(--grayDarkColor); /* Используем переменную */
+    background-color: var(--grayDarkColor); /* Используем переменную */
+    color: var(--whiteColor); /* Используем переменную */
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.active__btn {
+    color: #FFFFFF; /* Используем переменную */
+    background-color: #105EF5;
+    border-radius: 12px;
+    padding: 14px 100px;
+    font-size: 18px;
+    border: none;
+    transition: 0.25s;
+}
+
+.active__btn:hover {
+    background-color: #3978f6;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+li {
+    list-style: none;
+    color: var(--textColor);
+}
+
+.more__btn {
+    border: 1.7px solid #105EF5;
+    background: none;
+    padding: 4px 14px;
+    border-radius: 10px;
+    color: #105EF5;
+    transition: 0.25s;
+}
+
+.more__btn:hover{
+    background-color: #105EF5;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+/* --- upgrade --- */
+
+.upgrade {
+    background-image: url("../imgs/aside/background_upgrade_pro.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 220px;
+    padding: 20px;
+    margin-top: 40%;
+}
+
+.upgrade h3 {
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.upgrade p {
+    font-weight: 400;
+    margin: 5px 0;
+    font-size: 10px;
+    color: var(--textColor); /* Используем переменную */
+}
+
+.upgrade button {
+    padding: 10px 40px;
+    margin-top: 10px;
+}
+
+/* --- header --- */
+
+header {
+    padding: 0;
+    height: 64px;
+    position: fixed;
+    width: 100vw;
+    background-color: var(--whiteColor); /* Используем переменную */
+    z-index: 3;
+    border-bottom: var(--borderColor) 2px solid;
+}
+
+/* --- header nav --- */
+
+header nav .controls .special__operation svg:hover {
+    color: #105EF5;
+    cursor: pointer;
+}
+
+header nav .path {
+    padding: 22.5px 26px;
+    border-bottom: 2px #105EF5 solid;
+}
+
+header nav {
+    width: 80vw;
+    margin-left: 17vw;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav .controls {
+    display: flex;
+    align-items: center;
+}
+
+header nav .controls svg, header nav .controls img {
+    margin: 10px;
+}
+
+header .controls .search {
+    display: flex;
+    align-items: center;
+}
+
+header .controls .search input {
+    background: none;
+}
+
+header .controls .search svg {
+    position: relative;
+    right: 225px;
+    top: 2px;
+}
+
+/* --- logo --- */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #105EF5;
+    margin-left: 10px;
+}
+
+/* --- aside --- */
+
+aside {
+    width: 15vw;
+    height: 100vh;
+    background-color: var(--whiteColor); /* Используем переменную */
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    border-right: 1px solid var(--borderColor);
+}
+
+aside ul {
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+aside ul li {
+    padding: 14px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--pColor);
+}
+
+#rocketWindow {
+    stroke: var(--backgroundColor);
+}
+
+aside ul li svg {
+    color: var(--pColor);
+}
+
+aside nav ul li:hover {
+    background-color: var(--hoverElementColor);
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+aside ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--pColor); /* Используем переменную */
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+aside ul li a span {
+    margin-left: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --- aside lists --- */
+
+aside ul .lists {
+    margin-top: 30px;
+}
+
+aside ul .lists li {
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* --- log out --- */
+
+.logout {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.logout span {
+    margin-left: 8px;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
+
+main {
+    padding: 88px 30px 30px;
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    height: 100vh;
+}
+
+section {
+    padding: 20px 30px;
+}
+
+section p {
+    color: var(--pColor);
+}
+
+.arrows {
+    display: inline-block;
+    transition: 0.25s;
+}
+
+.arrows a :hover {
+    color: #105EF5;
+    transition: 0.25s;
+}
+
+.arrows .back {
+    display: inline;
+}
+
+.back svg {
+    transform: rotate(-90deg);
+}
+
+.arrows .next {
+    display: inline;
+}
+
+.next svg {
+    transform: rotate(90deg);
+}
+
+
+.effectivity {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+#myProdToday .prod__label , #myProdWeek .prod__label {
+    background-color: var(--goodBackgroundColor);
+    color: var(--goodTextColor);
+    width: fit-content;
+    padding: 6px 17px;
+    border-radius: 8px;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+#myProdToday .prod__increase, #myProdWeek .prod__increase {
+    color: var(--goodTextColor);
+    font-size: 12px;
+}
+
+#myProdToday {
+    background-color: var(--whiteColor);
+    border-radius: 15px;
+    border: var(--borderColor) 1px solid;
+    grid-column: 4 / 15;
+    grid-row: 1 / 10;
+}
+
+#myProdWeek {
+    background-color: var(--whiteColor);
+    border-radius: 15px;
+    border: var(--borderColor) 1px solid;
+    grid-column: 4 / 15;
+    grid-row: 10 / 19;
+}
+
+#myProdToday .progress__bar p, #myProdWeek .progress__bar p {
+    color: #105EF5;
+    font-size: 12px;
+    padding-bottom: 4px;
+}
+
+#myProdToday .bar, #myProdWeek .bar  {
+    width: 100%;
+    height: 5px;
+    background-color: var(--borderColor);
+    border-radius: 5px;
+    color: var(--textColor);
+}
+
+
+#myProdToday .progress, #myProdWeek .progress {
+    position: relative;
+    top: 5px;
+    z-index: 3;
+    width: 72%;
+    height: 5px;
+    background-color: #105EF5;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+
+#myProdToday .progress:hover, #myProdWeek .progress:hover {
+    cursor: pointer;
+    filter: brightness(110%);
+    transition: 0.25s;
+}
+
+#myProdToday .projects, #myProdWeek .projects {
+    margin-top: 22px;
+}
+
+#myProdToday .projects__list, #myProdWeek .projects__list {
+    margin-top: 16px;
+}
+
+#myProdToday .projects__list .project , #myProdWeek .projects__list .project {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    background-color: var(--borderColor);
+    padding: 10px 30px;
+    border-radius: 11px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#myProdToday .project__name, #myProdWeek .project__name {
+    grid-column: 1;
+    margin: auto 0;
+}
+
+#myProdToday .project__name span, #myProdWeek .project__name span {
+    color: var(--pColor);
+}
+
+#myProdToday .project__name .name, #myProdWeek .project__name .name {
+    color: var(--textColor);
+}
+
+#myProdToday .project .prod__label, #myProdWeek .project .prod__label {
+    grid-column: 2;
+    margin: 0 0 0 auto;
+}
+
+#teamProductivity {
+    grid-column: 16 / 33;
+    grid-row: 1 / 19;
+    background-color: var(--whiteColor);
+    border-radius: 15px;
+    border: var(--borderColor) 1px solid;
+}
+
+#teamProductivity .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#teamProductivity .choose__month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#teamProductivity .choose__month a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+#teamProductivity .choose__month span {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
