@@ -543,6 +543,11 @@ section p {
     background-color: var(--whiteColor);
     border-radius: 15px;
     border: var(--borderColor) 1px solid;
+    overflow-y: scroll;
+}
+
+#teamProductivity .average {
+    margin-top: 40px;
 }
 
 #teamProductivity .heading {
