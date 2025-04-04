@@ -1,867 +1,829 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 /* 407px is breakpoint for aside */
-
-
-
 :root {
-    --whiteColor: #FFFFFF;
-    --grayDarkColor: #1e1e1e;
-    --borderColor: #F4F4F5;
-    --textColor: black;
-    --pColor: #858587;
-    --inputColor: black;
-    --backgroundColor: #FAFCFEFF;
-    --hoverButtonColor: black;
-    --hoverElementColor: #E3F5FF;
+  --whiteColor: #FFFFFF;
+  --grayDarkColor: #1e1e1e;
+  --borderColor: #F4F4F5;
+  --textColor: black;
+  --pColor: #858587;
+  --inputColor: black;
+  --backgroundColor: #FAFCFEFF;
+  --hoverButtonColor: black;
+  --hoverElementColor: #E3F5FF;
 }
 
-
 * {
-    font-family: "work sans";
-    margin: 0;
+  font-family: "work sans";
+  margin: 0;
 }
 
 aside a img {
-    opacity: 60%;
+  opacity: 60%;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #105EF5;
-    border-radius: 50%;
-    background-color: #E3F5FF;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
+input[type=checkbox] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #105EF5;
+  border-radius: 50%;
+  background-color: #E3F5FF;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
 }
 
-input[type="checkbox"]::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #3978f6;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+input[type=checkbox]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #3978f6;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
 }
 
-input[type="checkbox"]:checked::before {
-    transform: translate(-50%, -50%) scale(1);
+input[type=checkbox]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #105EF5;
-    border-radius: 50%;
-    background-color: #E3F5FF;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    padding: 0;
+input[type=checkbox] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #105EF5;
+  border-radius: 50%;
+  background-color: #E3F5FF;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
 }
 
 input {
-    border-radius: 50px;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    height: 18px;
-    width: 120px;
-    padding: 10px 60px;
-    font-size: 15px;
+  border-radius: 50px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  height: 18px;
+  width: 120px;
+  padding: 10px 60px;
+  font-size: 15px;
 }
 
 button {
-    border: none;
+  border: none;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 input::placeholder {
-    color: #0E1013;
-    font-size: 15px;
+  color: #0E1013;
+  font-size: 15px;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 a:hover {
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--textColor);
+  color: var(--textColor);
 }
 
 input {
-    border-radius: 50px;
-    border-width: 2px;
-    border-color: var(--borderColor); /* Используем переменную */
-    border-style: solid;
-    height: 18px;
-    width: 120px;
-    padding: 10px 60px;
-    font-size: 15px;
-    color: var(--textColor);
-    outline: none;
+  border-radius: 50px;
+  border-width: 2px;
+  border-color: var(--borderColor); /* Используем переменную */
+  border-style: solid;
+  height: 18px;
+  width: 120px;
+  padding: 10px 60px;
+  font-size: 15px;
+  color: var(--textColor);
+  outline: none;
 }
 
 input::placeholder {
-    color: var(--textColor); /* Используем переменную */
-    font-size: 15px;
+  color: var(--textColor); /* Используем переменную */
+  font-size: 15px;
 }
 
 a {
-    text-decoration: none;
-    color: var(--textColor); /* Используем переменную */
+  text-decoration: none;
+  color: var(--textColor); /* Используем переменную */
 }
 
 .inactive__btn {
-    color: var(--pColor); /* Используем переменную */
-    border: 2px solid var(--pColor); /* Используем переменную */
-    border-radius: 12px;
-    padding: 14px 100px;
-    background: none;
-    font-size: 18px;
-    transition: 0.25s;
+  color: var(--pColor); /* Используем переменную */
+  border: 2px solid var(--pColor); /* Используем переменную */
+  border-radius: 12px;
+  padding: 14px 100px;
+  background: none;
+  font-size: 18px;
+  transition: 0.25s;
 }
 
 .inactive__btn:hover {
-    border-color: var(--grayDarkColor); /* Используем переменную */
-    background-color: var(--grayDarkColor); /* Используем переменную */
-    color: var(--whiteColor); /* Используем переменную */
-    transition: 0.25s;
-    cursor: pointer;
+  border-color: var(--grayDarkColor); /* Используем переменную */
+  background-color: var(--grayDarkColor); /* Используем переменную */
+  color: var(--whiteColor); /* Используем переменную */
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 .active__btn {
-    color: #FFFFFF; /* Используем переменную */
-    background-color: #105EF5;
-    border-radius: 12px;
-    padding: 14px 100px;
-    font-size: 18px;
-    border: none;
-    transition: 0.25s;
+  color: #FFFFFF; /* Используем переменную */
+  background-color: #105EF5;
+  border-radius: 12px;
+  padding: 14px 100px;
+  font-size: 18px;
+  border: none;
+  transition: 0.25s;
 }
 
 .active__btn:hover {
-    background-color: #3978f6;
-    cursor: pointer;
-    transition: 0.25s;
+  background-color: #3978f6;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 li {
-    list-style: none;
-    color: var(--textColor);
+  list-style: none;
+  color: var(--textColor);
 }
 
 .more__btn {
-    border: 1.7px solid #105EF5;
-    background: none;
-    padding: 4px 14px;
-    border-radius: 10px;
-    color: #105EF5;
-    transition: 0.25s;
+  border: 1.7px solid #105EF5;
+  background: none;
+  padding: 4px 14px;
+  border-radius: 10px;
+  color: #105EF5;
+  transition: 0.25s;
 }
 
-.more__btn:hover{
-    background-color: #105EF5;
-    color: white;
-    cursor: pointer;
-    transition: 0.25s;
+.more__btn:hover {
+  background-color: #105EF5;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
-    /* --- upgrade --- */
-
+/* --- upgrade --- */
 .upgrade {
-    background-image: url("../imgs/aside/background_upgrade_pro.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 220px;
-    padding: 20px;
-    margin-top: 40%;
+  background-image: url("../imgs/aside/background_upgrade_pro.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 220px;
+  padding: 20px;
+  margin-top: 40%;
 }
 
 .upgrade h3 {
-    font-weight: 500;
-    margin-top: 10px;
-    font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .upgrade p {
-    font-weight: 400;
-    margin: 5px 0;
-    font-size: 10px;
-    color: var(--textColor); /* Используем переменную */
+  font-weight: 400;
+  margin: 5px 0;
+  font-size: 10px;
+  color: var(--textColor); /* Используем переменную */
 }
 
 .upgrade button {
-    padding: 10px 40px;
-    margin-top: 10px;
+  padding: 10px 40px;
+  margin-top: 10px;
 }
 
 /* --- header --- */
-
 header {
-    padding: 0;
-    height: 64px;
-    position: fixed;
-    width: 100vw;
-    background-color: var(--whiteColor); /* Используем переменную */
-    z-index: 3;
-    border-bottom: var(--borderColor) 2px solid;
+  padding: 0;
+  height: 64px;
+  position: fixed;
+  width: 100vw;
+  background-color: var(--whiteColor); /* Используем переменную */
+  z-index: 3;
+  border-bottom: var(--borderColor) 2px solid;
 }
 
 /* --- header nav --- */
-
 header nav .path {
-    padding: 22.5px 26px;
-    border-bottom: 2px #105EF5 solid;
+  padding: 22.5px 26px;
+  border-bottom: 2px #105EF5 solid;
 }
 
 header nav {
-    width: 80vw;
-    margin-left: 17vw;
+  width: 80vw;
+  margin-left: 17vw;
 }
 
 header nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header nav .controls {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 header nav .controls svg, header nav .controls img {
-    margin: 10px;
+  margin: 10px;
 }
 
 header .controls .search {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 header .controls .search input {
-    background: none;
+  background: none;
 }
 
 header .controls .search svg {
-    position: relative;
-    right: 225px;
-    top: 2px;
+  position: relative;
+  right: 225px;
+  top: 2px;
 }
 
 /* --- logo --- */
-
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo h2 {
-    font-size: 22px;
-    font-weight: 400;
-    color: #105EF5;
-    margin-left: 10px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #105EF5;
+  margin-left: 10px;
 }
 
 /* --- aside --- */
-
 aside {
-    width: 15vw;
-    height: 100vh;
-    background-color: var(--whiteColor); /* Используем переменную */
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 3;
-    border-right: 1px solid var(--borderColor);
+  width: 15vw;
+  height: 100vh;
+  background-color: var(--whiteColor); /* Используем переменную */
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  border-right: 1px solid var(--borderColor);
 }
 
 aside ul {
-    padding: 0;
-    margin-top: 50px;
-    margin-left: 20px;
+  padding: 0;
+  margin-top: 50px;
+  margin-left: 20px;
 }
 
 aside ul li {
-    padding: 14px;
-    width: 220px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    color: var(--pColor);
+  padding: 14px;
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: var(--pColor);
 }
 
 #rocketWindow {
-    stroke: var(--backgroundColor);
+  stroke: var(--backgroundColor);
 }
 
 aside ul li svg {
-    color: var(--pColor);
+  color: var(--pColor);
 }
 
 aside nav ul li:hover {
-    background-color: var(--hoverElementColor);
-    transition: 0.25s;
-    cursor: pointer;
+  background-color: var(--hoverElementColor);
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 aside ul li a {
-    display: flex;
-    align-items: center;
-    color: var(--pColor); /* Используем переменную */
-    font-size: 14px;
-    margin-left: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--pColor); /* Используем переменную */
+  font-size: 14px;
+  margin-left: 20px;
 }
 
 aside ul li a span {
-    margin-left: 14px;
-    display: flex;
-    justify-content: space-between;
+  margin-left: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* --- aside lists --- */
-
 aside ul .lists {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 aside ul .lists li {
-    padding: 25px;
-    display: flex;
-    justify-content: space-around;
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
 }
 
 /* --- log out --- */
-
 .logout {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    margin-top: 10%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
 }
 
 .logout span {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 /* --- main --- */
 main {
-    padding: 88px 30px 30px;
-    display: grid;
-    grid-template-columns: repeat(16, 6.25%);
-
-    grid-template-rows: repeat(36, 50px); /* Верхний фиксированный хедер */
-    height: 100vh;
+  padding: 88px 30px 30px;
+  display: grid;
+  grid-template-columns: repeat(16, 6.25%);
+  grid-template-rows: repeat(36, 50px); /* Верхний фиксированный хедер */
+  height: 100vh;
 }
-
 
 /* --- tasks --- */
 #tasks {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    width: 715px;
-    height: 360px;
-    display: grid;
-    grid-row-start: 1;
-    grid-column-start: 4;
-    background-color: white;
-    padding: 32px 28px;
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 715px;
+  height: 360px;
+  display: grid;
+  grid-row-start: 1;
+  grid-column-start: 4;
+  background-color: white;
+  padding: 32px 28px;
+  border-radius: 10px;
+  border: 1px solid #F4F4F5;
 }
 
 #tasks .heading {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 #tasks .heading a {
-    color: #105EF5;
-    text-decoration: underline;
+  color: #105EF5;
+  text-decoration: underline;
 }
 
 #tasks .tasks__list {
-    padding: 0 0 10px 0;
+  padding: 0 0 10px 0;
 }
 
 #tasks .tasks__list .task {
-    padding: 4px 0;
-    border-bottom: 1px solid black;
+  padding: 4px 0;
+  border-bottom: 1px solid black;
 }
 
-
 #tasks .task {
-    display: grid;
-    grid-template-columns: repeat(16, 45px);
-    grid-template-rows: repeat(2, 1fr);
-
+  display: grid;
+  grid-template-columns: repeat(16, 45px);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 #tasks .mainData {
-    grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 12;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 12;
 }
 
-
 #tasks .task .checkbox {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 #tasks .task .checkbox input {
-    width: 20px;
-    height: 20px;
-    margin: 40% 29%;
-    border-radius: 15px;
+  width: 20px;
+  height: 20px;
+  margin: 40% 29%;
+  border-radius: 15px;
 }
 
 #tasks .task .mainData {
-    padding: 5px 20px;
+  padding: 5px 20px;
 }
 
 #tasks .task .mainData .title {
-    grid-column-start: 3;
-    grid-column-end: 10;
-    grid-row-start: 1;
-    font-weight: 500;
-    font-size: 16px;
-    margin-bottom: 7px;
+  grid-column-start: 3;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 7px;
 }
 
 #tasks .task .mainData .deadline {
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    font-size: 12px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 #tasks .task .mainData .deadline p {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 #tasks .secondaryData {
-    text-align: right;
-    grid-column-start: 13;
-    grid-column-end: 17;
-    grid-row-start: 1;
-    grid-row-end: 3;
+  text-align: right;
+  grid-column-start: 13;
+  grid-column-end: 17;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 #tasks .secondaryData .user {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 #tasks .secondaryData .project {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-
 #tasks .secondaryData .project .projectName {
-    display: inline;
-    margin: 7px;
-    font-weight: 400;
+  display: inline;
+  margin: 7px;
+  font-weight: 400;
 }
 
 #tasks .secondaryData .project .projectChar {
-    background-color: #E3F5FF;
-    margin: 5px 0;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: 10px;
-    color: #105EF5;
+  background-color: #E3F5FF;
+  margin: 5px 0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 10px;
+  color: #105EF5;
 }
 
-
 #tasks .controls .left img {
-    transform: rotate(-90deg);
-    padding: 5px;
+  transform: rotate(-90deg);
+  padding: 5px;
 }
 
 #tasks .controls .right img {
-    transform: rotate(90deg);
-    padding: 5px;
+  transform: rotate(90deg);
+  padding: 5px;
 }
 
-
 #tasks .controls {
-    display: flex;
-    justify-content: center;
-    height: 48px;
-    padding: 10px;
-    width: 300px;
-    margin-left: 55.5%;
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  padding: 10px;
+  width: 300px;
+  margin-left: 55.5%;
 }
 
 #tasks .controls a {
-    color: #105EF5;
-    margin: 2px;
-    line-height: 44px;
-    vertical-align: middle;
-    border-radius: 5px;
+  color: #105EF5;
+  margin: 2px;
+  line-height: 44px;
+  vertical-align: middle;
+  border-radius: 5px;
 }
 
 #tasks .controls .page {
-    display: block;
-    padding: 0 16px;
-    vertical-align: middle;
-    transition: 0.25s;
+  display: block;
+  padding: 0 16px;
+  vertical-align: middle;
+  transition: 0.25s;
 }
 
 #tasks .controls .page:hover {
-    background-color: #E3F5FF;
-    cursor: pointer;
-    transition: 0.25s;
-
+  background-color: #E3F5FF;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 #tasks .controls .current__page {
-    background-color: #105EF5;
-    color: white;
+  background-color: #105EF5;
+  color: white;
 }
 
 #tasks .controls .current__page:hover {
-    cursor: pointer;
-    background-color: #105EF5;
-    color: white;
+  cursor: pointer;
+  background-color: #105EF5;
+  color: white;
 }
 
-    /* --- projects section --- */
-
+/* --- projects section --- */
 #projects {
-    width: 712px;
-    height: 340px;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
-    background-color: white;
-
-    grid-row-start: 10;
-    grid-column-start: 4;
+  width: 712px;
+  height: 340px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #F4F4F5;
+  background-color: white;
+  grid-row-start: 10;
+  grid-column-start: 4;
 }
 
 #projects .heading {
-    display: flex;
-    justify-content: space-between;
-
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 #projects .heading a {
-    color: #105EF5;
-    text-decoration: underline;
+  color: #105EF5;
+  text-decoration: underline;
 }
 
 #projects .projects .project .project__link {
-    font-size: 9px;
-    color: #105EF5;
+  font-size: 9px;
+  color: #105EF5;
 }
 
 #projects .projects {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 
 #projects .projects .project {
-    height: 300px;
-    width: 210px;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
-    box-shadow: 0px 2px 6px #F4F4F5;
+  height: 300px;
+  width: 210px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #F4F4F5;
+  box-shadow: 0px 2px 6px #F4F4F5;
 }
 
 #projects .projects .project img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #projects .projects .project .project__info {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 #projects .projects .project .project__name {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 #projects .projects .project .project__description {
-    font-size: 8px;
-    color: #858587;
-    margin-top: 6px;
+  font-size: 8px;
+  color: #858587;
+  margin-top: 6px;
 }
 
 #projects .projects .project .project__operations {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 #projects .projects .project .members {
-    display: flex;
-    align-items: center;
-    position: relative;
-    right: 10px;
-    width: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 10px;
+  width: 70px;
 }
 
 #projects .projects .project .members .plus__members {
-    background-color: rgb(226, 246, 255);
-    font-size: 10px;
-    padding: 6px 4px;
-    border-radius: 30px;
-    position: relative;
-    right: 18px;
-    color: #105EF5;
-
+  background-color: rgb(226, 246, 255);
+  font-size: 10px;
+  padding: 6px 4px;
+  border-radius: 30px;
+  position: relative;
+  right: 18px;
+  color: #105EF5;
 }
 
 #projects .projects .project .member {
-    position: relative;
+  position: relative;
 }
 
 .member1 {
-    left: 9px;
+  left: 9px;
 }
 
 .member2 {
-    /*left: 10px;*/
+  /*left: 10px;*/
 }
 
 .member3 {
-    right: 9px;
+  right: 9px;
 }
 
 .new__project {
-    height: 300px;
-    width: 210px;
-    background-color: rgb(226, 246, 255);
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
-    transition: 0.25s;
+  height: 300px;
+  width: 210px;
+  background-color: rgb(226, 246, 255);
+  border-radius: 10px;
+  border: 1px solid #F4F4F5;
+  transition: 0.25s;
 }
 
 .new__project:hover {
-    background-color: rgb(238, 248, 255);
-    transition: 0.25s;
+  background-color: rgb(238, 248, 255);
+  transition: 0.25s;
 }
 
 .new__project .content {
-    color: #105EF5;
-    text-align: center;
-    font-size: 15px;
-    margin-top: 60%;
+  color: #105EF5;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 60%;
 }
 
-
-
-
-
 #statistics {
-    width: 27.8vw;
-    height: 7vw;
-    grid-column-start: 12;
+  width: 27.8vw;
+  height: 7vw;
+  grid-column-start: 12;
 }
 
 #statistics .productivity {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
 
 #statistics .productivity .card {
-    display: flex;
-    background-color: #ffffff;
-    margin-bottom: 1vw;
-    width: 11.5vw;
-    height: 3vw;
-    padding: 15px;
-    border-radius: 12px;
-
-    border: 1px solid #F4F4F5;
+  display: flex;
+  background-color: #ffffff;
+  margin-bottom: 1vw;
+  width: 11.5vw;
+  height: 3vw;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #F4F4F5;
 }
 
 #statistics .productivity .card .info {
-    margin: auto;
-
+  margin: auto;
 }
 
 #statistics .productivity .card img {
-    width: 30px;
-    height: 30px;
-    background-color: #E3F5FF;
-    padding: 10px;
-    border-radius: 10px;
-    margin: auto;
+  width: 30px;
+  height: 30px;
+  background-color: #E3F5FF;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
 }
 
-
 #statistics .productivity .card .info .heading {
-    font-size: 12px;
-    color: #858587;
+  font-size: 12px;
+  color: #858587;
 }
 
 #statistics .productivity .card .results {
-    display: flex;
-    align-items: center;
-    font-size: 22px;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  margin-top: 10px;
 }
 
 #statistics .productivity .card .percentages {
-    color: #49ca25;
-    font-size: 14px;
-    margin-left: 6px;
+  color: #49ca25;
+  font-size: 14px;
+  margin-left: 6px;
 }
-
 
 #calendar {
-    height: 600px;
-    width: 400px;
-    padding: 25px 32px;
-    overflow: scroll;
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
-    background-color: white;
-
-    grid-column-start: 12;
-    grid-row-start: 5;
+  height: 600px;
+  width: 400px;
+  padding: 25px 32px;
+  overflow: scroll;
+  border-radius: 10px;
+  border: 1px solid #F4F4F5;
+  background-color: white;
+  grid-column-start: 12;
+  grid-row-start: 5;
 }
 
-
 #calendar .heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #calendar .heading a {
-    text-decoration: underline;
-    color: #105EF5;
+  text-decoration: underline;
+  color: #105EF5;
 }
 
 #calendar .date {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 #calendar .day {
-    font-size: 12px;
-}
-#calendar .date__title {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 12px;
 }
 
+#calendar .date__title {
+  font-size: 20px;
+  font-weight: 500;
+}
 
 #calendar .weekdays {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 
 #calendar .weekdays .day {
-    height: 70px;
-    width: 45px;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 22px;
-    vertical-align: middle;
-    border: 1.5px solid #105EF5;
-    background: none;
-    color: black;
+  height: 70px;
+  width: 45px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 22px;
+  vertical-align: middle;
+  border: 1.5px solid #105EF5;
+  background: none;
+  color: black;
 }
 
 #calendar .weekdays .day .weekday {
-    display: block;
-    font-weight: 600;
+  display: block;
+  font-weight: 600;
 }
 
 #calendar .weekdays .current {
-    background-color: #105EF5;
-    color: white;
+  background-color: #105EF5;
+  color: white;
 }
 
 #calendar .weekdays .weekend {
-    border-color: #858587;
-    border-width: 1px;
-    color: #858587;
+  border-color: #858587;
+  border-width: 1px;
+  color: #858587;
 }
 
 /*#calendar .tasks__order {*/
 /*    display: inline-block;*/
 /*}*/
-
-
 #calendar .tasks__order .task__division {
-    display: grid;
-    grid-template-columns: repeat(5, 80px);
-    margin: 40px 0px 20px 0px;
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  margin: 40px 0px 20px 0px;
 }
 
 #calendar .tasks__order .time {
-    color: #105EF5;
+  color: #105EF5;
 }
 
 #calendar .tasks__order .line {
-    background-color: #E3F5FF;
-    width: 4px;
-    height: 100%;
-    margin-left: 20px;
-    margin-top: 10px;
+  background-color: #E3F5FF;
+  width: 4px;
+  height: 100%;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 #calendar .tasks__order .task {
-    background-color: #E3F5FF;
-    padding: 20px 20px;
-    border-left: 7px solid #105EF5;
-    border-radius: 7px;
+  background-color: #E3F5FF;
+  padding: 20px 20px;
+  border-left: 7px solid #105EF5;
+  border-radius: 7px;
 }
 
 #calendar .tasks__order .task .heading {
-    font-weight: 600;
-    margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 #calendar .tasks__order .task .description {
-    font-size: 12px;
-    font-weight: 500;
+  font-size: 12px;
+  font-weight: 500;
 }
 
-
 #calendar .tasks__order .timeline {
-    grid-column-start: 1;
-    grid-column-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 #calendar .tasks__order .task {
-    grid-column-start: 2;
-    grid-column-end: 6;
+  grid-column-start: 2;
+  grid-column-end: 6;
 }
+
+/*# sourceMappingURL=style.css.map */
