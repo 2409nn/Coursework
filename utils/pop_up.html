@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            --whiteColor: #FFFFFF;
+            --grayDarkColor: #1e1e1e;
+            --borderColor: #F4F4F5;
+            --textColor: black;
+            --pColor: #858587;
+            --inputColor: black;
+            --backgroundColor: #FAFCFEFF;
+            --hoverButtonColor: black;
+            --hoverElementColor: #E3F5FF;
+            --goodBackgroundColor: #E7FFE3;
+            --goodTextColor: #29D381;
+            --mediumBackgroundColor: #FFF9D4;
+            --mediumTextColor: #FFAE00;
+            --badBackgroundColor: #FFD8D8;
+            --badTextColor: #F44747;
+        }
+
+
+        * {
+            font-family: "work sans";
+            margin: 0;
+        }
+
+        body {
+            background-color: #1e1e1e;
+        }
+
+        .pop__up {
+            width: 408px;
+            height: 600px;
+            padding: 24px 30px;
+            border: 2px solid var(--borderColor);
+            background-color: var(--whiteColor);
+            border-radius: 1vw;
+            margin: 100px auto;
+        }
+
+        .heading {
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        input[type="text"] {
+            appearance: none;
+            background: var(--borderColor);
+            border: none;
+            padding: 10px 30px;
+            width: 210px;
+            outline: none;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="pop__up">
+    <div class="heading">
+        <h3>New project</h3>
+    </div>
+    <input type="text" placeholder="Project's name">
+</div>
+
+</body>
+</html>

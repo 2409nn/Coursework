@@ -457,16 +457,19 @@ section p {
     background-color: var(--whiteColor);
     border-radius: 15px;
     border: var(--borderColor) 1px solid;
-    grid-column: 4 / 15;
+    grid-column: 7 / 17;
     grid-row: 1 / 10;
+    overflow-y: scroll;
 }
 
 #myProdWeek {
     background-color: var(--whiteColor);
     border-radius: 15px;
     border: var(--borderColor) 1px solid;
-    grid-column: 4 / 15;
-    grid-row: 10 / 19;
+    grid-column: 7 / 17;
+    grid-row: 11 / 19;
+    overflow-y: scroll;
+
 }
 
 #myProdToday .progress__bar p, #myProdWeek .progress__bar p {
@@ -513,9 +516,9 @@ section p {
     display: grid;
     grid-template-columns: 80% 20%;
     background-color: var(--borderColor);
-    padding: 10px 30px;
-    border-radius: 11px;
-    margin-bottom: 10px;
+    padding: 5px 30px;
+    border-radius: 8px;
+    margin-bottom: 6px;
     font-size: 14px;
 }
 
@@ -538,7 +541,7 @@ section p {
 }
 
 #teamProductivity {
-    grid-column: 16 / 33;
+    grid-column: 18 / 33;
     grid-row: 1 / 19;
     background-color: var(--whiteColor);
     border-radius: 15px;
