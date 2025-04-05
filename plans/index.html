@@ -318,15 +318,78 @@
     // jQuery
 
     $(document).ready(function() {
+        const createBtn = $("#create");
 
-        const createBtn = $("#create")
+        // Создаем выпадающее меню
+        const dropdownMenu = $('<div class="dropdown-menu"></div>').css({
+            'position': 'absolute',
+            'background-color': 'var(--whiteColor)',
+            'border': '1px solid var(--borderColor)',
+            'border-radius': '8px',
+            'padding': '10px 0',
+            'box-shadow': '0 2px 10px rgba(0,0,0,0.1)',
+            'z-index': '100',
+            'display': 'none',
+            'width': '200px',
+            'right': '0',
+            'top': '40px'
+        });
 
-        createBtn.click(function() {
+        // Добавляем пункты меню
+        const menuItems = [
+            "New task",
+            "New project",
+            "New week goal",
+            "New month goal",
+        ];
 
+        menuItems.forEach(item => {
+            const menuItem = $('<div class="dropdown-item"></div>')
+                .css({
+                    'padding': '10px 20px',
+                    'cursor': 'pointer',
+                    'display': 'flex',
+                    'align-items': 'center',
+                    'color': 'var(--textColor)'
+                })
 
+                    html(`<span style="margin-right: 10px"></span>${item}`)
+                        .hover(
+                            function () {
+                                $(this).css('background-color', 'var(--hoverElementColor)');
+                            },
+                            function () {
+                                $(this).css('background-color', '');
+                            }
+                        )
+                        .click(function () {
+                            alert(`Selected: ${item.text}`);
+                            dropdownMenu.hide();
+                        });
 
-        })
-    })
+                    dropdownMenu.append(menuItem);
+
+        });
+
+        // Добавляем меню в DOM
+        createBtn.parent().append(dropdownMenu);
+
+        // Обработчик клика на кнопку
+        createBtn.click(function(e) {
+            e.stopPropagation();
+            dropdownMenu.toggle();
+        });
+
+        // Закрываем меню при клике вне его
+        $(document).click(function() {
+            dropdownMenu.hide();
+        });
+
+        // Предотвращаем закрытие при клике на само меню
+        dropdownMenu.click(function(e) {
+            e.stopPropagation();
+        });
+    });
 
 </script>
 

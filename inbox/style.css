@@ -210,7 +210,7 @@ aside {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 3;
+    z-index: 11;
     border-right: 1px solid var(--borderColor);
 }
 
@@ -298,7 +298,6 @@ main {
 #chats {
     display: grid;
     grid-column: 4 / 15;
-    grid-row: 1 / 18;
 
 }
 
@@ -314,12 +313,11 @@ main {
 }
 
 #chats .project {
-
     display: grid;
     grid-template-columns: 75% 25%;
-    grid-template-rows: repeat(3, 1fr);
-
-    width: 540px;
+    grid-template-rows: repeat(2, 1fr);
+    margin: 7px;
+    width: 520px;
     height: 80px;
     padding: 14px 30px;
     background-color: var(--whiteColor);
@@ -354,7 +352,8 @@ main {
 }
 
 .last_message {
-    grid-row: 3;
+    grid-row: 2;
+    margin-top: auto;
 }
 
 .last_message .user {
@@ -372,6 +371,11 @@ main {
     margin-left: 8px;
 }
 
+.members {
+    margin-left: auto;
+    grid-row: 2;
+    grid-column: 2;
+}
 
 .members__list {
     display: flex;
