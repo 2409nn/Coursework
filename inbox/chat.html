@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlanIt</title>
+  <title>Project chat</title>
+  <link rel="stylesheet" href="../basics.css">
   <link rel="stylesheet" href="chat.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
   <nav>
@@ -27,7 +29,7 @@
 
         </div>
         <button href="#" id="create">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2436)">
               <path d="M15.9998 29.3334C23.3332 29.3334 29.3332 23.3334 29.3332 16C29.3332 8.66669 23.3332 2.66669 15.9998 2.66669C8.6665 2.66669 2.6665 8.66669 2.6665 16C2.6665 23.3334 8.6665 29.3334 15.9998 29.3334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10.6665 16H21.3332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -41,6 +43,15 @@
           </svg>
 
         </button>
+
+        <div class="drop__menu">
+          <div class="items__list">
+            <button class="menu__elem">New task</button>
+            <button class="menu__elem">New project</button>
+            <button class="menu__elem">New week goal</button>
+            <button class="menu__elem">New month goal</button>
+          </div>
+        </div>
 
         <a href="#">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,6 +74,7 @@
 
 
 </header>
+
 
 <aside>
 
@@ -242,6 +254,9 @@
 
 </main>
 
+<!--<script src="../functional/switchTheme.js"></script>-->
+<script src="../functional/dropDownMenu.js"></script>
+
 <script>
 
   $(document).ready(function () {
@@ -250,23 +265,33 @@
     const sendBtn = $("#sendBtn")
     var inputValue
 
-    sendBtn.click(function () {
-      inputValue = textInput.val()
+    function sendMessage() {
+        inputValue = textInput.val()
 
-      $('#chat').append(
-              $('<div>', { class: 'message message__own' }).append(
-                      $('<img>', {
-                        src: '../imgs/nav/Avatar.png',
-                        alt: 'avatar',
-                        class: 'avatar'
-                      }),
-                      $('<p>', { class: 'user__name' }).text('You'),
-                      $('<p>', { class: 'text' }).text(inputValue)
-              )
-      )
+        $('#chat').append(
+                $('<div>', { class: 'message message__own' }).append(
+                        $('<img>', {
+                          src: '../imgs/nav/Avatar.png',
+                          alt: 'avatar',
+                          class: 'avatar'
+                        }),
+                        $('<p>', { class: 'user__name' }).text('You'),
+                        $('<p>', { class: 'text' }).text(inputValue)
+                )
+        )
 
-      textInput.val("")
-  })
+        textInput.val("")
+    }
+
+    sendBtn.click(sendMessage)
+
+    $(document).on('keydown', function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault()
+        sendMessage()
+      }
+    })
+
   })
 
 </script>

@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PlanIt</title>
+  <link rel="stylesheet" href="../basics.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
   <nav>
@@ -41,6 +42,15 @@
           </svg>
 
         </button>
+
+        <div class="drop__menu">
+          <div class="items__list">
+            <button class="menu__elem">New task</button>
+            <button class="menu__elem">New project</button>
+            <button class="menu__elem">New week goal</button>
+            <button class="menu__elem">New month goal</button>
+          </div>
+        </div>
 
         <a href="#">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,7 +315,8 @@
 
 </main>
 
-</script>
+<!--<script src="../functional/switchTheme.js"></script>-->
+<script src="../functional/dropDownMenu.js"></script>
 
 </body>
 </html>

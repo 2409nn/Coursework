@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanIt</title>
+    <title>Plans</title>
+    <link rel="stylesheet" href="../basics.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
     <nav>
@@ -41,6 +42,15 @@
                     </svg>
 
                 </button>
+
+                <div class="drop__menu">
+                    <div class="items__list">
+                        <button class="menu__elem">New task</button>
+                        <button class="menu__elem">New project</button>
+                        <button class="menu__elem">New week goal</button>
+                        <button class="menu__elem">New month goal</button>
+                    </div>
+                </div>
 
                 <a href="#">
                     <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,148 +260,8 @@
 
 </main>
 
-<script>
-    const button = document.getElementById("changeTheme")
-    const upgradeBackgroundImage = document.getElementById("upgradeImage")
-    const backgroundImage = document.getElementById("headingOfBanner")
-    const icon = document.getElementsByClassName("icon")
-
-    var theme = "light"
-
-    function changeThemeToDark() {
-
-        if (theme === "light") {
-            document.documentElement.style.setProperty('--whiteColor', '#0E1013')
-            document.documentElement.style.setProperty('--textColor', '#FFFFFF')
-            document.documentElement.style.setProperty('--backgroundColor', '#1C1F25')
-            document.documentElement.style.setProperty('--borderColor', '#2E343E')
-            document.documentElement.style.setProperty('--textColor', '#FFFFFF')
-            document.documentElement.style.setProperty('--pColor', '#FFFFFF')
-            document.documentElement.style.setProperty('--hoverButtonColor', '#ececec')
-            document.documentElement.style.setProperty('--grayDarkColor', '#ffffff')
-            document.documentElement.style.setProperty('--hoverElementColor', '#617488')
-
-            upgradeBackgroundImage.style.backgroundImage = 'url("../imgs/aside/background_upgrade_pro__dark.png")'
-            backgroundImage.style.backgroundImage = 'url("../imgs/main/background__dark.png")'
-
-            theme = "dark"
-
-        }
-    }
-
-    function changeThemeToLight() {
-
-        if (theme === "dark") {
-            document.documentElement.style.setProperty('--whiteColor', '#FFFFFF')
-            document.documentElement.style.setProperty('--textColor', '#1e1e1e')
-            document.documentElement.style.setProperty('--backgroundColor', '#FAFCFEFF')
-            document.documentElement.style.setProperty('--borderColor', '#F4F4F5')
-            document.documentElement.style.setProperty('--textColor', 'black')
-            document.documentElement.style.setProperty('--pColor', '#858587')
-            document.documentElement.style.setProperty('--hoverButtonColor', '#000000')
-            document.documentElement.style.setProperty('--grayDarkColor', '#1e1e1e')
-            document.documentElement.style.setProperty('--hoverElementColor', '#E3F5FF')
-
-            upgradeBackgroundImage.style.backgroundImage = 'url("../imgs/aside/background_upgrade_pro.png")'
-            backgroundImage.style.backgroundImage = 'url("../imgs/main/background.png")'
-
-            theme = "light"
-        }
-    }
-
-
-    button.addEventListener('click', function() {
-
-        switch (theme) {
-            case "dark":
-                changeThemeToLight()
-                break;
-
-            case "light":
-                changeThemeToDark()
-                break;
-        }
-
-    })
-
-
-    // jQuery
-
-    $(document).ready(function() {
-        const createBtn = $("#create");
-
-        // Создаем выпадающее меню
-        const dropdownMenu = $('<div class="dropdown-menu"></div>').css({
-            'position': 'absolute',
-            'background-color': 'var(--whiteColor)',
-            'border': '1px solid var(--borderColor)',
-            'border-radius': '8px',
-            'padding': '10px 0',
-            'box-shadow': '0 2px 10px rgba(0,0,0,0.1)',
-            'z-index': '100',
-            'display': 'none',
-            'width': '200px',
-            'right': '0',
-            'top': '40px'
-        });
-
-        // Добавляем пункты меню
-        const menuItems = [
-            "New task",
-            "New project",
-            "New week goal",
-            "New month goal",
-        ];
-
-        menuItems.forEach(item => {
-            const menuItem = $('<div class="dropdown-item"></div>')
-                .css({
-                    'padding': '10px 20px',
-                    'cursor': 'pointer',
-                    'display': 'flex',
-                    'align-items': 'center',
-                    'color': 'var(--textColor)'
-                })
-
-                    html(`<span style="margin-right: 10px"></span>${item}`)
-                        .hover(
-                            function () {
-                                $(this).css('background-color', 'var(--hoverElementColor)');
-                            },
-                            function () {
-                                $(this).css('background-color', '');
-                            }
-                        )
-                        .click(function () {
-                            alert(`Selected: ${item.text}`);
-                            dropdownMenu.hide();
-                        });
-
-                    dropdownMenu.append(menuItem);
-
-        });
-
-        // Добавляем меню в DOM
-        createBtn.parent().append(dropdownMenu);
-
-        // Обработчик клика на кнопку
-        createBtn.click(function(e) {
-            e.stopPropagation();
-            dropdownMenu.toggle();
-        });
-
-        // Закрываем меню при клике вне его
-        $(document).click(function() {
-            dropdownMenu.hide();
-        });
-
-        // Предотвращаем закрытие при клике на само меню
-        dropdownMenu.click(function(e) {
-            e.stopPropagation();
-        });
-    });
-
-</script>
+<script src="../functional/switchTheme.js"></script>
+<script src="../functional/dropDownMenu.js"></script>
 
 </body>
 </html>

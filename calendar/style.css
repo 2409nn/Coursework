@@ -3,21 +3,6 @@
 
 /* 407px is breakpoint for aside */
 
-
-
-:root {
-    --whiteColor: #FFFFFF;
-    --grayDarkColor: #1e1e1e;
-    --borderColor: #F4F4F5;
-    --textColor: black;
-    --pColor: #858587;
-    --inputColor: black;
-    --backgroundColor: #FAFCFEFF;
-    --hoverButtonColor: black;
-    --hoverElementColor: #E3F5FF;
-}
-
-
 * {
     font-family: "work sans";
     margin: 0;
@@ -451,6 +436,10 @@ main {
     overflow-y: scroll;
 }
 
+#projects .goals::-webkit-scrollbar {
+    display: none;
+}
+
 #projects .goal {
     display: grid;
     padding: 10px;
@@ -518,6 +507,10 @@ main {
 
 #todayTasks .tasks__list {
     overflow-y: scroll;
+}
+
+#todayTasks .tasks__list::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -651,6 +644,7 @@ input[type="time"] {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+
 #calendar .calendar__elem .day .selected {
     background-color: #105EF5;
     color: var(--whiteColor);
@@ -658,4 +652,8 @@ input[type="time"] {
 
 .next__month__days {
     filter: brightness(0.90);
+}
+
+.day button {
+    background-color: var(--borderColor);
 }

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+
 :root {
     --whiteColor: #FFFFFF;
     --grayDarkColor: #1e1e1e;
@@ -10,7 +12,12 @@
     --backgroundColor: #FAFCFEFF;
     --hoverButtonColor: black;
     --hoverElementColor: #E3F5FF;
-    --borderDarkerColor: #e4e4e4;
+    --goodBackgroundColor: #E7FFE3;
+    --goodTextColor: #29D381;
+    --mediumBackgroundColor: #FFF9D4;
+    --mediumTextColor: #FFAE00;
+    --badBackgroundColor: #FFD8D8;
+    --badTextColor: #F44747;
 }
 
 button {
@@ -23,9 +30,57 @@ button {
     margin: 0;
 }
 
+
+a:hover {
+    cursor: pointer;
+    color: #105EF5;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--textColor);
 }
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 20px;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #3978f6;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 50%;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
 
 input {
     border-radius: 50px;
@@ -48,6 +103,73 @@ input::placeholder {
 a {
     text-decoration: none;
     color: var(--textColor); /* Используем переменную */
+}
+
+.drop__menu {
+    display: none;
+    position: absolute;
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderDarkerColor);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 30;
+    width: 240px;
+    right: 60px;
+    top: 70px;
+}
+
+.active__drop__menu {
+    display: block;
+    position: absolute;
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderDarkerColor);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 30;
+    width: 240px;
+    right: 60px;
+    top: 70px;
+}
+
+.drop__menu .items__list {
+    z-index: 30;
+}
+
+.drop__menu .items__list .menu__elem {
+    display: block;
+    width: 180px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 10px auto;
+    color: #105EF5;
+    background-color: var(--whiteColor);
+}
+
+.drop__menu .items__list .menu__elem:hover {
+    color: #3978f6;
+}
+
+#create {
+    color: var(--textColor);
+}
+
+#create:hover {
+    color: #105EF5;
+}
+
+.more__btn {
+    border: 1px #105EF5 solid;
+    border-radius: 10px;
+    padding: 3px 10px;
+    color: #105EF5;
+    transition: 0.25s;
+}
+
+.more__btn:hover {
+    cursor: pointer;
+    background-color: #105EF5;
+    color: white;
+    transition: 0.25s;
 }
 
 .inactive__btn {
@@ -126,7 +248,7 @@ header {
     position: fixed;
     width: 100vw;
     background-color: var(--whiteColor); /* Используем переменную */
-    z-index: 3;
+    z-index: 20;
     border-bottom: var(--borderColor) 2px solid;
 }
 
@@ -151,12 +273,6 @@ header nav ul {
 header nav .controls {
     display: flex;
     align-items: center;
-}
-
-
-header nav .controls a:hover {
-    cursor: pointer;
-    color: #105EF5;
 }
 
 header nav .controls button:hover {
@@ -211,7 +327,7 @@ aside {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 3;
+    z-index: 20;
     border-right: 1px solid var(--borderColor);
 }
 
@@ -231,6 +347,7 @@ aside ul li {
     color: var(--pColor);
 }
 
+
 #rocketWindow {
     stroke: var(--backgroundColor);
 }
@@ -239,11 +356,78 @@ aside ul li svg {
     color: var(--pColor);
 }
 
-aside nav ul li:hover {
+aside nav ul li:hover, aside ul li:hover {
     background-color: var(--hoverElementColor);
+    color: #105EF5;
+    fill: #105EF5;
     transition: 0.25s;
     cursor: pointer;
 }
+
+aside nav ul li:hover > svg {
+    color: #105EF5;
+}
+
+aside nav ul li:hover > a {
+    color: #105EF5;
+}
+
+aside nav ul li:hover > a svg {
+    color: #105EF5;
+}
+
+aside ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--pColor); /* Используем переменную */
+    font-size: 14px;
+    margin-left: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+aside ul li a span {
+    margin-left: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* --- aside lists --- */
+
+aside ul .lists {
+    margin-top: 30px;
+}
+
+aside ul .lists li {
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* --- log out --- */
+
+.logout {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.logout span {
+    margin-left: 8px;
+}
+
+
+#rocketWindow {
+    stroke: var(--backgroundColor);
+}
+
+aside ul li svg {
+    color: var(--pColor);
+}
+
 
 aside ul li a {
     display: flex;
@@ -284,195 +468,6 @@ aside ul .lists li {
     margin-left: 8px;
 }
 
-/* --- main --- */
-
-main {
-    padding: 88px 30px 30px;
-    display: grid;
-    grid-template-columns: repeat(15, 90px);
-    grid-column-gap: 24px;
+body {
     background-color: var(--backgroundColor);
-    grid-template-rows: repeat(36, 50px);
-    height: 110vh;
-}
-
-#head {
-    display: grid;
-    grid-column-start: 4;
-    grid-column-end: 15;
-    grid-row-start: 1;
-    grid-row-end: 8;
-}
-
-#head h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    background-image: url("../imgs/main/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    width: 1230px;
-    height: 300px;
-    text-align: center;
-    font-size: 36px;
-}
-
-#head img {
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-}
-#changeTheme {
-    background-color: var(--grayDarkColor); /* Используем переменную */
-    color: var(--whiteColor); /* Используем переменную */
-    width: 350px;
-    height: 50px;
-    border-radius: 14px;
-    border: none;
-    margin: 0 auto;
-    position: relative;
-    bottom: 90px;
-    transition: 0.25s;
-    font-weight: 600;
-}
-
-#changeTheme:hover {
-    cursor: pointer;
-    background-color: var(--hoverButtonColor); /* Используем переменную */ /* Используем переменную */
-    transition: 0.25s;
-}
-
-/* --- plans --- */
-
-#plans {
-    display: grid;
-    grid-column-start: 4;
-    grid-column-end: 15;
-    grid-row-start: 8;
-    grid-row-end: 22;
-}
-
-#plans .cards {
-    display: flex;
-    justify-content: space-between;
-}
-
-#plans .cards .card {
-    border: 1px solid var(--borderColor);
-    width: 342px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 3.5px 5.5px rgba(147, 148, 161, 0.1);
-    background-color: var(--whiteColor); /* Используем переменную */
-}
-
-#plans .card .heading {
-    margin-top: 50px;
-}
-
-#plans .card .title {
-    margin-top: 30px;
-}
-
-#plans .card .title h3 {
-    font-size: 22px;
-    font-weight: 400;
-}
-
-#plans .card .title p {
-    color: var(--pColor); /* Используем переменную */
-    font-size: 14px;
-    font-weight: 400;
-}
-
-#plans .card .price {
-    margin-top: 40px;
-}
-
-#plans .card .price h4 {
-    font-size: 32px;
-    color: var(--textColor);
-}
-
-#plans .card .price p {
-    font-size: 14px;
-    color: var(--pColor); /* Используем переменную */
-}
-
-#plans .card .about {
-    margin-top: 60px;
-}
-
-#plans .card .about .pros {
-    margin-top: 40px;
-}
-
-#plans .card .about .pros li {
-    text-align: left;
-    list-style: none;
-    margin-top: 15px;
-    font-size: 14px;
-    margin-left: 15px;
-}
-
-#plans .card .about .pros li::before {
-    content: "";
-    background-image: url("../imgs/main/checkmark.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    padding: 12px;
-    right: 20px;
-    top: 10px;
-}
-
-.drop__menu {
-    display: none;
-    position: absolute;
-    background-color: var(--borderColor);
-    border: 1px solid var(--borderDarkerColor);
-    border-radius: 8px;
-    padding: 10px 0;
-    z-index: 12;
-    width: 240px;
-    right: 60px;
-    top: 70px;
-}
-
-.active__drop__menu {
-    display: block;
-    position: absolute;
-    background-color: var(--borderColor);
-    border: 1px solid var(--borderDarkerColor);
-    border-radius: 8px;
-    padding: 10px 0;
-    z-index: 12;
-    width: 240px;
-    right: 60px;
-    top: 70px;
-}
-
-.drop__menu .items__list .menu__elem {
-    display: block;
-    width: 180px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin: 10px auto;
-    color: #105EF5;
-    background-color: var(--whiteColor);
-}
-
-.drop__menu .items__list .menu__elem:hover {
-    color: #3978f6;
-}
-
-#create {
-    color: var(--textColor);
-}
-
-#create:hover {
-    color: #105EF5;
 }

@@ -6,7 +6,9 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Productivity</title>
+  <link rel="stylesheet" href="../basics.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -15,7 +17,7 @@
     <ul>
       <li class="path">
         <a href="#">
-          <p>Productivity</p>
+          <p>Plans</p>
         </a>
       </li>
 
@@ -27,7 +29,7 @@
           </svg>
 
         </div>
-        <a href="#" class="special__operation">
+        <button href="#" id="create">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2436)">
               <path d="M15.9998 29.3334C23.3332 29.3334 29.3332 23.3334 29.3332 16C29.3332 8.66669 23.3332 2.66669 15.9998 2.66669C8.6665 2.66669 2.6665 8.66669 2.6665 16C2.6665 23.3334 8.6665 29.3334 15.9998 29.3334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -41,8 +43,18 @@
             </defs>
           </svg>
 
-        </a>
-        <a href="#" class="special__operation">
+        </button>
+
+        <div class="drop__menu">
+          <div class="items__list">
+            <button class="menu__elem">New task</button>
+            <button class="menu__elem">New project</button>
+            <button class="menu__elem">New week goal</button>
+            <button class="menu__elem">New month goal</button>
+          </div>
+        </div>
+
+        <a href="#">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2437)">
               <path d="M16.0268 3.88C11.6135 3.88 8.02678 7.46667 8.02678 11.88V15.7333C8.02678 16.5467 7.68012 17.7867 7.26678 18.48L5.73345 21.0267C4.78678 22.6 5.44012 24.3467 7.17345 24.9333C12.9201 26.8533 19.1201 26.8533 24.8668 24.9333C26.4801 24.4 27.1868 22.4933 26.3068 21.0267L24.7734 18.48C24.3734 17.7867 24.0268 16.5467 24.0268 15.7333V11.88C24.0268 7.48001 20.4268 3.88 16.0268 3.88Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
@@ -56,11 +68,14 @@
             </defs>
           </svg>
         </a>
-        <a href="#" class="special__operation"><img src="../imgs/nav/Avatar.png" width="32" alt="avatar"></a>
+        <a href="#"><img src="../imgs/nav/Avatar.png" width="32" alt="avatar"></a>
       </li>
     </ul>
   </nav>
+
+
 </header>
+
 
 <aside>
 
@@ -181,6 +196,7 @@
     </svg>
     <span>Log out</span></a>
 </aside>
+
 
 <main>
 
@@ -433,5 +449,9 @@
   })
 
 </script>
+
+<!--<script src="../functional/switchTheme.js"></script>-->
+<script src="../functional/dropDownMenu.js"></script>
+
 </body>
 </html>
