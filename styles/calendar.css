@@ -3,11 +3,6 @@
 
 /* 407px is breakpoint for aside */
 
-* {
-    font-family: "work sans";
-    margin: 0;
-}
-
 aside a img {
     opacity: 60%;
 }
