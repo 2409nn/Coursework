@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project chat</title>
-  <link rel="stylesheet" href="../basics.css">
-  <link rel="stylesheet" href="chat.css">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Productivity</title>
+  <link rel="stylesheet" href="../styles/basics.css">
+  <link rel="stylesheet" href="../styles/productivity.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
 
@@ -196,105 +197,261 @@
     <span>Log out</span></a>
 </aside>
 
+
 <main>
 
-  <section id="chat">
-
-    <div class="message">
-
-      <img src="../imgs/nav/Avatar.png" alt="avatar" class="avatar">
-      <p class="user__name">Cave Johnson</p>
-      <p class="text">When life gives you lemons, make life take them back!</p>
-
+  <section id="myProdToday">
+    <div class="heading">
+      <h3>My productivity</h3>
+      <p>today</p>
     </div>
 
-    <div class="message">
-
-      <img src="../imgs/nav/Avatar.png" alt="avatar" class="avatar">
-      <p class="user__name">John Snow</p>
-      <p class="text">hello everyone</p>
-
+    <div class="effectivity">
+      <div class="prod__label"><span>9/12 done</span></div>
+      <span class="prod__increase">+ 12% since yesterday</span>
     </div>
 
-    <div class="message message__own">
-
-      <img src="../imgs/nav/Avatar.png" alt="avatar" class="avatar">
-      <p class="user__name">You</p>
-      <p class="text">hello everyone</p>
-
+    <div class="progress__bar">
+      <p class="progress__percentages">72% done</p>
+      <div class="progress"></div>
+      <div class="bar"></div>
     </div>
 
+    <div class="projects">
+      <h4>Projects</h4>
+      <div class="projects__list">
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Saas dashboard</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Task manager</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Game-dev</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Saas dashboard</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Task manager</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Game-dev</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+
+      </div>
+    </div>
 
   </section>
 
-  <section id="writeMessage">
-
-    <div class="inputs">
-      <input type="text" id="messageInput" placeholder="Type your message...">
-      <input type="file" id="fileInput">
-      <label for="fileInput">
-        <?xml version="1.0" encoding="utf-8"?>
-        <svg fill="currentColor" width="40" height="40" viewBox="0 0 22 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <title>clip</title>
-          <path d="M5.469 16.688l8.75-8.75c0.094-0.094 0.844-0.844 2.031-1.25 1.656-0.531 3.344-0.094 4.688 1.25 1.375 1.344 1.781 3 1.25 4.656-0.375 1.188-1.156 2-1.25 2.094l-9.406 9.406c-1.625 1.625-5.688 3.719-9.438 0-3.719-3.719-1.594-7.813 0-9.406l10.094-10.125c0.375-0.375 0.969-0.375 1.344 0s0.375 0.969 0 1.344l-10.063 10.125c-0.156 0.125-3.313 3.406 0 6.719 3.219 3.219 6.375 0.344 6.719 0l9.406-9.438s0.531-0.531 0.781-1.281c0.313-1 0.094-1.875-0.781-2.75-1.875-1.875-3.688-0.313-4.031 0l-8.75 8.719c-0.313 0.313-0.531 0.844 0 1.375s1.031 0.281 1.344 0l6.063-6.063c0.375-0.344 1-0.344 1.344 0 0.375 0.375 0.375 1 0 1.375l-6.063 6.031c-0.844 0.813-2.563 1.469-4.031 0-1.5-1.469-0.844-3.219 0-4.031z"></path>
-        </svg>
-      </label>
-
+  <section id="myProdWeek">
+    <div class="heading">
+      <h3>My productivity</h3>
+      <p>Last week</p>
     </div>
 
-    <button id="sendBtn">
+    <div class="effectivity">
+      <div class="prod__label"><span>9/12 done</span></div>
+      <span class="prod__increase">+ 12% since yesterday</span>
+    </div>
 
-      <svg width="42" height="48" viewBox="0 0 42 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M35.7 24C35.7 22.2087 34.3 21.6 34.3 21.6L6.30005 8.80005L11.345 22.4969L24.5 24L11.345 25.5032L6.30005 39.2L34.3 26.4C34.3 26.4 35.7 25.7914 35.7 24Z" fill="currentColor"/>
-      </svg>
+    <div class="progress__bar">
+      <p class="progress__percentages">72% done</p>
+      <div class="progress"></div>
+      <div class="bar"></div>
+    </div>
 
-    </button>
+    <div class="projects">
+      <h4>Projects</h4>
+      <div class="projects__list">
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Saas dashboard</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Task manager</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Game-dev</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="teamProductivity">
+
+    <div class="monthly">
+      <div class="heading">
+        <div class="text">
+          <h3>Team's productivity</h3>
+          <p>Monthly</p>
+        </div>
+        <div class="choose__month">
+          <a class="back">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7524 8.50274L18.4024 14.1627C18.4962 14.2557 18.5706 14.3663 18.6213 14.4882C18.6721 14.61 18.6982 14.7407 18.6982 14.8727C18.6982 15.0048 18.6721 15.1355 18.6213 15.2573C18.5706 15.3792 18.4962 15.4898 18.4024 15.5827C18.2151 15.769 17.9616 15.8735 17.6974 15.8735C17.4333 15.8735 17.1798 15.769 16.9924 15.5827L11.9924 10.6327L7.04244 15.5827C6.85508 15.769 6.60163 15.8735 6.33744 15.8735C6.07326 15.8735 5.81981 15.769 5.63244 15.5827C5.53796 15.4901 5.46279 15.3797 5.41129 15.2578C5.35979 15.1359 5.33299 15.0051 5.33245 14.8727C5.33299 14.7404 5.35979 14.6096 5.41129 14.4877C5.46279 14.3658 5.53796 14.2554 5.63244 14.1627L11.2824 8.50274C11.3761 8.40124 11.4897 8.32023 11.6162 8.26482C11.7427 8.20941 11.8793 8.18081 12.0174 8.18081C12.1555 8.18081 12.2922 8.20941 12.4186 8.26482C12.5451 8.32023 12.6588 8.40124 12.7524 8.50274Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <span id="selectedMonth">August</span>
+          <a class="next">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7524 8.50274L18.4024 14.1627C18.4962 14.2557 18.5706 14.3663 18.6213 14.4882C18.6721 14.61 18.6982 14.7407 18.6982 14.8727C18.6982 15.0048 18.6721 15.1355 18.6213 15.2573C18.5706 15.3792 18.4962 15.4898 18.4024 15.5827C18.2151 15.769 17.9616 15.8735 17.6974 15.8735C17.4333 15.8735 17.1798 15.769 16.9924 15.5827L11.9924 10.6327L7.04244 15.5827C6.85508 15.769 6.60163 15.8735 6.33744 15.8735C6.07326 15.8735 5.81981 15.769 5.63244 15.5827C5.53796 15.4901 5.46279 15.3797 5.41129 15.2578C5.35979 15.1359 5.33299 15.0051 5.33245 14.8727C5.33299 14.7404 5.35979 14.6096 5.41129 14.4877C5.46279 14.3658 5.53796 14.2554 5.63244 14.1627L11.2824 8.50274C11.3761 8.40124 11.4897 8.32023 11.6162 8.26482C11.7427 8.20941 11.8793 8.18081 12.0174 8.18081C12.1555 8.18081 12.2922 8.20941 12.4186 8.26482C12.5451 8.32023 12.6588 8.40124 12.7524 8.50274Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <canvas id="teamMonthlyProd"></canvas>
+    </div>
+
+    <div class="average">
+      <div class="heading">
+        <div class="text">
+          <p>Average productivity</p>
+        </div>
+
+      </div>
+
+      <canvas id="teamAverageProd"></canvas>
+    </div>
+
 
   </section>
 
 </main>
 
-<!--<script src="../functional/switchTheme.js"></script>-->
-<script src="../functional/dropDownMenu.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
-  $(document).ready(function () {
+  const canvas = document.getElementById('teamMonthlyProd').getContext('2d')
+  const canvasTwo = document.getElementById('teamAverageProd').getContext('2d')
 
-    const textInput = $("#messageInput")
-    const sendBtn = $("#sendBtn")
-    var inputValue
-
-    function sendMessage() {
-        inputValue = textInput.val()
-
-        $('#chat').append(
-                $('<div>', { class: 'message message__own' }).append(
-                        $('<img>', {
-                          src: '../imgs/nav/Avatar.png',
-                          alt: 'avatar',
-                          class: 'avatar'
-                        }),
-                        $('<p>', { class: 'user__name' }).text('You'),
-                        $('<p>', { class: 'text' }).text(inputValue)
-                )
-        )
-
-        textInput.val("")
-    }
-
-    sendBtn.click(sendMessage)
-
-    $(document).on('keydown', function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault()
-        sendMessage()
+  new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
+      datasets: [{
+        label: 'Cave Johnson',
+        data: [14, 18, 12, 21, 33],
+        borderColor: '#105EF5',
+        borderWidth: 2,
+        backgroundColor: '#105EF5'
+      },
+        {
+          label: 'Heisenberg',
+          data: [18, 20, 18, 27, 25],
+          borderColor: '#47C3F4',
+          borderWidth: 2,
+          backgroundColor: '#47C3F4'
+        },
+        {
+          label: 'Tony Stark',
+          data: [22, 11, 23, 15, 29],
+          borderColor: '#9747FF',
+          borderWidth: 2,
+          backgroundColor: '#9747FF'
+        }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'tasks done',
+            font: {size: 12, family: 'work sans'}
+          },
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        }
       }
-    })
+    }
+  })
 
+  new Chart(canvasTwo, {
+    type: 'bar',
+    data: {
+      labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
+      datasets: [{
+        label: 'Cave Johnson',
+        data: [79, 69, 72, 88, 91],
+        borderColor: '#105EF5',
+        borderWidth: 2,
+        backgroundColor: '#105EF5',
+        borderRadius: 4
+      },
+        {
+          label: 'Heisenberg',
+          data: [80, 72, 74, 85, 82],
+          borderColor: '#47C3F4',
+          borderWidth: 2,
+          backgroundColor: '#47C3F4',
+          borderRadius: 4
+        },
+        {
+          label: 'Tony Stark',
+          data: [72, 82, 79, 92, 84],
+          borderColor: '#9747FF',
+          borderWidth: 2,
+          backgroundColor: '#9747FF',
+          borderRadius: 4
+        }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'tasks done percentages',
+            font: {size: 12, family: 'work sans'}
+          },
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        }
+      },
+      beginAtZero: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        }
+      }
+    }
   })
 
 </script>
+
+<!--<script src="../functional/switchTheme.js"></script>-->
+<script src="../functional/dropDownMenu.js"></script>
 
 </body>
 </html>
