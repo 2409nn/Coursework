@@ -379,6 +379,8 @@ main {
     grid-column: 8/19;
     padding: 10px 30px;
     height: 520px;
+
+    box-shadow: inset 0px -60px 30px -10px #ffffff;
 }
 
 #projects .heading {
@@ -428,10 +430,13 @@ main {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     height: 260px;
+}
+
+#projects {
     overflow-y: scroll;
 }
 
-#projects .goals::-webkit-scrollbar {
+#projects::-webkit-scrollbar {
     display: none;
 }
 
@@ -651,4 +656,27 @@ input[type="time"] {
 
 .day button {
     background-color: var(--borderColor);
+}
+
+.progress .heading .percentages {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 20px;
+    border-radius: 7px
+}
+
+.progress {
+    padding-bottom: 40px;
+}
+
+.goodResult {
+    background-color: var(--goodBackgroundColor);
+    color: var(--goodTextColor);
+}
+
+.mediumResult {
+    background-color: var(--mediumBackgroundColor);
+    color: var(--mediumTextColor);
 }

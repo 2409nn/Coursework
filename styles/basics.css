@@ -191,7 +191,7 @@ a {
 }
 
 .active__btn {
-    color: #FFFFFF; /* Используем переменную */
+    color: #FFFFFF;
     background-color: #105EF5;
     border-radius: 12px;
     padding: 14px 100px;
@@ -217,7 +217,7 @@ li {
     background-image: url("../imgs/aside/background_upgrade_pro.png");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 220px;
+    width: 15vw;
     padding: 20px;
     margin-top: 40%;
 }
@@ -320,7 +320,7 @@ header .controls .search svg {
 /* --- aside --- */
 
 aside {
-    width: 260px;
+    width: 16vw;
     height: 100vh;
     background-color: var(--whiteColor); /* Используем переменную */
     padding: 20px;
@@ -338,7 +338,8 @@ aside ul {
 }
 
 aside ul li {
-    padding: 14px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
     width: 220px;
     display: flex;
     justify-content: space-between;
@@ -360,7 +361,6 @@ aside nav ul li:hover, aside ul li:hover {
     background-color: var(--hoverElementColor);
     color: #105EF5;
     fill: #105EF5;
-    transition: 0.25s;
     cursor: pointer;
 }
 
@@ -376,15 +376,6 @@ aside nav ul li:hover > a svg {
     color: #105EF5;
 }
 
-aside ul li a {
-    display: flex;
-    align-items: center;
-    color: var(--pColor); /* Используем переменную */
-    font-size: 14px;
-    margin-left: 20px;
-    width: 100%;
-    height: 100%;
-}
 
 aside ul li a span {
     margin-left: 14px;
@@ -432,9 +423,10 @@ aside ul li svg {
 aside ul li a {
     display: flex;
     align-items: center;
-    color: var(--pColor); /* Используем переменную */
-    font-size: 14px;
+    color: var(--pColor);
     margin-left: 20px;
+    font-size: 14px;
+    width: 100%;
 }
 
 aside ul li a span {
@@ -470,4 +462,19 @@ aside ul .lists li {
 
 body {
     background-color: var(--backgroundColor);
+}
+
+.current__link {
+    background-color: var(--hoverElementColor);
+}
+
+.current__link > a svg {
+    background-color: var(--hoverElementColor);
+    color: #105EF5;
+    fill: #105EF5;
+    cursor: pointer;
+}
+
+.current__link > a span {
+    color: #105EF5;
 }

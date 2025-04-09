@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
+/*1385 брейнпоинт productivity cards, calendar, aside li*/
 
 main {
     padding: 88px 30px 30px;
@@ -10,9 +11,8 @@ main {
 }
 
 #tasks {
-    overflow-y: scroll;
     overflow-x: hidden;
-    width: 715px;
+    width: 41.38vw;
     height: 360px;
     display: grid;
     grid-row-start: 1;
@@ -23,9 +23,6 @@ main {
     border: 1px solid #F4F4F5;
 }
 
-#tasks::-webkit-scrollbar {
-    display: none;
-}
 
 #tasks .heading {
     display: flex;
@@ -39,12 +36,16 @@ main {
 }
 #tasks .tasks__list {
     padding: 0 0 10px 0;
+    overflow-y: scroll;
 }
+
+
 #tasks .tasks__list .task {
+    width: 100%;
     padding: 4px 0;
     border-bottom: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(16, 45px);
+    grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 #tasks .tasks__list .task .checkbox {
@@ -66,7 +67,6 @@ main {
     grid-column: 3/10;
     grid-row: 1;
     font-weight: 500;
-    font-size: 16px;
     margin-bottom: 7px;
 }
 #tasks .tasks__list .task .mainData .deadline {
@@ -100,15 +100,26 @@ main {
     font-size: 10px;
     color: #105EF5;
 }
+
 #tasks .controls {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#tasks .controls .content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 48px;
-    padding: 10px;
-    width: 300px;
-    margin-left: 55.5%;
+    width: 50%;
 }
+
+#tasks .tasks__list::-webkit-scrollbar {
+    display: none;
+}
+
 #tasks .controls .left img {
     transform: rotate(-90deg);
     padding: 5px;
@@ -126,7 +137,7 @@ main {
 }
 #tasks .controls .page {
     display: block;
-    padding: 0 16px;
+    padding: 0 0.93vw;
     vertical-align: middle;
     transition: 0.25s;
 }
@@ -142,15 +153,20 @@ main {
 }
 
 #projects {
-    width: 712px;
-    height: 340px;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #F4F4F5;
-    background-color: #FFFFFF;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 41.38vw;
+    height: 334px;
+    display: grid;
     grid-row-start: 10;
     grid-column-start: 4;
+    background-color: #FFFFFF;
+    padding: 32px 28px;
+    border-radius: 10px;
+    border: 1px solid #F4F4F5;
 }
+
+
 #projects .heading {
     display: flex;
     justify-content: space-between;
@@ -165,9 +181,16 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow-y: scroll;
+    padding-top: 10px;
 }
+
+#projects .projects::-webkit-scrollbar {
+    display: none;
+}
+
 #projects .projects .project {
-    height: 300px;
+    height: 280px;
     width: 210px;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -189,7 +212,7 @@ main {
     font-weight: 500;
 }
 #projects .projects .project .project__description {
-    font-size: 8px;
+    font-size: 0.46vw;
     color: #858587;
     margin-top: 6px;
 }
@@ -225,7 +248,7 @@ main {
     right: 9px;
 }
 #projects .projects .new__project {
-    height: 300px;
+    height: 280px;
     width: 210px;
     background-color: rgb(226, 246, 255);
     border-radius: 10px;
@@ -266,8 +289,8 @@ main {
     border: 1px solid #F4F4F5;
 }
 #statistics .productivity .card img {
-    width: 30px;
-    height: 30px;
+    width: 1.736vw;
+    height: 1.736vw;
     background-color: #E3F5FF;
     padding: 10px;
     border-radius: 10px;
@@ -277,35 +300,32 @@ main {
     margin: auto;
 }
 #statistics .productivity .card .info .heading {
-    font-size: 12px;
+    font-size: 0.7vw;
     color: #858587;
 }
 #statistics .productivity .card .info .results {
     display: flex;
     align-items: center;
-    font-size: 22px;
+    font-size: 1.273vw;
     margin-top: 10px;
 }
 #statistics .productivity .card .info .percentages {
     color: #49ca25;
-    font-size: 14px;
+    font-size: 0.81vw;
     margin-left: 6px;
 }
 
 #calendar {
     height: 600px;
-    width: 415px;
+    width: 24vw;
     padding: 25px 32px;
-    overflow: scroll;
     border-radius: 10px;
     border: 1px solid #F4F4F5;
     background-color: #FFFFFF;
     grid-column-start: 12;
     grid-row-start: 5;
-}
-
-#calendar::-webkit-scrollbar {
-    display: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #calendar .heading {
@@ -332,7 +352,7 @@ main {
 }
 #calendar .weekdays .day {
     height: 70px;
-    width: 45px;
+    width: 2.8vw;
     border-radius: 8px;
     text-align: center;
     line-height: 22px;
@@ -342,6 +362,7 @@ main {
     color: black;
 }
 #calendar .weekdays .day .weekday {
+    font-size: 0.8vw;
     display: block;
     font-weight: 600;
 }
@@ -354,6 +375,16 @@ main {
     border-width: 1px;
     color: #858587;
 }
+
+#calendar .tasks__order {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#calendar .tasks__order::-webkit-scrollbar {
+    display: none;
+}
+
 #calendar .tasks__order .task__division {
     display: grid;
     grid-template-columns: repeat(5, 80px);
@@ -393,4 +424,12 @@ main {
 .arrow__btn img {
     display: block;
     margin: auto;
+}
+
+.deadline svg {
+    width: 1.39vw;
+}
+
+li svg {
+    width: 2.4vw;
 }
