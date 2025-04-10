@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-/*1385 брейнпоинт productivity cards, calendar, aside li*/
+/*1212 брейнпоинт calendar: grid-row: 4; */
+
+/*1212 брейнпоинт */
 
 main {
     padding: 88px 30px 30px;
@@ -190,8 +192,8 @@ main {
 }
 
 #projects .projects .project {
-    height: 280px;
-    width: 210px;
+    height: 16.6vw;
+    width: 12.153vw;
     background-color: #FFFFFF;
     border-radius: 10px;
     border: 1px solid #F4F4F5;
@@ -201,15 +203,22 @@ main {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+#projects .project__img {
+    width: 100%;
+    height: 8.68vw;
+}
+
 #projects .projects .project .project__info {
     padding: 5px 10px;
 }
 #projects .projects .project .project__link {
-    font-size: 9px;
+    font-size: 0.7vw;
     color: #105EF5;
 }
 #projects .projects .project .project__name {
     font-weight: 500;
+    font-size: 1.2vw;
 }
 #projects .projects .project .project__description {
     font-size: 0.46vw;
@@ -248,8 +257,11 @@ main {
     right: 9px;
 }
 #projects .projects .new__project {
-    height: 280px;
-    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16.6vw;
+    width: 12.153vw;
     background-color: rgb(226, 246, 255);
     border-radius: 10px;
     border: 1px solid #F4F4F5;
@@ -261,14 +273,14 @@ main {
 #projects .projects .new__project .content {
     color: #105EF5;
     text-align: center;
-    font-size: 15px;
-    margin-top: 60%;
+    font-size: 1vw;
 }
 
 #statistics {
-    width: 27.8vw;
-    height: 7vw;
-    grid-column-start: 12;
+    width: calc(24vw + 64px);
+    grid-column: 12;
+    height: fit-content;
+    grid-template-columns: repeat(2, 1fr);
 }
 #statistics .productivity {
     display: flex;
@@ -407,11 +419,12 @@ main {
     border-radius: 7px;
 }
 #calendar .tasks__order .task__division .task .heading {
+    font-size: 1vw;
     font-weight: 600;
     margin-bottom: 10px;
 }
 #calendar .tasks__order .task__division .task .description {
-    font-size: 12px;
+    font-size: 0.7vw;
     font-weight: 500;
 }
 #calendar .tasks__order .task__division .timeline {

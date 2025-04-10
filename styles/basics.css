@@ -23,6 +23,7 @@
 button {
     background: none;
     border: none;
+    white-space: nowrap;
 }
 
 * {
@@ -217,27 +218,28 @@ li {
     background-image: url("../imgs/aside/background_upgrade_pro.png");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 15vw;
     padding: 20px;
     margin-top: 40%;
 }
 
 .upgrade h3 {
     font-weight: 500;
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 0.6vw;
+    font-size: 1.2vw;
 }
 
 .upgrade p {
     font-weight: 400;
     margin: 5px 0;
-    font-size: 10px;
+    font-size: 0.6vw;
     color: var(--textColor); /* Используем переменную */
 }
 
 .upgrade button {
-    padding: 10px 40px;
-    margin-top: 10px;
+    padding: 0.6vw 2.3vw;
+    margin-top: 0.8vw;
+    font-size: 1vw;
+    white-space: nowrap;
 }
 
 /* --- header --- */
@@ -340,7 +342,7 @@ aside ul {
 aside ul li {
     padding: 10px 14px;
     margin-bottom: 8px;
-    width: 220px;
+    width: 87%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -424,7 +426,6 @@ aside ul li a {
     display: flex;
     align-items: center;
     color: var(--pColor);
-    margin-left: 20px;
     font-size: 14px;
     width: 100%;
 }

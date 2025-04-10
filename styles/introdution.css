@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+:root {
+    --whiteColor: #FFFFFF;
+    --grayDarkColor: #1e1e1e;
+    --borderColor: #F4F4F5;
+    --textColor: black;
+    --textDarkerColor: #1B1B1B;
+    --pColor: #858587;
+    --inputColor: black;
+    --backgroundColor: #FAFCFEFF;
+    --hoverButtonColor: black;
+    --hoverElementColor: #E3F5FF;
+    --goodBackgroundColor: #E7FFE3;
+    --goodTextColor: #29D381;
+    --mediumBackgroundColor: #FFF9D4;
+    --mediumTextColor: #FFAE00;
+    --badBackgroundColor: #FFD8D8;
+    --badTextColor: #F44747;
+    --bodyColor: #CBEDFF;
+
+    --pFontSize: 20px;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h2, h3 {
+    font-weight: 700;
+}
+
+h4, h5 {
+    font-weight: 600;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+* {
+    font-family: "Work Sans", sans-serif;
+    margin: 0;
+}
+
+
+a:hover {
+    cursor: pointer;
+    color: #105EF5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--textColor);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 20px;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #3978f6;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #105EF5;
+    border-radius: 50%;
+    background-color: #E3F5FF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+input {
+    border-radius: 50px;
+    border-width: 2px;
+    border-color: var(--borderColor); /* Используем переменную */
+    border-style: solid;
+    height: 18px;
+    width: 120px;
+    padding: 10px 60px;
+    font-size: 15px;
+    color: var(--textColor);
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--textColor); /* Используем переменную */
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textColor); /* Используем переменную */
+}
+
+.drop__menu {
+    display: none;
+    position: absolute;
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderDarkerColor);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 30;
+    width: 240px;
+    right: 60px;
+    top: 70px;
+}
+
+.active__drop__menu {
+    display: block;
+    position: absolute;
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderDarkerColor);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 30;
+    width: 240px;
+    right: 60px;
+    top: 70px;
+}
+
+.drop__menu .items__list {
+    z-index: 30;
+}
+
+.drop__menu .items__list .menu__elem {
+    display: block;
+    width: 180px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 10px auto;
+    color: #105EF5;
+    background-color: var(--whiteColor);
+}
+
+.drop__menu .items__list .menu__elem:hover {
+    color: #3978f6;
+}
+
+#create {
+    color: var(--textColor);
+}
+
+#create:hover {
+    color: #105EF5;
+}
+
+.more__btn {
+    border: 1px #105EF5 solid;
+    border-radius: 10px;
+    padding: 3px 10px;
+    color: #105EF5;
+    transition: 0.25s;
+}
+
+.more__btn:hover {
+    cursor: pointer;
+    background-color: #105EF5;
+    color: white;
+    transition: 0.25s;
+}
+
+.inactive__btn {
+    color: var(--pColor); /* Используем переменную */
+    border: 2px solid var(--pColor); /* Используем переменную */
+    border-radius: 12px;
+    padding: 14px 100px;
+    background: none;
+    font-size: 18px;
+    transition: 0.25s;
+}
+
+.inactive__btn:hover {
+    border-color: var(--grayDarkColor); /* Используем переменную */
+    background-color: var(--grayDarkColor); /* Используем переменную */
+    color: var(--whiteColor); /* Используем переменную */
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.active__btn {
+    color: #FFFFFF;
+    background-color: #105EF5;
+    border-radius: 12px;
+    padding: 14px 100px;
+    font-size: 18px;
+    border: none;
+    transition: 0.25s;
+}
+
+.active__btn:hover {
+    background-color: #3978f6;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+li {
+    list-style: none;
+    color: var(--textColor);
+}
+
+body {
+    background-color: var(--bodyColor);
+}
+
+.blue__word {
+    color: #105EF5;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+#head {
+    grid-column: 3 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#head .heading {
+    width: 50%;
+}
+
+#head .heading h1 {
+    font-size: 4.515vw;
+}
+
+#head .heading p {
+    color: var(--textDarkerColor);
+    font-size: var(--pFontSize);
+    margin-top: 40px;
+}
+
+#head .picture {
+    width: 46.29vw;
+    border-radius: 12px;
+    margin-top: 200px;
+}
