@@ -59,7 +59,7 @@ main {
 }
 
 #chats .project .new__messages__amount {
-    color: var(--whiteColor);
+    color: white;
     background-color: #105EF5;
     border-radius: 20px;
     font-size: 10px;
@@ -83,10 +83,12 @@ main {
 
 .last_message .user__name {
     white-space: nowrap;
+    margin-left: 14px;
 }
 
 .last_message .message {
     margin-left: 8px;
+    color: var(--textColor);
 }
 
 .members {
@@ -101,7 +103,7 @@ main {
 
 .members__amount {
     margin-left: 10px;
-
+    color: var(--textColor);
 }
 
 .members__list img {

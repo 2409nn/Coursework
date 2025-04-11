@@ -47,7 +47,7 @@ input[type="checkbox"] {
     height: 20px;
     border: 2px solid #105EF5;
     border-radius: 20px;
-    background-color: #E3F5FF;
+    background-color: var(--backgroundColor);
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -75,7 +75,7 @@ input[type="checkbox"] {
     height: 20px;
     border: 2px solid #105EF5;
     border-radius: 50%;
-    background-color: #E3F5FF;
+    background-color: var(--backgroundColor);
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -219,7 +219,7 @@ li {
     background-size: contain;
     background-repeat: no-repeat;
     padding: 20px;
-    margin-top: 40%;
+    /*margin-top: 10%;*/
 }
 
 .upgrade h3 {
@@ -478,4 +478,24 @@ body {
 
 .current__link > a span {
     color: #105EF5;
+}
+
+#changeTheme {
+    background-color: var(--grayDarkColor); /* Используем переменную */
+    color: var(--whiteColor); /* Используем переменную */
+    height: 50px;
+    border-radius: 14px;
+    border: none;
+    margin-top: 100%;
+    position: relative;
+    bottom: 90px;
+    transition: 0.25s;
+    font-weight: 600;
+    width: 100%;
+}
+
+#changeTheme:hover {
+    cursor: pointer;
+    background-color: var(--hoverButtonColor); /* Используем переменную */ /* Используем переменную */
+    transition: 0.25s;
 }

@@ -173,194 +173,6 @@ li {
     transition: 0.25s;
 }
 
-/* --- upgrade --- */
-
-.upgrade {
-    background-image: url("../imgs/aside/Background_upgrade_pro.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 220px;
-    padding: 20px;
-    margin-top: 40%;
-}
-
-.upgrade h3 {
-    font-weight: 500;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.upgrade p {
-    font-weight: 400;
-    margin: 5px 0;
-    font-size: 10px;
-    color: var(--textColor); /* Используем переменную */
-}
-
-.upgrade button {
-    padding: 10px 40px;
-    margin-top: 10px;
-}
-
-/* --- header --- */
-
-header {
-    padding: 0;
-    height: 64px;
-    position: fixed;
-    width: 100vw;
-    background-color: var(--whiteColor); /* Используем переменную */
-    z-index: 3;
-    border-bottom: var(--borderColor) 2px solid;
-}
-
-/* --- header nav --- */
-
-header nav .controls .special__operation svg:hover {
-    color: #105EF5;
-    cursor: pointer;
-}
-
-header nav .path {
-    padding: 22.5px 26px;
-    border-bottom: 2px #105EF5 solid;
-}
-
-header nav {
-    width: 80vw;
-    margin-left: 17vw;
-}
-
-header nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header nav .controls {
-    display: flex;
-    align-items: center;
-}
-
-header nav .controls svg, header nav .controls img {
-    margin: 10px;
-}
-
-header .controls .search {
-    display: flex;
-    align-items: center;
-}
-
-header .controls .search input {
-    background: none;
-}
-
-header .controls .search svg {
-    position: relative;
-    right: 225px;
-    top: 2px;
-}
-
-/* --- logo --- */
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo h2 {
-    font-size: 22px;
-    font-weight: 400;
-    color: #105EF5;
-    margin-left: 10px;
-}
-
-/* --- aside --- */
-
-aside {
-    width: 15vw;
-    height: 100vh;
-    background-color: var(--whiteColor); /* Используем переменную */
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 3;
-    border-right: 1px solid var(--borderColor);
-}
-
-aside ul {
-    padding: 0;
-    margin-top: 50px;
-    margin-left: 20px;
-}
-
-aside ul li {
-    padding: 14px;
-    width: 220px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    color: var(--pColor);
-}
-
-#rocketWindow {
-    stroke: var(--backgroundColor);
-}
-
-aside ul li svg {
-    color: var(--pColor);
-}
-
-aside nav ul li:hover {
-    background-color: var(--hoverElementColor);
-    transition: 0.25s;
-    cursor: pointer;
-}
-
-aside ul li a {
-    display: flex;
-    align-items: center;
-    color: var(--pColor); /* Используем переменную */
-    font-size: 14px;
-    margin-left: 20px;
-}
-
-aside ul li a span {
-    margin-left: 14px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* --- aside lists --- */
-
-aside ul .lists {
-    margin-top: 30px;
-}
-
-aside ul .lists li {
-    padding: 25px;
-    display: flex;
-    justify-content: space-around;
-}
-
-/* --- log out --- */
-
-.logout {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    margin-top: 10%;
-}
-
-.logout span {
-    margin-left: 8px;
-}
-
-body {
-    background-color: var(--backgroundColor);
-}
 
 /* --- main --- */
 main {
@@ -380,7 +192,6 @@ main {
     padding: 10px 30px;
     height: 520px;
 
-    box-shadow: inset 0px -60px 30px -10px #ffffff;
 }
 
 #projects .heading {
@@ -423,6 +234,7 @@ main {
     font-weight: 500;
     height: fit-content;
     margin-bottom: 25px;
+    color: var(--textColor);
 }
 
 #projects .goals {
@@ -446,9 +258,8 @@ main {
     margin-top: 12px;
     grid-template-columns: 30px auto;
     font-size: 12px;
-    color: black;
-    border-bottom: 2px solid var(--borderColor);
-    background-color: #F4F4F5;
+    color: var(--textColor);
+    background-color: var(--borderColor);
     border-radius: 10px;
 }
 
@@ -542,6 +353,7 @@ input[type="time"] {
 
 #todayTasks label {
     grid-column-start: 2;
+    color: var(--textColor);
 }
 
 #todayTasks .set__time {
@@ -559,7 +371,7 @@ input[type="time"] {
 }
 
 #todayTasks .task .set__time svg {
-    color: var(--whiteColor);
+    color: white;
 }
 
 #todayTasks .task .time__from, #todayTasks .task .time__to {
@@ -604,6 +416,7 @@ input[type="time"] {
     font-size: 18px;
     font-weight: 500;
     text-align: center;
+    color: var(--textColor);
 }
 
 #calendar .calendar__elem {
@@ -627,6 +440,7 @@ input[type="time"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--textColor);
 }
 
 #calendar .calendar__elem .day button {
@@ -636,6 +450,7 @@ input[type="time"] {
     color: var(--pColor);
     font-weight: 500;
     transition: 0.25s;
+    font-size: 16px;
 }
 
 #calendar .calendar__elem .day button:hover {
@@ -647,7 +462,7 @@ input[type="time"] {
 
 #calendar .calendar__elem .day .selected {
     background-color: #105EF5;
-    color: var(--whiteColor);
+    color: white;
 }
 
 .next__month__days {

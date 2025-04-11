@@ -46,7 +46,7 @@ main {
     border-radius: 20px;
     font-size: 16px;
     outline: none;
-
+    background-color: var(--whiteColor);
 }
 
 #writeMessage input[type="text"]::placeholder {
@@ -134,6 +134,7 @@ main {
 }
 
 .message .text {
+    color: var(--textColor);
     margin: auto 0;
     grid-row: 2;
     grid-column: 2;

@@ -20,7 +20,9 @@ function changeThemeToDark() {
         document.documentElement.style.setProperty('--borderDarkerColor', '#7e7e7e')
 
         upgradeBackgroundImage.style.backgroundImage = 'url("../imgs/aside/background_upgrade_pro__dark.png")'
-        backgroundImage.style.backgroundImage = 'url("../imgs/main/background__dark.png")'
+        if(backgroundImage !== null) {
+            backgroundImage.style.backgroundImage = 'url("../imgs/main/background.png")'
+        }
 
         theme = "dark"
 
@@ -42,7 +44,10 @@ function changeThemeToLight() {
         document.documentElement.style.setProperty('--borderDarkerColor', '#e4e4e4')
 
         upgradeBackgroundImage.style.backgroundImage = 'url("../imgs/aside/background_upgrade_pro.png")'
-        backgroundImage.style.backgroundImage = 'url("../imgs/main/background.png")'
+
+        if(backgroundImage !== null) {
+            backgroundImage.style.backgroundImage = 'url("../imgs/main/background.png")'
+        }
 
         theme = "light"
     }
