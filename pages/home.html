@@ -79,7 +79,6 @@
 
 </header>
 
-
 <aside>
 
   <div class="logo">
@@ -414,7 +413,6 @@
       </div>
     </section>
 
-
     <section id="calendar">
       <div class="heading">
         <h3>Calendar</h3>
@@ -484,11 +482,37 @@
       </div>
 
     </section>
-
   </main>
 
-<!--<script src="../functional/switchTheme.js"></script>-->
 <script src="../functional/dropDownMenu.js"></script>
 <script src="../functional/switchTheme.js"></script>
+<script>
+
+  $(document).ready(function () {
+
+    $("#calendar .weekdays .day").click(function () {
+
+      $("#calendar .weekdays .day").removeClass("current")
+      $(this).addClass("current")
+
+    })
+
+    $("#tasks .controls .page").click(function () {
+
+      $("#tasks .controls .page").removeClass("current__page")
+      $(this).addClass("current__page")
+
+    })
+
+    const back = $("#tasks .controls .left")
+    const next = $("#tasks .controls .right")
+
+    next.click(function () {
+      alert("zhopa")
+    })
+
+  })
+
+</script>
 </body>
 </html>

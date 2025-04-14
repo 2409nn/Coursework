@@ -197,6 +197,41 @@
         <span>Log out</span></a>
 </aside>
 
+<div id="popWindowPay" class="pop__up">
+
+    <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
+
+    <div class="heading">
+        <h3>Upgrade to Professional</h3>
+    </div>
+
+    <div class="about__payment">
+        <h4 class="payment__sum">$18.00</h4>
+        <div class="cards">
+            <img class="visa" src="../imgs/popup/visa.png" alt="visa">
+            <img class="mastercard" src="../imgs/popup/mastercard.png" alt="mastercard">
+            <img class=paypal src="../imgs/popup/paypal.png" alt="paypal">
+        </div>
+    </div>
+
+
+    <form id="payment" action="#">
+
+        <input type="text" required placeholder="Card number">
+        <input type="text" required placeholder="Card holder name">
+        <input type="text" required placeholder="Email">
+
+        <div class="special__data">
+            <input type="number" required placeholder="MM / YY">
+            <input type="password" required placeholder="CVV" maxlength="4">
+        </div>
+
+        <input type="submit" value="Pay">
+
+    </form>
+
+</div>
+
 <main>
 
     <section id="head">
@@ -228,7 +263,7 @@
                 </div>
                 <div class="price"><h4>$18</h4><p>member per month</p></div>
                 <div class="about">
-                    <button class="active__btn">Upgrade</button>
+                    <button id="buyPro" class="active__btn">Upgrade</button>
                     <ul class="pros">
                         <li>Detailed post analytics</li>
                         <li>Share with 50 teams memebers</li>
@@ -245,7 +280,7 @@
                 </div>
                 <div class="price"><h4>$29</h4><p>member per month</p></div>
                 <div class="about">
-                    <button class="active__btn">Upgrade</button>
+                    <button id="buyEnterprise" class="active__btn">Upgrade</button>
                     <ul class="pros">
                         <li>Detailed post analytics</li>
                         <li>Unlimited teams memebers</li>
@@ -263,6 +298,79 @@
 
 <script src="../functional/switchTheme.js"></script>
 <script src="../functional/dropDownMenu.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#buyPro").click(function () {
+
+            $("#popWindowPay .heading h3").text("Upgrade to Professional")
+            $("#popWindowPay .payment__sum").text("$18.00")
+
+            $("#popWindowPay").css("display", "block")
+            $("#popWindowPay").animate({
+                opacity: 1,
+                bottom: 150,
+            }, 350)
+
+            $("main, aside, header").css({
+                transition: "filter 0.35s",
+                filter: "brightness(80%)"
+            })
+
+        })
+
+        $(window).keydown(function (event) {
+            if (event.key === "Escape") {
+
+                $(".close__button").closest(".pop__up").animate({
+                    opacity: 0,
+                    bottom: 450,
+                }, 400, function () {
+                    $("main, aside, header").css("filter", "brightness(100%)")
+                    $(this).closest(".pop__up").css("display", "none")
+                })
+
+            }
+        })
+
+        $(".close__button").click(function () {
+            $(this).closest(".pop__up").animate({
+                opacity: 0,
+                bottom: 450,
+            }, 400, function () {
+                $("main, aside, header").css("filter", "brightness(100%)")
+                $(this).closest(".pop__up").css("display", "none")
+            })
+
+        })
+
+        $("#buyEnterprise").click(function () {
+            $("#popWindowPay").css("display", "block")
+        })
+
+        $("#buyEnterprise").click(function () {
+
+            $("#popWindowPay .heading h3").text("Upgrade to Enterprise")
+            $("#popWindowPay .payment__sum").text("$29.00")
+
+            $("#popWindowPay").css("display", "block")
+            $("#popWindowPay").animate({
+                opacity: 1,
+                bottom: 150,
+            }, 350)
+
+            $("main, aside, header").css({
+                transition: "filter 0.35s",
+                filter: "brightness(80%)"
+            })
+
+        })
+
+    })
+
+</script>
 
 </body>
 </html>

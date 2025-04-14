@@ -1,24 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-/*1212 брейнпоинт calendar: grid-row: 4; */
-
-/*1212 брейнпоинт */
 
 main {
     padding: 88px 30px 30px;
     display: grid;
-    grid-template-columns: repeat(16, 6.25%);
-    grid-template-rows: repeat(36, 50px);
-    height: 100vh;
+    height: fit-content;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(24, 45px);
 }
 
 #tasks {
     overflow-x: hidden;
-    width: 41.38vw;
-    height: 360px;
+    /*width: 41.38vw;*/
+    height: 370px;
     display: grid;
     grid-row-start: 1;
-    grid-column-start: 4;
+    grid-column: 9 / 29;
+    grid-row: 1;
     background-color: var(--whiteColor);
     padding: 32px 28px;
     border-radius: 10px;
@@ -66,6 +64,7 @@ main {
     padding: 5px 20px;
 }
 #tasks .tasks__list .task .mainData .title {
+    font-size: 16px;
     grid-column: 3/10;
     grid-row: 1;
     font-weight: 500;
@@ -97,6 +96,7 @@ main {
     display: inline;
     margin: 7px;
     font-weight: 400;
+    white-space: nowrap;
 }
 #tasks .tasks__list .task .secondaryData .project .projectChar {
     background-color: var(--backgroundColor);
@@ -118,9 +118,9 @@ main {
 #tasks .controls .content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 48px;
-    width: 50%;
+    width: 100%;
 }
 
 #tasks .tasks__list::-webkit-scrollbar {
@@ -142,19 +142,23 @@ main {
     vertical-align: middle;
     border-radius: 5px;
 }
+
 #tasks .controls .page {
     display: block;
     padding: 0 0.93vw;
     vertical-align: middle;
     transition: 0.25s;
 }
+
 #tasks .controls .page:hover {
-    background-color: var(--backgroundColor);
+    background-color: var(--hoverElementColor);
 }
+
 #tasks .controls .current__page {
     background-color: #105EF5;
     color: #FFFFFF;
 }
+
 #tasks .controls .current__page:hover {
     background-color: #105EF5;
 }
@@ -162,23 +166,22 @@ main {
 #projects {
     overflow-x: hidden;
     overflow-y: hidden;
-    width: 41.38vw;
-    height: 334px;
+    /*width: 41.38vw;*/
     display: grid;
-    grid-row-start: 10;
-    grid-column-start: 4;
+    grid-column: 9 / 29;
+    grid-row: 11 / 22;
     background-color: var(--whiteColor);
     padding: 32px 28px;
     border-radius: 10px;
     border: 1px solid var(--borderColor);
 }
 
-
 #projects .heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
+    height: fit-content;
 }
 #projects .heading a {
     color: #105EF5;
@@ -197,7 +200,7 @@ main {
 }
 
 #projects .projects .project {
-    height: 16.6vw;
+    height: 17vw;
     width: 12.153vw;
     background-color: var(--whiteColor);
     border-radius: 10px;
@@ -265,7 +268,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 16.6vw;
+    height: 17vw;
     width: 12.153vw;
     background-color: var(--backgroundColor);
     border-radius: 10px;
@@ -284,7 +287,7 @@ main {
 
 #statistics {
     width: calc(24vw + 64px);
-    grid-column: 12;
+    grid-column: 30;
     height: fit-content;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -292,6 +295,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: baseline;
     align-items: baseline;
     flex-wrap: wrap;
 }
@@ -337,14 +341,13 @@ main {
 }
 
 #calendar {
-    height: 600px;
     width: 24vw;
     padding: 25px 32px;
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     background-color: var(--whiteColor);
-    grid-column-start: 12;
-    grid-row-start: 5;
+    grid-column: 30;
+    grid-row: 6 / 22;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -382,20 +385,31 @@ main {
     border: 1.5px solid #105EF5;
     background: none;
     color: var(--textColor);
+    transition: background-color 0.25s;
 }
+
+#calendar .weekdays .day:hover {
+    background-color: var(--hoverElementColor);
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
 #calendar .weekdays .day .weekday {
     font-size: 0.8vw;
     display: block;
     font-weight: 600;
 }
-#calendar .weekdays .day.current {
-    background-color: #105EF5;
-    color: #FFFFFF;
-}
+
 #calendar .weekdays .day.weekend {
     border-color: var(--pColor);
     border-width: 1px;
     color: var(--pColor);
+}
+
+#calendar .weekdays .day.current {
+    background-color: #105EF5;
+    border-color: #105EF5;
+    color: #FFFFFF; !important;
 }
 
 #calendar .tasks__order {
@@ -424,7 +438,7 @@ main {
     border-radius: 5px;
 }
 #calendar .tasks__order .task__division .task {
-    background-color: var(--backgroundColor);
+    background-color: var(--hoverElementColor);
     padding: 20px;
     border-left: 7px solid #105EF5;
     border-radius: 7px;
@@ -456,6 +470,128 @@ main {
     width: 1.39vw;
 }
 
-li svg {
-    width: 2.4vw;
+
+/*1212 брейнпоинт calendar: grid-row: 4; */
+
+/*1212 брейнпоинт */
+
+@media screen and (max-width: 1150px) {
+    #calendar {
+        grid-row: 5 / 22;
+    }
+
+    #calendar .weekdays .day {
+        height: 60px;
+        width: 3vw;
+
+    }
+}
+
+@media screen and (max-width: 1425px) {
+
+    #projects .projects .project {
+        padding-bottom: 15px;
+    }
+
+    #projects .projects .project .more__btn {
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    #projects .projects .project .members {
+        margin-left: 1.7vw;
+    }
+
+    #projects .projects .project .members .member {
+        width: 17px;
+    }
+
+    #projects .projects .project .members .plus__members {
+        font-size: 6px;
+        padding: 6px 5px;
+    }
+}
+
+@media screen and (max-width: 837px) {
+    #calendar {
+        grid-row: 4 / 22;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    aside ul li .icon {
+        width: 20px;
+        background-color: #3978f6;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    aside ul li .icon {
+        width: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1077px) {
+    #tasks .tasks__list .task .mainData .title {
+        font-size: 12px;
+    }
+
+    /*#tasks .tasks__list .task .mainData .deadline {*/
+    /*    font-size: 9px;*/
+    /*}*/
+    #tasks .tasks__list .task .checkbox input {
+        width: 15px;
+        height: 15px;
+    }
+
+    #tasks .tasks__list .task {
+        grid-template-columns: repeat(15, 1fr);
+    }
+
+    #tasks .tasks__list .task .secondaryData {
+        grid-column: 11/16;
+    }
+
+    input[type="checkbox"]::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background-color: #3978f6;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #tasks {
+        grid-column: 11 / 31;
+        height: 360px;
+    }
+
+    #projects {
+        grid-column: 11 / 31;
+        grid-row: 13 / 20;
+    }
+
+    #tasks {
+        grid-column: 11 / 31;
+        grid-row: 1 / 12;
+        height: 450px;
+    }
+
+    #statistics {
+        grid-column: 32;
+    }
+
+    #calendar {
+        grid-column: 32;
+        grid-row: 5 / 20;
+    }
 }

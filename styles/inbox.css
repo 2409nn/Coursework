@@ -6,8 +6,7 @@
 main {
     padding: 88px 30px 30px;
     display: grid;
-    grid-template-columns: repeat(15, 90px);
-    grid-column-gap: 24px;
+    grid-template-columns: repeat(15, 1fr);
     background-color: var(--backgroundColor);
     grid-template-rows: repeat(36, 50px);
     height: 110vh;
@@ -15,8 +14,7 @@ main {
 
 #chats {
     display: grid;
-    grid-column: 4 / 15;
-
+    grid-column: 4 / 17;
 }
 
 #chats h3, #chats h4 {
@@ -35,12 +33,14 @@ main {
     grid-template-columns: 75% 25%;
     grid-template-rows: repeat(2, 1fr);
     margin: 7px;
-    width: 520px;
+    width: 30vw;
     height: 80px;
     padding: 14px 30px;
     background-color: var(--whiteColor);
     border-radius: 14px;
     border: 1px solid var(--borderColor);
+    transition: 0.25s;
+    min-width: 300px;
 }
 
 #chats .project .project__title {
@@ -72,6 +72,7 @@ main {
 .last_message {
     grid-row: 2;
     margin-top: auto;
+    white-space: nowrap;
 }
 
 .last_message .user {
@@ -151,4 +152,28 @@ main {
 
 .member3 {
     z-index: 1;
+}
+
+#chats .project:hover {
+    cursor: pointer;
+    filter: brightness(98%);
+    transform: scale(99%);
+    transition: 0.25s;
+}
+
+
+
+@media (max-width: 1518px) {
+
+    body {
+        background-color: green;
+    }
+
+}
+
+
+@media (max-width: 999px) {
+    #chats .projects .project {
+        width: 100%;
+    }
 }

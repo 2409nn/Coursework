@@ -27,7 +27,7 @@
 
 
         * {
-            font-family: "work sans";
+            font-family: "Work sans";
             margin: 0;
         }
 
@@ -35,7 +35,7 @@
             background-color: #1e1e1e;
         }
 
-        .pop__up {
+        #popWindowPay {
             width: 408px;
             height: 600px;
             padding: 24px 30px;
@@ -45,17 +45,21 @@
             margin: 100px auto;
         }
 
-        .heading {
+        #popWindowPay .heading {
+            margin-top: 14px;
+        }
+
+        #popWindowPay .heading {
             text-align: center;
             margin: 0 10px;
         }
 
-        #payment {
-            margin: 140px 0 auto;
+        #popWindowPay #payment {
+            margin: 60px 0 auto;
             width: 398px;
         }
 
-        .pop__up input {
+        popWindowPay input {
             background-color: var(--borderColor);
             border: none;
             display: block;
@@ -65,17 +69,17 @@
             border-radius: 10px;
         }
 
-        .pop__up .special__data {
+        #popWindowPay.special__data {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .pop__up .special__data input {
+        #popWindowPay.special__data input {
             width: 32%;
         }
 
-        .pop__up input[type="submit"] {
+        #popWindowPay input[type="submit"] {
             width: 100%;
             background-color: #105EF5;
             color: white;
@@ -83,17 +87,59 @@
             font-weight: 600;
         }
 
+        #popWindowPay input[type="number"] {
+            appearance: none;
+            font-family: Work sans;
+            color: var(--pColor);
+        }
+
+        #popWindowPay input[type="number"]::-webkit-calendar-picker-indicator {
+            display: none;
+            -webkit-appearance: none;
+        }
+
+
+        #popWindowPay .about__payment {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+            margin-top: 60px;
+        }
+
+        #popWindowPay .about__payment .payment__sum {
+            font-size: 1.8vw;
+        }
+
+        .pop__up .cards img {
+            width: 50px;
+        }
+
+        .pop__up .cards .paypal {
+            width: 35px;
+        }
+
+
+
     </style>
 </head>
 <body>
 
-<div class="pop__up">
+<div id="popWindowPay">
 
     <div class="heading">
         <h3>Upgrade to Professional</h3>
     </div>
 
-    <h4 class="payment__sum">$18.00</h4>
+    <div class="about__payment">
+        <h4 class="payment__sum">$18.00</h4>
+        <div class="cards">
+            <img class="visa" src="../imgs/popup/visa.png" alt="visa">
+            <img class="mastercard" src="../imgs/popup/mastercard.png" alt="mastercard">
+            <img class=paypal src="../imgs/popup/paypal.png" alt="paypal">
+        </div>
+    </div>
+
     
     <form id="payment" action="#">
 
@@ -102,7 +148,7 @@
         <input type="text" required placeholder="Email">
 
         <div class="special__data">
-            <input type="date" required placeholder="MM / YY">
+            <input type="number" required placeholder="MM / YY">
             <input type="password" required placeholder="CVV" maxlength="4">
         </div>
 
