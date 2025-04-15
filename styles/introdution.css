@@ -32,6 +32,10 @@ h2, h3 {
     font-weight: 700;
 }
 
+h2 {
+    font-size: 64px;
+}
+
 h4, h5 {
     font-weight: 600;
 }
@@ -240,15 +244,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 0 120px;
+    padding: 120px;
+    overflow-x: hidden;
 }
 
 #head {
     display: grid;
-    height: fit-content;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 100px;
 }
 
 #head .heading {
@@ -270,7 +274,6 @@ main {
 #head .picture {
     width: 46.29vw;
     border-radius: 12px;
-    /*margin-top: 200px;*/
     grid-column: 2;
     grid-row: 1 / 3;
 }
@@ -288,5 +291,106 @@ main {
 #head .available__list p {
     margin-bottom: 30px;
     font-weight: 600;
+    font-size: 1.5vw;
 }
 
+
+#about {
+    width: 100%;
+    margin-top: 300px;
+    height: 100vh;
+}
+
+#about .cards {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+#about .cards::-webkit-scrollbar {
+    display: none;
+}
+
+#about .cards .card {
+    width: 16vw;
+    height: 24vw;
+    background-color: var(--whiteColor);
+    border: 2px solid var(--borderColor);
+    border-radius: 18px;
+    text-align: center;
+    padding: 3vw 2.8vw;
+    flex-shrink: 0;
+    margin: 0 10px;
+}
+
+#about .cards .card h4 {
+    font-size: 1.5vw;
+}
+
+#about .cards .card .info {
+    color: var(--pColor);
+    text-align: left;
+    margin-top: 50px;
+    font-size: 1vw;
+}
+
+#about .cards .card .icon {
+    font-size: 4.6vw;
+}
+
+#about svg {
+    color: var(--textColor);
+    transition: color 0.4s;
+}
+
+#about svg:hover {
+    cursor: pointer;
+    color: #105EF5;
+    transition: color 0.25s;
+}
+
+#about .movement {
+    display: flex;
+}
+
+#arrowLeft {
+    transform: rotate(-90deg);
+}
+
+#arrowRight {
+    transform: rotate(90deg);
+}
+
+.slider {
+    margin: 30px 0;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+}
+
+.dots .dot {
+    border-radius: 10px;
+    padding: 5px;
+    height: 2px;
+    width: 2px;
+    background-color: #686868;
+    margin: 30px 5px;
+}
+
+.dots .current {
+    background-color: #105EF5;
+}
+
+.dots .dot:hover {
+    cursor: pointer;
+}
+
+.slider {
+    display: flex;
+    width: 92%;
+    margin: 20px auto;
+    padding-top: 100px;
+}

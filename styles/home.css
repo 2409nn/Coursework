@@ -493,6 +493,10 @@ main {
         padding-bottom: 15px;
     }
 
+    #projects .projects .new__project {
+        padding-bottom: 15px;
+    }
+
     #projects .projects .project .more__btn {
         padding: 2px 6px;
         font-size: 12px;
@@ -540,9 +544,10 @@ main {
         font-size: 12px;
     }
 
-    /*#tasks .tasks__list .task .mainData .deadline {*/
-    /*    font-size: 9px;*/
-    /*}*/
+    #tasks .tasks__list .task .mainData .deadline {
+        font-size: 9px;
+    }
+
     #tasks .tasks__list .task .checkbox input {
         width: 15px;
         height: 15px;
@@ -593,5 +598,135 @@ main {
     #calendar {
         grid-column: 32;
         grid-row: 5 / 20;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    #tasks {
+        height: max-content;
+        grid-column: 8 / 33;
+        grid-row: 1 / 15;
+    }
+
+    #projects {
+        height: fit-content;
+        grid-column: 8 / 35;
+        grid-row: 12 / 30;
+    }
+
+    #projects .projects .project {
+        width: 20vw;
+        height: 30vw;
+    }
+
+    #projects .projects .project .project__img {
+        height: 50%;
+    }
+
+    #projects .projects .project .project__link {
+        font-size: 0.8vw;
+    }
+
+    #projects .projects .project .project__name {
+        font-size: 1.6vw;
+    }
+
+    #projects .projects .project .project__description {
+        font-size: 0.8vw;
+    }
+
+    #projects .projects .project .project__operations {
+        margin-top: 20%;
+    }
+
+    #projects .projects .new__project {
+        width: 20vw;
+        height: 30vw;
+    }
+
+    #projects .projects .project .members {
+        width: 50px;
+    }
+
+    #projects .projects .project .more__btn {
+        padding: 2px 1vw;
+        font-size: 1vw;
+        width: 60%;
+    }
+
+    #tasks .controls .page {
+        padding: 0 1.5vw;
+    }
+
+    .deadline svg {
+        width: 17px;
+    }
+
+    #statistics {
+        width: 100%;
+        grid-column: 8 / 40;
+        grid-row: 23;
+    }
+
+    #statistics .productivity .card {
+        width: 13vw;
+    }
+
+    #statistics .productivity .card .info .heading {
+        font-size: 0.8vw;
+    }
+
+}
+
+@media screen and (max-width: 1030px) {
+    #statistics {
+        grid-row: 22;
+    }
+}
+
+@media screen and (max-width: 866px) {
+    #statistics {
+        grid-row: 21;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    #statistics {
+        grid-row: 20;
+    }
+}
+
+@media screen and (max-width: 687px) {
+    #statistics .productivity .card {
+        width: 28vw;
+    }
+
+    #statistics .productivity .card .info .heading {
+        font-size: 1.4vw;
+    }
+
+    #statistics .productivity .card .info .results {
+        font-size: 2vw;
+        margin-top: 4px;
+    }
+
+    #statistics .productivity .card .info .percentages {
+        font-size: 1.4vw;
+    }
+
+    #statistics .productivity .card {
+        padding-top: 10px;
+        padding-bottom: 21px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #statistics {
+        grid-row: 19;
+    }
+
+    #statistics .productivity .card {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PlanIt - new task manager</title>
     <link rel="stylesheet" href="../styles/introdution.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -35,15 +36,121 @@
             </div>
 
         </div>
-
-
-
     </div>
       <img class="picture" src="../imgs/introdution/DesktopHomepage-light.jpg" alt="head image">
 
   </section>
 
+    <section id="about">
+
+        <div class="heading">
+            <h2>What <span class="blue__word">PlanIt</span> is made for?</h2>
+        </div>
+
+        <div class="slider">
+
+            <button id="arrowLeft">
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.667 24.7917L16.3337 41.4167C15.167 42.5834 15.167 44.3334 16.3337 45.5001C17.5003 46.6667 19.2503 46.6667 20.417 45.5001L35.0003 31.2084L49.5837 45.5001C50.7503 46.6667 52.5003 46.6667 53.667 45.5001C54.2503 44.9167 54.542 44.3334 54.542 43.4584C54.542 42.5834 54.2503 42.0001 53.667 41.4167L37.3337 24.7917C35.8753 23.6251 34.1253 23.6251 32.667 24.7917C32.9587 24.7917 32.9587 24.7917 32.667 24.7917Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <div class="cards">
+
+                <div class="card">
+                    <span class="icon">👨‍💻</span>
+                    <h4>Personal Using</h4>
+                    <p class="info">Stay on top of your goals, one task at a time. Whether you're managing daily routines, tracking
+                        habits, or planning your next big idea — Planit gives you the clarity and control to structure
+                        your life your way. Simple, intuitive, and always at your side.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🤝</span>
+                    <h4>Team Work</h4>
+                    <p class="info">Collaboration has never been this effortless. Share tasks, assign roles, set deadlines, and keep everyone in sync. With Planit, your team becomes a well-oiled machine — transparent, agile, and focused on what truly matters.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🚀</span>
+                    <h4>Boost Productivity</h4>
+                    <p class="info">Eliminate chaos and unlock your full potential. From smart reminders to powerful prioritization tools, Planit helps you work smarter, not harder. It's more than just a to-do list — it's your productivity partner.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">👨‍💻</span>
+                    <h4>Personal Using</h4>
+                    <p class="info">Stay on top of your goals, one task at a time. Whether you're managing daily routines, tracking
+                        habits, or planning your next big idea — Planit gives you the clarity and control to structure
+                        your life your way. Simple, intuitive, and always at your side.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🤝</span>
+                    <h4>Team Work</h4>
+                    <p class="info">Collaboration has never been this effortless. Share tasks, assign roles, set deadlines, and keep everyone in sync. With Planit, your team becomes a well-oiled machine — transparent, agile, and focused on what truly matters.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🚀</span>
+                    <h4>Boost Productivity</h4>
+                    <p class="info">Eliminate chaos and unlock your full potential. From smart reminders to powerful prioritization tools, Planit helps you work smarter, not harder. It's more than just a to-do list — it's your productivity partner.</p>
+                </div>
+            </div>
+
+            <button id="arrowRight">
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.667 24.7917L16.3337 41.4167C15.167 42.5834 15.167 44.3334 16.3337 45.5001C17.5003 46.6667 19.2503 46.6667 20.417 45.5001L35.0003 31.2084L49.5837 45.5001C50.7503 46.6667 52.5003 46.6667 53.667 45.5001C54.2503 44.9167 54.542 44.3334 54.542 43.4584C54.542 42.5834 54.2503 42.0001 53.667 41.4167L37.3337 24.7917C35.8753 23.6251 34.1253 23.6251 32.667 24.7917C32.9587 24.7917 32.9587 24.7917 32.667 24.7917Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+        </div>
+
+        <div class="dots">
+            <button class="dot current"></button>
+            <button class="dot"></button>
+            <button class="dot"></button>
+        </div>
+
+    </section>
+
 </main>
+
+<script>
+
+    $(document).ready(function () {
+
+        const left = $("#arrowLeft")
+        const right = $("#arrowRight")
+        const cards = $("#about .cards")
+
+        var cardsWidth = cards.outerWidth()
+
+        var currentLeftScroll = cards.scrollLeft()
+        console.log(currentLeftScroll)
+        console.log(cardsWidth)
+
+        left.click(function () {
+            currentLeftScroll -= 600
+            $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
+
+            if (currentLeftScroll < 0) {
+                currentLeftScroll = cardsWidth
+                $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
+            }
+        })
+
+        right.click(function () {
+            currentLeftScroll += 600
+
+            if (currentLeftScroll - cardsWidth > 0 && currentLeftScroll - cardsWidth < 600) {
+                $(".cards").animate({scrollLeft: currentLeftScroll - cardsWidth}, 400)
+            }
+
+            if (currentLeftScroll > cardsWidth) {
+                currentLeftScroll = 0
+                $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
+            }
+        })
+
+    })
+
+</script>
 
 </body>
 </html>
