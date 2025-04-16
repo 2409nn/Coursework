@@ -10,17 +10,22 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <title>PlanIt</title>
+  <title>Home</title>
 
 </head>
 <body>
 
 <header>
   <nav>
-    <ul>
+    <ul id="mobileNav">
+      <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
+      <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
+      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
+    </ul>
+    <ul id="desktopNav">
       <li class="path">
         <a href="#">
-          <p>Plans</p>
+          <p>Home</p>
         </a>
       </li>
 
@@ -413,75 +418,76 @@
       </div>
     </section>
 
-<!--    <section id="calendar">-->
-<!--      <div class="heading">-->
-<!--        <h3>Calendar</h3>-->
-<!--        <a>See all</a>-->
-<!--      </div>-->
-<!--      <div class="date">-->
-<!--        <p class="day">Today</p>-->
-<!--        <p class="date__title">Friday, 1 August 2023</p>-->
-<!--      </div>-->
-<!--      <div class="weekdays">-->
-<!--        <button class="day" id="monday"><span class="weekday">Mon</span><span class="day__date">28</span></button>-->
-<!--        <button class="day" id="tuesday"><span class="weekday">Tue</span><span class="day__date">29</span></button>-->
-<!--        <button class="day" id="wednesday"><span class="weekday">Wed</span><span class="day__date">30</span></button>-->
-<!--        <button class="day" id="thursday"><span class="weekday">Thu</span><span class="day__date">31</span></button>-->
-<!--        <button class="day current" id="friday"><span class="weekday">Fri</span><span class="day__date">1</span></button>-->
-<!--        <button class="day weekend"><span class="weekday">Sat</span><span class="day__date">2</span></button>-->
-<!--        <button class="day weekend"><span class="weekday">Sun</span><span class="day__date">3</span></button>-->
-<!--      </div>-->
+    <section id="calendar">
+      <div class="heading">
+        <h3>Calendar</h3>
+        <a>See all</a>
+      </div>
+      <div class="date">
+        <p class="day">Today</p>
+        <p class="date__title">Friday, 1 August 2023</p>
+      </div>
+      <div class="weekdays">
+        <button class="day" id="monday"><span class="weekday">Mon</span><span class="day__date">28</span></button>
+        <button class="day" id="tuesday"><span class="weekday">Tue</span><span class="day__date">29</span></button>
+        <button class="day" id="wednesday"><span class="weekday">Wed</span><span class="day__date">30</span></button>
+        <button class="day" id="thursday"><span class="weekday">Thu</span><span class="day__date">31</span></button>
+        <button class="day current" id="friday"><span class="weekday">Fri</span><span class="day__date">1</span></button>
+        <button class="day weekend"><span class="weekday">Sat</span><span class="day__date">2</span></button>
+        <button class="day weekend"><span class="weekday">Sun</span><span class="day__date">3</span></button>
+      </div>
 
-<!--      <div class="tasks__order">-->
+      <div class="tasks__order">
 
-<!--        <div class="task__division">-->
-<!--          <div class="timeline">-->
-<!--            <p class="time">8:00 am</p>-->
-<!--            <div class="line"></div>-->
-<!--          </div>-->
-<!--          <div class="task">-->
-<!--            <p class="heading">Drink coca-cola</p>-->
-<!--            <p class="description">Lorem ipsum dolor sit amet</p>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="task__division">
+          <div class="timeline">
+            <p class="time">8:00 am</p>
+            <div class="line"></div>
+          </div>
+          <div class="task">
+            <p class="heading">Drink coca-cola</p>
+            <p class="description">Lorem ipsum dolor sit amet</p>
+          </div>
+        </div>
 
-<!--        <div class="task__division">-->
-<!--          <div class="timeline">-->
-<!--            <p class="time">9:00 am</p>-->
-<!--            <div class="line"></div>-->
-<!--          </div>-->
-<!--          <div class="task">-->
-<!--            <p class="heading">Drink coca-cola</p>-->
-<!--            <p class="description">Lorem ipsum dolor sit amet</p>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="task__division">
+          <div class="timeline">
+            <p class="time">9:00 am</p>
+            <div class="line"></div>
+          </div>
+          <div class="task">
+            <p class="heading">Drink coca-cola</p>
+            <p class="description">Lorem ipsum dolor sit amet</p>
+          </div>
+        </div>
 
-<!--        <div class="task__division">-->
-<!--          <div class="timeline">-->
-<!--            <p class="time">10:00 am</p>-->
-<!--            <div class="line"></div>-->
-<!--          </div>-->
-<!--          <div class="task">-->
-<!--            <p class="heading">Drink coca-cola</p>-->
-<!--            <p class="description">Lorem ipsum dolor sit amet</p>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="task__division">
+          <div class="timeline">
+            <p class="time">10:00 am</p>
+            <div class="line"></div>
+          </div>
+          <div class="task">
+            <p class="heading">Drink coca-cola</p>
+            <p class="description">Lorem ipsum dolor sit amet</p>
+          </div>
+        </div>
 
-<!--        <div class="task__division">-->
-<!--          <div class="timeline">-->
-<!--            <p class="time">11:00 am</p>-->
-<!--            <div class="line"></div>-->
-<!--          </div>-->
-<!--          <div class="task">-->
-<!--            <p class="heading">Drink coca-cola</p>-->
-<!--            <p class="description">Lorem ipsum dolor sit amet</p>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="task__division">
+          <div class="timeline">
+            <p class="time">11:00 am</p>
+            <div class="line"></div>
+          </div>
+          <div class="task">
+            <p class="heading">Drink coca-cola</p>
+            <p class="description">Lorem ipsum dolor sit amet</p>
+          </div>
+        </div>
 
 
-<!--      </div>-->
+      </div>
 
-<!--    </section>-->
+    </section>
+
   </main>
 
 <script src="../functional/dropDownMenu.js"></script>

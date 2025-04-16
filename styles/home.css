@@ -294,9 +294,6 @@ main {
 #statistics .productivity {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    align-items: baseline;
-    align-items: baseline;
     flex-wrap: wrap;
 }
 #statistics .productivity .card {
@@ -316,7 +313,6 @@ main {
     background-color: var(--backgroundColor);
     padding: 10px;
     border-radius: 10px;
-    margin: auto;
 }
 #statistics .productivity .card .info {
     margin: auto;
@@ -676,6 +672,40 @@ main {
         font-size: 0.8vw;
     }
 
+    #calendar {
+        width: 100%;
+        grid-row: 25;
+        grid-column: 8 / 31;
+    }
+
+    #calendar .weekdays .day {
+        width: 12%;
+        border-radius: 1.5vw;
+        font-size: 2vw;
+    }
+
+    #calendar .weekdays .day .weekday {
+        font-size: 1.2vw;
+    }
+
+
+    #calendar .tasks__order .task__division .task {
+        grid-column: 2 / 15;
+
+    }
+
+    #calendar .tasks__order .task__division .task .heading {
+        font-size: 16px;
+    }
+
+
+    #calendar .tasks__order .task__division .task .description {
+        font-size: 9px;
+        font-weight: 500;
+        color: var(--textColor);
+    }
+
+
 }
 
 @media screen and (max-width: 1030px) {
@@ -705,6 +735,10 @@ main {
         font-size: 1.4vw;
     }
 
+    #statistics .productivity .card img {
+        margin-top: 10px;
+    }
+
     #statistics .productivity .card .info .results {
         font-size: 2vw;
         margin-top: 4px;
@@ -728,5 +762,121 @@ main {
     #statistics .productivity .card {
         padding-left: 10px;
         padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 419px) {
+    #statistics {
+        grid-row: 18;
+    }
+
+    #statistics .productivity .card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #statistics .productivity .card img {
+        margin-right: 0;
+        margin-left: auto;
+        margin-top: 0;
+    }
+
+    #statistics .productivity .card .info {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /*#calendar {*/
+    /*    grid-row: 22 / 30;*/
+    /*}*/
+
+    #projects .projects .project .project__operations {
+        margin-top: 5%;
+    }
+
+    #tasks {
+        grid-column: 1 / 33;
+        height: 80vh;
+    }
+
+    #projects {
+        height: fit-content;
+        grid-column: 1 / 35;
+        grid-row: 14 / 30;
+    }
+
+    #projects .projects .project {
+        width: 24vw;
+    }
+
+    #projects .projects .new__project {
+        width: 24vw;
+    }
+
+    #projects .projects .project .project__img {
+        height: 55%;
+    }
+
+    #projects .projects .project .project__name {
+        font-size: 2vw;
+    }
+
+    #statistics {
+        grid-column: 1 / 33;
+        grid-row: 22 ;
+    }
+
+    #statistics .productivity .card {
+        width: 42%;
+    }
+
+    #statistics .productivity .card .info {
+        margin-left: 20px;
+        margin-right: auto;
+    }
+
+    #calendar {
+        padding: 20px;
+        /*width: 100vh;*/
+        grid-row: 25;
+        grid-column: 1 / 35;
+    }
+
+    #calendar .weekdays .day .weekday {
+        font-size: 2vw;
+    }
+
+}
+
+@media screen and (max-width: 419px) {
+    #statistics {
+        grid-row: 20;
+    }
+
+    #statistics .productivity .card {
+        width: 100%;
+    }
+
+    #statistics .productivity .card .info .heading {
+        font-size: 2.4vw;
+    }
+
+    #statistics .productivity .card .info .results h5 {
+        font-size: 2vw;
+    }
+
+    #statistics .productivity .card .info .results p {
+        font-size: 1.5vw;
+    }
+
+    #statistics .productivity .card img {
+        width: 15px;
+        height: 15px;
+    }
+
+    #projects .projects .new__project .content {
+        font-size: 3vw;
+        color: red !important;
     }
 }

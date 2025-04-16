@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlanIt</title>
+  <title>Inbox</title>
   <link rel="stylesheet" href="../styles/basics.css">
   <link rel="stylesheet" href="../styles/inbox.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,10 +12,15 @@
 
 <header>
   <nav>
-    <ul>
+    <ul id="mobileNav">
+      <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
+      <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
+      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
+    </ul>
+    <ul id="desktopNav">
       <li class="path">
         <a href="#">
-          <p>Plans</p>
+          <p>Home</p>
         </a>
       </li>
 
