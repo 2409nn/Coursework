@@ -270,8 +270,143 @@ main {
 
 @media screen and (max-width: 860px) {
     #plans .cards .card {
-        height: 570px;
+        height: 450px;
     }
 }
 
-/*676px --- ширина начала мобильной*/
+@media screen and (max-width: 1000px) {
+
+    #plans .card .heading img {
+        width: 60px;
+    }
+
+    #plans .card .about .pros li {
+        margin-top: 12px;
+    }
+
+    #plans .card .about {
+        margin-top: 20px;
+    }
+
+    #plans .card .heading {
+        margin-top: 20px;
+    }
+
+    #plans .cards .card {
+        height: 450px;
+    }
+
+    #plans .card .price h4 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    #plans .cards {
+        display: block;
+    }
+
+    #plans .cards .card {
+        height: 420px;
+        padding: 0 20px;
+    }
+
+    #plans .cards .card {
+        margin: 10px auto;
+        width: 70%;
+        height: 600px;
+        border-radius: 20px;
+    }
+
+    #plans .cards .card .heading img {
+        width: 100px;
+        margin-top: 20px;
+    }
+
+    #plans .cards .card .heading h3 {
+        font-size: 30px;
+    }
+
+    #plans .card .title p {
+        font-size: 12px;
+    }
+
+    #plans .card .price h4 {
+        font-size: 40px;
+    }
+
+    #plans .card .price p {
+        font-size: 12px;
+    }
+
+    #plans .card button {
+        width: 70%;
+        font-size: 14px;
+    }
+
+    #plans .card .about .pros li {
+        font-size: 12px;
+    }
+
+    #plans .card .about .pros {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+
+    #plans .card .about .pros li::before {
+        padding: 7px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+
+    #head {
+        grid-column: 1 / 16;
+    }
+
+    #plans {
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 16;
+        grid-row-start: 8;
+        grid-row-end: 22;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    #plans .card .about .pros li {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    main {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #plans .cards .card {
+        width: 80%;
+    }
+
+    #head h1 {
+        font-size: 28px;
+    }
+
+    #plans .card .about .pros li {
+        font-size: 12px;
+    }
+
+    #plans .card .about .pros li::before {
+        padding: 10px;
+        position: relative;
+        top: 5px;
+    }
+
+}
