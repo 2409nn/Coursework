@@ -5,8 +5,7 @@ main {
     padding: 88px 30px 30px;
     display: grid;
     grid-template-columns: repeat(32, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    height: 100vh;
+    grid-template-rows: repeat(20, 5%);
 }
 
 section {
@@ -151,10 +150,12 @@ section p {
 
 #myProdToday .project__name span, #myProdWeek .project__name span {
     color: var(--pColor);
+    font-size: 0.9vw;
 }
 
 #myProdToday .project__name .name, #myProdWeek .project__name .name {
     color: var(--textColor);
+    font-size: 0.9vw;
 }
 
 #myProdToday .project .prod__label, #myProdWeek .project .prod__label {
@@ -163,12 +164,20 @@ section p {
 }
 
 #teamProductivity {
+    display: grid;
+    width: 90%;
+    height: 95%;
+    grid-template-rows: repeat(2, 1fr);
     grid-column: 18 / 33;
     grid-row: 1 / 19;
     background-color: var(--whiteColor);
     border-radius: 15px;
     border: var(--borderColor) 1px solid;
     overflow-y: scroll;
+}
+
+teamMonthlyProd {
+    width: 100% !important;
 }
 
 #teamProductivity::-webkit-scrollbar {
@@ -205,4 +214,162 @@ section p {
     font-weight: 500;
     text-align: center;
     color: var(--textColor);
+}
+
+
+#teamProductivity canvas {
+    width: 100% !important;
+    max-height: 360px;
+    display: block;
+}
+
+@media screen and (max-width: 1400px) {
+    #teamProductivity {
+        height: 80%;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    #myProdToday .projects .project .prod__label, #myProdWeek .projects .project .prod__label {
+        font-size: 10px;
+    }
+
+    #myProdToday .projects .project .project__name span, #myProdWeek .projects .project .project__name span {
+        font-size: 10px;
+    }
+
+    #myProdToday .effectivity .prod__increase, #myProdWeek .effectivity .prod__increase {
+        font-size: 0.9vw;
+    }
+
+    #myProdToday .effectivity .prod__label, #myProdWeek .effectivity .prod__label {
+        padding: 3px 6px;
+        font-size: 10px;
+        margin-right: 5px;
+    }
+
+    #teamMonthlyProd {
+        width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    #teamProductivity {
+        height: 70%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    #myProdToday {
+        grid-column: 8 / 30;
+        grid-row: 1 / 7;
+        width: 100%;
+    }
+
+    #myProdWeek {
+        width: 100%;
+        grid-column: 8 / 30;
+        grid-row: 8 / 14;
+    }
+
+    #myProdToday .effectivity .prod__increase, #myProdWeek .effectivity .prod__increase {
+        font-size: 10px;
+    }
+
+    #teamProductivity {
+        grid-row: 15 / 34;
+        height: 100%;
+        grid-column: 8 / 30;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    #myProdToday {
+        grid-column: 1;
+        grid-row: 1 / 8;
+        width: auto;
+    }
+
+    #myProdWeek {
+        width: auto;
+        grid-column: 1 / 27;
+        grid-row: 9 / 16;
+    }
+
+    #myProdToday .effectivity .prod__increase, #myProdWeek .effectivity .prod__increase {
+        font-size: 10px;
+    }
+
+    #teamProductivity {
+        grid-row: 17 / 26;
+        grid-column: 1;
+        width: auto;
+    }
+
+    #teamMonthlyProd {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    #teamProductivity {
+        overflow-x: scroll;
+    }
+
+    #teamMonthlyProd {
+        height: 500px !important;
+    }
+
+    section .heading h3 {
+        font-size: 16px;
+    }
+
+    section .heading p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #teamMonthlyProd {
+        height: 500px !important;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    main {
+        padding-left: 5px;
+        padding-right: 5px;
+        grid-template-columns: 1fr;
+    }
+
+    #myProdToday {
+        width: auto;
+        padding: 20px;
+        grid-column: 1;
+    }
+
+    #myProdWeek {
+        width: auto;
+        padding: 20px;
+        grid-column: 1;
+    }
+
+    #teamProductivity {
+        width: auto;
+        padding: 20px;
+        grid-column: 1;
+    }
+
+
 }

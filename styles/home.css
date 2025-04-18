@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-
 main {
     padding: 88px 30px 30px;
     display: grid;
@@ -522,7 +521,6 @@ main {
 
     aside ul li .icon {
         width: 20px;
-        background-color: #3978f6;
     }
 
 }
@@ -544,11 +542,6 @@ main {
         font-size: 9px;
     }
 
-    #tasks .tasks__list .task .checkbox input {
-        width: 15px;
-        height: 15px;
-    }
-
     #tasks .tasks__list .task {
         grid-template-columns: repeat(15, 1fr);
     }
@@ -557,17 +550,6 @@ main {
         grid-column: 11/16;
     }
 
-    input[type="checkbox"]::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        background-color: #3978f6;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -787,23 +769,31 @@ main {
 }
 
 @media screen and (max-width: 700px) {
-    /*#calendar {*/
-    /*    grid-row: 22 / 30;*/
-    /*}*/
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        row-gap: 10px;
+        height: 100%;
+    }
+
 
     #projects .projects .project .project__operations {
         margin-top: 5%;
     }
 
     #tasks {
-        grid-column: 1 / 33;
-        height: 80vh;
+        grid-column: 1;
+        grid-row: 1;
+        width: auto;
     }
 
     #projects {
         height: fit-content;
-        grid-column: 1 / 35;
-        grid-row: 14 / 30;
+        grid-column: 1;
+        grid-row: 3;
+
+        width: auto;
     }
 
     #projects .projects .project {
@@ -823,8 +813,9 @@ main {
     }
 
     #statistics {
-        grid-column: 1 / 33;
-        grid-row: 22 ;
+        grid-column: 1;
+        grid-row: 3;
+        width: auto;
     }
 
     #statistics .productivity .card {
@@ -837,10 +828,11 @@ main {
     }
 
     #calendar {
+        grid-row: 4;
         padding: 20px;
-        /*width: 100vh;*/
-        grid-row: 25;
-        grid-column: 1 / 35;
+        height: 100%;
+        width: auto;
+        grid-column: 1;
     }
 
     #calendar .weekdays .day .weekday {
@@ -878,5 +870,9 @@ main {
     #projects .projects .new__project .content {
         font-size: 3vw;
         color: red !important;
+    }
+
+    #statistics .productivity {
+        grid-row: 31;
     }
 }

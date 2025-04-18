@@ -11,46 +11,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #105EF5;
-    border-radius: 20px;
-    background-color: #E3F5FF;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-input[type="checkbox"]::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #3978f6;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-}
-
-input[type="checkbox"]:checked::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #105EF5;
-    border-radius: 50%;
-    background-color: #E3F5FF;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    padding: 0;
-}
 
 input {
     border-radius: 50px;
@@ -145,7 +105,7 @@ main {
     padding: 88px 30px 30px;
     display: grid;
     grid-template-columns: repeat(32, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 5%);
     height: 100vh;
 }
 
@@ -156,7 +116,12 @@ main {
     border-radius: 10px;
     grid-column: 8/19;
     padding: 10px 30px;
-    height: 550px;
+    grid-row: 1 / 14;
+    overflow-x: scroll;
+}
+
+#projects::-webkit-scrollbar {
+    display: none;
 }
 
 #projects .heading {
@@ -271,15 +236,19 @@ main {
 }
 
 
-
 #todayTasks {
     grid-column: 8 / 19;
-    grid-row: 4;
+    grid-row: 14 / 20;
     margin-top: 25px;
     background-color: var(--whiteColor);
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     padding: 30px;
+    overflow-y: scroll;
+}
+
+#todayTasks::-webkit-scrollbar {
+    display: none;
 }
 
 #todayTasks .heading .dayDate {
@@ -309,7 +278,7 @@ input[type="time"] {
 
 #todayTasks .task {
     display: grid;
-    grid-template-columns: 10% 55% 35%;
+    grid-template-columns: 10% 70% 20%;
     font-weight: 500;
     align-items: center;
     justify-content: space-between;
@@ -328,29 +297,17 @@ input[type="time"] {
     color: var(--textColor);
 }
 
-#todayTasks .set__time {
-    grid-column-start: 3;
-}
-
-#todayTasks .task .set__time {
-    display: flex;
-    align-items: center;
-    padding: 0 5px 0 15px;
-    width: fit-content;
-    background-color: #105EF5;
-    border-radius: 7px;
-    margin-left: auto;
-}
-
-#todayTasks .task .set__time svg {
+#todayTasks .task .deadline svg {
     color: white;
     width: 1.2vw;
 }
 
-#todayTasks .task .time__from, #todayTasks .task .time__to {
+#todayTasks .task .deadline {
     display: flex;
     align-items: center;
     background-color: #105EF5;
+    padding-left: 0.6vw;
+    border-radius: 5px;
 }
 
 
@@ -361,7 +318,12 @@ input[type="time"] {
     border-radius: 10px;
     padding: 20px 30px;
     grid-column: 20 / 33;
-    grid-row: 1 / 16;
+    grid-row: 1 / 20;
+    overflow-y: scroll;
+}
+
+#calendar::-webkit-scrollbar {
+    display: none;
 }
 
 #calendar .heading {
@@ -487,22 +449,13 @@ input[type="time"] {
         line-height: 12px;
     }
 
-    input input {
-        width: 13px;
-        height: 13px;
-    }
-
-    input[type="checkbox"]::before {
-        width: 8px;
-        height: 8px;
-    }
-
     #projects .progress .progress__bar .heading h5 {
         font-size: 12px;
     }
 
     #projects .progress .progress__bar .heading .percentages {
         font-size: 10px;
+        margin-top: 10px;
     }
 }
 
@@ -519,18 +472,170 @@ input[type="time"] {
         margin-left: 5px;
     }
 
-    #todayTasks .set__time label {
-        width: 10px;
+    #todayTasks .tasks__list .task .deadline {
+        grid-row: 2;
+        grid-column: 2;
+        margin-left: 0;
+        width: 60px;
+
     }
 
+    #todayTasks .tasks__list .task .deadline input[type="time"] {
+        font-size: 10px;
+    }
+
+    #todayTasks .tasks__list .task .deadline svg {
+        width: 14px;
+        margin-right: 4px;
+    }
+
+
     #todayTasks .task {
-        grid-template-columns: 15% auto;
+        grid-template-columns: 10% 90%;
         grid-template-rows: repeat(2, 1fr);
+        height: 50px;
 }
 
-    #todayTasks .task .set__time {
+
+}
+
+@media screen and (max-width: 1430px) {
+    #todayTasks .tasks__list .task label {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #todayTasks .tasks__list .task {
+        height: 50px;
+        grid-template-columns: 10% 90%;
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 945px) {
+    #todayTasks .task {
+        grid-template-columns: 20px 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    main {
+        height: fit-content;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 20px;
+    }
+
+    #calendar {
+        /*display: none;*/
+        grid-column: 8 / 35;
+        grid-row: 1;
+        height: fit-content;
+    }
+
+    #calendar .calendar__elem .day button {
+        height: 80px;
+    }
+
+    #todayTasks {
+        grid-column: 8 / 35;
+        grid-row: 14;
+        height: fit-content;
+        margin-top: 0;
+    }
+
+    #projects {
+        grid-column: 8 / 35;
+        height: fit-content;
+        grid-row: 25 / 32;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    #calendar {
+        grid-row: 1 / 14;
+    }
+
+    #todayTasks .tasks__list .task {
+        grid-template-rows: 1fr;
+        grid-template-columns: 10% 70% 20%;
+        height: fit-content;
+    }
+
+    #todayTasks .tasks__list .task .deadline {
+        grid-row: 1;
+        grid-column: 3;
+    }
+
+    #todayTasks {
+        grid-column: 8 / 33;
+        grid-row: 15 / 23;
+    }
+
+    #calendar .calendar__elem .weekdays .weekday {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    #calendar {
+        grid-column: 1 / 33;
+    }
+
+    #projects {
+        grid-column: 1 / 33;
+    }
+
+    #todayTasks .tasks__list .task label {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+    #todayTasks {
+        grid-column: 1 / 33;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #todayTasks .tasks__list .task {
+        grid-template-columns: 10% 60% 25%;
+        column-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #todayTasks .tasks__list .task {
+        height: 50px;
+        grid-template-columns: 10% 90%;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    #todayTasks .tasks__list .task .deadline {
         grid-row: 2;
-        grid-column: 1 / 3;
+        grid-column: 2;
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    section .heading h3, section .heading {
+        font-size: 16px;
+    }
+
+    #calendar .choose__month span {
+        font-size: 14px;
+    }
+
+    #calendar, #projects, #todayTasks {
+        padding: 10px;
     }
 
 }

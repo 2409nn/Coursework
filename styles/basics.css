@@ -337,6 +337,7 @@ aside ul li {
 
 aside ul li svg {
     color: var(--pColor);
+    min-width: 30px;
 }
 
 aside nav ul li:hover, aside ul li:hover {
@@ -572,7 +573,6 @@ li svg {
     color: var(--pColor);
 }
 
-
 #popWindowPay .about__payment {
     display: flex;
     justify-content: space-between;
@@ -672,3 +672,33 @@ li svg {
 
 }
 
+@media screen and (max-width: 1077px) {
+    input[type="checkbox"] {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+
+    input[type="checkbox"]::before {
+        content: "";
+        width: 7px !important;
+        height: 7px !important;
+        background-color: #3978f6;
+        border-radius: 50% !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    aside ul li a span {
+        font-size: 10px;
+        margin-left: 0;
+    }
+
+    aside ul li {
+        padding-left: 0;
+    }
+}

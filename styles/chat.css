@@ -168,3 +168,122 @@ main {
     grid-column: 1;
     text-align: end;
 }
+
+
+@media screen and (max-width: 1466px) {
+    #writeMessage .inputs {
+        width: 64%;
+    }
+}
+
+@media screen and (max-width: 1095px) {
+    #writeMessage .inputs {
+        width: 58%;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    #writeMessage .inputs {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #writeMessage .inputs {
+        margin-left: 0;
+        width: 70%;
+    }
+
+    #chat {
+        grid-column: 1 / 18;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #writeMessage .inputs {
+        margin-left: 0;
+        width: 70%;
+    }
+
+    #sendBtn {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+
+    #writeMessage .inputs {
+        margin-left: 0;
+        width: 70%;
+    }
+
+    #sendBtn {
+        padding: 0 15px;
+    }
+
+    #chat .message .user__name {
+        font-size: 14px;
+    }
+
+    #chat .message .text {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    main {
+        padding: 88px 10px 10px;
+    }
+
+    #writeMessage {
+        gap: 5px;
+    }
+
+    #writeMessage input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        outline: none;
+        background-color: var(--whiteColor);
+    }
+
+    #writeMessage input[type="text"]::placeholder {
+        font-size: 12px;
+    }
+
+    #writeMessage svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    #writeMessage {
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    #writeMessage input[type="text"] {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #writeMessage .inputs {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    #sendBtn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    #writeMessage {
+        gap: 0;
+    }
+}

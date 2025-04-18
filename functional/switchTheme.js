@@ -2,8 +2,15 @@ const button = document.getElementById("changeTheme")
 const upgradeBackgroundImage = document.getElementById("upgradeImage")
 const backgroundImage = document.getElementById("headingOfBanner")
 const icon = document.getElementsByClassName("icon")
+let theme = "light"
 
-var theme = "light"
+
+// fetch("../data/dataset.json")
+//     .then(response => response.json())
+//     .then(data => {
+//         theme = data["currentTheme"]
+//     })
+
 
 function changeThemeToDark() {
 
