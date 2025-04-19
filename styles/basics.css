@@ -28,6 +28,10 @@
     display: flex;
 }
 
+input[type="time"]::placeholder {
+    color: var(--pColor);
+}
+
 button {
     background: none;
     border: none;
@@ -88,6 +92,23 @@ input[type="checkbox"] {
     position: relative;
     cursor: pointer;
     padding: 0;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+input[type="time"] {
+    color: var(--pColor);
+}
+
+input[type="date"] {
+    color: var(--pColor);
 }
 
 
@@ -187,7 +208,21 @@ li {
     color: var(--textColor);
 }
 
-/* --- upgrade --- */
+select {
+    appearance: none;
+    background-color: var(--borderColor);
+    color: #105EF5;
+    border: 2px solid var(--borderColor);
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+select::-webkit-validation-bubble-arrow {
+    display: none;
+}
+
+    /* --- upgrade --- */
 
 .upgrade {
     background-image: url("../imgs/aside/background_upgrade_pro.png");
@@ -297,6 +332,7 @@ header .controls .search svg {
     color: #105EF5;
     margin-left: 10px;
 }
+
 
 /* --- aside --- */
 
@@ -442,10 +478,6 @@ aside ul .lists li {
     margin-left: 8px;
 }
 
-body {
-    background-color: var(--backgroundColor);
-}
-
 .current__link {
     background-color: var(--hoverElementColor);
 }
@@ -486,10 +518,7 @@ li svg {
     width: 2.4vw;
 }
 
-#popWindowPay {
-    display: none;
-    width: 408px;
-    height: 600px;
+.pop__up {
     padding: 24px 30px;
     border: 2px solid var(--borderColor);
     background-color: var(--whiteColor);
@@ -497,21 +526,30 @@ li svg {
     margin-left: 36%;
     position: fixed;
     z-index: 50;
+
+}
+
+#popWindowPay {
+    display: none;
     bottom: 300px;
     opacity: 0;
 }
 
-#popWindowPay .heading {
-    margin-top: 14px;
+#popWindowTask {
+    display: none;
+    bottom: 300px;
+    opacity: 0;
 }
 
-#popWindowPay .heading {
+
+.pop__up .heading {
     text-align: center;
-    margin: 0 10px;
+    margin: 14px 10px 10px;
+    font-size: 18px;
 }
 
 #popWindowPay #payment {
-    margin: 60px 0 auto;
+    margin: 60px auto auto;
     width: 398px;
 }
 
@@ -566,7 +604,7 @@ li svg {
 
 #popWindowPay input[type="number"]::-webkit-calendar-picker-indicator {
     display: none;
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 #popWindowPay input::placeholder {
@@ -602,6 +640,124 @@ li svg {
     filter: brightness(105%);
     cursor: pointer;
     transition: filter 0.25s;
+}
+
+#popWindowTask #setTask {
+    margin: 60px auto auto;
+    width: 398px;
+}
+
+#popWindowTask input {
+    background-color: var(--borderColor);
+    border: none;
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+    padding: 14px 30px;
+    border-radius: 10px;
+    transition: box-shadow 0.1s;
+}
+
+#popWindowTask input:focus {
+    box-shadow: inset 0 0 0 1.8px #105EF5;
+    transition: 0.25s;
+}
+
+#popWindowTask .special__inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#popWindowTask .special__inputs p {
+    font-weight: 500;
+}
+
+#popWindowTask .special__inputs > div {
+    flex: 1;
+}
+
+#popWindowTask .special__inputs input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 25px 14px;
+    border-radius: 10px;
+    background-color: var(--borderColor);
+    border: none;
+    text-align: center;
+}
+
+#popWindowTask input[type="submit"] {
+    width: 100%;
+    background-color: #105EF5;
+    color: white;
+    margin-top: 70px;
+    font-weight: 600;
+    height: fit-content;
+    transition: 0.25s;
+}
+
+#popWindowTask input[type="submit"]:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#popWindowTask input[type="number"] {
+    appearance: none;
+    font-family: Work sans;
+    color: var(--pColor);
+}
+
+#popWindowTask input[type="number"]::-webkit-calendar-picker-indicator {
+    display: none;
+    appearance: none;
+}
+
+#popWindowTask input::placeholder {
+    color: var(--pColor);
+}
+
+#popWindowTask .about__payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 60px;
+}
+
+#popWindowTask .about__payment .payment__sum {
+    font-size: 1.8vw;
+}
+
+#popWindowTask .cards img {
+    width: 50px;
+}
+
+#popWindowTask .cards .paypal {
+    width: 35px;
+}
+
+#popWindowTask .close__button {
+    width: 25px;
+    transition: filter 0.25s;
+}
+
+#popWindowTask .close__button:hover {
+    filter: brightness(105%);
+    cursor: pointer;
+    transition: filter 0.25s;
+}
+
+.selectProject {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.selectProject label {
+    margin-right: 20px;
 }
 
 .active__btn {
@@ -669,7 +825,6 @@ li svg {
         color: #105EF5;
         margin: auto 1vw;
     }
-
 }
 
 @media screen and (max-width: 1077px) {

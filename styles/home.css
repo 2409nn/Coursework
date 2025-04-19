@@ -6,6 +6,7 @@ main {
     height: fit-content;
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(24, 45px);
+    background-color: var(--backgroundColor);
 }
 
 #tasks {

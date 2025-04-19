@@ -303,7 +303,9 @@
 <script src="../functional/switchTheme.js"></script>
 <script src="../functional/dropDownMenu.js"></script>
 
-<script>
+<script type="module">
+
+    import { popUp } from "../functional/popUpFuncs.js";
 
     $(document).ready(function () {
 
@@ -312,64 +314,17 @@
             $("#popWindowPay .heading h3").text("Upgrade to Professional")
             $("#popWindowPay .payment__sum").text("$11.00")
 
-            $("#popWindowPay").css("display", "block")
-            $("#popWindowPay").animate({
-                opacity: 1,
-                bottom: 150,
-            }, 350)
-
-            $("main, aside, header").css({
-                transition: "filter 0.35s",
-                filter: "brightness(80%)"
-            })
+            popUp("popWindowPay")
 
         })
 
-        $(window).keydown(function (event) {
-            if (event.key === "Escape") {
 
-                $(".close__button").closest(".pop__up").animate({
-                    opacity: 0,
-                    bottom: 450,
-                }, 400, function () {
-                    $("main, aside, header").css("filter", "brightness(100%)")
-                    $(this).closest(".pop__up").css("display", "none")
-                })
-
-            }
-        })
-
-        $(".close__button").click(function () {
-            $(this).closest(".pop__up").animate({
-                opacity: 0,
-                bottom: 450,
-            }, 400, function () {
-                $("main, aside, header").css("filter", "brightness(100%)")
-                $(this).closest(".pop__up").css("display", "none")
-            })
-
-        })
 
         $("#buyEnterprise").click(function () {
-            $("#popWindowPay").css("display", "block")
-        })
-
-        $("#buyEnterprise").click(function () {
-
             $("#popWindowPay .heading h3").text("Upgrade to Enterprise")
             $("#popWindowPay .payment__sum").text("$19.00")
 
-            $("#popWindowPay").css("display", "block")
-            $("#popWindowPay").animate({
-                opacity: 1,
-                bottom: 150,
-            }, 350)
-
-            $("main, aside, header").css({
-                transition: "filter 0.35s",
-                filter: "brightness(80%)"
-            })
-
+            popUp("popWindowPay")
         })
 
     })

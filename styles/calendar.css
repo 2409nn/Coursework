@@ -7,10 +7,6 @@ aside a img {
     opacity: 60%;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
 
 input {
     border-radius: 50px;
