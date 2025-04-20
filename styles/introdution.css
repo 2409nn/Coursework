@@ -50,6 +50,10 @@ button {
     margin: 0;
 }
 
+section {
+    height: 100vh;
+}
+
 
 a:hover {
     cursor: pointer;
@@ -239,19 +243,25 @@ body {
     color: #105EF5;
 }
 
+.bolder {
+    color: var(--textColor) !important;
+    font-weight: 500 !important;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 120px;
+    max-width: 100vw;
+    display: grid;
+    /*grid-template-rows: repeat(5, 100vh);*/
+    grid-template-columns: 1fr;
+    padding: 50px 120px;
     overflow-x: hidden;
 }
 
 #head {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-row: 1;
     margin-top: 100px;
 }
 
@@ -265,7 +275,7 @@ main {
     font-size: 4.515vw;
 }
 
-#head .heading p {
+.heading p {
     color: var(--textDarkerColor);
     font-size: var(--pFontSize);
     font-weight: 500;
@@ -302,9 +312,10 @@ main {
 }
 
 #about .cards {
+    margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    max-width: 1200px;
     overflow-x: scroll;
 }
 
@@ -390,7 +401,70 @@ main {
 
 .slider {
     display: flex;
-    width: 92%;
     margin: 20px auto;
     padding-top: 100px;
+}
+
+.parts {
+    max-width: 45%;
+    margin-top: 80px;
+}
+
+.parts h4 {
+    font-size: 21px;
+}
+
+.parts .part {
+    margin-top: 40px;
+}
+
+.part .emoji {
+    font-size: 25px;
+}
+
+.part p {
+    display: inline;
+    color: var(--pColor);
+}
+
+#productivity .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#productivity .images {
+    width: fit-content;
+    position: relative;
+    left: 200px;
+    bottom: 40px;
+}
+
+#productivity .images .back {
+    position: relative;
+    width: 450px;
+    top: 100px;
+    right: 100px;
+}
+
+#productivity .images .forward {
+    width: 550px;
+    position: relative;
+    z-index: 10;
+    box-shadow: -6px -2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+#reminders .info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#reminders .info .parts {
+    max-width: 60%;
+}
+
+#reminders .images img {
+    width: 300px;
 }

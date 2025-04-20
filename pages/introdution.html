@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PlanIt - new task manager</title>
+    <title>PlanIt — Organize your day. Own your future.</title>
     <link rel="stylesheet" href="../styles/introdution.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -21,22 +21,22 @@
 
 <main>
 
-  <section id="head">
-    <div class="heading">
+    <section id="head">
+        <div class="heading">
 
-      <h1>Plan your life<br>with <span class="blue__word">PlanIt</span></h1>
-      <p>Work more effectively for yourself and your team by using powerful tool.</p>
+          <h1>Plan your life<br>with <span class="blue__word">PlanIt</span></h1>
+          <p>Work more effectively for yourself and your team by using powerful tool.</p>
 
-        <div class="available__list">
-            <p>Available for desktop</p>
+            <div class="available__list">
+                <p>Available for desktop</p>
 
-            <div class="available__icons">
-                <img src="../imgs/introdution/download_for_apple_light.png" alt="available for apple">
-                <img src="../imgs/introdution/download_for_google_light.png" alt="available for goole">
+                <div class="available__icons">
+                    <img src="../imgs/introdution/download_for_apple_light.png" alt="available for apple">
+                    <img src="../imgs/introdution/download_for_google_light.png" alt="available for goole">
+                </div>
+
             </div>
-
         </div>
-    </div>
       <img class="picture" src="../imgs/introdution/DesktopHomepage-light.jpg" alt="head image">
 
   </section>
@@ -109,46 +109,157 @@
 
     </section>
 
+    <section id="productivity">
+
+        <div class="heading">
+            <h2><span class="blue__word">Manage time </span> with easy</h2>
+        </div>
+
+        <div class="info">
+
+            <div class="parts">
+                <h4>Visualize Your Productivity Like Never Before</h4>
+                <div class="part">
+                    <span class="emoji">📊</span>
+                    <p><span class="bolder">See the bigger picture — and the small wins:</span> Planit turns your productivity data into clear, insightful visuals that help you understand how you work, what slows you down, and where you thrive.</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">🔍</span>
+                    <p><span class="bolder">Track Trends:</span> Analyze daily, weekly, or monthly progress with beautiful graphs and charts. Discover patterns in your focus, task completion, and time usage.</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">📈</span>
+                    <p><span class="bolder">Measure What Matters:</span> Get real-time analytics on team and individual performance. From task efficiency to deadline accuracy — Planit shows you the metrics that drive growth</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">💡</span>
+                    <p><span class="bolder">Make Data-Driven Decisions:</span> No more guessing. With Planit’s smart dashboards, you can adjust your workflow, set better goals, and continuously improve — all based on real data.</p>
+                </div>
+            </div>
+
+            <div class="images">
+                <img class="back" src="../imgs/introdution/lin_graph_desktop_light.png">
+                <img class="forward" src="../imgs/introdution/bar_graph_desktop_light.png">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="reminders">
+        <div class="heading">
+            <h2>Set <span class="blue__word">reminders</span> for planned task</h2>
+        </div>
+
+        <div class="info">
+
+            <div class="parts">
+                <h4>Never miss a deadline or forget an important task again! With our smart reminder system, you can stay on top of your schedule effortlessly</h4>
+                <div class="part">
+                    <span class="emoji">🔔</span>
+                    <p><span class="bolder">Custom Alerts:</span> Never forget important tasks with flexible reminders. Set one-time alerts for deadlines or recurring notifications for daily habits and weekly meetings. Choose between gentle nudges or prominent alerts based on priority. Perfect for work projects, personal goals, and everything in between.</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">⏰</span>
+                    <p><span class="bolder">Flexible Timing:</span> Get reminded exactly when you need to. Set precise date/time alerts or location-based notifications that trigger when you arrive at specific places. Ideal for grocery lists when near the store or important calls when leaving home. Supports complex schedules like "every other Wednesday" or "weekdays only".</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">📲</span>
+                    <p><span class="bolder">Multi-Device Sync:</span>Your reminders follow you everywhere. Receive instant notifications across all devices - smartphone, tablet, desktop, and smartwatch. Real-time syncing ensures you'll always see alerts whether you're at your desk or on the go.</p>
+                </div>
+
+                <div class="part">
+                    <span class="emoji">🤖</span>
+                    <p><span class="bolder">Smart Notifications: </span> Your reminders follow you everywhere. Receive instant notifications across all devices - smartphone, tablet, desktop, and smartwatch. Real-time syncing ensures you'll always see alerts whether you're at your desk or on the go.</p>
+                </div>
+            </div>
+
+            <div class="images">
+                <img src="../imgs/introdution/mobile_version_light.png" alt="phone_version">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="end">
+        <div class="awards">
+            <div class="award"><p class="text">"Best Productivity App 2025"</p><p class="author">TechFuture Awards</p></div>
+            <div class="award"><p class="text">"Editor’s Choice"</p><p class="author">TechFuture Awards</p></div>
+            <div class="award"><p class="text">"Top Startup in Digital Organization"</p><p class="author">Global Tech Innovation Summit</p></div>
+            <div class="award"></div>
+        </div>
+    </section>
+
 </main>
 
 <script>
 
     $(document).ready(function () {
+        const left = $("#arrowLeft");
+        const right = $("#arrowRight");
+        const cards = $("#about .cards");
+        const dots = $("#about .dots")
 
-        const left = $("#arrowLeft")
-        const right = $("#arrowRight")
-        const cards = $("#about .cards")
+        const scrollAmount = cards.outerWidth() / 3
 
-        var cardsWidth = cards.outerWidth()
-
-        var currentLeftScroll = cards.scrollLeft()
-        console.log(currentLeftScroll)
-        console.log(cardsWidth)
 
         left.click(function () {
-            currentLeftScroll -= 600
-            $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
 
-            if (currentLeftScroll < 0) {
-                currentLeftScroll = cardsWidth
-                $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
+            let currentScroll = cards.scrollLeft();
+
+            if (currentScroll <= 0) {
+                // Прокручиваем до конца вправо (бесконечный цикл)
+                cards.animate({ scrollLeft: cards[0].scrollWidth }, 400);
+            } else {
+                cards.animate({ scrollLeft: currentScroll - scrollAmount }, 400);
             }
-        })
+
+            if (cards.scrollLeft() <= cards.outerWidth() / 3) {
+                console.log("first")
+            }
+
+            if (cards.scrollLeft() > cards.outerWidth() / 3 && cards.scrollLeft() <= cards.outerWidth() / 3 + cards.outerWidth() / 3) {
+                console.log("second")
+            }
+
+            if (cards.scrollLeft() > cards.outerWidth() / 3 + cards.outerWidth() / 3) {
+                console.log("third")
+            }
+
+        });
 
         right.click(function () {
-            currentLeftScroll += 600
 
-            if (currentLeftScroll - cardsWidth > 0 && currentLeftScroll - cardsWidth < 600) {
-                $(".cards").animate({scrollLeft: currentLeftScroll - cardsWidth}, 400)
+            let currentScroll = cards.scrollLeft();
+            const maxScroll = cards[0].scrollWidth - cards.outerWidth();
+
+            if (currentScroll >= maxScroll) {
+                // Прокручиваем до начала (бесконечный цикл)
+                cards.animate({ scrollLeft: 0 }, 400);
+            } else {
+                cards.animate({ scrollLeft: currentScroll + scrollAmount }, 400);
             }
 
-            if (currentLeftScroll > cardsWidth) {
-                currentLeftScroll = 0
-                $(".cards").animate({scrollLeft: currentLeftScroll}, 400)
+            if (cards.scrollLeft() <= cards.outerWidth() / 3) {
+                console.log("first")
             }
-        })
 
-    })
+            if (cards.scrollLeft() > cards.outerWidth() / 3 && cards.scrollLeft() <= cards.outerWidth() / 3 + cards.outerWidth() / 3) {
+                console.log("second")
+            }
+
+            if (cards.scrollLeft() > cards.outerWidth() / 3 + cards.outerWidth() / 3) {
+                console.log("third")
+            }
+        });
+    });
+
 
 </script>
 

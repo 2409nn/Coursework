@@ -24,19 +24,22 @@ ul {
 
 #contextMenu {
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
     position: absolute;
     background-color: var(--borderColor);
     border: 1px solid var(--borderDarkerColor);
     border-radius: 8px;
-    padding: 10px;
+    padding: 4px;
     z-index: 30;
 }
 
 #contextMenu ul li button {
     color: #105EF5;
     background-color: var(--whiteColor);
-    border-radius: 8px;
+    /*border-radius: 8px;*/
+    border-bottom: 1px solid var(--borderColor);
     width: 100px;
     height: 30px;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }

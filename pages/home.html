@@ -181,9 +181,9 @@
 
   </nav>
 
-  <button id="changeTheme">Switch UI theme</button>
+  <button class="changeTheme">Switch UI theme</button>
 
-  <div class="upgrade" id="upgradeImage">
+  <div class="upgrade upgradeImage">
     <img src="../imgs/aside/cangs.png" width="50" alt="">
     <h3>Upgrade to PRO</h3>
     <p>Choose best plan for you</p>
@@ -246,6 +246,39 @@
   </form>
 
 </div>
+
+<!--<div id="popWindowProject" class="pop__up">-->
+
+<!--  <img class="close__button" src="../imgs/popup/close__button.png" alt="close">-->
+
+<!--  <div class="heading">-->
+<!--    <h3>Change task</h3>-->
+<!--  </div>-->
+
+<!--  <form id="setProject" action="#">-->
+
+<!--    <input type="text" required placeholder="Project's name">-->
+<!--    <textarea class="project__description" placeholder="Project's description"></textarea>-->
+
+<!--    <div class="selectProject">-->
+<!--      <label for="chooseMembers">Choose project:</label>-->
+<!--      <select id="chooseMembers" multiple>-->
+<!--        <option>member_one</option>-->
+<!--        <option>member_two</option>-->
+<!--        <option>member_three</option>-->
+<!--        <option>member_four</option>-->
+<!--      </select>-->
+<!--    </div>-->
+
+
+<!--    <input type="submit" value="Save">-->
+
+<!--  </form>-->
+
+<!--</div>-->
+
+
+<div id="contextMenu"></div>
 
   <main>
 
@@ -588,6 +621,8 @@
 
 <script src="../functional/dropDownMenu.js"></script>
 <script src="../functional/switchTheme.js"></script>
+<script type="module" src="../functional/dropContextMenu.js"></script>
+<script src="../functional/burgerMenu.js"></script>
 <script>
 
   $(document).ready(function () {
@@ -666,40 +701,7 @@
   })
 
 </script>
-<script type="module">
 
-  import { popUp } from "../functional/popUpFuncs.js";
 
-  $(document).ready(function () {
-
-    $(".task .mainData").on("mousedown", function(event) {
-      event.preventDefault()
-    })
-
-    $(".task .mainData").on("dblclick", function() {
-
-      popUp("popWindowTask")
-
-    })
-
-  })
-</script>
-<script type="module">
-
-  // import {}
-
-  $(document).ready(function () {
-
-    $("#tasks .tasks__list .task").on("contextmenu", function (event) {
-
-      event.preventDefault()
-
-      $(this).css("background-color", "red")
-
-    })
-
-  })
-
-</script>
 </body>
 </html>

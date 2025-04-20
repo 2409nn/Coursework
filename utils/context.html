@@ -135,9 +135,10 @@
 
 <script type="module">
 
-  import { dropContextMenu } from "../functional/contextMenu.js"
+  import { dropContextMenu, hideContextMenu } from "../functional/contextMenu.js"
 
   $(document).ready(function () {
+
 
     $("#tasks .tasks__list .task").on("contextmenu", function (event) {
 
@@ -145,8 +146,17 @@
 
       dropContextMenu("Change", "Remove")
 
+      $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
 
 
+      $("body").click(function (event) {
+
+        if (!event.target.closest("#contextMenu")) {
+          hideContextMenu($("#contextMenu"))
+
+        }
+
+      })
     })
 
   })

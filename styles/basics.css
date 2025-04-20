@@ -493,7 +493,7 @@ aside ul .lists li {
     color: #105EF5;
 }
 
-#changeTheme {
+.changeTheme {
     background-color: var(--grayDarkColor); /* Используем переменную */
     color: var(--whiteColor); /* Используем переменную */
     height: 50px;
@@ -508,7 +508,7 @@ aside ul .lists li {
     width: 91%;
 }
 
-#changeTheme:hover {
+.changeTheme:hover {
     cursor: pointer;
     background-color: var(--hoverButtonColor); /* Используем переменную */ /* Используем переменную */
     transition: 0.25s;
@@ -518,26 +518,62 @@ li svg {
     width: 2.4vw;
 }
 
+#contextMenu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    background-color: var(--borderColor);
+    border: 1px solid var(--borderDarkerColor);
+    border-radius: 8px;
+    padding: 4px;
+    z-index: 30;
+}
+
+#contextMenu ul {
+    padding-left: 0;
+}
+
+#contextMenu ul li button {
+    color: #105EF5;
+    background-color: var(--whiteColor);
+    border-bottom: 1px solid var(--borderColor);
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#contextMenu ul li button:hover {
+    color: #105EF5;
+    background-color: var(--whiteColor);
+    border-bottom: 1px solid var(--borderColor);
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
 .pop__up {
     padding: 24px 30px;
     border: 2px solid var(--borderColor);
     background-color: var(--whiteColor);
     border-radius: 1vw;
-    margin-left: 36%;
     position: fixed;
     z-index: 50;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Центрирование */
+    opacity: 1;
+    display: block;
 
 }
 
 #popWindowPay {
     display: none;
-    bottom: 300px;
     opacity: 0;
 }
 
 #popWindowTask {
     display: none;
-    bottom: 300px;
     opacity: 0;
 }
 
@@ -720,24 +756,12 @@ li svg {
     color: var(--pColor);
 }
 
-#popWindowTask .about__payment {
+#popWindowTask .about__task {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
     margin-top: 60px;
-}
-
-#popWindowTask .about__payment .payment__sum {
-    font-size: 1.8vw;
-}
-
-#popWindowTask .cards img {
-    width: 50px;
-}
-
-#popWindowTask .cards .paypal {
-    width: 35px;
 }
 
 #popWindowTask .close__button {
@@ -751,12 +775,56 @@ li svg {
     transition: filter 0.25s;
 }
 
-.selectProject {
+/*project pop__up*/
+
+#popWindowProject #setTask {
+    margin: 60px auto auto;
+    width: 398px;
+}
+
+#popWindowProject input {
+    background-color: var(--borderColor);
+    border: none;
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+    padding: 14px 30px;
+    border-radius: 10px;
+    transition: box-shadow 0.1s;
+}
+
+#popWindowProject input:focus {
+    box-shadow: inset 0 0 0 1.8px #105EF5;
+    transition: 0.25s;
+}
+
+
+#popWindowProject input[type="submit"] {
+    width: 100%;
+    background-color: #105EF5;
+    color: white;
+    margin-top: 70px;
+    font-weight: 600;
+    height: fit-content;
+    transition: 0.25s;
+}
+
+#popWindowProject input[type="submit"]:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#popWindowTask input::placeholder {
+    color: var(--pColor);
+}
+
+.selectMember {
     text-align: center;
     margin: 20px 0;
 }
 
-.selectProject label {
+.selectMember label {
     margin-right: 20px;
 }
 
@@ -776,10 +844,50 @@ li svg {
     transition: 0.25s;
 }
 
+@media screen and (max-width: 1077px) {
+    input[type="checkbox"] {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+
+    input[type="checkbox"]::before {
+        content: "";
+        width: 7px !important;
+        height: 7px !important;
+        background-color: #3978f6;
+        border-radius: 50% !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    aside ul li a span {
+        font-size: 10px;
+        margin-left: 0;
+    }
+
+    aside ul li {
+        padding-left: 0;
+    }
+}
+
 @media (max-width: 700px) {
 
     aside {
         display: none;
+        transform: translateX(-100%);
+    }
+
+    aside.active {
+        display: block;
+        z-index: 1;
+        width: 200px;
+        transform: translateX(0);
+        transition: transform 1s;
     }
 
     #mobileNav {
@@ -825,35 +933,27 @@ li svg {
         color: #105EF5;
         margin: auto 1vw;
     }
-}
 
-@media screen and (max-width: 1077px) {
-    input[type="checkbox"] {
-        width: 15px !important;
-        height: 15px !important;
+    aside .changeTheme {
+        font-size: 12px;
+        width: 100%;
     }
 
-
-    input[type="checkbox"]::before {
-        content: "";
-        width: 7px !important;
-        height: 7px !important;
-        background-color: #3978f6;
-        border-radius: 50% !important;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
+    aside .upgrade img {
+        width: 50px;
     }
-}
 
-@media screen and (max-width: 1040px) {
-    aside ul li a span {
+    aside .upgrade h3 {
+        font-size: 14px;
+    }
+
+    aside .upgrade p {
         font-size: 10px;
-        margin-left: 0;
     }
 
-    aside ul li {
-        padding-left: 0;
+    aside .upgrade a button {
+        font-size: 12px;
+        border: 5px;
+        padding: 8px 21px;
     }
 }

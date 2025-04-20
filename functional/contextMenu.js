@@ -3,13 +3,13 @@ export function dropContextMenu(...contextElems) {
     const elems = [...contextElems]
     const menu = $("#contextMenu")
 
-    contextMenu.html("<ul></ul>")
+    menu.html("<ul></ul>")
 
     for (let elem of elems) {
-        $("#contextMenu ul").append(`<li><button>${elem}</button></li>`)
+        $("#contextMenu ul").append(`<li><button class="${elem.toLowerCase()}Btn">${elem}</button></li>`)
     }
 
-    menu.css("display", "block")
+    menu.css("display", "flex")
 
 }
 
