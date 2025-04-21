@@ -1,6 +1,15 @@
 export function switchElement(elemList, currentElem, back, next) {
 
-    let currentElemIndex = elemList.indexOf(currentElem.text())
+
+    let currentElemIndex
+
+    if (typeof currentElem === "string") {
+        currentElemIndex = elemList.indexOf(currentElem.text())
+    }
+
+    else if (typeof currentElem === "number") {
+        currentElemIndex = currentElem
+    }
 
     currentElem.on("selectstart", function (event) {
         event.preventDefault()

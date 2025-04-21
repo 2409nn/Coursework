@@ -152,8 +152,18 @@ form p {
     text-align: center;
 }
 
-.have__account a {
+.have__account button {
     color: black;
+    border: none;
+    width: fit-content;
+    display: inline;
+    padding: 0;
+    font-weight: 500;
+}
+
+.have__account button:hover {
+    color: #105EF5;
+    background: none;
 }
 
 #picture {
@@ -197,4 +207,15 @@ form p {
         grid-template-columns: 1fr;
         padding: 20px 100px;
     }
+}
+
+input[type="email"].error {
+    border-color: var(--badTextColor);
+    background-color: var(--badBackgroundColor);
+}
+
+
+input[type="password"].error {
+    border-color: var(--badTextColor);
+    background-color: var(--badBackgroundColor);
 }

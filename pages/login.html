@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Log in</title>
+  <meta charset="UTF-8">
+  <title>Log in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/basics.css">
   <link rel="stylesheet" href="../styles/login.css">
@@ -10,37 +10,138 @@
 </head>
 <body>
 
-  <main>
-    <section id="signIn">
-      <div class="heading">
-        <h1>Welcome Back</h1>
-        <p>Sign up to continue</p>
-        <div class="buttons">
-          <button><img src="../imgs/signUp/google.png" alt="icon" class="ico"><span>Continue with Google</span></button>
-          <button><img src="../imgs/signUp/facebook.png" alt="icon" class="ico"><span>Continue with Facebook</span></button>
-          <button><img src="../imgs/signUp/Apple.png" alt="icon" class="ico"><span>Continue with Apple</span></button>
-        </div>
+<main>
+  <section id="signIn">
+    <div class="heading">
+      <h1>Welcome Back</h1>
+      <p>Sign up to continue</p>
+      <div class="buttons">
+        <button><img src="../imgs/signUp/google.png" alt="icon" class="ico"><span>Continue with Google</span></button>
+        <button><img src="../imgs/signUp/facebook.png" alt="icon" class="ico"><span>Continue with Facebook</span></button>
+        <button><img src="../imgs/signUp/Apple.png" alt="icon" class="ico"><span>Continue with Apple</span></button>
       </div>
+    </div>
 
-      <hr>
+    <hr>
 
-      <form>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <input class="submit" type="submit" value="Sign up">
-        <p>By continuing with Google, Facebook, Apple, or Email, you agree to planit <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
-      </form>
+    <form>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <input class="submit" type="submit" value="Sign up">
+      <p>By continuing with Google, Facebook, Apple, or Email, you agree to planit <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+    </form>
 
-      <hr>
+    <hr>
 
-      <p class="have__account">Already have an account? <a href="#">Login</a></p>
+    <p class="have__account">Already have an account? <button>Login</button></p>
 
-    </section>
-    <section id="picture">
-      <img src="../imgs/signUp/asidePic.jpg" alt="asidePic" width="820" height="1000">
-    </section>
-  </main>
+  </section>
+  <section id="picture">
+    <img src="../imgs/signUp/asidePic.jpg" alt="asidePic" width="820" height="1000">
+  </section>
+</main>
 
-  <!--<script src="../functional/switchTheme.js"></script>-->
+<script>
+
+  $(document).ready(function() {
+    const email = $("input[type='email']")
+    const submit = $("input[type='submit']")
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+    const password = $("input[type='password']")
+    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,}$/
+
+
+    email.click(function() {
+      email.removeClass("error")
+    })
+
+    password.click(function() {
+      password.removeClass("error")
+    })
+
+    submit.click(function(event) {
+      event.preventDefault()
+      email.removeClass("error")
+      password.removeClass("error")
+
+      let emailValue = email.val().trim()
+      let passwordValue = password.val().trim()
+
+      if (emailValue.length === 0) {
+        email.addClass("error")
+        setTimeout(() => alert("Email can not be empty"), 200)
+      }
+      else if (!emailValue.includes("@")) {
+        email.addClass("error");
+        setTimeout(function() { alert('Email must include "@" symbol') }, 200)
+      }
+      else if (!emailRegex.test(emailValue)) {
+        email.addClass("error")
+        setTimeout(function() { alert("Please enter a valid email address") }, 200)
+      }
+
+      else {
+
+        if (submit.val() === "Login") {
+
+          if (passwordValue === localStorage.getItem('userPassword') && emailValue.toLowerCase() === localStorage.getItem('userEmail').toLowerCase()) {
+            window.location.href = "./home.html"
+          }
+
+          else {
+            alert("Email or password is incorrect")
+          }
+
+        }
+
+        else if (submit.val() === "Sign up") {
+          alert(localStorage.getItem("userEmail").toLowerCase())
+
+          if (emailValue.toLowerCase() === localStorage.getItem('userEmail').toLowerCase()) {
+            alert("This email adress is already taken")
+          }
+
+          else {
+            window.location.href = "./plans.html"
+          }
+
+        }
+      }
+
+      // проверка password
+      if (passwordValue.length === 0) {
+        password.addClass("error")
+        setTimeout(function() { alert("Password can not be empty") }, 200)
+      }
+
+      else if (!passwordRegex.test(passwordValue)) {
+        password.addClass("error")
+        setTimeout(function() { alert("Please enter a valid password") }, 200)
+      }
+
+    })
+
+    $(".have__account button").click(function() {
+      // Получаем текущий текст кнопки
+      const buttonText = $(this).text().trim()
+
+      // Находим кнопку submit (предполагая, что она есть в форме)
+      const submit = $("input[type='submit'], button[type='submit']")
+
+      if (buttonText === "Login") {
+        submit.val("Login")
+        $(this).text("Sign up")
+      }
+      else if (buttonText === "Sign up") {
+        submit.val("Sign up")
+        $(this).text("Login")
+      }
+    })
+
+  })
+
+</script>
+
 </body>
 </html>

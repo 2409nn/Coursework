@@ -6,8 +6,6 @@ $(document).ready(function() {
 
         $("aside").toggleClass("active")
 
-        $("aside .logo").css("display", "none");
-
         $("aside nav li a").css({"marginLeft" : "20px"})
 
         $("aside nav li a span").css({"fontSize": "12px",

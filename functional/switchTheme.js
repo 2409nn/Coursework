@@ -1,16 +1,9 @@
-const $button = $(".changeTheme");
-const $upgradeBackgroundImage = $(".upgradeImage");
-const $backgroundImage = $("#headingOfBanner");
-const $icon = $(".icon");
-let theme = "light";
+const $button = $(".changeTheme")
+const $upgradeBackgroundImage = $(".upgradeImage")
+const $backgroundImage = $("#headingOfBanner")
 
-// Если нужно загрузить тему из JSON (раскомментируйте)
-// $.getJSON("../data/dataset.json", function(data) {
-//     theme = data.currentTheme;
-// });
-
-function changeThemeToDark() {
-    if (theme === "light") {
+function applyTheme(theme) {
+    if (theme === "dark") {
         $(":root").css({
             "--whiteColor": "#0E1013",
             "--textColor": "#FFFFFF",
@@ -23,17 +16,11 @@ function changeThemeToDark() {
             "--borderDarkerColor": "#7e7e7e"
         });
 
-        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro__dark.png")');
+        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro__dark.png")')
         if ($backgroundImage.length) {
-            $backgroundImage.css("background-image", 'url("../imgs/main/background__dark.png")');
+            $backgroundImage.css("background-image", 'url("../imgs/main/background__dark.png")')
         }
-
-        theme = "dark";
-    }
-}
-
-function changeThemeToLight() {
-    if (theme === "dark") {
+    } else {
         $(":root").css({
             "--whiteColor": "#FFFFFF",
             "--textColor": "#1e1e1e",
@@ -46,19 +33,22 @@ function changeThemeToLight() {
             "--borderDarkerColor": "#e4e4e4"
         });
 
-        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro.png")');
+        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro.png")')
         if ($backgroundImage.length) {
-            $backgroundImage.css("background-image", 'url("../imgs/main/background.png")');
+            $backgroundImage.css("background-image", 'url("../imgs/main/background.png")')
         }
-
-        theme = "light";
     }
 }
 
+let theme = localStorage.getItem("theme") || "light"
+
+applyTheme(theme)
+
 $button.on("click", function() {
-    if (theme === "dark") {
-        changeThemeToLight();
-    } else {
-        changeThemeToDark();
-    }
-});
+
+    theme = theme === "dark" ? "light" : "dark"
+
+    applyTheme(theme)
+    localStorage.setItem("theme", theme)
+
+})

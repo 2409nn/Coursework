@@ -54,10 +54,10 @@
         </button>
         <div class="drop__menu">
           <div class="items__list">
-            <button class="menu__elem">New task</button>
-            <button class="menu__elem">New project</button>
-            <button class="menu__elem">New week goal</button>
-            <button class="menu__elem">New month goal</button>
+            <button class="menu__elem" id="newTaskBtn">New task</button>
+            <button class="menu__elem" id="newProjectBtn">New project</button>
+            <button class="menu__elem" id="newWeekGoalBtn">New week goal</button>
+            <button class="menu__elem" id="newMonthGoalBtn">New month goal</button>
           </div>
         </div>
 
@@ -280,12 +280,14 @@
 
 </div>
 
+<!--pop windows-->
+
 <div id="popWindowTask" class="pop__up">
 
   <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
 
   <div class="heading">
-    <h3>Change task</h3>
+    <h3>Set task</h3>
   </div>
 
   <form id="setTask" action="#">
@@ -334,14 +336,21 @@
 <!--    <input type="text" required placeholder="Project's name">-->
 <!--    <textarea class="project__description" placeholder="Project's description"></textarea>-->
 
-<!--    <div class="selectProject">-->
-<!--      <label for="chooseMembers">Choose project:</label>-->
-<!--      <select id="chooseMembers" multiple>-->
-<!--        <option>member_one</option>-->
-<!--        <option>member_two</option>-->
-<!--        <option>member_three</option>-->
-<!--        <option>member_four</option>-->
+<!--    <div class="multi-select">-->
+
+<!--      <div class="selected__list">-->
+
+<!--      </div>-->
+
+<!--      <label for="participants">Выберите участников:</label>-->
+<!--      <select id="participants" name="participants" multiple>-->
+<!--        <option value="1">Иван Петров</option>-->
+<!--        <option value="2">Мария Сидорова</option>-->
+<!--        <option value="3">Алексей Иванов</option>-->
+<!--        <option value="4">Елена Смирнова</option>-->
+<!--        <option value="5">Дмитрий Кузнецов</option>-->
 <!--      </select>-->
+<!--      <div class="selected-items"></div>-->
 <!--    </div>-->
 
 
@@ -416,7 +425,6 @@
 
       <div class="heading">
         <h3>My tasks</h3>
-        <a href="#">See all</a>
       </div>
 
       <ul class="tasks__list">
@@ -530,7 +538,6 @@
     <section id="projects">
       <div class="heading">
         <h3>Projects</h3>
-        <a>See all</a>
       </div>
       <div class="projects">
         <div class="project">
@@ -624,7 +631,6 @@
     <section id="calendar">
       <div class="heading">
         <h3>Calendar</h3>
-        <a>See all</a>
       </div>
       <div class="date">
         <p class="day">Today</p>
@@ -693,7 +699,9 @@
 
   </main>
 
-<script src="../functional/dropDownMenu.js"></script>
+<script src="../functional/init.js"></script>
+
+<script type="module" src="../functional/dropDownMenu.js"></script>
 <script src="../functional/switchTheme.js"></script>
 <script type="module" src="../functional/dropContextMenuTP.js"></script>
 <script type="module" src="../functional/dropContextMenuN.js"></script>

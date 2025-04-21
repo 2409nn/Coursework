@@ -480,13 +480,7 @@
 
   import {switchElement} from "../functional/switchElement.js"
 
-  fetch("../data/dataset.json")
-    .then(response => response.json())
-    .then(data => {
-      let months = data["months"]
-      let currentMonth = $("#teamProductivity .choose__month span")
-      let back = $(".back")
-      let next = $(".next")
+  let projects = localStorage.setItem("projects", "projectNames": ["Fitness app", "Website dashboard", "Promotion", "Saas dashboard"])
 
       switchElement(months, currentMonth, back, next)
     })

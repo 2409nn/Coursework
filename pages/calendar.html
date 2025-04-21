@@ -420,7 +420,7 @@
 </main>
 
 <script src="../functional/switchTheme.js"></script>
-<script src="../functional/dropDownMenu.js"></script>
+<script type="module" src="../functional/dropDownMenu.js"></script>
 <script type="module" src="../functional/dropContextMenuTP.js"></script>
 
 <script type="module">
@@ -428,6 +428,13 @@
   import {switchElement} from "../functional/switchElement.js"
 
   $(document).ready(function () {
+
+    let projects = localStorage.getItem("projects");
+    let now = new Date()
+
+
+    console.log()
+    switchElement(projects, now.getMonth(), $(".choose__month .back"), $(".choose__month .next"));
 
     function daysButton() {
       const days = $(".calendar__elem .day button")
@@ -443,26 +450,6 @@
 
     daysButton()
 
-    fetch('../data/dataset.json')
-            .then(response => response.json())
-            .then(data => {
-
-              let months = data["months"]
-              let projects = data["projectNames"]
-
-              let currentProject = $(".projectName")
-              let currentMonth = $("#selectedMonth")
-
-              let nextCalendar = $("#calendar .choose__month .next")
-              let backCalendar = $("#calendar .choose__month .back")
-              let nextProject = $("#projects .arrows .next")
-              let backProject = $("#projects .arrows .back")
-
-              switchElement(months, currentMonth, backCalendar, nextCalendar)
-              switchElement(projects, currentProject, backProject, nextProject)
-
-            })
-            .catch(error => console.error('Ошибка при загрузке JSON:', error))
   })
 
 </script>

@@ -10,11 +10,10 @@ main {
 }
 
 #tasks {
+    grid-template-rows: 10% 40% 30%;
     overflow-x: hidden;
-    /*width: 41.38vw;*/
     height: 370px;
     display: grid;
-    grid-row-start: 1;
     grid-column: 9 / 29;
     grid-row: 1;
     background-color: var(--whiteColor);
@@ -37,6 +36,9 @@ main {
 #tasks .tasks__list {
     padding: 0 0 10px 0;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 
