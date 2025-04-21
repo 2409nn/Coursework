@@ -18,6 +18,95 @@
     --mediumTextColor: #FFAE00;
     --badBackgroundColor: #FFD8D8;
     --badTextColor: #F44747;
+    --borderDarkerColor: #e4e4e4
+}
+
+.notifications {
+    transform: translateX(100%);
+    display: flex;
+    position: fixed;
+    background-color: var(--whiteColor);
+    height: 100%;
+    width: 460px;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    border-left: 2px solid var(--borderColor);
+    transition: 0.5s transform;
+}
+
+.notifications.active {
+    transform: translateX(0);
+}
+
+.notifications .container {
+    padding: 30px 20px;
+    background-color: var(--borderColor);
+    border-radius: 15px;
+    width: 80%;
+    height: 70%;
+    margin: 100px auto;
+    overflow-y: scroll;
+}
+
+.notifications .container::-webkit-scrollbar {
+    display: none;
+}
+
+.notif__list {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.notif {
+    background-color: var(--whiteColor);
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.notif .main__data {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.notif .title {
+    max-width: 50%;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--textColor);
+}
+
+.notif .deadline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.notif .project {
+    font-weight: 500;
+    color: var(--pColor);
+}
+
+.notif .project .project__name {
+    color: var(--textColor);
+}
+
+.notif .deadline span {
+    color: var(--pColor);
+}
+
+.notif .deadline .deadline__date {
+    color: var(--textColor);
+    font-weight: 500;
+}
+
+.notif .deadline svg {
+    color: #105EF5;
 }
 
 #mobileNav {
@@ -302,6 +391,7 @@ header nav .controls img {
 
 header nav .controls svg {
     margin: 10px;
+    color: var(--textColor);
 }
 
 header .controls .search {
@@ -544,7 +634,8 @@ li svg {
 }
 
 #contextMenu ul li button:hover {
-    color: #105EF5;
+    cursor: pointer;
+    color: #3978f6;
     background-color: var(--whiteColor);
     border-bottom: 1px solid var(--borderColor);
     width: 100px;
