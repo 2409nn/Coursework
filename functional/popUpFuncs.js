@@ -71,5 +71,5 @@ export async function popUp(popId) {
             $(window).off("keydown", onEsc);
             $(".close__button").off("click", onClickClose);
         }
-    });
+    })
 }

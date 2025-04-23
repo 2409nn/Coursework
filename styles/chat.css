@@ -10,6 +10,8 @@ main {
     /*grid-column-gap: 24px;*/
     background-color: var(--backgroundColor);
     /*grid-template-rows: repeat(36, 50px);*/
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 #writeMessage {
@@ -106,33 +108,33 @@ main {
 }
 
 .message {
-    display: grid;
-    grid-template-columns: 70px auto;
-    grid-template-rows: 32px auto;
-
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background-color: var(--whiteColor);
     border: 1px solid var(--borderColor);
     border-radius: 16px;
     padding: 20px 40px;
     height: fit-content;
-
     max-width: 810px;
 }
 
+.message .user__data {
+    display: flex;
 
-.message img {
-    width: 48px;
-    grid-row: 1;
-    grid-column: 1;
-    margin: auto 0;
 }
+
+.message .user__data img {
+    width: 35px;
+}
+
 
 .message .user__name {
     color: #105EF5;
     font-weight: 500;
-    margin: auto 0;
-    grid-row: 1;
-    grid-column: 2;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .message .text {
@@ -144,10 +146,6 @@ main {
 
 .message__own {
     align-self: flex-end;
-    display: grid;
-    grid-template-columns: auto 70px;
-    grid-template-rows: 32px auto;
-
     background-color: var(--whiteColor);
     border: 1px solid var(--borderColor);
     border-radius: 16px;
@@ -162,6 +160,8 @@ main {
 
 .message__own .text {
     grid-column: 1;
+    white-space: wrap;
+    max-width: 700px;
 }
 
 .message__own .user__name {

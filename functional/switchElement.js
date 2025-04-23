@@ -1,19 +1,25 @@
-export function switchElement(elemList, currentElem, back, next) {
+function monthDays(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+}
 
+export function switchElement(elemList, currentElem, back, next, elemIndex) {
 
     let currentElemIndex
+    let now = new Date()
 
-    if (typeof currentElem === "string") {
+    if (typeof elemIndex === "undefined") {
         currentElemIndex = elemList.indexOf(currentElem.text())
     }
 
-    else if (typeof currentElem === "number") {
-        currentElemIndex = currentElem
+    else {
+        currentElemIndex = elemIndex
     }
 
     currentElem.on("selectstart", function (event) {
         event.preventDefault()
     })
+
+    currentElem.text(elemList[currentElemIndex])
 
     next.click(function () {
         currentElemIndex++
@@ -23,6 +29,9 @@ export function switchElement(elemList, currentElem, back, next) {
         }
 
         currentElem.text(elemList[currentElemIndex])
+
+        console.log(monthDays(now.getFullYear(), currentElemIndex))
+
     })
 
     back.click(function () {
@@ -34,6 +43,10 @@ export function switchElement(elemList, currentElem, back, next) {
         }
 
         currentElem.text(elemList[currentElemIndex])
+
+        console.log(monthDays(now.getFullYear(), currentElemIndex))
     })
+
+
 
 }

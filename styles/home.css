@@ -10,7 +10,7 @@ main {
 }
 
 #tasks {
-    grid-template-rows: 10% 40% 30%;
+    grid-template-rows: 10% 70% 20%;
     overflow-x: hidden;
     height: 370px;
     display: grid;
@@ -775,7 +775,7 @@ main {
 
     main {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(10, auto);
         row-gap: 10px;
         height: 100%;
     }
@@ -794,8 +794,7 @@ main {
     #projects {
         height: fit-content;
         grid-column: 1;
-        grid-row: 3;
-
+        grid-row: 4;
         width: auto;
     }
 

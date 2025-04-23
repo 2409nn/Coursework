@@ -132,10 +132,11 @@ button span:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: #3978f6;
+    filter: brightness(110%);
     cursor: pointer;
     transition: 0.25s;
 }
+
 
 
 #login {

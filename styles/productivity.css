@@ -6,6 +6,7 @@ main {
     display: grid;
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(20, 5%);
+    background-color: var(--backgroundColor);
 }
 
 section {

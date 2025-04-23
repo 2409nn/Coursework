@@ -335,18 +335,19 @@ select::-webkit-validation-bubble-arrow {
     background-image: url("../imgs/aside/background_upgrade_pro.png");
     background-size: contain;
     background-repeat: no-repeat;
-    padding: 20px;
-    /*margin-top: 10%;*/
+    padding: 10px 20px;
+    width: 100%;
 }
 
 .upgrade img {
-    width: 2.9vw;
+    width: 2.5vw;
 }
 
 .upgrade h3 {
     font-weight: 500;
     margin-top: 0.6vw;
     font-size: 1.2vw;
+    white-space: nowrap;
 }
 
 .upgrade p {
@@ -445,22 +446,38 @@ header .controls .search svg {
 /* --- aside --- */
 
 aside {
-    width: 16vw;
+    display: grid;
+    padding: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    width: 15.7vw;
     height: 100%;
     background-color: var(--whiteColor); /* Используем переменную */
-    padding: 20px;
+    /*padding: 20px;*/
     position: fixed;
     left: 0;
     top: 0;
     z-index: 20;
     border-right: 1px solid var(--borderColor);
+    overflow-y: scroll;
+}
 
+aside::-webkit-scrollbar {
+    display: none;
 }
 
 aside ul {
     padding: 0;
     margin-top: 50px;
     margin-left: 20px;
+}
+
+aside .special li:hover {
+    background-color: var(--whiteColor);
+}
+
+aside .special li {
+    padding: 0;
+    width: 100%;
 }
 
 aside ul li {
@@ -474,13 +491,8 @@ aside ul li {
     color: var(--pColor);
 }
 
-
-#rocketWindow {
-    stroke: var(--backgroundColor);
-}
-
 aside ul li svg {
-    color: var(--pColor);
+    color: var(--textColor);
     min-width: 30px;
 }
 
@@ -503,49 +515,15 @@ aside nav ul li:hover > a svg {
     color: #105EF5;
 }
 
-
 aside ul li a span {
     margin-left: 14px;
     display: flex;
     justify-content: space-between;
 }
 
-
-
-/* --- aside lists --- */
-
-aside ul .lists {
-    margin-top: 30px;
-}
-
-aside ul .lists li {
-    padding: 25px;
-    display: flex;
-    justify-content: space-around;
-}
-
-/* --- log out --- */
-
-.logout {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    margin-top: 10%;
-}
-
-.logout span {
-    margin-left: 8px;
-}
-
-
-#rocketWindow {
-    stroke: var(--backgroundColor);
-}
-
 aside ul li svg {
     color: var(--pColor);
 }
-
 
 aside ul li a {
     display: flex;
@@ -561,8 +539,6 @@ aside ul li a span {
     justify-content: space-between;
 }
 
-/* --- aside lists --- */
-
 aside ul .lists {
     margin-top: 30px;
 }
@@ -573,17 +549,26 @@ aside ul .lists li {
     justify-content: space-around;
 }
 
-/* --- log out --- */
-
 .logout {
-    padding: 20px;
     display: flex;
     align-items: center;
-    margin-top: 10%;
+    margin: 10% 0;
+    color: var(--textColor);
+    padding: 0;
+    padding-bottom: 20px;
+    width: 88%;
 }
 
 .logout span {
     margin-left: 8px;
+}
+
+.logout__icon {
+    color: var(--textColor) !important;
+}
+
+.special__buttons {
+    display: none;
 }
 
 .current__link {
@@ -607,13 +592,13 @@ aside ul .lists li {
     height: 50px;
     border-radius: 14px;
     border: none;
-    margin-top: 100%;
+    margin-top: 30%;
     position: relative;
     bottom: 20px;
     transition: 0.25s;
     font-weight: 600;
     font-size: 0.8vw;
-    width: 91%;
+    width: 100%;
 }
 
 .changeTheme:hover {
@@ -662,6 +647,7 @@ li svg {
 }
 
 .pop__up {
+    min-width: 400px;
     padding: 24px 30px;
     border: 2px solid var(--borderColor);
     background-color: var(--whiteColor);
@@ -674,6 +660,10 @@ li svg {
     opacity: 1;
     display: block;
 
+}
+
+.pop__up .heading {
+    padding: 20px 0;
 }
 
 #popWindowPay {
@@ -884,7 +874,16 @@ li svg {
     transition: filter 0.25s;
 }
 
-/*project pop__up*/
+#popWindowTask .selectProject {
+    margin: 20px 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+#popWindowProject {
+    display: none;
+}
 
 #popWindowProject #setTask {
     margin: 60px auto auto;
@@ -1039,16 +1038,76 @@ li svg {
     }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 770px) {
+    aside {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 700px) {
 
     aside {
         display: none;
     }
 
-    aside.active {
+    aside .special__buttons {
         display: block;
+    }
+
+    .controls {
+        display: flex;
+    }
+
+    aside .controls__mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .special .controls__mobile button {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        width: 100%;
+        height: 40px;
+        margin: auto;
+        color: white;
+        background-color: #105EF5;
+        border-radius: 12px;
+        margin-top: 5px;
+    }
+
+    .special .controls__mobile button svg {
+        color: white;
+    }
+
+    .special svg {
+        color: white;
+    }
+
+    .controls__mobile button span {
+        margin-left: 20px;
+    }
+
+    aside.active {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
         z-index: 1;
         width: 200px;
+        height: 100%;
+        padding: 20px;
+        padding-bottom: 0;
+        overflow-y: scroll;
+    }
+
+    aside .changeTheme {
+        margin-top: 40px;
+        color: var(--whiteColor);
+        text-align: center;
+    }
+
+    aside.active ul {
+        margin-top: 0;
+        padding-top: 60px;
     }
 
     aside.active .logo {
@@ -1109,7 +1168,7 @@ li svg {
     }
 
     aside .upgrade img {
-        width: 50px;
+        width: 30px;
     }
 
     aside .upgrade h3 {

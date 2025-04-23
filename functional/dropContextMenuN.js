@@ -8,18 +8,15 @@ $(document).ready(function () {
         event.preventDefault()
 
         $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
-
         dropContextMenu("Remove")
 
         $(".removeBtn").on("click", function () {
-
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
         })
 
         $("body").click(function (event) {
-
             if (!event.target.closest("#contextMenu")) {
                 hideContextMenu($("#contextMenu"))
 

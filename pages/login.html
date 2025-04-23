@@ -25,9 +25,9 @@
     <hr>
 
     <form>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input class="submit" type="submit" value="Sign up">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input class="submit" type="submit" value="Sign up" required>
       <p>By continuing with Google, Facebook, Apple, or Email, you agree to planit <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
     </form>
 
@@ -96,7 +96,6 @@
         }
 
         else if (submit.val() === "Sign up") {
-          alert(localStorage.getItem("userEmail").toLowerCase())
 
           if (emailValue.toLowerCase() === localStorage.getItem('userEmail').toLowerCase()) {
             alert("This email adress is already taken")
@@ -123,10 +122,8 @@
     })
 
     $(".have__account button").click(function() {
-      // Получаем текущий текст кнопки
       const buttonText = $(this).text().trim()
 
-      // Находим кнопку submit (предполагая, что она есть в форме)
       const submit = $("input[type='submit'], button[type='submit']")
 
       if (buttonText === "Login") {

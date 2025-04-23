@@ -103,6 +103,7 @@ main {
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(20, 5%);
     height: 100vh;
+    background-color: var(--backgroundColor);
 }
 
 #projects {
@@ -219,11 +220,11 @@ main {
 }
 
 #weekProgressLine {
-    width: 70%;
+    width: 0%;
 }
 
 #monthProgressLine {
-    width: 40%;
+    width: 0%;
 }
 
 #projects .progress__bar {
