@@ -190,11 +190,13 @@ main {
     text-decoration: underline;
 }
 #projects .projects {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /*align-items: center;*/
     overflow-y: scroll;
     padding-top: 10px;
+    flex-wrap: wrap;
+    row-gap: 20px;
 }
 
 #projects .projects::-webkit-scrollbar {
@@ -277,6 +279,7 @@ main {
     border: 1px solid var(--borderColor);
     transition: 0.25s;
 }
+
 #projects .projects .new__project:hover {
     background-color: var(--hoverElementColor);
 }
@@ -584,7 +587,7 @@ main {
 
 @media screen and (max-width: 1170px) {
     #tasks {
-        height: max-content;
+        height: 400px;
         grid-column: 8 / 33;
         grid-row: 1 / 15;
     }
@@ -780,6 +783,9 @@ main {
         height: 100%;
     }
 
+    .drop__menu .active__drop__menu {
+
+    }
 
     #projects .projects .project .project__operations {
         margin-top: 5%;
@@ -830,7 +836,7 @@ main {
     }
 
     #calendar {
-        grid-row: 4;
+        grid-row: 5;
         padding: 20px;
         height: 100%;
         width: auto;

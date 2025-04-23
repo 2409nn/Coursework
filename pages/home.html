@@ -21,6 +21,14 @@
       <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
       <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
       <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
+      <div class="drop__menu">
+        <div class="items__list">
+          <button class="menu__elem newTaskBtn">New task</button>
+          <button class="menu__elem newProjectBtn">New project</button>
+          <button class="menu__elem newWeekGoalBtn">New week goal</button>
+          <button class="menu__elem newMonthGoalBtn">New month goal</button>
+        </div>
+      </div>
     </ul>
     <ul id="desktopNav">
       <li class="path">
@@ -37,7 +45,7 @@
           </svg>
 
         </div>
-        <button id="create">
+        <button class="create">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2436)">
               <path d="M15.9998 29.3334C23.3332 29.3334 29.3332 23.3334 29.3332 16C29.3332 8.66669 23.3332 2.66669 15.9998 2.66669C8.6665 2.66669 2.6665 8.66669 2.6665 16C2.6665 23.3334 8.6665 29.3334 15.9998 29.3334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -54,10 +62,10 @@
         </button>
         <div class="drop__menu">
           <div class="items__list">
-            <button class="menu__elem" id="newTaskBtn">New task</button>
-            <button class="menu__elem" id="newProjectBtn">New project</button>
-            <button class="menu__elem" id="newWeekGoalBtn">New week goal</button>
-            <button class="menu__elem" id="newMonthGoalBtn">New month goal</button>
+            <button class="menu__elem newTaskBtn">New task</button>
+            <button class="menu__elem newProjectBtn">New project</button>
+            <button class="menu__elem newWeekGoalBtn">New week goal</button>
+            <button class="menu__elem newMonthGoalBtn">New month goal</button>
           </div>
         </div>
 
@@ -367,6 +375,25 @@
 
 </div>
 
+<div id="popWindowWeekGoal" class="pop__up">
+
+  <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
+
+  <div class="heading">
+    <h3>Set week goal</h3>
+  </div>
+
+  <form id="setWeekGoal" action="#">
+
+    <input type="text" required placeholder="Goal's name">
+    <textarea class="goal__description" placeholder="Goal's description"></textarea>
+
+    <input type="submit" value="Save">
+
+  </form>
+
+</div>
+
 <div id="contextMenu"></div>
 
   <main>
@@ -530,6 +557,23 @@
             <p>Create new project</p>
           </div>
         </a>
+        <div class="project">
+          <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
+          <div class="project__info">
+            <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
+            <h4 class="project__name">Project name</h4>
+            <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, blanditiis consequuntur deleniti doloremque eaque excepturi facilis!</p>
+            <div class="project__operations">
+              <button class="more__btn">View all</button>
+              <div class="members">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member1">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member2">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member3">
+                <span class="plus__members">+12</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -650,7 +694,6 @@
   </main>
 
 <script src="../functional/init.js"></script>
-
 <script type="module" src="../functional/dropDownMenu.js"></script>
 <script src="../functional/switchTheme.js"></script>
 <script type="module" src="../functional/dropContextMenuTP.js"></script>
@@ -745,9 +788,15 @@
 
       popUp("popWindowProject")
 
-    })
+      let submit = $(`#popWindowProject input[type="submit"]`)
 
+      submit.click(function (event) {
+
+        event.preventDefault()
+      })
+    })
   })
+
 </script>
 <script type="module">
 
@@ -802,6 +851,35 @@
 
     $("#calendar .date__title").text(`${weekday}, ${now.getDate()} ${months[now.getMonth() - 1]} ${now.getFullYear()}`)
 
+  })
+
+</script>
+<script type="module">
+
+  $("#popWindowProject input[type=\"submit\"]").click(function () {
+
+    sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
+    sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
+
+    let projectBlock = `<div class="project">
+          <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
+          <div class="project__info">
+            <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
+            <h4 class="project__name">${sessionStorage.getItem("projectTitle")}</h4>
+            <p class="project__description">${sessionStorage.getItem("projectDesc")}</p>
+            <div class="project__operations">
+              <button class="more__btn">View all</button>
+              <div class="members">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member1">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member2">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member3">
+                <span class="plus__members">+12</span>
+              </div>
+            </div>
+          </div>
+        </div>`
+
+    $("#projects .projects").append(projectBlock)
   })
 
 </script>

@@ -468,3 +468,8 @@ main {
 #reminders .images img {
     width: 300px;
 }
+
+#end {
+    width: 100vw;
+    background-image: url("../imgs/introdution/endPic.jpg");
+}

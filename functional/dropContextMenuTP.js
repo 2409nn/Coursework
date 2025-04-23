@@ -4,24 +4,39 @@ import { popUp } from "../functional/popUpFuncs.js";
 $(document).ready(function () {
 
 
-    $("#tasks .task, #projects .goal, #todayTasks .task").on("contextmenu", function (event) {
+    $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project").on("contextmenu", function (event) {
 
         event.preventDefault()
-        let thisTask = $(this)
+        let thisElem = $(this)
 
         dropContextMenu("Change", "Remove")
+        let elemClassName = thisElem.attr("class")
 
         $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
 
         $(".changeBtn").click(function () {
 
-            popUp("popWindowTask")
+            if (elemClassName === "task") {
+                popUp("popWindowTask")
+            }
+
+            if (elemClassName === "project") {
+                popUp("popWindowProject")
+            }
+
             hideContextMenu($("#contextMenu"))
 
         })
 
         $(".removeBtn").click(function () {
-            thisTask.remove()
+
+            if (elemClassName === "project") {
+                if (confirm("Are you sure you want to delete this project?")) {
+                    thisElem.remove()
+                }
+            }
+
+            thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
         })
@@ -35,5 +50,4 @@ $(document).ready(function () {
 
         })
     })
-
 })

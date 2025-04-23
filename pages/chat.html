@@ -17,6 +17,14 @@
       <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
       <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
       <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
+      <div class="drop__menu">
+        <div class="items__list">
+          <button class="menu__elem newTaskBtn">New task</button>
+          <button class="menu__elem newProjectBtn">New project</button>
+          <button class="menu__elem newWeekGoalBtn">New week goal</button>
+          <button class="menu__elem newMonthGoalBtn">New month goal</button>
+        </div>
+      </div>
     </ul>
     <ul id="desktopNav">
       <li class="path">
@@ -33,7 +41,7 @@
           </svg>
 
         </div>
-        <button id="create">
+        <button class="create">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2436)">
               <path d="M15.9998 29.3334C23.3332 29.3334 29.3332 23.3334 29.3332 16C29.3332 8.66669 23.3332 2.66669 15.9998 2.66669C8.6665 2.66669 2.6665 8.66669 2.6665 16C2.6665 23.3334 8.6665 29.3334 15.9998 29.3334Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -50,10 +58,10 @@
         </button>
         <div class="drop__menu">
           <div class="items__list">
-            <button class="menu__elem" id="newTaskBtn">New task</button>
-            <button class="menu__elem" id="newProjectBtn">New project</button>
-            <button class="menu__elem" id="newWeekGoalBtn">New week goal</button>
-            <button class="menu__elem" id="newMonthGoalBtn">New month goal</button>
+            <button class="menu__elem newTaskBtn">New task</button>
+            <button class="menu__elem newProjectBtn">New project</button>
+            <button class="menu__elem newWeekGoalBtn">New week goal</button>
+            <button class="menu__elem newMonthGoalBtn">New month goal</button>
           </div>
         </div>
 
@@ -356,6 +364,25 @@
     <!--      <div class="selected-items"></div>-->
     <!--    </div>-->
 
+
+    <input type="submit" value="Save">
+
+  </form>
+
+</div>
+
+<div id="popWindowWeekGoal" class="pop__up">
+
+  <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
+
+  <div class="heading">
+    <h3>Set week goal</h3>
+  </div>
+
+  <form id="setWeekGoal" action="#">
+
+    <input type="text" required placeholder="Goal's name">
+    <textarea class="goal__description" placeholder="Goal's description"></textarea>
 
     <input type="submit" value="Save">
 
