@@ -1,8 +1,9 @@
 import { dropContextMenu, hideContextMenu } from "../functional/contextMenu.js"
+// import { addEmptyState } from "./addEmptyState.js";
 
 $(document).ready(function () {
 
-    $(".notifications .notif").on("contextmenu", function (event) {
+    $(".notifications .notif, #chats .project").on("contextmenu", function (event) {
 
         let thisElem = $(this)
         event.preventDefault()
@@ -11,8 +12,11 @@ $(document).ready(function () {
         dropContextMenu("Remove")
 
         $(".removeBtn").on("click", function () {
+            addEmptyState(notifications)
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
+
+            addEmptyState($(".notifications"), $("#tasks .empty__state"))
 
         })
 

@@ -162,6 +162,7 @@ main {
     grid-column: 1;
     white-space: wrap;
     max-width: 700px;
+    overflow-wrap: anywhere;
 }
 
 .message__own .user__name {
