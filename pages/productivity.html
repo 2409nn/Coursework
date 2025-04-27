@@ -15,17 +15,17 @@
 <header>
   <nav>
     <ul id="mobileNav">
-      <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
-      <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
-      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
-      <div class="drop__menu">
+      <li id="burger"><button><img src="../imgs/nav/burger_icon.png" alt="burger"></button></li>
+      <li id="logo"><img src="../imgs/aside/logo.png" alt="logo"><span>planit</span></li>
+      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png" alt="avatar"></button></li>
+      <li class="drop__menu">
         <div class="items__list">
           <button class="menu__elem newTaskBtn">New task</button>
           <button class="menu__elem newProjectBtn">New project</button>
           <button class="menu__elem newWeekGoalBtn">New week goal</button>
           <button class="menu__elem newMonthGoalBtn">New month goal</button>
         </div>
-      </div>
+      </li>
     </ul>
     <ul id="desktopNav">
       <li class="path">
@@ -146,7 +146,7 @@
 
     <ul class="special">
 
-      <button class="changeTheme">Switch UI theme</button>
+      <li><button class="changeTheme">Switch UI theme</button></li>
 
       <li class="special__buttons">
 
@@ -198,7 +198,7 @@
           <img src="../imgs/aside/cangs.png" width="50" alt="">
           <h3>Upgrade to PRO</h3>
           <p>Choose best plan for you</p>
-          <a href="plans.html"><button class="active__btn">Go to plans</button></a>
+          <button class="active__btn" onclick="window.location='./plans.html'">Go to plans</button>
         </div>
       </li>
       <li>

@@ -18,7 +18,7 @@ input {
     border-radius: 10px;
     border-width: 1.5px;
     border-color: #858587;
-
+    outline: none;
     border-style: solid;
     height: 30px;
     width: 270px;
@@ -38,7 +38,6 @@ input::placeholder {
 }
 
 input:focus {
-    outline: none;
     border-color: #105EF5;
     transition: 0.25s;
     cursor: text;

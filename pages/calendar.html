@@ -14,17 +14,17 @@
 <header>
   <nav>
     <ul id="mobileNav">
-      <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
-      <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
-      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
-      <div class="drop__menu">
+      <li id="burger"><button><img src="../imgs/nav/burger_icon.png" alt="burger"></button></li>
+      <li id="logo"><img src="../imgs/aside/logo.png" alt="logo"><span>planit</span></li>
+      <li id="userProfile"><button><img src="../imgs/nav/Avatar.png" alt="avatar"></button></li>
+      <li class="drop__menu">
         <div class="items__list">
           <button class="menu__elem newTaskBtn">New task</button>
           <button class="menu__elem newProjectBtn">New project</button>
           <button class="menu__elem newWeekGoalBtn">New week goal</button>
           <button class="menu__elem newMonthGoalBtn">New month goal</button>
         </div>
-      </div>
+      </li>
     </ul>
     <ul id="desktopNav">
       <li class="path">
@@ -145,7 +145,7 @@
 
     <ul class="special">
 
-      <button class="changeTheme">Switch UI theme</button>
+      <li><button class="changeTheme">Switch UI theme</button></li>
 
       <li class="special__buttons">
 
@@ -197,7 +197,7 @@
           <img src="../imgs/aside/cangs.png" width="50" alt="">
           <h3>Upgrade to PRO</h3>
           <p>Choose best plan for you</p>
-          <a href="plans.html"><button class="active__btn">Go to plans</button></a>
+          <button class="active__btn" onclick="window.location='./plans.html'">Go to plans</button>
         </div>
       </li>
       <li>
@@ -430,19 +430,37 @@
       </div>
     </div>
     <p class="projectName">Fitness app</p>
-    <div class="goals">
-      <div class="weekGoals">
-        <h5>Aims for this week</h5>
-        <div class="goal"><input id="weekGoal1" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal1">Design new dashboard</label></div>
-        <div class="goal"><input id="weekGoal2" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal2">Print the documents</label></div>
-        <div class="goal"><input id="weekGoal3" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal3">Sell 99+ licences</label></div>
 
-      </div>
+    <div class="empty__state">
+      <svg fill="currentColor" version="1.1" class="empty-state__pic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           width="800px" height="800px" viewBox="0 0 462.035 462.035"
+           xml:space="preserve">
+<g>
+	<path d="M457.83,158.441c-0.021-0.028-0.033-0.058-0.057-0.087l-50.184-62.48c-0.564-0.701-1.201-1.305-1.879-1.845
+		c-2.16-2.562-5.355-4.225-8.967-4.225H65.292c-3.615,0-6.804,1.661-8.965,4.225c-0.678,0.54-1.316,1.138-1.885,1.845l-50.178,62.48
+		c-0.023,0.029-0.034,0.059-0.057,0.087C1.655,160.602,0,163.787,0,167.39v193.07c0,6.5,5.27,11.771,11.77,11.771h438.496
+		c6.5,0,11.77-5.271,11.77-11.771V167.39C462.037,163.787,460.381,160.602,457.83,158.441z M408.516,134.615l16.873,21.005h-16.873
+		V134.615z M384.975,113.345v42.274H296.84c-2.514,0-4.955,0.805-6.979,2.293l-58.837,43.299l-58.849-43.305
+		c-2.023-1.482-4.466-2.287-6.978-2.287H77.061v-42.274H384.975z M53.523,155.62H36.65l16.873-21.005V155.62z M438.498,348.69H23.54
+		V179.16h137.796l62.711,46.148c4.15,3.046,9.805,3.052,13.954-0.005l62.698-46.144h137.799V348.69L438.498,348.69z"/>
+</g>
+</svg>
+      <p>List is empty</p>
+    </div>
+
+    <div class="goals">
+      <ul class="weekGoals">
+        <li><h5>Aims for this week</h5></li>
+        <li><div class="goal week__goal"><input id="weekGoal1" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal1">Design new dashboard</label></div></li>
+        <li><div class="goal week__goal"><input id="weekGoal2" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal2">Print the documents</label></div></li>
+        <li><div class="goal week__goal"><input id="weekGoal3" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal3">Sell 99+ licences</label></div></li>
+
+      </ul>
       <div class="monthGoals">
         <h5>Aims for this month</h5>
-        <div class="goal"><input id="monthGoal1" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal1">Increase productivity in 2X times</label></div>
-        <div class="goal"><input id="monthGoal2" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal2">Design a web-site about our new products</label></div>
-        <div class="goal"><input id="monthGoal3" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal3">Involve 20+ clients</label></div>
+        <div class="goal month__goal"><input id="monthGoal1" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal1">Increase productivity in 2X times</label></div>
+        <div class="goal month__goal"><input id="monthGoal2" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal2">Design a web-site about our new products</label></div>
+        <div class="goal month__goal"><input id="monthGoal3" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal3">Involve 20+ clients</label></div>
       </div>
     </div>
     <div class="progress">
@@ -585,42 +603,42 @@
         <div class="weekday"><span>Sat</span></div>
         <div class="weekday"><span>Sun</span></div>
       </div>
-      <div class="day"><button>1</button></div>
-      <div class="day"><button class="selected">2</button></div>
-      <div class="day"><button>3</button></div>
-      <div class="day"><button>4</button></div>
-      <div class="day"><button>5</button></div>
-      <div class="day"><button>6</button></div>
-      <div class="day"><button>7</button></div>
-      <div class="day"><button>8</button></div>
-      <div class="day"><button>9</button></div>
-      <div class="day"><button>10</button></div>
-      <div class="day"><button>11</button></div>
-      <div class="day"><button>12</button></div>
-      <div class="day"><button>13</button></div>
-      <div class="day"><button>14</button></div>
-      <div class="day"><button>15</button></div>
-      <div class="day"><button>16</button></div>
-      <div class="day"><button>17</button></div>
-      <div class="day"><button>18</button></div>
-      <div class="day"><button>19</button></div>
-      <div class="day"><button>20</button></div>
-      <div class="day"><button>21</button></div>
-      <div class="day"><button>22</button></div>
-      <div class="day"><button>23</button></div>
-      <div class="day"><button>24</button></div>
-      <div class="day"><button>25</button></div>
-      <div class="day"><button>26</button></div>
-      <div class="day"><button>27</button></div>
-      <div class="day"><button>28</button></div>
-      <div class="day"><button>29</button></div>
-      <div class="day"><button>30</button></div>
-      <div class="day"><button>31</button></div>
+<!--      <div class="day"><button>1</button></div>-->
+<!--      <div class="day"><button>2</button></div>-->
+<!--      <div class="day"><button>3</button></div>-->
+<!--      <div class="day"><button>4</button></div>-->
+<!--      <div class="day"><button>5</button></div>-->
+<!--      <div class="day"><button>6</button></div>-->
+<!--      <div class="day"><button>7</button></div>-->
+<!--      <div class="day"><button>8</button></div>-->
+<!--      <div class="day"><button>9</button></div>-->
+<!--      <div class="day"><button>10</button></div>-->
+<!--      <div class="day"><button>11</button></div>-->
+<!--      <div class="day"><button>12</button></div>-->
+<!--      <div class="day"><button>13</button></div>-->
+<!--      <div class="day"><button>14</button></div>-->
+<!--      <div class="day"><button>15</button></div>-->
+<!--      <div class="day"><button>16</button></div>-->
+<!--      <div class="day"><button>17</button></div>-->
+<!--      <div class="day"><button>18</button></div>-->
+<!--      <div class="day"><button>19</button></div>-->
+<!--      <div class="day"><button>20</button></div>-->
+<!--      <div class="day"><button>21</button></div>-->
+<!--      <div class="day"><button>22</button></div>-->
+<!--      <div class="day"><button>23</button></div>-->
+<!--      <div class="day"><button>24</button></div>-->
+<!--      <div class="day"><button>25</button></div>-->
+<!--      <div class="day"><button>26</button></div>-->
+<!--      <div class="day"><button>27</button></div>-->
+<!--      <div class="day"><button>28</button></div>-->
+<!--      <div class="day"><button>29</button></div>-->
+<!--      <div class="day"><button>30</button></div>-->
+<!--      <div class="day"><button>31</button></div>-->
 
-      <div class="day"><button class="next__month__days">1</button></div>
-      <div class="day"><button class="next__month__days">2</button></div>
-      <div class="day"><button class="next__month__days">3</button></div>
-      <div class="day"><button class="next__month__days">4</button></div>
+<!--      <div class="day"><button class="next__month__days">1</button></div>-->
+<!--      <div class="day"><button class="next__month__days">2</button></div>-->
+<!--      <div class="day"><button class="next__month__days">3</button></div>-->
+<!--      <div class="day"><button class="next__month__days">4</button></div>-->
     </div>
   </section>
 
@@ -629,27 +647,34 @@
 <script type="module">
 
   import {switchElement} from "../functional/switchElement.js"
+  let now = new Date()
 
-  $(document).ready(function () {
-
-    const months = ["January", "February", "Mart", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
-
-    const days = $(".calendar__elem .day button")
-    days.click(function () {
-
-      days.removeClass("selected")
-      $(this).addClass("selected")
-
-    })
-
-    const projects = localStorage.getItem("projects")
-
-    const items = projects.slice(0).split(',').map(item => item.trim())
-
-    switchElement(items, $("#projects .projectName"), $("#projects .back"), $("#projects .next"))
-
-  })
+  // $(document).ready(function () {
+  //
+  //   const months = ["January", "February", "Mart", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  //   switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
+  //
+  //   const dayList = $(".calendar__elem")[0]
+  //
+  //   for (let i of dayList) {
+  //     dayList.append("")
+  //   }
+  //
+  //   const days = $(".calendar__elem .day button")
+  //
+  //   // days[now.getDate() - 1].classList.add("selected")
+  //
+  //   days.click(function () {
+  //
+  //     days.removeClass("selected")
+  //     $(this).addClass("selected")
+  //   })
+  //
+  //   const items = localStorage.getItem("projects").split(",")
+  //   switchElement(items, $("#projects .projectName"), $("#projects .back"), $("#projects .next"))
+  //
+  //
+  // })
 
 </script>
 
@@ -661,97 +686,23 @@
 <script type="module" src="../functional/dropContextMenuN.js"></script>
 <script src="../functional/burgerMenu.js"></script>
 <script src="../functional/notifsMenu.js"></script>
-<script>
-
-  $(document).ready(function () {
-
-    $("#calendar .weekdays .day").click(function () {
-
-      $("#calendar .weekdays .day").removeClass("current")
-      $(this).addClass("current")
-
-    })
-
-    $("#tasks .controls .page").click(function () {
-
-      $("#tasks .controls .page").removeClass("current__page")
-      $(this).addClass("current__page")
-
-    })
-
-    const back = $("#tasks .controls .left")
-    const next = $("#tasks .controls .right")
-
-    let pageList = $("#tasks .controls .page")
-
-    next.click(function () {
-
-      for (let i = 0; i < pageList.length; i++) {
-        if (pageList[i].className.includes("current__page")) {
-
-          if (i + 1 < pageList.length) {
-
-            pageList.removeClass("current__page")
-            pageList[i + 1].className = "page current__page"
-
-            break
-          }
-
-          if (i + 1 >= pageList.length) {
-
-            pageList.removeClass("current__page")
-            pageList[0].className = "page current__page"
-
-            break
-          }
-
-        }
-      }
-    })
-
-    back.click(function () {
-
-      for (let i = 0; i < pageList.length; i++) {
-
-        if (pageList[i].className.includes("current__page")) {
-
-          if (i - 1 >= 0) {
-
-            pageList.removeClass("current__page")
-            pageList[i - 1].className = "page current__page"
-
-            break
-          }
-
-          if (i - 1 < 0) {
-
-            pageList.removeClass("current__page")
-            pageList[pageList.length - 1].className = "page current__page"
-
-            break
-          }
-        }
-
-      }
-
-    })
-
-  })
-
-</script>
 <script type="module">
 
-  import {popUp} from "../functional/popUpFuncs.js";
-
+  import { addEmptyState } from "../functional/addEmptyState.js";
   $(document).ready(function () {
 
-    $(".new__project").click(function () {
+    let weekGoalsList = $("#projects .weekGoals li:has(div)")
+    let monthGoalsList = $("#projects .monthGoals li:has(div)")
 
-      popUp("popWindowProject")
+    let emptyState = $("#projects .empty__state")
 
-    })
+    if (addEmptyState(weekGoalsList, emptyState) && addEmptyState(monthGoalsList, emptyState)) {
+      $("#projects .goals").css("display", "none")
+    }
+
 
   })
+
 </script>
 <script>
 
@@ -768,7 +719,6 @@
   }
 
 </script>
-
 <script>
 
   $(document).ready(function () {
@@ -776,7 +726,6 @@
     const submit = $(`#popWindowWeekGoal input[type="submit"]`)
 
     submit.click(function (event) {
-
       event.preventDefault()
 
       $("#popWindowWeekGoal input")

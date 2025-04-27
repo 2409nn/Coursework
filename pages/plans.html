@@ -13,17 +13,17 @@
 <header>
     <nav>
         <ul id="mobileNav">
-            <li id="burger"><button><img src="../imgs/nav/burger_icon.png"></button></li>
-            <li id="logo"><img src="../imgs/aside/logo.png"><span>planit</span></li>
-            <li id="userProfile"><button><img src="../imgs/nav/Avatar.png"></button></li>
-            <div class="drop__menu">
+            <li id="burger"><button><img src="../imgs/nav/burger_icon.png" alt="burger"></button></li>
+            <li id="logo"><img src="../imgs/aside/logo.png" alt="logo"><span>planit</span></li>
+            <li id="userProfile"><button><img src="../imgs/nav/Avatar.png" alt="avatar"></button></li>
+            <li class="drop__menu">
                 <div class="items__list">
                     <button class="menu__elem newTaskBtn">New task</button>
                     <button class="menu__elem newProjectBtn">New project</button>
                     <button class="menu__elem newWeekGoalBtn">New week goal</button>
                     <button class="menu__elem newMonthGoalBtn">New month goal</button>
                 </div>
-            </div>
+            </li>
         </ul>
         <ul id="desktopNav">
             <li class="path">
@@ -144,7 +144,7 @@
 
         <ul class="special">
 
-            <button class="changeTheme">Switch UI theme</button>
+            <li><button class="changeTheme">Switch UI theme</button></li>
 
             <li class="special__buttons">
 
@@ -196,7 +196,7 @@
                     <img src="../imgs/aside/cangs.png" width="50" alt="">
                     <h3>Upgrade to PRO</h3>
                     <p>Choose best plan for you</p>
-                    <a href="plans.html"><button class="active__btn">Go to plans</button></a>
+                    <button class="active__btn" onclick="window.location='./plans.html'">Go to plans</button>
                 </div>
             </li>
             <li>
@@ -296,94 +296,36 @@
 
 </div>
 
-<div id="popWindowTask" class="pop__up">
+<div id="popWindowPay" class="pop__up">
 
     <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
 
     <div class="heading">
-        <h3>Set task</h3>
+        <h3>Upgrade to Professional</h3>
     </div>
 
-    <form id="setTask" action="#">
+    <div class="about__payment">
+        <h4 class="payment__sum">$11.00</h4>
+        <div class="cards">
+            <img class="visa" src="../imgs/popup/visa.png" alt="visa">
+            <img class="mastercard" src="../imgs/popup/mastercard.png" alt="mastercard">
+            <img class=paypal src="../imgs/popup/paypal.png" alt="paypal">
+        </div>
+    </div>
 
-        <input type="text" required placeholder="Task's name">
-        <div class="special__inputs">
 
-            <div class="time__input">
-                <p>task's deadline</p>
-                <input type="time" required placeholder="Task's deadline">
-            </div>
+    <form id="payment" action="#">
 
-            <div class="date__input">
-                <p>task's date</p>
-                <input type="date" required placeholder="Task's deadline">
-            </div>
+        <input type="text" required placeholder="Card number">
+        <input type="text" required placeholder="Card holder name">
+        <input type="text" required placeholder="Email">
 
+        <div class="special__data">
+            <input type="number" required placeholder="MM / YY">
+            <input type="password" required placeholder="CVV" maxlength="4">
         </div>
 
-        <div class="selectProject">
-            <label for="chooseProject">Choose project:</label>
-            <select id="chooseProject">
-                <option>Project_one</option>
-                <option>Project_two</option>
-                <option>Project_three</option>
-            </select>
-        </div>
-
-
-        <input type="submit" value="Save">
-
-    </form>
-
-</div>
-
-<div id="popWindowProject" class="pop__up">
-
-    <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
-
-    <div class="heading">
-        <h3>Set project</h3>
-    </div>
-
-    <form id="setProject" action="#">
-
-        <input type="text" required placeholder="Project's name">
-        <textarea class="project__description" placeholder="Project's description"></textarea>
-
-        <!--    <div class="multi-select">-->
-
-        <!--      <div class="selected__list">-->
-
-        <!--      </div>-->
-
-        <!--      <label for="participants">Select members:</label>-->
-        <!--      <select id="participants" name="participants" multiple>-->
-
-        <!--      </select>-->
-        <!--      <div class="selected-items"></div>-->
-        <!--    </div>-->
-
-
-        <input type="submit" value="Save">
-
-    </form>
-
-</div>
-
-<div id="popWindowWeekGoal" class="pop__up">
-
-    <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
-
-    <div class="heading">
-        <h3>Set week goal</h3>
-    </div>
-
-    <form id="setWeekGoal" action="#">
-
-        <input type="text" required placeholder="Goal's name">
-        <textarea class="goal__description" placeholder="Goal's description"></textarea>
-
-        <input type="submit" value="Save">
+        <input type="submit" value="Pay">
 
     </form>
 

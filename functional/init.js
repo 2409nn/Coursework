@@ -1,6 +1,6 @@
 localStorage.setItem("userPassword", "qwerty123");
 localStorage.setItem("userEmail", "A.iskander07@gmail.com");
-localStorage.setItem("projects", JSON.stringify(["Fitness app", "Saas dashboard"]));
+localStorage.setItem("projects", ["Fitness app", "SaaS dashboard"]);
 
 localStorage.setItem("project_fitness app", JSON.stringify({
     name: "Fitness app",

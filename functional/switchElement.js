@@ -8,7 +8,7 @@ export function switchElement(elemList, currentElem, back, next, elemIndex) {
     let now = new Date()
 
     if (typeof elemIndex === "undefined") {
-        currentElemIndex = elemList.indexOf(currentElem.text())
+        currentElemIndex = elemList.indexOf(currentElem.text()) // если аргумент elemIndex не указан, то найти индекс самостоятельно
     }
 
     else {
@@ -29,7 +29,6 @@ export function switchElement(elemList, currentElem, back, next, elemIndex) {
         }
 
         currentElem.text(elemList[currentElemIndex])
-
         console.log(monthDays(now.getFullYear(), currentElemIndex))
 
     })

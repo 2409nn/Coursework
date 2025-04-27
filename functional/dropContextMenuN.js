@@ -12,11 +12,11 @@ $(document).ready(function () {
         dropContextMenu("Remove")
 
         $(".removeBtn").on("click", function () {
-            addEmptyState(notifications)
+            // addEmptyState(notifications)
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
-            addEmptyState($(".notifications"), $("#tasks .empty__state"))
+            // addEmptyState($(".notifications"), $("#tasks .empty__state"))
 
         })
 

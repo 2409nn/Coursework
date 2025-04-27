@@ -185,6 +185,7 @@ main {
 
 #projects .weekGoals, #projects .monthGoals {
     overflow-y: scroll;
+    padding: 0;
 }
 
 #projects .weekGoals::-webkit-scrollbar {
@@ -217,6 +218,7 @@ main {
     height: 100%;
     border-radius: 10px;
     background-color: #105EF5;
+    max-width: 100%;
 }
 
 #weekProgressLine {
