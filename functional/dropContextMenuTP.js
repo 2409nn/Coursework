@@ -12,6 +12,7 @@ $(document).ready(function () {
 
         dropContextMenu("Change", "Remove")
         let elemClassName = thisElem.attr("class")
+        let elemSection = thisElem.closest("section")
 
         $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
 
@@ -56,47 +57,34 @@ $(document).ready(function () {
                 }
             }
 
+            let list = thisElem.closest("ul")
+            let emptyState = thisElem.closest(".goals").siblings(".empty__state")
+            let weekGoalsList = thisElem.closest(".weekGoals").find("li:has(div)") // берутся li и игнорируются те, что содержат h5
+            let monthGoalsList = thisElem.closest(".monthGoals").find("li:has(div)") // берутся li и игнорируются те, что содержат h5
+
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
-            const checkElems = [$("#tasks .tasks__list .task")]
+            console.log(thisElem)
+            console.log(weekGoalsList)
+            console.log(monthGoalsList)
 
-            for (let elem of checkElems) {
-                if (addEmptyState(elem, $("#tasks .empty__state"))) {
+            if (weekGoalsList.children("li").length === 0 && monthGoalsList.children("li").length === 0) {
+                $(".goals").css("display", "none")
+                emptyState.css("display", "flex")
+            }
 
-                    $("#tasks .controls").css("display", "none")
-                }
+
+            if (addEmptyState($("#tasks .tasks__list .task"), $("#tasks .empty__state"))) {
+                $("#tasks .controls").css("display", "none")
+            }
 
                 else {
                     $("#tasks .empty__state").css("display", "none")
                     $("#tasks .controls").css("display", "flex")
                     $("#tasks .tasks__list").css("display", "flex")
                 }
-            }
-
-        })
-
-        $("#contextMenu button").click(function () {
-
-            if (addEmptyState($("#tasks .tasks__list"), $("#tasks .empty__state"))) {
-
-                $("#tasks .controls").css("display", "none")
-            }
-
-            else {
-                $("#tasks .empty__state").css("display", "none")
-                $("#tasks .controls").css("display", "flex")
-                $("#tasks .tasks__list").css("display", "flex")
-            }
-
-            let weekGoalsList = $("#projects .weekGoals li:has(div)")
-            let monthGoalsList = $("#projects .monthGoals li:has(div)")
-
-            let emptyState = $("#projects .empty__state")
-
-            if (addEmptyState(weekGoalsList, emptyState) && addEmptyState(monthGoalsList, emptyState)) {
-                $("#projects .goals").css("display", "none")
-            }
+            })
 
         })
 
@@ -108,5 +96,4 @@ $(document).ready(function () {
             }
 
         })
-    })
 })
