@@ -470,7 +470,7 @@
 
         <div class="heading">
           <h5 style="display: inline; font-weight: 400; margin-top: 10px">Week's goals done</h5>
-          <span class="percentages goodResult">71% done</span>
+          <span class="percentages">71% done</span>
         </div>
 
         <div class="progress__container">
@@ -480,16 +480,17 @@
       <div class="progress__bar" id="monthProgress">
         <div class="heading">
           <h5 style="display: inline; font-weight: 400; margin-top: 10px">Month's goals done</h5>
-          <span class="percentages mediumResult">38% done</span>
+          <span class="percentages">38% done</span>
         </div>
         <div class="progress__container">
-          <div  id="monthProgressLine" class="progress__line"></div>
+          <div id="monthProgressLine" class="progress__line"></div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="todayTasks">
+
     <div class="heading">
       <h3>Day's tasks</h3>
       <p class="dayDate">27.03.2025</p>
@@ -605,63 +606,91 @@
 
 </main>
 
+<script type="module" src="../functional/init.js"></script>
+<script type="module" src="../functional/switchTheme.js"></script>
+<script type="module" src="../functional/navigation.js"></script>
+<script type="module" src="../functional/page.js"></script>
+<script type="module" src="../functional/page.js"></script>
+
 <script type="module">
 
-  import {switchElement} from "../functional/switchElement.js"
+  import {switchElement} from "../functional/functions.js"
   let now = new Date()
 
-  // $(document).ready(function () {
-  //
-  //   const months = ["January", "February", "Mart", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  //   switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
-  //
-  //   const dayList = $(".calendar__elem")[0]
-  //
-  //   for (let i of dayList) {
-  //     dayList.append("")
-  //   }
-  //
-  //   const days = $(".calendar__elem .day button")
-  //
-  //   // days[now.getDate() - 1].classList.add("selected")
-  //
-  //   days.click(function () {
-  //
-  //     days.removeClass("selected")
-  //     $(this).addClass("selected")
-  //   })
-  //
-  //   const items = localStorage.getItem("projects").split(",")
-  //   switchElement(items, $("#projects .projectName"), $("#projects .back"), $("#projects .next"))
-  //
-  //
-  // })
+  $(document).ready(function () {
 
-</script>
+    const months = ["January", "February", "Mart", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
 
-<script src="../functional/init.js"></script>
+    // const dayList = $(".calendar__elem")
+    //
+    // for (let i of dayList) {
+    //   dayList.append("")
+    // }
 
-<script src="../functional/switchTheme.js"></script>
-<script type="module" src="../functional/dropDownMenu.js"></script>
-<script type="module" src="../functional/dropContextMenuTP.js"></script>
-<script type="module" src="../functional/dropContextMenuN.js"></script>
-<script src="../functional/burgerMenu.js"></script>
-<script src="../functional/notifsMenu.js"></script>
+    const days = $(".calendar__elem .day button")
+
+    // days[now.getDate() - 1].classList.add("selected")
+
+    days.click(function () {
+
+      days.removeClass("selected")
+      $(this).addClass("selected")
+    })
+
+    const items = localStorage.getItem("projects").split(",")
+    switchElement(items, $("#projects .projectName"), $("#projects .back"), $("#projects .next"))
+
+
+  })
+
+</script> <!-- переключения месяцев / проектов и добавление стольких дней в календарь, сколько должно быть в месяце -->
 <script>
 
-  const projectName = $("#projects .projectName").text().toLowerCase().trim();
-  console.log(`project_${projectName}`);
-  let currentProject = JSON.parse(localStorage.getItem(`project_${projectName}`));
+  const projectName = $("#projects .projectName").text().toLowerCase().trim()
+  let currentProject = JSON.parse(localStorage.getItem(`project_${projectName}`))
 
-  console.log(currentProject);
+  console.log(currentProject)
 
-  // Example of using the progress data
   if (currentProject) {
-    $("#weekProgressLine").css("width", currentProject.weekProgress);
-    $("#monthProgressLine").css("width", currentProject.monthProgress);
+
+    console.log(currentProject["weekProgress"])
+    console.log(currentProject["monthProgress"])
+
+    $("#weekProgressLine").css("width", currentProject["weekProgress"]);
+    $("#monthProgressLine").css("width", currentProject["monthProgress"]);
+
+    $("#weekProgress .percentages").text(`${currentProject["weekProgress"]} done`)
+    $("#monthProgress .percentages").text(`${currentProject["monthProgress"]} done`)
+
+    // как клеймить данные о продуктивности?
+    if (parseInt(currentProject["weekProgress"]) >= 60) {
+      $("#weekProgress .percentages").addClass("goodResult")
+    }
+
+    else if (parseInt(currentProject["weekProgress"] < 60) && parseInt(currentProject["weekProgress"] >= 35)) {
+      $("#weekProgress .percentages").addClass("mediumResult")
+    }
+
+    else if (parseInt(currentProject["weekProgress"] < 35)) {
+      $("#weekProgress .percentages").addClass("badResult")
+    }
+
+    if (parseInt(currentProject["monthProgress"]) >= 60) {
+      $("#monthProgress .percentages").addClass("goodResult")
+    }
+
+    else if (parseInt(currentProject["monthProgress"]) < 60 && parseInt(currentProject["monthProgress"]) >= 35) {
+      $("#monthProgress .percentages").addClass("mediumResult")
+    }
+
+    else if (parseInt(currentProject["monthProgress"]) < 35) {
+      $("#monthProgress .percentages").addClass("badResult")
+    }
+
   }
 
-</script>
+</script>  <!-- подключение и работа с данными о проектах из localStorage -->
 <script>
 
   $(document).ready(function () {

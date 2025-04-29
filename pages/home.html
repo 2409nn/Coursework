@@ -300,7 +300,7 @@
     </div>
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -333,7 +333,7 @@
 <!--    </div>-->
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -352,7 +352,7 @@
     <input type="text" required placeholder="Goal's name">
     <textarea class="goal__description" placeholder="Goal's description"></textarea>
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Change">
 
   </form>
 
@@ -658,13 +658,11 @@
 
   </main>
 
-<script src="../functional/init.js"></script>
-<script type="module" src="../functional/dropDownMenu.js"></script>
-<script src="../functional/switchTheme.js"></script>
-<script type="module" src="../functional/dropContextMenuTP.js"></script>
-<script type="module" src="../functional/dropContextMenuN.js"></script>
-<script src="../functional/burgerMenu.js"></script>
-<script src="../functional/notifsMenu.js"></script>
+<script type="module" src="../functional/switchTheme.js"></script>
+<script type="module" src="../functional/init.js"></script>
+<script type="module" src="../functional/functions.js"></script>
+<script type="module" src="../functional/page.js"></script>
+<script type="module" src="../functional/navigation.js"></script>
 <script>
 
   $(document).ready(function () {
@@ -745,7 +743,7 @@
 </script>
 <script type="module">
 
-  import {popUp} from "../functional/popUpFuncs.js";
+  import {popUp} from "../functional/functions.js"
 
   $(document).ready(function () {
 
@@ -764,8 +762,7 @@
 </script>
 <script type="module">
 
-  import { getTimeDef } from "../functional/getTimeDef.js"
-  import {addEmptyState} from "../functional/addEmptyState.js"
+  import { getTimeDef, addEmptyState } from "../functional/functions.js"
 
   $(document).ready(function () {
 
@@ -808,12 +805,15 @@
 </div>
 </li>`
 
-      $("#tasks .tasks__list").append(taskBlock)
+      if($(this).val() === "Create") {
 
-      if (!addEmptyState($("#tasks .tasks__list"), $("#tasks .empty__state"))) {
-        $("#tasks .empty__state").css("display", "none")
-        $("#tasks .controls").css("display", "flex")
-        $("#tasks .tasks__list").css("display", "flex")
+        $("#tasks .tasks__list").append(taskBlock)
+
+        if (!addEmptyState($("#tasks .tasks__list"), $("#tasks .empty__state"))) {
+          $("#tasks .empty__state").css("display", "none")
+          $("#tasks .controls").css("display", "flex")
+          $("#tasks .tasks__list").css("display", "flex")
+        }
       }
 
     })
@@ -873,7 +873,7 @@
   })
 
 </script>
-<script type="module" src="../functional/addEmptyState.js"></script>
+<!--<script type="module" src="../functional/addEmptyState.js"></script>-->
 
 </body>
 </html>

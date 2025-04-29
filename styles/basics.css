@@ -21,6 +21,21 @@
     --borderDarkerColor: #e4e4e4
 }
 
+.goodResult {
+    background-color: var(--goodBackgroundColor);
+    color: var(--goodTextColor);
+}
+
+.mediumResult {
+    background-color: var(--mediumBackgroundColor);
+    color: var(--mediumTextColor);
+}
+
+.badResult {
+    background-color: var(--badBackgroundColor);
+    color: var(--badTextColor);
+}
+
 textarea {
     resize: none;
     border: none;
