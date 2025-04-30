@@ -80,12 +80,10 @@ export function monthDays(year, month) {
 export function switchElement(elemList, currentElem, back, next, elemIndex) {
 
     let currentElemIndex
-    let now = new Date()
 
     if (typeof elemIndex === "undefined") {
         currentElemIndex = elemList.indexOf(currentElem.text()) // если аргумент elemIndex не указан, то найти индекс самостоятельно
     }
-
     else {
         currentElemIndex = elemIndex
     }
@@ -104,7 +102,8 @@ export function switchElement(elemList, currentElem, back, next, elemIndex) {
         }
 
         currentElem.text(elemList[currentElemIndex])
-        console.log(monthDays(now.getFullYear(), currentElemIndex))
+
+        return currentElemIndex
 
     })
 
@@ -118,20 +117,72 @@ export function switchElement(elemList, currentElem, back, next, elemIndex) {
 
         currentElem.text(elemList[currentElemIndex])
 
-        console.log(monthDays(now.getFullYear(), currentElemIndex))
+        return currentElemIndex
     })
+}
 
+export function getMonthDays(year, month) {
 
+    if (typeof month === "string") {
+        switch (month.toLowerCase()) {
+            case "january":
+                month = 1
+                break
+            case "february":
+                month = 2
+                break
+            case "march":
+                month = 3
+                break
+            case "april":
+                month = 4
+                break
+            case "may":
+                month = 5
+                break
+            case "june":
+                month = 6
+                break
+            case "july":
+                month = 7
+                break
+            case "august":
+                month = 8
+                break
+            case "september":
+                month = 9
+                break
+            case "october":
+                month = 10
+                break
+            case "november":
+                month = 11
+                break
+            case "december":
+                month = 12
+                break
+        }
+    }
 
+    return new Date(year, month, 0).getDate()
 }
 
 export function defToTime(date) {
-    let now = new Date()
+    let now = new Date();
+
     if (date.toLowerCase() === "today") {
-        return `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`
+        return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${now.getDate()}`
     }
 
     if (date.toLowerCase() === "tomorrow") {
-        console.log(now.getDate() + 1)
+        let tomorrow = new Date(now)
+        tomorrow.setDate(now.getDate() + 1)
+        return `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${tomorrow.getDate()}`
+    }
+
+    if (date.toLowerCase() === "yesterday") {
+        let yesterday = new Date(now)
+        yesterday.setDate(now.getDate() - 1)
+        return `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, "0")}-${yesterday.getDate()}`
     }
 }

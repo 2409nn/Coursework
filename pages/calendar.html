@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../styles/basics.css">
   <link rel="stylesheet" href="../styles/calendar.css">
+  <link rel="icon" href="../imgs/favicon.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Calendar</title>
 </head>
@@ -619,7 +620,8 @@
 
   $(document).ready(function () {
 
-    const months = ["January", "February", "Mart", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
     switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
 
     // const dayList = $(".calendar__elem")
@@ -747,6 +749,49 @@
 
   })
 
+</script>
+<script type="module">
+
+  import { getMonthDays } from "../functional/functions.js"
+
+  $(document).ready(function () {
+
+    let nextBtn = $(".choose__month .next")
+    let backBtn = $(".choose__month .back")
+
+    function appendDays() {
+      let selectedMonth = $("#selectedMonth").text()
+      let monthDays = getMonthDays(2025, selectedMonth)
+      let nextMonthDays = 35 - monthDays
+
+      for (let day = 1; day <= monthDays; day++) {
+        $("#calendar .calendar__elem").append(`
+      <div class="day"><button>${day}</button></div>
+`)
+      }
+
+      for (let day = 1; day <= nextMonthDays; day++) {
+        $("#calendar .calendar__elem").append(`
+      <div class="day"><button class="next__month__days">${day}</button></div>
+`)
+      }
+
+    }
+
+    appendDays()
+
+    nextBtn.click(function () {
+      $("#calendar .calendar__elem .day").remove()
+      appendDays()
+    })
+
+    backBtn.click(function () {
+      $("#calendar .calendar__elem .day").remove()
+      appendDays()
+    })
+
+
+  })
 </script>
 
 

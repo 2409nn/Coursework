@@ -1,4 +1,4 @@
-import { dropContextMenu, hideContextMenu, popUp } from "./functions.js"
+import {dropContextMenu, getTimeDef, hideContextMenu, popUp} from "./functions.js"
 import { addEmptyState, defToTime } from "./functions.js";
 
 $(document).ready(function () {
@@ -42,24 +42,21 @@ $(document).ready(function () {
     $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project").on("contextmenu", function (event) {
 
         event.preventDefault()
-        let thisElem = $(this)
-
         dropContextMenu("Change", "Remove")
+        $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
+
+        let thisElem = $(this)
         let elemClassName = thisElem.attr("class")
         let elemSection = thisElem.closest("section")
 
-        $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
-
         $(".changeBtn").click(function () {
 
-            if (elemClassName === "task") {
-                popUp("popWindowTask")
-                $("#popWindowTask input[type='submit']").val("Change")
-            }
+            let elemPopupName = thisElem.attr("data-popup-name")
+            let elemPopup = $(`#${elemPopupName}`)
+            let elemPopupSubmit = $(`#${elemPopupName} input[type="submit"]`)
 
-            if (elemClassName === "project") {
-                popUp("popWindowProject")
-            }
+            popUp(elemPopupName)
+            elemPopupSubmit.val("Change") // при нажатии на кнопку "change" для popup меняется значение submit
 
             if (elemClassName.includes("week__goal")) {
                 let elemTitle = thisElem.children("label")
@@ -80,16 +77,56 @@ $(document).ready(function () {
 
             hideContextMenu($("#contextMenu"))
 
-            if ($(".pop__up input[type='submit']").val() === "Change") {
-                // получаю данные из элемента, которое мы изменяем
-                let itemTitle = thisElem.children(".mainData").children("h4").text()
-                let itemDeadline = thisElem.children(".mainData").children(".deadline").text().split("till")
+            if (elemPopupSubmit.val() === "Change") {
 
-                for (let i = 0; i < itemDeadline.length; i++) {
-                    itemDeadline[i] = itemDeadline[i].trim()
+                // получение данных из пользовательского элемента и ввод его в popup окно
+                // получение -> запись в popup -> запись с popup в элемент
+
+                if (elemPopupName === "popWindowTask") {
+
+                    let itemTitle = thisElem.children(".mainData").children("h4").text()
+                    let itemDeadline = thisElem.children(".mainData").children(".deadline").text().split("till")
+
+                    for (let i = 0; i < itemDeadline.length; i++) {
+                        itemDeadline[i] = itemDeadline[i].trim()
+                    }
+
+                    let itemDate = defToTime(itemDeadline[0])
+
+                    $("#popWindowTask input[type='text']").val(itemTitle)
+                    $("#popWindowTask input[type='time']").val(itemDeadline[1])
+                    $("#popWindowTask input[type='date']").val(itemDate)
+
                 }
 
-                defToTime(itemDeadline[0])
+                if (elemPopupName === "popWindowProject") {
+                    let itemTitle = thisElem.children(".project__info").children(".project__name").text()
+                    let itemDesc = thisElem.children(".project__info").children(".project__description").text()
+                    $("#popWindowProject input[type='text']").val(itemTitle)
+                    $("#popWindowProject textarea").val(itemDesc)
+                }
+
+                elemPopupSubmit.click(function () {
+
+                    if (elemPopupName === "popWindowTask") {
+
+                        let taskTime = $(elemPopup).find("input[type='time']").val()
+                        let taskDate = getTimeDef($(elemPopup).find("input[type='date']").val())
+
+                        thisElem.find(".title").text($(elemPopup).find("input[type='text']").val())
+                        thisElem.find(".deadline p").text(`${taskDate} till ${taskTime}`)
+                    }
+
+                    if (elemPopupName === "popWindowProject") {
+
+                        thisElem.find(".project__name").text($(elemPopup).find("input[type='text']").val())
+                        thisElem.find(".project__description").text($(elemPopup).find("textarea").val())
+
+                    }
+
+                    elemPopupSubmit.off("click") // помогает перестать учитывать предыдущие обработчики события "click"
+                })
+
             }
 
         })
@@ -122,7 +159,7 @@ $(document).ready(function () {
             addEmptyState(list, list.siblings(".empty__state"))
 
             if (addEmptyState($("#tasks .tasks__list .task"), $("#tasks .empty__state"))) {
-                $("#tasks .controls").css("display", "none")
+                $("#tasks .tasks__list").css("display", "none")
             }
 
             else {
@@ -137,6 +174,37 @@ $(document).ready(function () {
                 hideContextMenu($("#contextMenu"))
             }
         })
+
+    })
+
+
+    $("#popWindowProject input[type='submit']").click(function () {
+
+        if ($(this).val() === "Create") {
+
+            sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
+            sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
+
+            let projectBlock = `<div class="project" data-popup-name="popWindowProject">
+          <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
+          <div class="project__info">
+            <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
+            <h4 class="project__name">${sessionStorage.getItem("projectTitle")}</h4>
+            <p class="project__description">${sessionStorage.getItem("projectDesc")}</p>
+            <div class="project__operations">
+              <button class="more__btn">View all</button>
+              <div class="members">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member1">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member2">
+                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member3">
+                <span class="plus__members">+12</span>
+              </div>
+            </div>
+          </div>
+        </div>`
+
+            $("#projects .projects").append(projectBlock)
+        }
 
     })
 

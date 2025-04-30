@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../styles/basics.css">
   <link rel="stylesheet" href="../styles/home.css">
-
+  <link rel="icon" href="../imgs/favicon.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <title>Home</title>
@@ -19,7 +19,7 @@
   <nav>
     <ul id="mobileNav">
       <li id="burger"><button><img src="../imgs/nav/burger_icon.png" alt="burger"></button></li>
-      <li id="logo"><img src="../imgs/aside/logo.png" alt="logo"><span>planit</span></li>
+      <li id="logo" onclick="window.location='./introdution.html'"><img src="../imgs/aside/logo.png" alt="logo"><span>planit</span></li>
       <li id="userProfile"><button><img src="../imgs/nav/Avatar.png" alt="avatar"></button></li>
       <li class="drop__menu">
         <div class="items__list">
@@ -90,7 +90,7 @@
 </header>
 
 <aside>
-  <div class="logo">
+  <div class="logo" onclick="window.location='./introdution.html'">
     <img src="../imgs/aside/logo.png" width="32" alt="logo">
     <h2>Planit</h2></div>
   <nav>
@@ -360,6 +360,11 @@
 
 <div id="contextMenu"></div>
 
+<!--<div id="alertWindow">-->
+<!--  <img src="">-->
+<!--  <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa cumque, dicta eos excepturi, in incidunt labore maiores, modi saepe similique vero vitae voluptatum. Et ex laborum quia repudiandae totam?</p>-->
+<!--</div>-->
+
   <main>
 
     <section id="tasks">
@@ -387,7 +392,7 @@
 
       <ul class="tasks__list">
 
-        <li class="task">
+        <li class="task" data-popup-name="popWindowTask">
 
           <div class="checkbox">
             <input type="checkbox" class="checkbox">
@@ -409,7 +414,7 @@
           </div>
         </li>
 
-        <li class="task">
+        <li class="task" data-popup-name="popWindowTask">
 
           <div class="checkbox">
             <input type="checkbox" class="checkbox">
@@ -431,7 +436,7 @@
           </div>
         </li>
 
-        <li class="task">
+        <li class="task" data-popup-name="popWindowTask">
 
           <div class="checkbox">
             <input type="checkbox" class="checkbox">
@@ -453,7 +458,7 @@
           </div>
         </li>
 
-        <li class="task">
+        <li class="task" data-popup-name="popWindowTask">
 
           <div class="checkbox">
             <input type="checkbox" class="checkbox">
@@ -499,7 +504,7 @@
         <h3>Projects</h3>
       </div>
       <div class="projects">
-        <div class="project">
+        <div class="project" data-popup-name="popWindowProject">
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
@@ -516,7 +521,7 @@
             </div>
           </div>
         </div>
-        <div class="project">
+        <div class="project" data-popup-name="popWindowProject">
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
@@ -750,6 +755,9 @@
     $(".new__project").click(function () {
 
       popUp("popWindowProject")
+      $("#popWindowProject input").val("")
+      $("#popWindowProject textarea").val("")
+      $("#popWindowProject input[type='submit']").val("Create")
 
       let submit = $(`#popWindowProject input[type="submit"]`)
 
@@ -769,7 +777,7 @@
     addEmptyState($(".notifications .container .notif__list"), $(".notifications .container .empty__state"))
 
     if (addEmptyState($("#tasks .tasks__list"), $("#tasks .empty__state"))) {
-      $("#tasks .controls").css("display", "none")
+      $("#tasks .controls").css("display", "flex")
       $("#tasks .tasks__list").css("display", "none")
     }
 
@@ -783,7 +791,7 @@
       sessionStorage.setItem("taskTime", $(`#popWindowTask input[type="time"]`).val())
       sessionStorage.setItem("taskDate", $(`#popWindowTask input[type="date"]`).val())
 
-      let taskBlock = `<li class="task">
+      let taskBlock = `<li class="task" data-popup-name="popWindowTask">
     <div class="checkbox"><input type="checkbox"></div>
     <div class="mainData"><h4 class="title">${sessionStorage.getItem("taskTitle")}</h4>
     <div class="deadline">
@@ -808,12 +816,6 @@
       if($(this).val() === "Create") {
 
         $("#tasks .tasks__list").append(taskBlock)
-
-        if (!addEmptyState($("#tasks .tasks__list"), $("#tasks .empty__state"))) {
-          $("#tasks .empty__state").css("display", "none")
-          $("#tasks .controls").css("display", "flex")
-          $("#tasks .tasks__list").css("display", "flex")
-        }
       }
 
     })
@@ -844,35 +846,11 @@
   })
 
 </script>
-<script type="module">
+<!--<script type="module">-->
 
-  $("#popWindowProject input[type='submit']").click(function () {
+<!--  -->
 
-    sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
-    sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
-
-    let projectBlock = `<div class="project">
-          <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
-          <div class="project__info">
-            <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
-            <h4 class="project__name">${sessionStorage.getItem("projectTitle")}</h4>
-            <p class="project__description">${sessionStorage.getItem("projectDesc")}</p>
-            <div class="project__operations">
-              <button class="more__btn">View all</button>
-              <div class="members">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member1">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member2">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member3">
-                <span class="plus__members">+12</span>
-              </div>
-            </div>
-          </div>
-        </div>`
-
-    $("#projects .projects").append(projectBlock)
-  })
-
-</script>
+<!--</script>-->
 <!--<script type="module" src="../functional/addEmptyState.js"></script>-->
 
 </body>

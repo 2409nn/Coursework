@@ -24,21 +24,22 @@ $(document).ready(function() {
         dropMenu.toggleClass("active__drop__menu")})
 
     createTask.click(function () {
-        $("#popWindowTask input[type='text']").val("")
+        $("#popWindowTask input").val("")
         popUp("popWindowTask")
         $("#popWindowTask input[type='submit']").val("Create")
         dropMenu.removeClass("active__drop__menu")
     })
 
     createProject.click(function () {
-        $("#popWindowProject input[type='text']").val("")
+        $("#popWindowProject input").val("")
+        $("#popWindowProject textarea").val("")
         popUp("popWindowProject")
         $("#popWindowProject input[type='submit']").val("Create")
         dropMenu.removeClass("active__drop__menu")
     })
 
     createWGoal.click(function () {
-        $("#popWindowWeekGoal input[type='text']").val("")
+        $("#popWindowWeekGoal input").val("")
         popUp("popWindowWeekGoal")
         $("#popWindowWeekGoal input[type='submit']").val("Create")
         dropMenu.removeClass("active__drop__menu")

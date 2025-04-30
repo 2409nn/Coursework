@@ -18,7 +18,8 @@
     --mediumTextColor: #FFAE00;
     --badBackgroundColor: #FFD8D8;
     --badTextColor: #F44747;
-    --borderDarkerColor: #e4e4e4
+    --borderDarkerColor: #e4e4e4;
+    --placeholderColor: #595959;
 }
 
 .goodResult {
@@ -44,10 +45,16 @@ textarea {
     height: 100px;
     border-radius: 10px;
     padding: 14px 30px;
+    color: var(--textColor);
 }
 
 textarea::placeholder {
     font-size: 14px;
+    color: var(--placeholderColor);
+}
+
+input::placeholder {
+    color: var(--placeholderColor);
 }
 
 textarea::-webkit-scrollbar {
@@ -171,7 +178,7 @@ section::-webkit-scrollbar {
 }
 
 input[type="time"]::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 button {
@@ -269,7 +276,7 @@ input {
 }
 
 input::placeholder {
-    color: var(--pColor); /* Используем переменную */
+    color: var(--placeholderColor); /* Используем переменную */
     font-size: 15px;
 }
 
@@ -794,7 +801,7 @@ li svg {
 }
 
 #popWindowPay input::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 #popWindowPay .about__payment {
@@ -904,7 +911,7 @@ li svg {
 }
 
 #popWindowTask input::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 #popWindowTask .about__task {
@@ -1013,7 +1020,7 @@ li svg {
 }
 
 #popWindowProject input::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 #popWindowProject .about__task {
@@ -1112,7 +1119,7 @@ li svg {
 }
 
 #popWindowWeekGoal input::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 #popWindowWeekGoal .close__button {
@@ -1203,7 +1210,7 @@ li svg {
 }
 
 #popWindowMonthGoal input::placeholder {
-    color: var(--pColor);
+    color: var(--placeholderColor);
 }
 
 #popWindowMonthGoal .close__button {

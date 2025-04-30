@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PlanIt — Organize your day. Own your future.</title>
     <link rel="stylesheet" href="../styles/introdution.css">
+    <link rel="icon" href="../imgs/favicon.png" type="image/png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -14,7 +15,21 @@
 <header>
     <nav>
         <ul>
-            <li id="logo"><img src="../imgs/aside/logo.png"><span>Planit</span></li>
+            <li class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 21px; color: #105EF5">
+                <img src="../imgs/aside/logo.png" style="width: 40px"><span>Planit</span></li>
+            <li class="navLinks">
+                <ul style="gap: 50px; font-weight: 500">
+                    <li class="link"><a href="#head">Heading</a><span class="underline"></span></li>
+                    <li class="link"><a href="#about">About</a><span class="underline"></span></li>
+                    <li class="link"><a href="#productivity">Benefits</a><span class="underline"></span></li>
+                    <li class="link"><a href="#reminders">Reminders</a><span class="underline"></span></li>
+                    <li class="link"><a href="#end">Product</a><span class="underline"></span></li>
+                </ul>
+            </li>
+            <li class="buttons">
+                <button class="changeTheme">Switch theme</button>
+                <button class="get__btn" onclick="window.location='./login.html'">Get for free</button>
+            </li>
         </ul>
     </nav>
 </header>
@@ -67,29 +82,35 @@
                 <div class="card">
                     <span class="icon">🤝</span>
                     <h4>Team Work</h4>
-                    <p class="info">Collaboration has never been this effortless. Share tasks, assign roles, set deadlines, and keep everyone in sync. With Planit, your team becomes a well-oiled machine — transparent, agile, and focused on what truly matters.</p>
+                    <p class="info">Collaboration has never been this effortless. Share tasks, assign roles, set deadlines,
+                        and keep everyone in sync. With Planit, your team becomes a well-oiled machine — transparent, agile,
+                        and focused on what truly matters.</p>
                 </div>
                 <div class="card">
                     <span class="icon">🚀</span>
                     <h4>Boost Productivity</h4>
-                    <p class="info">Eliminate chaos and unlock your full potential. From smart reminders to powerful prioritization tools, Planit helps you work smarter, not harder. It's more than just a to-do list — it's your productivity partner.</p>
+                    <p class="info">Eliminate chaos and unlock your full potential. From smart reminders to powerful prioritization
+                        tools, Planit helps you work smarter, not harder. It's more than just a to-do list — it's your
+                        productivity partner.</p>
                 </div>
                 <div class="card">
-                    <span class="icon">👨‍💻</span>
-                    <h4>Personal Using</h4>
-                    <p class="info">Stay on top of your goals, one task at a time. Whether you're managing daily routines, tracking
-                        habits, or planning your next big idea — Planit gives you the clarity and control to structure
-                        your life your way. Simple, intuitive, and always at your side.</p>
+                    <span class="icon">🎯</span>
+                    <h4>Set and Achieve Goals</h4>
+                    <p class="info">Turn your ideas into action. With Planit, setting clear, measurable goals is simple —
+                        and tracking your progress is even easier. Stay focused, stay motivated, and celebrate every milestone
+                        on your journey to success.</p>
                 </div>
                 <div class="card">
-                    <span class="icon">🤝</span>
-                    <h4>Team Work</h4>
-                    <p class="info">Collaboration has never been this effortless. Share tasks, assign roles, set deadlines, and keep everyone in sync. With Planit, your team becomes a well-oiled machine — transparent, agile, and focused on what truly matters.</p>
+                    <span class="icon">🌟</span>
+                    <h4>Project Management</h4>
+                    <p class="info">Plan, organize, and execute projects seamlessly. Assign tasks, monitor deadlines, and communicate
+                        with your team in real-time using the built-in group chat. Keep everything — and everyone — in one place.</p>
                 </div>
                 <div class="card">
-                    <span class="icon">🚀</span>
-                    <h4>Boost Productivity</h4>
-                    <p class="info">Eliminate chaos and unlock your full potential. From smart reminders to powerful prioritization tools, Planit helps you work smarter, not harder. It's more than just a to-do list — it's your productivity partner.</p>
+                    <span class="icon">⚡️</span>
+                    <h4>Performance Control</h4>
+                    <p class="info">Track team productivity, identify bottlenecks, and optimize workflows. Planit gives you the tools to
+                        lead your team to peak performance — with clarity, accountability, and real results.</p>
                 </div>
             </div>
 
@@ -99,12 +120,6 @@
                 </svg>
             </button>
 
-        </div>
-
-        <div class="dots">
-            <button class="dot current"></button>
-            <button class="dot"></button>
-            <button class="dot"></button>
         </div>
 
     </section>
@@ -189,14 +204,73 @@
 
     <section id="end">
         <div class="heading">
-            <h2><span class="blue__word">Big goals</span> start with small tasks. Organize your future — <span class="blue__word">one tap away</span></h2>
+            <h3><span class="blue__word">Big goals</span> start with small tasks. Organize your future — <span class="blue__word">one tap away</span></h3>
         </div>
-        <div class="screenData">
+
+        <div class="feedback__carousel">
+
+            <button style="transform: rotate(-90deg);" class="arrow_left">
+                <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.667 24.7917L16.3337 41.4167C15.167 42.5834 15.167 44.3334 16.3337 45.5001C17.5003 46.6667 19.2503 46.6667 20.417 45.5001L35.0003 31.2084L49.5837 45.5001C50.7503 46.6667 52.5003 46.6667 53.667 45.5001C54.2503 44.9167 54.542 44.3334 54.542 43.4584C54.542 42.5834 54.2503 42.0001 53.667 41.4167L37.3337 24.7917C35.8753 23.6251 34.1253 23.6251 32.667 24.7917C32.9587 24.7917 32.9587 24.7917 32.667 24.7917Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <div class="feedback__list">
+
+                <div class="feedback">
+                    <div class="sender" style="font-weight: 500; margin: 15px 0">Alex V. – Project Manager</div>
+                    <p class="message" style="color: var(--pColor); font-weight: 400"><i>“With this task manager,
+                        my team finally stopped missing deadlines. Everything is clear,
+                        convenient, and even visually pleasant. The best I’ve used in years.”</i></p>
+                    <p class="platform" style="margin-top: 30px">App Store</p>
+                </div>
+
+                <div class="feedback">
+                    <div class="sender" style="font-weight: 500; margin: 15px 0">Marina K. – Freelance Designer</div>
+                    <p class="message" style="color: var(--pColor); font-weight: 400"><i>“The interface is intuitive,
+                        and the reminders work perfectly. I wish there were more integrations, but it already brings so
+                        much structure to my workflow.”</i></p>
+                    <p class="platform" style="margin-top: 30px">Google Play</p>
+                </div>
+
+                <div class="feedback">
+                    <div class="sender" style="font-weight: 500; margin: 15px 0">Igor S. – Student</div>
+                    <p class="message" style="color: var(--pColor); font-weight: 400"><i>“I finally got my studies under
+                        control. I mapped out all deadlines for each subject and set up reminders — no more last-minute panic.
+                        Thank you!”</i></p>
+                    <p class="platform" style="margin-top: 30px">Google Play</p>
+                </div>
+
+                <div class="feedback">
+                    <div class="sender" style="font-weight: 500; margin: 15px 0">Natalia L. – Entrepreneur</div>
+                    <p class="message" style="color: var(--pColor); font-weight: 400"><i>“I’ve tried dozens of planners,
+                        but this task manager actually works. It’s easy to prioritize, manage tasks, and collaborate with my team.”</i></p>
+                    <p class="platform" style="margin-top: 30px">App Store</p>
+                </div>
+
+                <div class="feedback">
+                    <div class="sender" style="font-weight: 500; margin: 15px 0">Alex V. – Project Manager</div>
+                    <p class="message" style="color: var(--pColor); font-weight: 400"><i>“Fast, stable, and user-friendly.
+                        I especially love the dark mode and the ability to track progress on each project. Would love a bit
+                        more customization, but overall — excellent!”</i></p>
+                    <p class="platform" style="margin-top: 30px">App Store</p>
+                </div>
+
+            </div>
+
+            <button style="transform: rotate(90deg)" class="arrow_right">
+                <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.667 24.7917L16.3337 41.4167C15.167 42.5834 15.167 44.3334 16.3337 45.5001C17.5003 46.6667 19.2503 46.6667 20.417 45.5001L35.0003 31.2084L49.5837 45.5001C50.7503 46.6667 52.5003 46.6667 53.667 45.5001C54.2503 44.9167 54.542 44.3334 54.542 43.4584C54.542 42.5834 54.2503 42.0001 53.667 41.4167L37.3337 24.7917C35.8753 23.6251 34.1253 23.6251 32.667 24.7917C32.9587 24.7917 32.9587 24.7917 32.667 24.7917Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+        </div>
+
+        <div class="download" style="margin: 50px auto">
             <p class="rating">12900+ ★★★★★ reviews on App Store & Google Play</p>
             <button class="get__app">Get now for free</button>
         </div>
 
-        <img id="endPic" src="../imgs/introdution/endPic.jpg">
     </section>
 
 </main>
@@ -220,67 +294,44 @@
 
 </footer>
 
+<script src="../functional/switchTheme.js"></script>
 <script>
 
     $(document).ready(function () {
-        const left = $("#arrowLeft");
-        const right = $("#arrowRight");
-        const cards = $("#about .cards");
-        const dots = $("#about .dots")
+        const left = $("#arrowLeft")
+        const right = $("#arrowRight")
+        const cards = $("#about .cards")
 
-        const scrollAmount = cards.outerWidth() / 3
-
+        const scrollAmount = cards.outerWidth()
 
         left.click(function () {
-
-            let currentScroll = cards.scrollLeft();
+            let currentScroll = cards.scrollLeft()
 
             if (currentScroll <= 0) {
-                // Прокручиваем до конца вправо (бесконечный цикл)
-                cards.animate({ scrollLeft: cards[0].scrollWidth }, 400);
+                // Прокручиваем до конца вправо
+                cards.animate({ scrollLeft: cards[0].scrollWidth }, 400)
             } else {
-                cards.animate({ scrollLeft: currentScroll - scrollAmount }, 400);
+                cards.animate({ scrollLeft: currentScroll - scrollAmount }, 400)
             }
 
-            if (cards.scrollLeft() <= cards.outerWidth() / 3) {
-                console.log("first")
-            }
-
-            if (cards.scrollLeft() > cards.outerWidth() / 3 && cards.scrollLeft() <= cards.outerWidth() / 3 + cards.outerWidth() / 3) {
-                console.log("second")
-            }
-
-            if (cards.scrollLeft() > cards.outerWidth() / 3 + cards.outerWidth() / 3) {
-                console.log("third")
-            }
-
-        });
+        })
 
         right.click(function () {
 
             let currentScroll = cards.scrollLeft();
-            const maxScroll = cards[0].scrollWidth - cards.outerWidth();
+
+            const maxScroll = $(".slider .cards").width() - 100
+
 
             if (currentScroll >= maxScroll) {
-                // Прокручиваем до начала (бесконечный цикл)
-                cards.animate({ scrollLeft: 0 }, 400);
+                // Прокручиваем до начала
+                cards.animate({ scrollLeft: 0 }, 400)
             } else {
-                cards.animate({ scrollLeft: currentScroll + scrollAmount }, 400);
+                cards.animate({ scrollLeft: currentScroll + scrollAmount }, 400)
             }
 
-            if (cards.scrollLeft() <= cards.outerWidth() / 3) {
-                console.log("first")
-            }
-
-            if (cards.scrollLeft() > cards.outerWidth() / 3 && cards.scrollLeft() <= cards.outerWidth() / 3 + cards.outerWidth() / 3) {
-                console.log("second")
-            }
-
-            if (cards.scrollLeft() > cards.outerWidth() / 3 + cards.outerWidth() / 3) {
-                console.log("third")
-            }
-        });
-    });
+        })
+    })
 
 
 </script>
@@ -293,6 +344,73 @@
 
     })
 </script>
+<script>
+    $(document).ready(function () {
+        $("header .link a").on("mouseover", function () {
+
+            $(this).siblings("span").css({"width": "100%", "opacity": "1"})
+            $(this).siblings("span").css("color", "#105EF5")
+        })
+
+        $("header .link a").on("mouseout", function () {
+            $(this).siblings("span").css({"width": "0", "opacity": "0"})
+            $(this).siblings("span").css("color", "var(--textColor)")
+        })
+
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        const feedbackList = $(".feedback__list")
+        const feedbackItem = $(".feedback__list .feedback")
+        const next = $(".feedback__carousel .arrow_right")
+        const back = $(".feedback__carousel .arrow_left")
+
+        let feedbackWidth = feedbackItem.outerWidth();
+        let currentScroll = 0
+
+        let feedbackListWidth = feedbackItem.width() * ($(".feedback__list").children(".feedback").length - 1)
+
+        next.click(function () {
+
+            if (currentScroll < feedbackListWidth) {
+                currentScroll += feedbackWidth
+            }
+
+            else {
+                currentScroll = 0
+            }
+
+            feedbackList.animate({
+                scrollLeft: currentScroll
+            }, 400)
+
+        })
+
+        back.click(function () {
+
+            if (currentScroll > 0) {
+                currentScroll -= feedbackWidth
+            }
+
+            else {
+                currentScroll = feedbackListWidth
+            }
+
+            feedbackList.animate({
+                scrollLeft: currentScroll
+            }, 400)
+        })
+
+    })
+</script>
+
+<!--<script>-->
+<!--    $("#head .heading").fadeOut(0).fadeIn(500)-->
+<!--    $("#head .heading h1").slideUp(0).slideDown(1000);-->
+
+<!--    $("#about .heading").slideUp(0).slideDown(1000);-->
+<!--</script>-->
 
 </body>
 </html>
