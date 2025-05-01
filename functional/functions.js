@@ -171,18 +171,18 @@ export function defToTime(date) {
     let now = new Date();
 
     if (date.toLowerCase() === "today") {
-        return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${now.getDate()}`
+        return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`
     }
 
     if (date.toLowerCase() === "tomorrow") {
         let tomorrow = new Date(now)
         tomorrow.setDate(now.getDate() + 1)
-        return `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${tomorrow.getDate()}`
+        return `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`
     }
 
     if (date.toLowerCase() === "yesterday") {
         let yesterday = new Date(now)
         yesterday.setDate(now.getDate() - 1)
-        return `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, "0")}-${yesterday.getDate()}`
+        return `${yesterday.getFullYear()}-${String(yesterday.getMonth() + 1).padStart(2, "0")}-${String(yesterday.getDate()).padStart(2, "0")}`
     }
 }

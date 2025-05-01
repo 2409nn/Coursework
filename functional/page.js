@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // контекстное меню (только с кнопкой удалить)
 
-    $(".notifications .notif, #chats .project").on("contextmenu", function (event) {
+    $(document).on("contextmenu", ".notifications .notif, #chats .project", function (event) {
 
         let thisElem = $(this)
         let elemSection = thisElem.closest("section")
@@ -21,7 +21,6 @@ $(document).ready(function () {
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
-            console.log(thisElem.closest("ul").length)
 
             addEmptyState(thisElem.closest("ul"), emptyState)
 
@@ -39,7 +38,7 @@ $(document).ready(function () {
 
     // контекстное меню (с кнопками "изменить" и "удалить")
 
-    $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project").on("contextmenu", function (event) {
+    $(document).on("contextmenu","#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
 
         event.preventDefault()
         dropContextMenu("Change", "Remove")
@@ -57,23 +56,6 @@ $(document).ready(function () {
 
             popUp(elemPopupName)
             elemPopupSubmit.val("Change") // при нажатии на кнопку "change" для popup меняется значение submit
-
-            if (elemClassName.includes("week__goal")) {
-                let elemTitle = thisElem.children("label")
-
-                $("#popWindowWeekGoal input[type='text']").val(elemTitle.text())
-
-                $("#popWindowWeekGoal input[type='submit']").click(function () {
-                    let inputText = $("#popWindowWeekGoal input[type='text']").val()
-                    elemTitle.text(inputText)
-                })
-
-                popUp("popWindowWeekGoal")
-            }
-
-            if (elemClassName.includes("month__goal")) {
-                popUp("popWindowMonthGoal")
-            }
 
             hideContextMenu($("#contextMenu"))
 
@@ -106,6 +88,11 @@ $(document).ready(function () {
                     $("#popWindowProject textarea").val(itemDesc)
                 }
 
+                if (elemPopupName === "popWindowWeekGoal") {
+                    let itemTitle = thisElem.children("label").text()
+                    $("#popWindowWeekGoal input[type='text']").val(itemTitle)
+                }
+
                 elemPopupSubmit.click(function () {
 
                     if (elemPopupName === "popWindowTask") {
@@ -124,6 +111,11 @@ $(document).ready(function () {
 
                     }
 
+                    if (elemPopupName === "popWindowWeekGoal") {
+
+                        thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
+
+                    }
                     elemPopupSubmit.off("click") // помогает перестать учитывать предыдущие обработчики события "click"
                 })
 
@@ -141,18 +133,14 @@ $(document).ready(function () {
 
             let list = thisElem.closest("ul")
             let emptyState = thisElem.closest(".goals").siblings(".empty__state")
-            let weekGoalsList = $("#projects .weekGoals").children("li") // берутся li и игнорируются те, что содержат h5
-            let monthGoalsList = $("#projects .monthGoals").children("li") // берутся li и игнорируются те, что содержат h5
 
             thisElem.remove()
-
-            console.log(weekGoalsList.length)
-            console.log(monthGoalsList.length)
-
             hideContextMenu($("#contextMenu"))
 
-            if (weekGoalsList.length === 1 && monthGoalsList.length === 1) {
-                console.log('sex')
+            let weekGoalsList = $("#projects .weekGoals").find("li") // берутся li и игнорируются те, что содержат h5
+            let monthGoalsList = $("#projects .monthGoals").find("li") // берутся li и игнорируются те, что содержат h5
+
+            if (addEmptyState(weekGoalsList, emptyState) && addEmptyState(weekGoalsList, emptyState)) {
                 $(".goals").css("display", "none")
             }
 
@@ -174,18 +162,23 @@ $(document).ready(function () {
                 hideContextMenu($("#contextMenu"))
             }
         })
-
     })
 
+    $(".new__project").click(function () {
 
-    $("#popWindowProject input[type='submit']").click(function () {
+        popUp("popWindowProject")
+        $("#popWindowProject input").val("")
+        $("#popWindowProject textarea").val("")
+        $("#popWindowProject input[type='submit']").val("Create")
 
-        if ($(this).val() === "Create") {
+        $("#popWindowProject input[type='submit']").click(function () {
 
-            sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
-            sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
+            if ($("#popWindowProject input[type='submit']").val() === "Create") {
 
-            let projectBlock = `<div class="project" data-popup-name="popWindowProject">
+                sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
+                sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
+
+                let projectBlock = `<div class="project" data-popup-name="popWindowProject">
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
@@ -202,10 +195,49 @@ $(document).ready(function () {
             </div>
           </div>
         </div>`
+                let projectChatBlock = `<div class="project">
+        <li class="project__title">
+          <h3>${sessionStorage.getItem("projectTitle")}</h3>
+          <span class="tag">project</span>
+<!--          <span class="new__messages__amount">+12</span>-->
+        </li>
 
-            $("#projects .projects").append(projectBlock)
-        }
 
+        <div class="last_message">
+<!--          <div class="user">-->
+<!--            <img src="../imgs/nav/Avatar.png" width="28" alt="userLogo" class="user__logo">-->
+<!--            <h4 class="user__name">Cave Johnson:</h4>-->
+<!--            <p class="message">When life gives you lemons, don't...</p>-->
+<!--          </div>-->
+            <p>No messages yet</p>
+        </div>
+
+        <div class="members">
+          <p class="members__amount">1 member</p>
+          <div class="members__list">
+<!--            <span class="more__members">+15</span>-->
+            <img class="member member1" src="../imgs/nav/Avatar.png" alt="avatar">
+<!--            <img class="member member2" src="../imgs/nav/Avatar.png" alt="avatar">-->
+<!--            <img class="member member3" src="../imgs/nav/Avatar.png" alt="avatar">-->
+          </div>
+        </div>
+
+      </div>`
+
+                alert("z")
+
+                if ($("#projects .projects").length > 0) {
+                    $(this).append(projectBlock)
+                }
+
+                if ($("#chats .projects").length > 0) {
+                    $(this).append(projectChatBlock)
+                }
+
+            }
+        })
     })
+
+    $("")
 
 })
