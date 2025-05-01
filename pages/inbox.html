@@ -307,24 +307,24 @@
 
   <form id="setTask" action="#">
 
-    <input type="text" required placeholder="Task's name">
+    <input type="text" name="title" required placeholder="Task's name">
     <div class="special__inputs">
 
       <div class="time__input">
         <p>task's deadline</p>
-        <input type="time" required placeholder="Task's deadline">
+        <input name="deadline" type="time" required placeholder="Task's deadline">
       </div>
 
       <div class="date__input">
         <p>task's date</p>
-        <input type="date" required placeholder="Task's deadline">
+        <input name="date" type="date" required placeholder="Task's deadline">
       </div>
 
     </div>
 
     <div class="selectProject">
       <label for="chooseProject">Choose project:</label>
-      <select id="chooseProject">
+      <select name="chooseProject" id="chooseProject">
         <option>Project_one</option>
         <option>Project_two</option>
         <option>Project_three</option>
@@ -332,7 +332,7 @@
     </div>
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -348,8 +348,8 @@
 
   <form id="setProject" action="#">
 
-    <input type="text" required placeholder="Project's name">
-    <textarea class="project__description" placeholder="Project's description"></textarea>
+    <input name="title" type="text" required placeholder="Project's name">
+    <textarea name="desc" class="project__description" placeholder="Project's description"></textarea>
 
     <!--    <div class="multi-select">-->
 
@@ -365,7 +365,7 @@
     <!--    </div>-->
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -381,10 +381,10 @@
 
   <form id="setWeekGoal" action="#">
 
-    <input type="text" required placeholder="Goal's name">
-    <textarea class="goal__description" placeholder="Goal's description"></textarea>
+    <input name="title" type="text" required placeholder="Goal's name">
+    <textarea name="desc" class="goal__description" placeholder="Goal's description"></textarea>
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Change">
 
   </form>
 

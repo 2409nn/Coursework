@@ -1,5 +1,5 @@
 import {dropContextMenu, getTimeDef, hideContextMenu, popUp} from "./functions.js"
-import { addEmptyState, defToTime } from "./functions.js";
+import { addEmptyState, defToTime, createElem } from "./functions.js";
 
 $(document).ready(function () {
 
@@ -105,22 +105,16 @@ $(document).ready(function () {
                     }
 
                     if (elemPopupName === "popWindowProject") {
-
                         thisElem.find(".project__name").text($(elemPopup).find("input[type='text']").val())
                         thisElem.find(".project__description").text($(elemPopup).find("textarea").val())
-
                     }
 
                     if (elemPopupName === "popWindowWeekGoal") {
-
                         thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
-
                     }
                     elemPopupSubmit.off("click") // помогает перестать учитывать предыдущие обработчики события "click"
                 })
-
             }
-
         })
 
         $(".removeBtn").click(function () {
@@ -165,79 +159,6 @@ $(document).ready(function () {
     })
 
     $(".new__project").click(function () {
-
-        popUp("popWindowProject")
-        $("#popWindowProject input").val("")
-        $("#popWindowProject textarea").val("")
-        $("#popWindowProject input[type='submit']").val("Create")
-
-        $("#popWindowProject input[type='submit']").click(function () {
-
-            if ($("#popWindowProject input[type='submit']").val() === "Create") {
-
-                sessionStorage.setItem("projectTitle", `${$("#popWindowProject input[type=\"text\"]").val()}`)
-                sessionStorage.setItem("projectDesc", `${$("#popWindowProject textarea").val()}`)
-
-                let projectBlock = `<div class="project" data-popup-name="popWindowProject">
-          <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
-          <div class="project__info">
-            <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
-            <h4 class="project__name">${sessionStorage.getItem("projectTitle")}</h4>
-            <p class="project__description">${sessionStorage.getItem("projectDesc")}</p>
-            <div class="project__operations">
-              <button class="more__btn">View all</button>
-              <div class="members">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member1">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member2">
-                <img src="../imgs/nav/Avatar.png" alt="avatar" width="20" class="member member3">
-                <span class="plus__members">+12</span>
-              </div>
-            </div>
-          </div>
-        </div>`
-                let projectChatBlock = `<div class="project">
-        <li class="project__title">
-          <h3>${sessionStorage.getItem("projectTitle")}</h3>
-          <span class="tag">project</span>
-<!--          <span class="new__messages__amount">+12</span>-->
-        </li>
-
-
-        <div class="last_message">
-<!--          <div class="user">-->
-<!--            <img src="../imgs/nav/Avatar.png" width="28" alt="userLogo" class="user__logo">-->
-<!--            <h4 class="user__name">Cave Johnson:</h4>-->
-<!--            <p class="message">When life gives you lemons, don't...</p>-->
-<!--          </div>-->
-            <p>No messages yet</p>
-        </div>
-
-        <div class="members">
-          <p class="members__amount">1 member</p>
-          <div class="members__list">
-<!--            <span class="more__members">+15</span>-->
-            <img class="member member1" src="../imgs/nav/Avatar.png" alt="avatar">
-<!--            <img class="member member2" src="../imgs/nav/Avatar.png" alt="avatar">-->
-<!--            <img class="member member3" src="../imgs/nav/Avatar.png" alt="avatar">-->
-          </div>
-        </div>
-
-      </div>`
-
-                alert("z")
-
-                if ($("#projects .projects").length > 0) {
-                    $(this).append(projectBlock)
-                }
-
-                if ($("#chats .projects").length > 0) {
-                    $(this).append(projectChatBlock)
-                }
-
-            }
-        })
+        createElem("project")
     })
-
-    $("")
-
 })
