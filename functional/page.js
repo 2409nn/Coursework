@@ -1,4 +1,4 @@
-import {dropContextMenu, getTimeDef, hideContextMenu, popUp} from "./functions.js"
+import {changeElem, dropContextMenu, getTimeDef, hideContextMenu, popUp} from "./functions.js"
 import { addEmptyState, defToTime, createElem } from "./functions.js";
 
 $(document).ready(function () {
@@ -18,10 +18,11 @@ $(document).ready(function () {
         $(".removeBtn").on("click", function () {
 
             let emptyState = thisElem.closest("ul").siblings(".empty__state")
-            thisElem.remove()
+            let list = thisElem.closest("ul")
             hideContextMenu($("#contextMenu"))
 
-            addEmptyState(thisElem.closest("ul"), emptyState)
+            thisElem.remove()
+            addEmptyState(list, emptyState)
 
         })
 
@@ -45,97 +46,23 @@ $(document).ready(function () {
 
         let thisElem = $(this)
         let elemClassName = thisElem.attr("class")
-        let elemSection = thisElem.closest("section")
 
         $(".changeBtn").click(function () {
 
-            let elemPopupName = thisElem.attr("data-popup-name")
-            let elemPopup = $(`#${elemPopupName}`)
-            let elemPopupSubmit = $(`#${elemPopupName} input[type="submit"]`)
-
-            popUp(elemPopupName)
-            elemPopupSubmit.val("Change") // при нажатии на кнопку "change" для popup меняется значение submit
-
+            console.log(thisElem)
+            changeElem(thisElem)
             hideContextMenu($("#contextMenu"))
-
-            if (elemPopupSubmit.val() === "Change") {
-
-                // получение данных из пользовательского элемента и ввод его в popup окно
-                // получение -> запись в popup -> запись с popup в элемент
-
-                if (elemPopupName === "popWindowTask") {
-
-                    let itemTitle = thisElem.children(".mainData").children("h4").text()
-                    let itemDeadline = thisElem.children(".mainData").children(".deadline").text().split("till")
-
-                    for (let i = 0; i < itemDeadline.length; i++) {
-                        itemDeadline[i] = itemDeadline[i].trim()
-                    }
-
-                    let itemDate = defToTime(itemDeadline[0])
-
-                    $("#popWindowTask input[type='text']").val(itemTitle)
-                    $("#popWindowTask input[type='time']").val(itemDeadline[1])
-                    $("#popWindowTask input[type='date']").val(itemDate)
-
-                }
-
-                if (elemPopupName === "popWindowProject") {
-                    let itemTitle = thisElem.children(".project__info").children(".project__name").text()
-                    let itemDesc = thisElem.children(".project__info").children(".project__description").text()
-                    $("#popWindowProject input[type='text']").val(itemTitle)
-                    $("#popWindowProject textarea").val(itemDesc)
-                }
-
-                if (elemPopupName === "popWindowWeekGoal") {
-                    let itemTitle = thisElem.children("label").text()
-                    $("#popWindowWeekGoal input[type='text']").val(itemTitle)
-                }
-
-                if (elemPopupName === "popWindowWeekGoal") {
-                    let itemTitle = thisElem.children("label").text()
-                    $("#popWindowMonthGoal input[type='text']").val(itemTitle)
-                }
-
-                elemPopupSubmit.click(function () {
-
-                    if (elemPopupName === "popWindowTask") {
-
-                        let taskTime = $(elemPopup).find("input[type='time']").val()
-                        let taskDate = getTimeDef($(elemPopup).find("input[type='date']").val())
-
-                        thisElem.find(".title").text($(elemPopup).find("input[type='text']").val())
-                        thisElem.find(".deadline p").text(`${taskDate} till ${taskTime}`)
-                    }
-
-                    if (elemPopupName === "popWindowProject") {
-                        thisElem.find(".project__name").text($(elemPopup).find("input[type='text']").val())
-                        thisElem.find(".project__description").text($(elemPopup).find("textarea").val())
-                    }
-
-                    if (elemPopupName === "popWindowWeekGoal") {
-                        thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
-                    }
-
-                    if (elemPopupName === "popWindowMonthGoal") {
-                        thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
-                    }
-
-                    elemPopupSubmit.off("click") // помогает перестать учитывать предыдущие обработчики события "click"
-                })
-            }
         })
 
         $(".removeBtn").click(function () {
+
+            let list = thisElem.closest("ul")
 
             if (elemClassName === "project") {
                 if (confirm("Are you sure you want to delete this project?")) {
                     thisElem.remove()
                 }
             }
-
-            let list = thisElem.closest("ul")
-            let emptyState = thisElem.closest(".goals").siblings(".empty__state")
 
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
@@ -145,23 +72,13 @@ $(document).ready(function () {
 
             if (monthGoalsList.children("li").length === 0 && weekGoalsList.children("li").length === 0) {
                 $(".goals").css("display", "none")
-                monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
+
+                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
             }
 
-            console.log(monthGoalsList.children("li").length)
-            console.log(weekGoalsList.children("li").length)
+            addEmptyState(list, list.siblings(".empty__state"))
 
-            addEmptyState(list, list.find(".empty__state"))
-
-            if (addEmptyState($("#tasks .tasks__list .task"), $("#tasks .empty__state"))) {
-                $("#tasks .tasks__list").css("display", "none")
-            }
-
-            else {
-                $("#tasks .empty__state").css("display", "none")
-                $("#tasks .controls").css("display", "flex")
-                $("#tasks .tasks__list").css("display", "flex")
-            }
+            // if (list.children("li").length === 0 && list)
         })
 
         $("body").click(function (event) {

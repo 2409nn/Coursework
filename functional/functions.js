@@ -1,7 +1,8 @@
 export function addEmptyState(listBlock, picture) {
 
-    if (listBlock.children().length === 0 && picture !== undefined) { // если пусто и ссылка на картинку добавлена
-        picture.css("display", "flex") // обращаемся к картинке и делаем ее отображаемой
+    if (listBlock.children().length === 0 && picture !== undefined) {
+        picture.css("display", "flex")
+        listBlock.css("display", "none")
 
         return true
     }
@@ -62,7 +63,6 @@ export function getTimeDef(date) {
     let now = new Date()
     let time = date.split("-")
 
-
     if (now.getDate() === Number(time[2]) && now.getMonth() + 1 === Number(time[1]) && now.getFullYear() === Number(time[0])) {
         return "Today"
     } else if (now.getDate() + 1 === Number(time[2]) && now.getMonth() + 1 === Number(time[1]) && now.getFullYear() === Number(time[0])) {
@@ -70,7 +70,7 @@ export function getTimeDef(date) {
     } else if (now.getDate() - 1 === Number(time[2]) && now.getMonth() + 1 === Number(time[1]) && now.getFullYear() === Number(time[0])) {
         return "Yesterday"
     } else {
-        return `${now.getDate()}:${now.getMonth() + 1}:${now.getFullYear()}`
+        return `${String(now.getDate()).padStart(2, "0")}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getFullYear()).padStart(2, "0")}`
     }
 }
 
@@ -192,7 +192,7 @@ export function createElem(elemType) {
 
     let popName
     let inputNames
-    var inputData = {}
+    let inputData = {}
     let popSubmit
     let appendBlock
     let appendPlace
@@ -298,7 +298,7 @@ export function createElem(elemType) {
       </li>`
             appendPlace = $("#todayTasks .tasks__list")
 
-            $("#todayTasks .tasks__list").css("display", "flex")
+            $("#todayTasks .tasks__list").css("display", "block")
             $("#todayTasks .empty__state").css("display", "none")
         }
 
@@ -401,6 +401,43 @@ export function createElem(elemType) {
 
         catch (e) {
             console.log("Append was not succeeded")
+        }
+
+        popSubmit.off("click")
+    })
+}
+
+export function changeElem(elem) {
+    let popupName = elem.attr("data-popup-name")
+    let popWindow = $(`#${popupName}`)
+    let popSubmit = popWindow.find("input[type='submit']")
+    let elemType = elem.attr("class")
+    let elemSection = elem.closest("section").attr("id")
+
+    popSubmit.val("Change")
+    popUp(popupName) // вызов модального окна
+
+    popSubmit.click(function (event) {
+
+        event.preventDefault()
+        let inputData = {}
+
+        for (let input of popWindow.find("input:not([type=submit]), textarea")) {
+            input = $(input)
+            inputData[input.attr("name")] = input.val()
+        }
+
+        if (elemType === "task" && elemSection === "tasks") {
+            elem.find(".title").text(inputData["title"])
+            elem.find(".deadline p").text(`${getTimeDef(inputData["date"])} till ${inputData["deadline"]}`)
+        }
+
+        else if (elemType === "task" && elemSection === "todayTasks") {
+            alert("todayTasks")
+        }
+
+        else if (elemType === "project" && elemSection === "projects") {
+            alert("projects")
         }
 
         popSubmit.off("click")

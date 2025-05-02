@@ -521,19 +521,45 @@
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module">
 
-<script src="../functional/switchTheme.js"></script>
-<script type="module" src="../functional/init.js"></script>
-<script type="module" src="../functional/functions.js"></script>
-<script type="module" src="../functional/page.js"></script>
-<script type="module" src="../functional/navigation.js"></script>
+  import { switchElement } from "../functional/functions.js"
 
-<script>
+  $(document).ready(function () {
 
-  const canvas = document.getElementById('teamMonthlyProd').getContext('2d')
-  const canvasTwo = document.getElementById('teamAverageProd').getContext('2d')
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let currentElem = $(".choose__month span")
+    var storageMessage = `${currentElem.text().toLowerCase()}BarData`
 
-  new Chart(canvas, {
+    currentElem.on("select", function (event) {
+      event.preventDefault()
+    })
+
+    switchElement(months, currentElem, $(".choose__month .back"), $(".choose__month .next"))
+
+    $(".choose__month .back").click(function () {
+      storageMessage = `${currentElem.text().toLowerCase()}BarData`
+      for (let dataset of barChart.data.datasets) {
+        dataset.data
+      }
+    })
+
+    $(".choose__month .next").click(function () {
+      storageMessage = `${currentElem.text().toLowerCase()}BarData`
+      let storageData = JSON.parse(localStorage.getItem(storageMessage))
+
+      barChart.data.datasets.forEach((dataset, index) => {
+        dataset.data = storageData[index]
+      })
+
+      barChart.update()
+      })
+    })
+
+    const canvas = document.getElementById('teamMonthlyProd').getContext('2d')
+    const canvasTwo = document.getElementById('teamAverageProd').getContext('2d')
+
+    new Chart(canvas, {
     type: 'line',
     data: {
       labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
@@ -608,13 +634,13 @@
     }
   })
 
-  new Chart(canvasTwo, {
+  let barChart = new Chart(canvasTwo, {
     type: 'bar',
     data: {
       labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
       datasets: [{
         label: 'Cave Johnson',
-        data: [79, 69, 72, 88, 91],
+        data: JSON.parse(localStorage.getItem(storageMessage))[0],
         borderColor: '#105EF5',
         borderWidth: 2,
         backgroundColor: '#105EF5',
@@ -622,7 +648,7 @@
       },
         {
           label: 'Heisenberg',
-          data: [80, 72, 74, 85, 82],
+          data: JSON.parse(localStorage.getItem(storageMessage))[1],
           borderColor: '#47C3F4',
           borderWidth: 2,
           backgroundColor: '#47C3F4',
@@ -630,7 +656,7 @@
         },
         {
           label: 'Tony Stark',
-          data: [72, 82, 79, 92, 84],
+          data: JSON.parse(localStorage.getItem(storageMessage))[2],
           borderColor: '#9747FF',
           borderWidth: 2,
           backgroundColor: '#9747FF',
@@ -688,6 +714,11 @@
   })
 
 </script>
+<script src="../functional/switchTheme.js"></script>
+<script type="module" src="../functional/init.js"></script>
+<script type="module" src="../functional/functions.js"></script>
+<script type="module" src="../functional/page.js"></script>
+<script type="module" src="../functional/navigation.js"></script>
 
 <!--<script type="module">-->
 

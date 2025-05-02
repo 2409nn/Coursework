@@ -370,10 +370,12 @@ main {
 
 #arrowLeft {
     transform: rotate(-90deg);
+    width: fit-content;
 }
 
 #arrowRight {
     transform: rotate(90deg);
+    width: fit-content;
 }
 
 .slider {
@@ -406,6 +408,10 @@ main {
     display: flex;
     margin: 20px auto;
     padding-top: 100px;
+}
+
+.slider button {
+    width: fit-content;
 }
 
 .parts {
@@ -788,9 +794,51 @@ footer .logo {
     #head .heading h1 {
         font-size: 30px;
     }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    section {
+        margin-top: 0;
+    }
+
+    #about .slider {
+        /*width: 200px;*/
+        height: 300px;
+        margin: 0;
+    }
+
+    #about .slider .card {
+        width: 80%;
+        height: 260px;
+        border-radius: 10px;
+        border-width: 1px;
+    }
+
+    #about .slider .cards .card span {
+        font-size: 52px;
+    }
+
+    #about .slider .cards h4 {
+        font-size: 18px;
+    }
+
+    #about .slider button {
+        width: 50px;
+    }
+
+    #about .slider button svg {
+        width: 50px;
+    }
 }
 
 @media screen and (max-width: 350px) {
+
+    main {
+        padding: 10px;
+        grid-template-columns: 100%;
+    }
 
     #head .heading h1 {
         font-size: 25px;
@@ -801,7 +849,7 @@ footer .logo {
     }
 
     #head {
-        gap: 4px;
+        grid-column: 1;
     }
 
     #head .heading p {
