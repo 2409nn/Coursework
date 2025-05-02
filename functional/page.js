@@ -21,7 +21,6 @@ $(document).ready(function () {
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
-
             addEmptyState(thisElem.closest("ul"), emptyState)
 
         })
@@ -93,6 +92,11 @@ $(document).ready(function () {
                     $("#popWindowWeekGoal input[type='text']").val(itemTitle)
                 }
 
+                if (elemPopupName === "popWindowWeekGoal") {
+                    let itemTitle = thisElem.children("label").text()
+                    $("#popWindowMonthGoal input[type='text']").val(itemTitle)
+                }
+
                 elemPopupSubmit.click(function () {
 
                     if (elemPopupName === "popWindowTask") {
@@ -112,6 +116,11 @@ $(document).ready(function () {
                     if (elemPopupName === "popWindowWeekGoal") {
                         thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
                     }
+
+                    if (elemPopupName === "popWindowMonthGoal") {
+                        thisElem.find("label").text($(elemPopup).find("input[type='text']").val())
+                    }
+
                     elemPopupSubmit.off("click") // помогает перестать учитывать предыдущие обработчики события "click"
                 })
             }
@@ -131,14 +140,18 @@ $(document).ready(function () {
             thisElem.remove()
             hideContextMenu($("#contextMenu"))
 
-            let weekGoalsList = $("#projects .weekGoals").find("li") // берутся li и игнорируются те, что содержат h5
-            let monthGoalsList = $("#projects .monthGoals").find("li") // берутся li и игнорируются те, что содержат h5
+            let weekGoalsList = $("#projects .weekGoals") // берутся li и игнорируются те, что содержат h5
+            let monthGoalsList = $("#projects .monthGoals") // берутся li и игнорируются те, что содержат h5
 
-            if (addEmptyState(weekGoalsList, emptyState) && addEmptyState(weekGoalsList, emptyState)) {
+            if (monthGoalsList.children("li").length === 0 && weekGoalsList.children("li").length === 0) {
                 $(".goals").css("display", "none")
+                monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
             }
 
-            addEmptyState(list, list.siblings(".empty__state"))
+            console.log(monthGoalsList.children("li").length)
+            console.log(weekGoalsList.children("li").length)
+
+            addEmptyState(list, list.find(".empty__state"))
 
             if (addEmptyState($("#tasks .tasks__list .task"), $("#tasks .empty__state"))) {
                 $("#tasks .tasks__list").css("display", "none")

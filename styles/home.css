@@ -71,6 +71,7 @@ main {
     grid-row: 1;
     font-weight: 500;
     margin-bottom: 7px;
+    overflow-wrap: anywhere;
 }
 #tasks .tasks__list .task .mainData .deadline {
     display: flex;

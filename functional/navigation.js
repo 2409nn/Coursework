@@ -45,13 +45,12 @@ $(document).ready(function() {
             dropMenu.removeClass("active__drop__menu")
         })
 
-        $("#popWindowWeekGoal input[type='submit']").off("click")
-
-        createMGoal.click(function () {
-            $("#popWindowMonthGoal input[type='text']").val("")
-            popUp("popWindowMonthGoal")
+        $(document).on("click", ".newMonthGoalBtn", function () {
+            createElem("monthGoal")
             dropMenu.removeClass("active__drop__menu")
         })
+
+        $("#popWindowWeekGoal input[type='submit']").off("click")
 
         // меню "уведомления"
 

@@ -308,7 +308,7 @@
 
   <form id="setTask" action="#">
 
-    <input name="title" type="text" required placeholder="Task's name">
+    <input type="text" name="title" required placeholder="Task's name">
     <div class="special__inputs">
 
       <div class="time__input">
@@ -333,7 +333,7 @@
     </div>
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -349,8 +349,8 @@
 
   <form id="setProject" action="#">
 
-    <input type="text" required placeholder="Project's name">
-    <textarea class="project__description" placeholder="Project's description"></textarea>
+    <input name="title" type="text" required placeholder="Project's name">
+    <textarea name="desc" class="project__description" placeholder="Project's description"></textarea>
 
     <!--    <div class="multi-select">-->
 
@@ -366,7 +366,7 @@
     <!--    </div>-->
 
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Create">
 
   </form>
 
@@ -382,10 +382,10 @@
 
   <form id="setWeekGoal" action="#">
 
-    <input type="text" required placeholder="Goal's name">
-    <textarea class="goal__description" placeholder="Goal's description"></textarea>
+    <input name="title" type="text" required placeholder="Goal's name">
+    <textarea name="desc" class="goal__description" placeholder="Goal's description"></textarea>
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Change">
 
   </form>
 
@@ -401,8 +401,8 @@
 
   <form id="setMonthGoal" action="#">
 
-    <input type="text" required placeholder="Goal's name">
-    <textarea class="goal__description" placeholder="Goal's description"></textarea>
+    <input name="title" type="text" required placeholder="Goal's name">
+    <textarea name="desc" class="goal__description" placeholder="Goal's description"></textarea>
 
     <input type="submit" value="Save">
 
@@ -454,15 +454,13 @@
       <ul class="weekGoals">
         <h5>Aims for this week</h5>
         <li class="goal week__goal" data-popup-name="popWindowWeekGoal"><input id="weekGoal1" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal1">Design new dashboard</label></li>
-<!--        <li class="goal week__goal"><input id="weekGoal2" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal2">Print the documents</label></li>-->
-<!--        <li class="goal week__goal"><input id="weekGoal3" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal3">Sell 99+ licences</label></li>-->
+        <li class="goal week__goal"><input id="weekGoal2" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal2">Print the documents</label></li>
+        <li class="goal week__goal"><input id="weekGoal3" type="checkbox" name="weekGoal"><label class="goal__label" for="weekGoal3">Sell 99+ licences</label></li>
 
       </ul>
       <ul class="monthGoals">
         <h5>Aims for this month</h5>
-<!--        <li><div class="goal month__goal"><input id="monthGoal1" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal1">Increase productivity in 2X times</label></div></li>-->
-<!--        <li><div class="goal month__goal"><input id="monthGoal2" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal2">Design a web-site about our new products</label></div></li>-->
-<!--        <li><div class="goal month__goal"><input id="monthGoal3" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal3">Involve 20+ clients</label></div></li>-->
+        <li class="goal month__goal"><input id="monthGoal1" type="checkbox" name="monthGoal"><label class="goal__label" for="monthGoal1">Increase productivity in 2X times</label></li>
       </ul>
     </div>
     <div class="progress">
@@ -561,42 +559,7 @@
         <div class="weekday"><span>Sat</span></div>
         <div class="weekday"><span>Sun</span></div>
       </div>
-<!--      <div class="day"><button>1</button></div>-->
-<!--      <div class="day"><button>2</button></div>-->
-<!--      <div class="day"><button>3</button></div>-->
-<!--      <div class="day"><button>4</button></div>-->
-<!--      <div class="day"><button>5</button></div>-->
-<!--      <div class="day"><button>6</button></div>-->
-<!--      <div class="day"><button>7</button></div>-->
-<!--      <div class="day"><button>8</button></div>-->
-<!--      <div class="day"><button>9</button></div>-->
-<!--      <div class="day"><button>10</button></div>-->
-<!--      <div class="day"><button>11</button></div>-->
-<!--      <div class="day"><button>12</button></div>-->
-<!--      <div class="day"><button>13</button></div>-->
-<!--      <div class="day"><button>14</button></div>-->
-<!--      <div class="day"><button>15</button></div>-->
-<!--      <div class="day"><button>16</button></div>-->
-<!--      <div class="day"><button>17</button></div>-->
-<!--      <div class="day"><button>18</button></div>-->
-<!--      <div class="day"><button>19</button></div>-->
-<!--      <div class="day"><button>20</button></div>-->
-<!--      <div class="day"><button>21</button></div>-->
-<!--      <div class="day"><button>22</button></div>-->
-<!--      <div class="day"><button>23</button></div>-->
-<!--      <div class="day"><button>24</button></div>-->
-<!--      <div class="day"><button>25</button></div>-->
-<!--      <div class="day"><button>26</button></div>-->
-<!--      <div class="day"><button>27</button></div>-->
-<!--      <div class="day"><button>28</button></div>-->
-<!--      <div class="day"><button>29</button></div>-->
-<!--      <div class="day"><button>30</button></div>-->
-<!--      <div class="day"><button>31</button></div>-->
 
-<!--      <div class="day"><button class="next__month__days">1</button></div>-->
-<!--      <div class="day"><button class="next__month__days">2</button></div>-->
-<!--      <div class="day"><button class="next__month__days">3</button></div>-->
-<!--      <div class="day"><button class="next__month__days">4</button></div>-->
     </div>
   </section>
 

@@ -31,6 +31,7 @@ export function hideContextMenu(contextMenu) {
 
 export function closePopUp(popup) {
     popup.removeClass("active")
+    popup.find("input[type='submit']").off("click")
 }
 
 export function popUp(popId) {
@@ -191,7 +192,7 @@ export function createElem(elemType) {
 
     let popName
     let inputNames
-    let inputData = {}
+    var inputData = {}
     let popSubmit
     let appendBlock
     let appendPlace
@@ -227,18 +228,17 @@ export function createElem(elemType) {
         // получение данных в inputData
 
         for (let name of inputNames) {
-            if (name === "chooseProject") {
-                inputData[name] = $(`#${popName} select[name=${name}]`).find("option:selected").text()
-            }
 
             if (name === "desc") {
                 inputData[name] = $(`#${popName} textarea[name=${name}]`).val()
             }
 
+            else if (name === "chooseProject") {
+                inputData[name] = $(`#${popName} select[name=${name}] option:selected`).text()
+            }
+
             else {inputData[name] = $(`#${popName} input[name="${name}"]`).val()}
         }
-
-        console.log(inputData)
 
         if ($("#tasks .tasks__list").length > 0 && elemType === "task") {
 
@@ -262,15 +262,26 @@ export function createElem(elemType) {
         </li>`
             appendPlace = $("#tasks .tasks__list")
 
-            console.log(appendBlock)
-            console.log(appendPlace)
+            $("#tasks .tasks__list").css("display", "flex")
+            $("#tasks .empty__state").css("display", "none")
+
         }
 
         else if ($("#todayTasks .tasks__list").length > 0 && elemType === "task") {
 
-            let lastChild = $("#todayTasks .tasks__list").children().last()
-            let taskId = "task" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("task", "")) + 1)
-            let labelId = "deadline" + (Number((lastChild.find("input[type='time']").attr("id")).replace("deadline", "")) + 1)
+            let lastChild, taskId, labelId
+
+            if ($("#todayTasks .tasks__list").children().length > 0) {
+
+                lastChild = $("#todayTasks .tasks__list").children().last()
+                taskId = "task" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("task", "")) + 1)
+                labelId = "deadline" + (Number((lastChild.find("input[type='time']").attr("id")).replace("deadline", "")) + 1)
+            }
+            else {
+                taskId = "task1"
+                labelId = "deadline1"
+                $("#todayTasks .empty__state").css("display", "flex")
+            }
 
             appendBlock = `<li class="task">
         <input type="checkbox" id="${taskId}">
@@ -286,6 +297,9 @@ export function createElem(elemType) {
         </div>
       </li>`
             appendPlace = $("#todayTasks .tasks__list")
+
+            $("#todayTasks .tasks__list").css("display", "flex")
+            $("#todayTasks .empty__state").css("display", "none")
         }
 
         else if ($("#projects .projects").length > 0 && elemType === "project") {
@@ -334,15 +348,25 @@ export function createElem(elemType) {
 
       </li>`
             appendPlace = $("#chats .projects")
+
+            $("#chats .projects").css("display", "flex")
+            $("#chats .empty__state").css("display", "none")
         }
 
         else if ($("#projects .weekGoals").length > 0 && elemType === "weekGoal") {
 
-            let lastChild = $("#projects .weekGoals").children().last()
-            let goalId = "weekGoal" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("weekGoal", "")) + 1)
+            let lastChild, goalId
 
-            console.log((lastChild.find("input[type='checkbox']").attr("id")))
-            console.log(goalId)
+            if ($("#projects .weekGoals").children("li").length > 0) {
+                lastChild = $("#projects .weekGoals").children().last()
+                goalId = "weekGoal" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("weekGoal", "")) + 1)
+            }
+
+            else {
+                $("#projects .goals").css("display", "grid")
+                $("#projects .empty__state").css("display", "none")
+                goalId = "weekGoal1"
+            }
 
             appendBlock = `<li class="goal week__goal" data-popup-name="popWindowWeekGoal">
 <input id="${goalId}" type="checkbox" name="weekGoal"><label class="goal__label" for="${goalId}">${inputData["title"]}</label>
@@ -350,25 +374,35 @@ export function createElem(elemType) {
             appendPlace = $("#projects .weekGoals")
         }
 
-        console.log(inputData)
-        appendPlace.append(appendBlock)
+        else if ($("#projects .monthGoals").length > 0 && elemType === "monthGoal") {
+
+            let lastChild, goalId
+
+            if ($("#projects .monthGoals").children("li").length > 0) {
+                lastChild = $("#projects .monthGoals").children().last()
+                goalId = "monthGoal" + (Number(lastChild.find("input[type='checkbox']").attr("id").replace("monthGoal", "")) + 1)
+            }
+
+            else {
+                $("#projects .goals").css("display", "grid")
+                $("#projects .empty__state").css("display", "none")
+                goalId = "monthGoal1"
+            }
+
+            appendBlock = `<li class="goal month__goal" data-popup-name="popWindowMonthGoal">
+<input id="${goalId}" type="checkbox" name="mothGoal"><label class="goal__label" for="${goalId}">${inputData["title"]}</label>
+</li>`
+            appendPlace = $("#projects .monthGoals")
+        }
+
+        try {
+            appendPlace.append(appendBlock)
+        }
+
+        catch (e) {
+            console.log("Append was not succeeded")
+        }
 
         popSubmit.off("click")
     })
-
-    // сбор данных из формы
-    // for (let name of inputNames)) {
-    //     $(`${popName} input[name="${name}"]`)
-    // }
-
-    // popSubmit = $(`#${popName} input[type="submit"]`)
-    //
-    // $(`#${popName} input`).val("")
-    // popSubmit.val("Create")
-    // popUp(popName)
-    //
-    // popSubmit.click(function () {
-    //     alert("from createElem")
-    // })
-
 }
