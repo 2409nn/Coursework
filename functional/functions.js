@@ -412,10 +412,10 @@ export function createElem(elemType) {
 
         try {
             appendPlace.append(appendBlock)
+            appendPlace.animate({scrollTop: appendPlace[0].scrollHeight}, 500)
         }
 
         catch (e) {
-            console.log("Append was not succeeded")
         }
 
         popSubmit.off("click")
@@ -430,10 +430,7 @@ export function changeElem(elem) {
     let elemSection = elem.closest("section").attr("id")
 
     // сбор данных из элемента
-
     let elemData = getDataFromElement(elem)
-
-    console.log(elemData)
 
     for (let dataType of Object.keys(elemData)) {
 

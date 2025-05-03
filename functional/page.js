@@ -52,7 +52,6 @@ $(document).ready(function () {
             let list = thisElem.closest("ul")
 
             if (elemClassName === "project") {
-                console.log("project")
                 if (confirm("Are you sure you want to delete this project?")) {
                     thisElem.remove()
                 }
@@ -70,7 +69,6 @@ $(document).ready(function () {
                     monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
             }
 
-            console.log(list.children("li"))
 
             addEmptyState(list, list.siblings(".empty__state"))
 

@@ -452,6 +452,11 @@ header nav .controls svg {
     color: var(--textColor);
 }
 
+header nav .controls svg:hover {
+    color: #105EF5;
+    cursor: pointer;
+}
+
 header .controls .search {
     display: flex;
     align-items: center;
@@ -467,7 +472,8 @@ header .controls .search svg {
     top: 2px;
 }
 
-/* --- logo --- */
+
+    /* --- logo --- */
 
 .logo {
     display: flex;
@@ -644,10 +650,6 @@ aside ul .lists li {
     cursor: pointer;
     background-color: var(--hoverButtonColor); /* Используем переменную */ /* Используем переменную */
     transition: 0.25s;
-}
-
-li svg {
-    width: 2.4vw;
 }
 
 #contextMenu {
@@ -1235,7 +1237,6 @@ li svg {
         height: 15px !important;
     }
 
-
     input[type="checkbox"]::before {
         content: "";
         width: 7px !important;
@@ -1247,6 +1248,10 @@ li svg {
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
     }
+
+    aside {
+        width: 170px;
+    }
 }
 
 @media screen and (max-width: 1040px) {
@@ -1256,7 +1261,13 @@ li svg {
     }
 
     aside ul li {
-        padding-left: 0;
+        padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    aside {
+        /*width: 120px;*/
     }
 }
 
