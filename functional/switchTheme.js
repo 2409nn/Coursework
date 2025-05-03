@@ -33,6 +33,7 @@ function applyTheme(theme) {
         // менять на темную суда
 
         if ($("#head").find(".picture").length > 0) {
+            $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_dark.png")
             $("#head").find(".picture").attr("src", "../imgs/introdution/DesktopHomepage-dark.jpg")
         }
 
@@ -42,7 +43,7 @@ function applyTheme(theme) {
         }
 
         if ($("#reminders .info .images").length > 0) {
-            $("#reminders .info .images img").attr("src", "../imgs/introdution/mobile_version_dark.png")
+            $("#reminders .info .images img").attr("src", "../imgs/introdution/reminders_dark.png")
         }
 
     } else {
@@ -67,6 +68,7 @@ function applyTheme(theme) {
         // менять на светлую суда
 
         if ($("#head").find(".picture").length > 0) {
+            $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_light.png")
             $("#head").find(".picture").attr("src", "../imgs/introdution/DesktopHomepage-light.jpg")
         }
 
@@ -76,7 +78,7 @@ function applyTheme(theme) {
         }
 
         if ($("#reminders .info .images").length > 0) {
-            $("#reminders .info .images img").attr("src", "../imgs/introdution/mobile_version_light.png")
+            $("#reminders .info .images img").attr("src", "../imgs/introdution/reminders_light.png")
         }
     }
 }

@@ -52,7 +52,7 @@
             </div>
 
         <picture>
-            <source srcset="../imgs/introdution/mobile_version_dark.png" type="image/png" media="(max-width: 700px)">
+            <source srcset="../imgs/introdution/mobile_version_light.png" type="image/png" media="(max-width: 700px)">
             <img class="picture" src="../imgs/introdution/DesktopHomepage-light.jpg" alt="head image">
         </picture>
 
@@ -169,12 +169,12 @@
     <section id="reminders">
         <div class="heading">
             <h2>Set <span class="blue__word">reminders</span> for planned task</h2>
+            <h4 style="margin-top: 20px">Never miss a deadline or forget an important task again! With our smart reminder system, you can stay on top of your schedule effortlessly</h4>
         </div>
 
         <div class="info">
 
             <div class="parts">
-                <h4>Never miss a deadline or forget an important task again! With our smart reminder system, you can stay on top of your schedule effortlessly</h4>
                 <div class="part">
                     <span class="emoji">🔔</span>
                     <p><span class="bolder">Custom Alerts:</span> Never forget important tasks with flexible reminders. Set one-time alerts for deadlines or recurring notifications for daily habits and weekly meetings. Choose between gentle nudges or prominent alerts based on priority. Perfect for work projects, personal goals, and everything in between.</p>
@@ -197,7 +197,7 @@
             </div>
 
             <div class="images">
-                <img src="../imgs/introdution/mobile_version_light.png" alt="phone_version">
+                <img src="../imgs/introdution/reminders_light.png" alt="notifications">
             </div>
 
         </div>
@@ -280,15 +280,15 @@
 <footer>
 
     <div class="container">
-        <div class="contacts left">
-            <a id="instagram"><img src="../imgs/introdution/instagram.png"></a>
-            <a id="x"><img src="../imgs/introdution/x.png"></a>
-        </div>
+
         <div class="logo" style="color: white; text-align: center; grid-column: 2">
             <p style="font-size: 36px">Planit</p>
-            <p style="font-size: 16px">&#169; all right are protected</p>
+            <p class="rights" style="font-size: 16px; white-space: nowrap; position: relative; top: 80px;">&#169; all right are protected</p>
         </div>
-        <div class="contacts right">
+
+        <div class="contacts">
+            <a id="instagram"><img src="../imgs/introdution/instagram.png"></a>
+            <a id="x"><img src="../imgs/introdution/x.png"></a>
             <a id="facebook"><img src="../imgs/introdution/facebook.png"></a>
             <a id="linkedIn"><img src="../imgs/introdution/linkedIn.png"></a>
         </div>
@@ -303,15 +303,17 @@
         const left = $("#arrowLeft")
         const right = $("#arrowRight")
         const cards = $("#about .cards")
+        const card = $("#about .cards .card")
 
-        const scrollAmount = cards.outerWidth()
+        const scrollAmount = card.outerWidth(true)
+        const maxScroll = cards[0].scrollWidth - cards[0].clientWidth
 
         left.click(function () {
             let currentScroll = cards.scrollLeft()
 
             if (currentScroll <= 0) {
                 // Прокручиваем до конца вправо
-                cards.animate({ scrollLeft: cards[0].scrollWidth }, 400)
+                cards.animate({ scrollLeft: maxScroll }, 400)
             } else {
                 cards.animate({ scrollLeft: currentScroll - scrollAmount }, 400)
             }
@@ -322,11 +324,7 @@
 
             let currentScroll = cards.scrollLeft();
 
-            const maxScroll = $(".slider .cards").width() - 100
-
-
-            if (currentScroll >= maxScroll) {
-                // Прокручиваем до начала
+            if (currentScroll >= maxScroll - card.outerWidth(true) / 2) {
                 cards.animate({ scrollLeft: 0 }, 400)
             } else {
                 cards.animate({ scrollLeft: currentScroll + scrollAmount }, 400)
@@ -368,14 +366,14 @@
         const next = $(".feedback__carousel .arrow_right")
         const back = $(".feedback__carousel .arrow_left")
 
-        let feedbackWidth = feedbackItem.outerWidth();
+        let feedbackWidth = feedbackItem.outerWidth(true);
         let currentScroll = 0
 
-        let feedbackListWidth = feedbackItem.width() * ($(".feedback__list").children(".feedback").length - 1)
+        const maxScroll = feedbackList[0].scrollWidth - feedbackList[0].clientWidth
 
         next.click(function () {
 
-            if (currentScroll < feedbackListWidth) {
+            if (currentScroll < maxScroll) {
                 currentScroll += feedbackWidth
             }
 
@@ -396,7 +394,7 @@
             }
 
             else {
-                currentScroll = feedbackListWidth
+                currentScroll = maxScroll
             }
 
             feedbackList.animate({
