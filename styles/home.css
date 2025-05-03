@@ -191,13 +191,12 @@ main {
     text-decoration: underline;
 }
 #projects .projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /*align-items: center;*/
+    display: flex;
     overflow-y: scroll;
+    justify-content: left;
     padding-top: 10px;
     flex-wrap: wrap;
-    row-gap: 20px;
+    gap: 20px;
 }
 
 #projects .projects::-webkit-scrollbar {
@@ -211,6 +210,8 @@ main {
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     box-shadow: 0 2px 6px var(--borderColor);
+    min-width: 150px;
+    min-height: 200px;
 }
 #projects .projects .project img {
     border-top-left-radius: 10px;

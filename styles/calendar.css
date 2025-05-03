@@ -276,6 +276,10 @@ input[type="time"] {
     font-size: 0.8vw;
 }
 
+.pop__up input[type="time"] {
+    color: var(--pColor);
+}
+
 #todayTasks .task {
     display: grid;
     grid-template-columns: 10% 70% 20%;

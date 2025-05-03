@@ -188,6 +188,21 @@ export function defToTime(date) {
     }
 }
 
+export function getDataFromElement(elem) {
+
+    if (elem.find("[data-info-type]")) {
+        let result = {}
+
+        for (let el of elem.find("[data-info-type]")) {
+            if ($(el).is('input')) {result[$(el).attr("data-info-type")] = $(el).val()}
+
+            else {result[$(el).attr("data-info-type")] = $(el).text()}
+        }
+
+        return result
+    }
+}
+
 export function createElem(elemType) {
 
     let popName
@@ -414,10 +429,38 @@ export function changeElem(elem) {
     let elemType = elem.attr("class")
     let elemSection = elem.closest("section").attr("id")
 
+    // сбор данных из элемента
+
+    let elemData = getDataFromElement(elem)
+
+    console.log(elemData)
+
+    for (let dataType of Object.keys(elemData)) {
+
+        if (dataType === "title") {popWindow.find("input[name='title']").val(elemData["title"])}
+
+        if (dataType === "deadline") {
+            let data = elemData["deadline"].split("till")
+            let date = defToTime(data[0].trim())
+            let time = data[1].trim()
+            popWindow.find("input[name='deadline']").val(time)
+            popWindow.find("input[name='date']").val(date)
+        }
+
+        if (dataType === "time") {
+            popWindow.find("input[name='deadline']").val(elemData["time"])
+        }
+
+        if (dataType === "description") {popWindow.find("textarea[name='desc']").val(elemData["description"])}
+
+    }
+
     popSubmit.val("Change")
     popUp(popupName) // вызов модального окна
 
     popSubmit.click(function (event) {
+
+        // ввод измененных данных обратно в элемент
 
         event.preventDefault()
         let inputData = {}
@@ -433,11 +476,17 @@ export function changeElem(elem) {
         }
 
         else if (elemType === "task" && elemSection === "todayTasks") {
-            alert("todayTasks")
+            elem.find(".goal__label").text(inputData["title"])
+            elem.find("input[type='time']").val(inputData["deadline"])
         }
 
         else if (elemType === "project" && elemSection === "projects") {
-            alert("projects")
+            elem.find(".project__name").text(inputData["title"])
+            elem.find(".project__description").text(inputData["desc"])
+        }
+
+        else if (elemType.split(" ")[0] === "goal" && elemSection === "projects") {
+            elem.find("label").text(inputData["title"])
         }
 
         popSubmit.off("click")

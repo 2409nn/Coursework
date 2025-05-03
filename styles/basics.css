@@ -177,10 +177,6 @@ section::-webkit-scrollbar {
     display: flex;
 }
 
-input[type="time"]::placeholder {
-    color: var(--placeholderColor);
-}
-
 button {
     background: none;
     border: none;
@@ -718,17 +714,6 @@ li svg {
     padding: 20px 0;
 }
 
-/*#popWindowPay {*/
-/*    display: none;*/
-/*    opacity: 0;*/
-/*}*/
-
-/*#popWindowTask {*/
-/*    display: none;*/
-/*    opacity: 1;*/
-/*}*/
-
-
 .pop__up .heading {
     text-align: center;
     margin: 14px 10px 10px;
@@ -737,7 +722,6 @@ li svg {
 
 #popWindowPay #payment {
     margin: 60px auto auto;
-    width: 398px;
 }
 
 #popWindowPay input {
@@ -837,7 +821,6 @@ li svg {
 
 #popWindowTask #setTask {
     margin: 60px auto auto;
-    width: 398px;
 }
 
 #popWindowTask input {
@@ -947,7 +930,6 @@ li svg {
 
 #popWindowProject #setProject {
     margin: 60px auto auto;
-    width: 398px;
 }
 
 #popWindowProject input {
@@ -1046,7 +1028,6 @@ li svg {
 
 #popWindowWeekGoal #setWeekGoal {
     margin: 60px auto auto;
-    width: 398px;
 }
 
 #popWindowWeekGoal input {
@@ -1137,7 +1118,6 @@ li svg {
 
 #popWindowMonthGoal #setWeekGoal {
     margin: 60px auto auto;
-    width: 398px;
 }
 
 #popWindowMonthGoal input {
@@ -1342,6 +1322,7 @@ li svg {
         padding: 20px;
         padding-bottom: 0;
         overflow-y: scroll;
+        z-index: 10;
     }
 
     aside .changeTheme {
@@ -1431,9 +1412,71 @@ li svg {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .pop__up {
+        min-width: 200px;
+        width: 300px;
+    }
+
+    #popWindowTask .selectProject select {
+        margin-top: 10px;
+    }
+}
 
 @media (max-width: 582px) {
     .notifications {
         width: 250px;
     }
+}
+
+@media (max-width: 400px) {
+    .pop__up {
+        padding: 20px;
+    }
+
+    #popWindowTask input {
+        width: 80%;
+    }
+
+    #popWindowTask input[type="submit"] {
+        margin-top: 0;
+    }
+
+    .pop__up .heading {
+        padding: 0;
+    }
+
+    #popWindowTask .special__inputs {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .pop__up {
+        width: 250px;
+    }
+
+    .pop__up input {
+        width: 70%;
+    }
+
+    .pop__up form {
+        width: 80%;
+    }
+
+    #popWindowTask .special__inputs {
+        gap: 0;
+    }
+
+    #popWindowTask .special__inputs input {
+        margin: auto;
+        text-align: center;
+    }
+
+    #popWindowTask .special__inputs p {
+        text-align: center;
+        margin: 10px 0;
+    }
+
 }

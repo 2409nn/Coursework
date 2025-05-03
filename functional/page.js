@@ -6,24 +6,19 @@ $(document).ready(function () {
     // контекстное меню (только с кнопкой удалить)
 
     $(document).on("contextmenu", ".notifications .notif, #chats .project", function (event) {
-
         let thisElem = $(this)
-        let elemSection = thisElem.closest("section")
-
         event.preventDefault()
 
         $("#contextMenu").css("transform", `translate(${event.pageX}px, ${event.pageY}px)`)
         dropContextMenu("Remove")
 
-        $(".removeBtn").on("click", function () {
-
-            let emptyState = thisElem.closest("ul").siblings(".empty__state")
+        $(".removeBtn").click(function () {
             let list = thisElem.closest("ul")
+
             hideContextMenu($("#contextMenu"))
-
             thisElem.remove()
-            addEmptyState(list, emptyState)
 
+            addEmptyState(list, list.siblings(".empty__state"))
         })
 
         $("body").click(function (event) {
@@ -48,8 +43,6 @@ $(document).ready(function () {
         let elemClassName = thisElem.attr("class")
 
         $(".changeBtn").click(function () {
-
-            console.log(thisElem)
             changeElem(thisElem)
             hideContextMenu($("#contextMenu"))
         })
@@ -59,12 +52,13 @@ $(document).ready(function () {
             let list = thisElem.closest("ul")
 
             if (elemClassName === "project") {
+                console.log("project")
                 if (confirm("Are you sure you want to delete this project?")) {
                     thisElem.remove()
                 }
             }
 
-            thisElem.remove()
+            else {thisElem.remove()}
             hideContextMenu($("#contextMenu"))
 
             let weekGoalsList = $("#projects .weekGoals") // берутся li и игнорируются те, что содержат h5
@@ -75,6 +69,8 @@ $(document).ready(function () {
 
                     monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
             }
+
+            console.log(list.children("li"))
 
             addEmptyState(list, list.siblings(".empty__state"))
 
@@ -91,4 +87,5 @@ $(document).ready(function () {
     $(".new__project").click(function () {
         createElem("project")
     })
+
 })

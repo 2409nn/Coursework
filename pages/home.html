@@ -243,7 +243,7 @@
 
     <ul class="notif__list" style="padding: 0;">
 
-      <li><div class="notif">
+      <li class="notif">
         <div class="main__data">
           <p class="title">Make a presentation</p>
           <p class="project"><span>Project: </span><span class="project__name">Fitness App</span></p>
@@ -256,11 +256,9 @@
           </svg>
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
-
-      </div>
       </li>
 
-      <li><div class="notif">
+      <li class="notif">
         <div class="main__data">
           <p class="title">Send the report</p>
           <p class="project"><span>Project: </span><span class="project__name">Fitness App</span></p>
@@ -274,10 +272,9 @@
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
 
-      </div>
       </li>
 
-      <li><div class="notif">
+      <li class="notif">
         <div class="main__data">
           <p class="title">Call to James</p>
           <p class="project"><span>Project: </span><span class="project__name">Fitness App</span></p>
@@ -291,10 +288,9 @@
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
 
-      </div>
       </li>
 
-      <li><div class="notif">
+      <li class="notif">
         <div class="main__data">
           <p class="title">Write a message</p>
           <p class="project"><span>Project: </span><span class="project__name">Fitness App</span></p>
@@ -307,8 +303,6 @@
           </svg>
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
-
-      </div>
       </li>
 
     </ul>
@@ -409,12 +403,26 @@
 
 </div>
 
-<div id="contextMenu"></div>
+<div id="popWindowMonthGoal" class="pop__up">
 
-<!--<div id="alertWindow">-->
-<!--  <img src="">-->
-<!--  <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa cumque, dicta eos excepturi, in incidunt labore maiores, modi saepe similique vero vitae voluptatum. Et ex laborum quia repudiandae totam?</p>-->
-<!--</div>-->
+  <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
+
+  <div class="heading">
+    <h3>Set month goal</h3>
+  </div>
+
+  <form id="setMonthGoal" action="#">
+
+    <input name="title" type="text" required placeholder="Goal's name">
+    <textarea name="desc" class="goal__description" placeholder="Goal's description"></textarea>
+
+    <input type="submit" value="Save">
+
+  </form>
+
+</div>
+
+<div id="contextMenu"></div>
 
   <main>
 
@@ -547,8 +555,8 @@
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
-            <h4 class="project__name">Project name</h4>
-            <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, blanditiis consequuntur deleniti doloremque eaque excepturi facilis!</p>
+            <h4 class="project__name" data-info-type="title">Project name</h4>
+            <p class="project__description" data-info-type="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, blanditiis consequuntur deleniti doloremque eaque excepturi facilis!</p>
             <div class="project__operations">
               <button class="more__btn">View all</button>
               <div class="members">
@@ -564,8 +572,8 @@
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
-            <h4 class="project__name">Project name</h4>
-            <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, blanditiis consequuntur deleniti doloremque eaque excepturi facilis!</p>
+            <h4 class="project__name" data-info-type="title">Project name</h4>
+            <p class="project__description" data-info-type="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, blanditiis consequuntur deleniti doloremque eaque excepturi facilis!</p>
             <div class="project__operations">
               <button class="more__btn">View all</button>
               <div class="members">
