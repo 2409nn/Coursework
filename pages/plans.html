@@ -382,7 +382,7 @@
 
 <script type="module">
 
-    import { popUp } from "../functional/functions.js";
+    import { popUp, closePopUp } from "../functional/functions.js";
 
     $(document).ready(function () {
 
@@ -393,15 +393,54 @@
 
             popUp("popWindowPay")
 
+            $("#popWindowPay input[type='submit']").click(function (event) {
+                event.preventDefault()
+
+                let allowSubmit = true
+
+                $("#popWindowPay").find("input:not([type='submit'])").each(function() {
+                    if ($(this).val().length === 0) {
+                        allowSubmit = false
+                    }
+                })
+
+                if (allowSubmit) {
+                    closePopUp($(`#popWindowPay`))
+                    $(this).off("click")
+                }
+
+                else {
+                    alert("Please enter a value")
+                }
+            })
         })
-
-
 
         $("#buyEnterprise").click(function () {
             $("#popWindowPay .heading h3").text("Upgrade to Enterprise")
             $("#popWindowPay .payment__sum").text("$19.00")
 
             popUp("popWindowPay")
+
+            $("#popWindowPay input[type='submit']").click(function (event) {
+                event.preventDefault()
+
+                let allowSubmit = true
+
+                $("#popWindowPay").find("input:not([type='submit'])").each(function() {
+                    if ($(this).val().length === 0) {
+                        allowSubmit = false
+                    }
+                })
+
+                if (allowSubmit) {
+                    closePopUp($(`#popWindowPay`))
+                    $(this).off("click")
+                }
+
+                else {
+                    alert("Please enter a value")
+                }
+            })
         })
 
     })

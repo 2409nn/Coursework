@@ -177,10 +177,6 @@ section p {
     overflow-y: scroll;
 }
 
-teamMonthlyProd {
-    width: 100% !important;
-}
-
 #teamProductivity::-webkit-scrollbar {
     display: none;
 }

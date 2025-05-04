@@ -388,7 +388,7 @@ main {
     text-align: center;
     line-height: 22px;
     vertical-align: middle;
-    border: 1.5px solid #105EF5;
+    border: 2px solid #105EF5;
     background: none;
     color: var(--textColor);
     transition: background-color 0.25s;
@@ -476,11 +476,6 @@ main {
     width: 1.39vw;
 }
 
-
-/*1212 брейнпоинт calendar: grid-row: 4; */
-
-/*1212 брейнпоинт */
-
 @media screen and (max-width: 1150px) {
     #calendar {
         grid-row: 5 / 22;
@@ -489,7 +484,6 @@ main {
     #calendar .weekdays .day {
         height: 60px;
         width: 3vw;
-
     }
 }
 
@@ -501,11 +495,6 @@ main {
 
     #projects .projects .new__project {
         padding-bottom: 15px;
-    }
-
-    #projects .projects .project .more__btn {
-        padding: 2px 6px;
-        font-size: 12px;
     }
 
     #projects .projects .project .members {
@@ -640,12 +629,6 @@ main {
 
     #projects .projects .project .members {
         width: 50px;
-    }
-
-    #projects .projects .project .more__btn {
-        padding: 2px 1vw;
-        font-size: 8px;
-        width: 60%;
     }
 
     #tasks .controls .page {

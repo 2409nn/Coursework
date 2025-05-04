@@ -1,52 +1,61 @@
-import {popUp} from "./popUpFuncs.js";
-// import {addEmptyState} from "./addEmptyState.js"; // functions
+import { popUp } from "./functions.js";
 
-$(document).ready(function() {
-    const createBtn = $(".create")
-    const dropMenu = $(".drop__menu")
-    const createTask = $(".newTaskBtn")
-    const createProject = $(".createProject, .newProjectBtn")
-    const createWGoal = $(".newWeekGoalBtn")
-    const createMGoal = $(".newMonthGoalBtn")
+$(document).ready(function () {
+    const elements = {
+        createBtn: $(".create"),
+        dropMenu: $(".drop__menu"),
+        createTask: $(".newTaskBtn"),
+        createProject: $(".createProject, .newProjectBtn"),
+        createWGoal: $(".newWeekGoalBtn"),
+        createMGoal: $(".newMonthGoalBtn"),
+        notifsBtn: $(".notifs__btn"),
+        notifications: $(".notifications")
+    }
 
+    elements.createBtn.on("click", toggleDropMenu)
+    elements.createTask.on("click", handleTaskCreation)
+    elements.createProject.on("click", handleProjectCreation)
+    elements.createWGoal.on("click", handleWeekGoalCreation)
+    elements.createMGoal.on("click", handleMonthGoalCreation)
+    elements.notifsBtn.on("click", toggleNotifications)
 
-    createBtn.click(function() {
-        dropMenu.toggleClass("active__drop__menu")})
+    function toggleDropMenu() {
+        elements.dropMenu.toggleClass("active__drop__menu")
+    }
 
-    createTask.click(function () {
-        $("#popWindowTask input[type='text']").val("")
+    function handleTaskCreation() {
+        clearInput("#popWindowTask input[type='text']")
         popUp("popWindowTask")
-        dropMenu.removeClass("active__drop__menu")
+        closeDropMenu()
+    }
 
-    })
-
-    createProject.click(function () {
-        $("#popWindowProject input[type='text']").val("")
+    function handleProjectCreation() {
+        clearInput("#popWindowProject input[type='text']")
         popUp("popWindowProject")
-        dropMenu.removeClass("active__drop__menu")
-    })
+        closeDropMenu()
+    }
 
-    createWGoal.click(function () {
-        $("#popWindowWeekGoal input[type='text']").val("")
+    function handleWeekGoalCreation() {
+        clearInput("#popWindowWeekGoal input[type='text']")
         popUp("popWindowWeekGoal")
-        dropMenu.removeClass("active__drop__menu")
+        closeDropMenu()
+    }
 
-        if (addEmptyState($("#projects .weekGoals li:has(div)"), $("#projects .empty__state")) && addEmptyState($("#projects .monthGoals li:has(div)"), $("#projects .empty__state"))) {
-            $("#projects .goals").css("display", "none")
-        }
-
-    })
-
-    createMGoal.click(function () {
-        $("#popWindowMonthGoal input[type='text']").val("")
+    function handleMonthGoalCreation() {
+        clearInput("#popWindowMonthGoal input[type='text']")
         popUp("popWindowMonthGoal")
-        dropMenu.removeClass("active__drop__menu")
-    })
+        closeDropMenu()
+    }
 
-    $(".notifs__btn").click(function(){
-        $(".notifications").toggleClass("active")
-    })
+    function toggleNotifications() {
+        elements.notifications.toggleClass("active")
+    }
 
+    function clearInput(selector) {
+        $(selector).val("")
+    }
 
-
+    function closeDropMenu() {
+        elements.dropMenu.removeClass("active__drop__menu")
+    }
 })

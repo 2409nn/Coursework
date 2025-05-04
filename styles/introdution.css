@@ -69,20 +69,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--textColor);
 }
 
-
-input {
-    border-radius: 50px;
-    border-width: 2px;
-    border-color: var(--borderColor); /* Используем переменную */
-    border-style: solid;
-    height: 18px;
-    width: 120px;
-    padding: 10px 60px;
-    font-size: 15px;
-    color: var(--textColor);
-    outline: none;
-}
-
 input::placeholder {
     color: var(--textColor); /* Используем переменную */
     font-size: 15px;
@@ -128,32 +114,6 @@ header .link .underline {
     transition: 0.2s;
 }
 
-.drop__menu {
-    display: none;
-    position: absolute;
-    background-color: var(--borderColor);
-    border: 1px solid var(--borderDarkerColor);
-    border-radius: 8px;
-    padding: 10px 0;
-    z-index: 30;
-    width: 240px;
-    right: 60px;
-    top: 70px;
-}
-
-.active__drop__menu {
-    display: block;
-    position: absolute;
-    background-color: var(--borderColor);
-    border: 1px solid var(--borderDarkerColor);
-    border-radius: 8px;
-    padding: 10px 0;
-    z-index: 30;
-    width: 240px;
-    right: 60px;
-    top: 70px;
-}
-
 .drop__menu .items__list {
     z-index: 30;
 }
@@ -178,21 +138,6 @@ header .link .underline {
 
 #create:hover {
     color: #105EF5;
-}
-
-.more__btn {
-    border: 1px #105EF5 solid;
-    border-radius: 10px;
-    padding: 3px 10px;
-    color: #105EF5;
-    transition: 0.25s;
-}
-
-.more__btn:hover {
-    cursor: pointer;
-    background-color: #105EF5;
-    color: white;
-    transition: 0.25s;
 }
 
 .inactive__btn {

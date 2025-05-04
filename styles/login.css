@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    font-family: "work sans";
+    font-family: "work sans", sans-serif;
     margin: 0;
 }
 
@@ -16,7 +16,7 @@ main {
 
 input {
     border-radius: 10px;
-    border-width: 1.5px;
+    border-width: 2px;
     border-color: #858587;
     outline: none;
     border-style: solid;
@@ -44,7 +44,7 @@ input:focus {
 }
 
 a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: #858587;
     text-decoration: underline;
 }
@@ -110,7 +110,7 @@ button span:hover {
 
 #signIn hr {
     width: 65%;
-    height: 1.5px;
+    height: 2px;
     background-color: black;
     border: none;
     margin: 40px auto;

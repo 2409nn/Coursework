@@ -559,16 +559,6 @@
 
     switchElement(months, $("#selectedMonth"), $(".choose__month .back"), $(".choose__month .next"))
 
-    // const dayList = $(".calendar__elem")
-    //
-    // for (let i of dayList) {
-    //   dayList.append("")
-    // }
-
-    // const days = $()
-
-    // days[now.getDate() - 1].classList.add("selected")
-
     $(document).on("click", ".calendar__elem .day button", function () {
 
       $(".calendar__elem .day button").removeClass("selected")
@@ -587,12 +577,7 @@
   const projectName = $("#projects .projectName").text().toLowerCase().trim()
   let currentProject = JSON.parse(localStorage.getItem(`project_${projectName}`))
 
-  console.log(currentProject)
-
   if (currentProject) {
-
-    console.log(currentProject["weekProgress"])
-    console.log(currentProject["monthProgress"])
 
     $("#weekProgressLine").css("width", currentProject["weekProgress"]);
     $("#monthProgressLine").css("width", currentProject["monthProgress"]);
@@ -627,41 +612,7 @@
 
   }
 
-</script>  <!-- подключение и работа с данными о проектах из localStorage -->
-<!--<script>-->
-
-<!--  $(document).ready(function () {-->
-
-<!--    const submit = $(`#popWindowWeekGoal input[type="submit"]`)-->
-
-<!--    submit.on("click", function (event) {-->
-
-<!--//       if (submit.val() === "Create") {-->
-<!--//-->
-<!--//         console.log("is create")-->
-<!--//-->
-<!--//         event.preventDefault()-->
-<!--//         let checkBoxes = $("#projects .goals .weekGoals .goal input")-->
-<!--//         let goalId = `weekGoal${checkBoxes.length + 1}`-->
-<!--//         sessionStorage.setItem("weekGoalTitle", $(`#popWindowWeekGoal input[type="text"]`).val())-->
-<!--//         sessionStorage.setItem("weekGoalDesc", $(`#popWindowWeekGoal textarea`).val())-->
-<!--//         if ($("#projects .goals").css("display") === "none") {-->
-<!--//           $("#projects .goals").css("display", "grid")-->
-<!--//           $("#projects .empty__state").css("display", "none")-->
-<!--//         }-->
-<!--//-->
-<!--//         let goalBlock = `<div class="goal" data-popup-name="popWindowWeekGoal"><input id=${goalId} type="checkbox" name="weekGoal">-->
-<!--// <label class="goal__label" for=${goalId}>${sessionStorage.getItem("weekGoalTitle")}</label>-->
-<!--// </div>`-->
-<!--//-->
-<!--//-->
-<!--//         $("#projects .goals .weekGoals").append(goalBlock)-->
-
-
-<!--      })-->
-<!--  })-->
-
-<!--</script>-->
+</script>
 <script>
 
   $(document).ready(function () {
@@ -671,24 +622,6 @@
     submit.on("click", function (event) {
 
       event.preventDefault()
-
-//       if (submit.val() === "Create") {
-//
-//       $("#popWindowMonthGoal input")
-//       let checkBoxes = $("#projects .goals .monthGoals .goal input")
-//
-//       let goalId = `weekGoal${checkBoxes.length + 1}`
-//
-//       sessionStorage.setItem("monthGoalTitle", $(`#popWindowMonthGoal input[type="text"]`).val())
-//       sessionStorage.setItem("monthGoalDesc", $(`#popWindowMonthGoal textarea`).val())
-//
-//       let goalBlock = `<div class="goal" data-popup-name="popWindowWeekGoal"><input id=${goalId} type="checkbox" name="monthGoal">
-// <label class="goal__label" for=${goalId}>${sessionStorage.getItem("monthGoalTitle")}</label>
-// </div>`
-//
-//       $("#projects .goals .monthGoals").append(goalBlock)
-//         }
-
     })
 
   })
