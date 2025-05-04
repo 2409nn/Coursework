@@ -281,8 +281,8 @@ teamMonthlyProd {
     }
 
     #teamProductivity {
-        grid-row: 15 / 34;
-        height: 100%;
+        grid-row-start: 15;
+        height: 250%;
         grid-column: 8 / 30;
         width: 100%;
     }

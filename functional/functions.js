@@ -54,7 +54,6 @@ export function popUp(popId) {
 
     submit.click(function (event) {
         event.preventDefault()
-        closePopUp(popup)
     })
 
 }
@@ -240,24 +239,36 @@ export function createElem(elemType) {
     popSubmit.val("Create")
 
     popSubmit.click(function () {
-        // получение данных в inputData
 
-        for (let name of inputNames) {
+        let allowSubmit = true
 
-            if (name === "desc") {
-                inputData[name] = $(`#${popName} textarea[name=${name}]`).val()
+        $(`#${popName}`).find("input[required]:not([type=submit]), textarea[required]").each(function() {
+            if ($(this).val().trim() === "") {
+                allowSubmit = false;
+                // Можно добавить подсветку или сообщение об ошибке
+                $(this).addClass("error-field");
+            } else {
+                $(this).removeClass("error-field");
+            }
+        });
+
+        if (allowSubmit) {
+            // получение данных в inputData
+
+            for (let name of inputNames) {
+
+                if (name === "desc") {
+                    inputData[name] = $(`#${popName} textarea[name=${name}]`).val()
+                } else if (name === "chooseProject") {
+                    inputData[name] = $(`#${popName} select[name=${name}] option:selected`).text()
+                } else {
+                    inputData[name] = $(`#${popName} input[name="${name}"]`).val()
+                }
             }
 
-            else if (name === "chooseProject") {
-                inputData[name] = $(`#${popName} select[name=${name}] option:selected`).text()
-            }
+            if ($("#tasks .tasks__list").length > 0 && elemType === "task") {
 
-            else {inputData[name] = $(`#${popName} input[name="${name}"]`).val()}
-        }
-
-        if ($("#tasks .tasks__list").length > 0 && elemType === "task") {
-
-            appendBlock = `<li class="task" data-popup-name="popWindowTask">
+                appendBlock = `<li class="task" data-popup-name="popWindowTask">
           <div class="checkbox">
             <input type="checkbox" class="checkbox">
           </div>
@@ -275,30 +286,27 @@ export function createElem(elemType) {
             <div class="project"><h6 class="projectName">${inputData["chooseProject"]}</h6><span class="projectChar">${(inputData["chooseProject"][0]).toUpperCase()}</span></div>
           </div>
         </li>`
-            appendPlace = $("#tasks .tasks__list")
+                appendPlace = $("#tasks .tasks__list")
 
-            $("#tasks .tasks__list").css("display", "flex")
-            $("#tasks .empty__state").css("display", "none")
+                $("#tasks .tasks__list").css("display", "flex")
+                $("#tasks .empty__state").css("display", "none")
 
-        }
+            } else if ($("#todayTasks .tasks__list").length > 0 && elemType === "task") {
 
-        else if ($("#todayTasks .tasks__list").length > 0 && elemType === "task") {
+                let lastChild, taskId, labelId
 
-            let lastChild, taskId, labelId
+                if ($("#todayTasks .tasks__list").children().length > 0) {
 
-            if ($("#todayTasks .tasks__list").children().length > 0) {
+                    lastChild = $("#todayTasks .tasks__list").children().last()
+                    taskId = "task" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("task", "")) + 1)
+                    labelId = "deadline" + (Number((lastChild.find("input[type='time']").attr("id")).replace("deadline", "")) + 1)
+                } else {
+                    taskId = "task1"
+                    labelId = "deadline1"
+                    $("#todayTasks .empty__state").css("display", "flex")
+                }
 
-                lastChild = $("#todayTasks .tasks__list").children().last()
-                taskId = "task" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("task", "")) + 1)
-                labelId = "deadline" + (Number((lastChild.find("input[type='time']").attr("id")).replace("deadline", "")) + 1)
-            }
-            else {
-                taskId = "task1"
-                labelId = "deadline1"
-                $("#todayTasks .empty__state").css("display", "flex")
-            }
-
-            appendBlock = `<li class="task">
+                appendBlock = `<li class="task">
         <input type="checkbox" id="${taskId}">
         <label for="${taskId}">${inputData["title"]}</label>
         <div class="deadline">
@@ -311,15 +319,13 @@ export function createElem(elemType) {
           <input id="${labelId}" type="time" value="${inputData["deadline"]}">
         </div>
       </li>`
-            appendPlace = $("#todayTasks .tasks__list")
+                appendPlace = $("#todayTasks .tasks__list")
 
-            $("#todayTasks .tasks__list").css("display", "block")
-            $("#todayTasks .empty__state").css("display", "none")
-        }
+                $("#todayTasks .tasks__list").css("display", "block")
+                $("#todayTasks .empty__state").css("display", "none")
+            } else if ($("#projects .projects").length > 0 && elemType === "project") {
 
-        else if ($("#projects .projects").length > 0 && elemType === "project") {
-
-            appendBlock = `<li class="project" data-popup-name="popWindowProject">
+                appendBlock = `<li class="project" data-popup-name="popWindowProject">
           <img class="project__img" src="../imgs/main/project__image.jpg" alt="project image">
           <div class="project__info">
             <a class="project__link">AppDevelopment <span class="project__number">1</span></a>
@@ -336,11 +342,9 @@ export function createElem(elemType) {
             </div>
           </div>
         </li>`
-            appendPlace = $("#projects .projects")
-        }
-
-        else if ($("#chats .projects").length > 0 && elemType === "project") {
-            appendBlock = `<li class="project" onclick="window.location = '../pages/chat.html'">
+                appendPlace = $("#projects .projects")
+            } else if ($("#chats .projects").length > 0 && elemType === "project") {
+                appendBlock = `<li class="project" onclick="window.location = '../pages/chat.html'">
         <div class="project__title">
           <h3>${inputData["title"]}</h3>
           <span class="tag">project</span>
@@ -362,63 +366,57 @@ export function createElem(elemType) {
         </div>
 
       </li>`
-            appendPlace = $("#chats .projects")
+                appendPlace = $("#chats .projects")
 
-            $("#chats .projects").css("display", "flex")
-            $("#chats .empty__state").css("display", "none")
-        }
+                $("#chats .projects").css("display", "flex")
+                $("#chats .empty__state").css("display", "none")
+            } else if ($("#projects .weekGoals").length > 0 && elemType === "weekGoal") {
 
-        else if ($("#projects .weekGoals").length > 0 && elemType === "weekGoal") {
+                let lastChild, goalId
 
-            let lastChild, goalId
+                if ($("#projects .weekGoals").children("li").length > 0) {
+                    lastChild = $("#projects .weekGoals").children().last()
+                    goalId = "weekGoal" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("weekGoal", "")) + 1)
+                } else {
+                    $("#projects .goals").css("display", "grid")
+                    $("#projects .empty__state").css("display", "none")
+                    goalId = "weekGoal1"
+                }
 
-            if ($("#projects .weekGoals").children("li").length > 0) {
-                lastChild = $("#projects .weekGoals").children().last()
-                goalId = "weekGoal" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("weekGoal", "")) + 1)
-            }
-
-            else {
-                $("#projects .goals").css("display", "grid")
-                $("#projects .empty__state").css("display", "none")
-                goalId = "weekGoal1"
-            }
-
-            appendBlock = `<li class="goal week__goal" data-popup-name="popWindowWeekGoal">
+                appendBlock = `<li class="goal week__goal" data-popup-name="popWindowWeekGoal">
 <input id="${goalId}" type="checkbox" name="weekGoal"><label class="goal__label" for="${goalId}">${inputData["title"]}</label>
 </li>`
-            appendPlace = $("#projects .weekGoals")
-        }
+                appendPlace = $("#projects .weekGoals")
+            } else if ($("#projects .monthGoals").length > 0 && elemType === "monthGoal") {
 
-        else if ($("#projects .monthGoals").length > 0 && elemType === "monthGoal") {
+                let lastChild, goalId
 
-            let lastChild, goalId
+                if ($("#projects .monthGoals").children("li").length > 0) {
+                    lastChild = $("#projects .monthGoals").children().last()
+                    goalId = "monthGoal" + (Number(lastChild.find("input[type='checkbox']").attr("id").replace("monthGoal", "")) + 1)
+                } else {
+                    $("#projects .goals").css("display", "grid")
+                    $("#projects .empty__state").css("display", "none")
+                    goalId = "monthGoal1"
+                }
 
-            if ($("#projects .monthGoals").children("li").length > 0) {
-                lastChild = $("#projects .monthGoals").children().last()
-                goalId = "monthGoal" + (Number(lastChild.find("input[type='checkbox']").attr("id").replace("monthGoal", "")) + 1)
-            }
-
-            else {
-                $("#projects .goals").css("display", "grid")
-                $("#projects .empty__state").css("display", "none")
-                goalId = "monthGoal1"
-            }
-
-            appendBlock = `<li class="goal month__goal" data-popup-name="popWindowMonthGoal">
+                appendBlock = `<li class="goal month__goal" data-popup-name="popWindowMonthGoal">
 <input id="${goalId}" type="checkbox" name="mothGoal"><label class="goal__label" for="${goalId}">${inputData["title"]}</label>
 </li>`
-            appendPlace = $("#projects .monthGoals")
+                appendPlace = $("#projects .monthGoals")
+            }
+
+            try {
+                appendPlace.append(appendBlock)
+                appendPlace.animate({scrollTop: appendPlace[0].scrollHeight}, 500)
+            } catch (e) {
+            }
+
+            closePopUp($(`#${popName}`))
+            popSubmit.off("click")
         }
 
-        try {
-            appendPlace.append(appendBlock)
-            appendPlace.animate({scrollTop: appendPlace[0].scrollHeight}, 500)
-        }
-
-        catch (e) {
-        }
-
-        popSubmit.off("click")
+        else {alert("Please enter a value")}
     })
 }
 
@@ -460,32 +458,64 @@ export function changeElem(elem) {
         // ввод измененных данных обратно в элемент
 
         event.preventDefault()
-        let inputData = {}
+
+        let allowSubmit = true
 
         for (let input of popWindow.find("input:not([type=submit]), textarea")) {
             input = $(input)
-            inputData[input.attr("name")] = input.val()
+            if (input.val().length === 0) {
+                allowSubmit = false
+            }
         }
 
-        if (elemType === "task" && elemSection === "tasks") {
-            elem.find(".title").text(inputData["title"])
-            elem.find(".deadline p").text(`${getTimeDef(inputData["date"])} till ${inputData["deadline"]}`)
+        if (allowSubmit) {
+
+            let inputData = {}
+
+            for (let input of popWindow.find("input:not([type=submit]), textarea")) {
+                input = $(input)
+                inputData[input.attr("name")] = input.val()
+            }
+
+            if (elemType === "task" && elemSection === "tasks") {
+                elem.find(".title").text(inputData["title"])
+                elem.find(".deadline p").text(`${getTimeDef(inputData["date"])} till ${inputData["deadline"]}`)
+
+            } else if (elemType === "task" && elemSection === "todayTasks") {
+                elem.find(".goal__label").text(inputData["title"])
+                elem.find("input[type='time']").val(inputData["deadline"])
+
+            } else if (elemType === "project" && elemSection === "projects") {
+                elem.find(".project__name").text(inputData["title"])
+                elem.find(".project__description").text(inputData["desc"])
+
+            } else if (elemType.split(" ")[0] === "goal" && elemSection === "projects") {
+                elem.find("label").text(inputData["title"])
+            }
+
+            popSubmit.off("click")
+            closePopUp(popWindow)
         }
 
-        else if (elemType === "task" && elemSection === "todayTasks") {
-            elem.find(".goal__label").text(inputData["title"])
-            elem.find("input[type='time']").val(inputData["deadline"])
-        }
-
-        else if (elemType === "project" && elemSection === "projects") {
-            elem.find(".project__name").text(inputData["title"])
-            elem.find(".project__description").text(inputData["desc"])
-        }
-
-        else if (elemType.split(" ")[0] === "goal" && elemSection === "projects") {
-            elem.find("label").text(inputData["title"])
-        }
-
-        popSubmit.off("click")
+        else {alert("Please enter a value")}
     })
+}
+
+export function getWeekDatesObject() {
+    const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    const today = new Date()
+    const currentDay = today.getDay()
+
+    const monday = new Date(today)
+    monday.setDate(today.getDate() - (currentDay === 0 ? 6 : currentDay - 1))
+
+    const weekDates = {}
+
+    for (let i = 0; i < 7; i++) {
+        const date = new Date(monday)
+        date.setDate(monday.getDate() + i)
+        weekDates[daysOfWeek[i]] = date.getDate()
+    }
+
+    return weekDates
 }

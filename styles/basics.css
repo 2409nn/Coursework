@@ -22,6 +22,10 @@
     --placeholderColor: #595959;
 }
 
+body {
+    background-color: var(--backgroundColor);
+}
+
 .goodResult {
     background-color: var(--goodBackgroundColor);
     color: var(--goodTextColor);
@@ -40,12 +44,13 @@
 textarea {
     resize: none;
     border: none;
-    width: 85%;
     background-color: var(--borderColor);
     height: 100px;
     border-radius: 10px;
     padding: 14px 30px;
     color: var(--textColor);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 textarea::placeholder {
@@ -70,7 +75,7 @@ textarea::-webkit-scrollbar {
     width: 460px;
     right: 0;
     top: 0;
-    z-index: 1;
+    z-index: 5;
     border-left: 2px solid var(--borderColor);
     transition: 0.5s transform;
 }
@@ -513,11 +518,14 @@ aside::-webkit-scrollbar {
 aside ul {
     padding: 0;
     margin-top: 50px;
-    margin-left: 20px;
 }
 
 aside .special li:hover {
     background-color: var(--whiteColor);
+}
+
+aside nav {
+    width: inherit;
 }
 
 aside .special li {
@@ -528,7 +536,6 @@ aside .special li {
 aside ul li {
     padding: 10px 14px;
     margin-bottom: 8px;
-    width: 87%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -560,14 +567,20 @@ aside nav ul li:hover > a svg {
     color: #105EF5;
 }
 
+aside nav ul li:hover > a span {
+    color: #105EF5;
+}
+
+
 aside ul li a span {
     margin-left: 14px;
     display: flex;
     justify-content: space-between;
+    color: var(--textColor);
 }
 
 aside ul li svg {
-    color: var(--pColor);
+    color: var(--textColor);
 }
 
 aside ul li a {
@@ -644,6 +657,7 @@ aside ul .lists li {
     font-weight: 600;
     font-size: 0.8vw;
     width: 100%;
+
 }
 
 .changeTheme:hover {
@@ -687,6 +701,8 @@ aside ul .lists li {
     border-radius: 5px;
 }
 
+/*popup окна */
+
 .pop__up {
     display: block;
     min-width: 400px;
@@ -699,9 +715,8 @@ aside ul .lists li {
     left: 50%;
     top: 0;
     transform: translate(-50%, -100%); /* Центрирование */
-    opacity: 0;
     transition: 0.4s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    opacity: 0;
 }
 
 .pop__up.active {
@@ -713,13 +728,40 @@ aside ul .lists li {
 }
 
 .pop__up .heading {
-    padding: 20px 0;
-}
-
-.pop__up .heading {
     text-align: center;
     margin: 14px 10px 10px;
     font-size: 18px;
+}
+
+.pop__up form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+.pop__up input {
+    background-color: var(--borderColor);
+    border: none;
+    display: block;
+    padding: 14px 30px;
+    border-radius: 10px;
+    transition: box-shadow 0.1s;
+}
+
+.pop__up input[name='title'] {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+
+.pop__up input[name="title"] {
+}
+
+.pop__up textarea[name="desc"] {
+    margin-top: 20px;
 }
 
 #popWindowPay #payment {
@@ -821,20 +863,16 @@ aside ul .lists li {
     transition: filter 0.25s;
 }
 
-#popWindowTask #setTask {
-    margin: 60px auto auto;
-}
-
-#popWindowTask input {
-    background-color: var(--borderColor);
-    border: none;
-    display: block;
-    width: 85%;
-    margin: 10px auto;
-    padding: 14px 30px;
-    border-radius: 10px;
-    transition: box-shadow 0.1s;
-}
+/*#popWindowTask input {*/
+/*    background-color: var(--borderColor);*/
+/*    border: none;*/
+/*    display: block;*/
+/*    width: 85%;*/
+/*    margin: 10px auto;*/
+/*    padding: 14px 30px;*/
+/*    border-radius: 10px;*/
+/*    transition: box-shadow 0.1s;*/
+/*}*/
 
 #popWindowTask input:focus {
     box-shadow: inset 0 0 0 1.8px #105EF5;
@@ -843,7 +881,6 @@ aside ul .lists li {
 
 #popWindowTask .special__inputs {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
     margin-top: 20px;
 }
@@ -858,10 +895,9 @@ aside ul .lists li {
 }
 
 #popWindowTask .special__inputs input {
-    width: 100%;
-    box-sizing: border-box;
+    height: 40px;
     margin: 5px 0;
-    padding: 25px 14px;
+    padding: 5px 14px;
     border-radius: 10px;
     background-color: var(--borderColor);
     border: none;
@@ -925,24 +961,16 @@ aside ul .lists li {
     color: var(--textColor);
 }
 
-
-/*#popWindowProject {*/
-/*    display: none;*/
-/*}*/
-
-#popWindowProject #setProject {
-    margin: 60px auto auto;
-}
-
 #popWindowProject input {
     background-color: var(--borderColor);
     border: none;
     display: block;
-    width: 85%;
+    width: 100%;
     margin: 10px auto;
     padding: 14px 30px;
     border-radius: 10px;
     transition: box-shadow 0.1s;
+    box-sizing: border-box;
 }
 
 #popWindowProject input:focus {
@@ -1026,23 +1054,6 @@ aside ul .lists li {
     transition: filter 0.25s;
 }
 
-/*pop goal*/
-
-#popWindowWeekGoal #setWeekGoal {
-    margin: 60px auto auto;
-}
-
-#popWindowWeekGoal input {
-    background-color: var(--borderColor);
-    border: none;
-    display: block;
-    width: 85%;
-    margin: 10px auto;
-    padding: 14px 30px;
-    border-radius: 10px;
-    transition: box-shadow 0.1s;
-}
-
 #popWindowWeekGoal input:focus {
     box-shadow: inset 0 0 0 1.8px #105EF5;
     transition: 0.25s;
@@ -1114,23 +1125,6 @@ aside ul .lists li {
     filter: brightness(105%);
     cursor: pointer;
     transition: filter 0.25s;
-}
-
-/* month goal */
-
-#popWindowMonthGoal #setWeekGoal {
-    margin: 60px auto auto;
-}
-
-#popWindowMonthGoal input {
-    background-color: var(--borderColor);
-    border: none;
-    display: block;
-    width: 85%;
-    margin: 10px auto;
-    padding: 14px 30px;
-    border-radius: 10px;
-    transition: box-shadow 0.1s;
 }
 
 #popWindowMonthGoal input:focus {
@@ -1248,10 +1242,6 @@ aside ul .lists li {
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
     }
-
-    aside {
-        width: 170px;
-    }
 }
 
 @media screen and (max-width: 1040px) {
@@ -1263,17 +1253,29 @@ aside ul .lists li {
     aside ul li {
         padding-left: 10px;
     }
+
+    aside .upgrade p {
+        font-size: 8px;
+    }
+
+    aside .upgrade h3 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    aside ul li .icon {
+        width: 20px;
+    }
+
+    .changeTheme {
+        border-radius: 10px;
+    }
 }
 
 @media screen and (max-width: 920px) {
     aside {
         /*width: 120px;*/
-    }
-}
-
-@media screen and (max-width: 770px) {
-    aside {
-        width: 150px;
     }
 }
 
@@ -1297,16 +1299,14 @@ aside ul .lists li {
     }
 
     .special .controls__mobile button {
-        display: flex;
-        align-items: center;
         padding: 0 30px;
         width: 100%;
         height: 40px;
-        margin: auto;
         color: white;
         background-color: #105EF5;
         border-radius: 12px;
         margin-top: 5px;
+        font-weight: 600;
     }
 
     .special .controls__mobile button:hover {
@@ -1361,6 +1361,14 @@ aside ul .lists li {
 
     .notifications {
         width: 340px;
+    }
+
+    .notifications .notif .title {
+        font-size: 10px;
+    }
+
+    .notifications .notif .project {
+        font-size: 10px;
     }
 
     header {
@@ -1438,6 +1446,11 @@ aside ul .lists li {
     .notifications {
         width: 250px;
     }
+
+    .notifications .notif .main__data {
+        flex-direction: column;
+        row-gap: 5px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -1472,10 +1485,6 @@ aside ul .lists li {
         width: 70%;
     }
 
-    .pop__up form {
-        width: 80%;
-    }
-
     #popWindowTask .special__inputs {
         gap: 0;
     }
@@ -1490,4 +1499,57 @@ aside ul .lists li {
         margin: 10px 0;
     }
 
+}
+
+@media screen and (max-width: 1200px) {
+    aside .changeTheme {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 765px) {
+    header .controls .search input {
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+    header .controls .search svg {
+        right: 190px;
+    }
+}
+
+@media (max-width: 800px) {
+    .empty-state__pic {
+        width: 100px;
+    }
+
+    aside .upgrade {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 925px) {
+    .upgrade {
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    aside .upgrade .active__btn {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 450px) {
+    #calendar .weekdays .day span {
+        font-size: 10px !important;
+    }
+
+    #calendar .weekdays {
+        flex-wrap: wrap;
+    }
+
+    #calendar .weekdays .day {
+        min-width: 35px;
+    }
 }

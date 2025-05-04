@@ -9,6 +9,10 @@ main {
     background-color: var(--backgroundColor);
 }
 
+#tasks, #projects, #calendar {
+    padding: 32px 28px;
+}
+
 #tasks {
     grid-template-rows: 10% 70% 20%;
     overflow-x: hidden;
@@ -17,7 +21,6 @@ main {
     grid-column: 9 / 29;
     grid-row: 1;
     background-color: var(--whiteColor);
-    padding: 32px 28px;
     border-radius: 10px;
     border: 1px solid var(--borderColor);
 }
@@ -168,15 +171,13 @@ main {
 
 #projects {
     overflow-x: hidden;
-    overflow-y: hidden;
-    /*width: 41.38vw;*/
     display: grid;
     grid-column: 9 / 29;
     grid-row: 11 / 22;
     background-color: var(--whiteColor);
-    padding: 32px 28px;
     border-radius: 10px;
     border: 1px solid var(--borderColor);
+    max-height: 427px;
 }
 
 #projects .heading {
@@ -282,6 +283,8 @@ main {
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     transition: 0.25s;
+    min-width: 150px;
+    min-height: 200px;
 }
 
 #projects .projects .new__project:hover {
@@ -291,7 +294,7 @@ main {
 #projects .projects .new__project .content {
     color: #105EF5;
     text-align: center;
-    font-size: 1vw;
+    font-size: 14px;
 }
 
 #statistics {
@@ -302,8 +305,8 @@ main {
 }
 #statistics .productivity {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 10px;
 }
 #statistics .productivity .card {
     display: flex;
@@ -311,7 +314,6 @@ main {
     background-color: var(--whiteColor);
     margin-bottom: 1vw;
     width: 11.5vw;
-    height: 3vw;
     padding: 15px;
     border-radius: 12px;
     border: 1px solid var(--borderColor);
@@ -333,7 +335,7 @@ main {
 #statistics .productivity .card .info .results {
     display: flex;
     align-items: center;
-    font-size: 1.273vw;
+    font-size: 17px;
     margin-top: 10px;
 }
 #statistics .productivity .card .info .percentages {
@@ -341,13 +343,12 @@ main {
     background-color: var(--goodBackgroundColor);
     padding: 2px 6px;
     border-radius: 5px;
-    font-size: 0.81vw;
+    font-size: 10px;
     margin-left: 6px;
 }
 
 #calendar {
     width: 24vw;
-    padding: 25px 32px;
     border-radius: 10px;
     border: 1px solid var(--borderColor);
     background-color: var(--whiteColor);
@@ -419,7 +420,7 @@ main {
 
 #calendar .tasks__order {
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 #calendar .tasks__order::-webkit-scrollbar {
@@ -590,16 +591,21 @@ main {
 }
 
 @media screen and (max-width: 1170px) {
+
+    main {
+        grid-template-rows: 450px 450px 200px 450px;
+        row-gap: 30px;
+    }
+
     #tasks {
         height: 400px;
         grid-column: 8 / 33;
-        grid-row: 1 / 15;
+        grid-row: 1;
     }
 
     #projects {
-        height: fit-content;
         grid-column: 8 / 35;
-        grid-row: 12 / 30;
+        grid-row: 2;
     }
 
     #projects .projects .project {
@@ -638,7 +644,7 @@ main {
 
     #projects .projects .project .more__btn {
         padding: 2px 1vw;
-        font-size: 1vw;
+        font-size: 8px;
         width: 60%;
     }
 
@@ -653,27 +659,31 @@ main {
     #statistics {
         width: 100%;
         grid-column: 8 / 40;
-        grid-row: 23;
+        grid-row: 3;
+    }
+
+    #statistics .productivity {
+        justify-content: center;
     }
 
     #statistics .productivity .card {
-        width: 13vw;
+        width: 150px;
     }
 
     #statistics .productivity .card .info .heading {
-        font-size: 0.8vw;
+        font-size: 10px;
     }
 
     #calendar {
         width: 100%;
-        grid-row: 25;
+        grid-row: 4;
         grid-column: 8 / 31;
     }
 
     #calendar .weekdays .day {
-        width: 12%;
-        border-radius: 1.5vw;
+        width: 10%;
         font-size: 2vw;
+        border-radius: 1vw;
     }
 
     #calendar .weekdays .day .weekday {
@@ -700,21 +710,13 @@ main {
 
 }
 
-@media screen and (max-width: 1030px) {
-    #statistics {
-        grid-row: 22;
-    }
-}
-
 @media screen and (max-width: 866px) {
     #statistics {
-        grid-row: 21;
     }
 }
 
 @media screen and (max-width: 735px) {
     #statistics {
-        grid-row: 20;
     }
 }
 
@@ -729,15 +731,17 @@ main {
 
     #statistics .productivity .card img {
         margin-top: 10px;
+        width: 25px;
+        height: 25px;
     }
 
     #statistics .productivity .card .info .results {
-        font-size: 2vw;
+        font-size: 18px;
         margin-top: 4px;
     }
 
     #statistics .productivity .card .info .percentages {
-        font-size: 1.4vw;
+        font-size: 12px;
     }
 
     #statistics .productivity .card {
@@ -748,7 +752,6 @@ main {
 
 @media screen and (max-width: 600px) {
     #statistics {
-        grid-row: 19;
     }
 
     #statistics .productivity .card {
@@ -759,7 +762,6 @@ main {
 
 @media screen and (max-width: 419px) {
     #statistics {
-        grid-row: 18;
     }
 
     #statistics .productivity .card {
@@ -785,10 +787,6 @@ main {
         grid-template-rows: repeat(10, auto);
         row-gap: 10px;
         height: 100%;
-    }
-
-    .drop__menu .active__drop__menu {
-
     }
 
     #projects .projects .project .project__operations {
@@ -826,7 +824,6 @@ main {
 
     #statistics {
         grid-column: 1;
-        grid-row: 3;
         width: auto;
     }
 
@@ -839,9 +836,12 @@ main {
         margin-right: auto;
     }
 
+    #statistics .productivity .card .info .heading {
+        font-size: 12px;
+    }
+
     #calendar {
         grid-row: 5;
-        padding: 20px;
         height: 100%;
         width: auto;
         grid-column: 1;
@@ -853,38 +853,28 @@ main {
 
 }
 
-@media screen and (max-width: 419px) {
-    #statistics {
-        grid-row: 20;
-    }
-
+@media screen and (max-width: 459px) {
     #statistics .productivity .card {
         width: 100%;
     }
+}
 
-    #statistics .productivity .card .info .heading {
-        font-size: 2.4vw;
+@media screen and (max-width: 800px) {
+    #projects .projects .project .project__description {
+        font-size: 6px;
     }
 
-    #statistics .productivity .card .info .results h5 {
-        font-size: 2vw;
+    #projects .projects .project .project__name {
+        font-size: 12px;
     }
 
-    #statistics .productivity .card .info .results p {
-        font-size: 1.5vw;
+    #projects .projects .project .project__link {
+        font-size: 7px;
     }
+}
 
-    #statistics .productivity .card img {
-        width: 15px;
-        height: 15px;
-    }
-
-    #projects .projects .new__project .content {
-        font-size: 3vw;
-        color: red !important;
-    }
-
-    #statistics .productivity {
-        grid-row: 31;
+@media screen and (max-width: 500px) {
+    #calendar .weekdays .day {
+        border-radius: 7px;
     }
 }
