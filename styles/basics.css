@@ -1,6 +1,5 @@
+/*подключение шрифта work sans*/
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 
 :root {
     --whiteColor: #FFFFFF;
@@ -456,6 +455,10 @@ header .controls .search svg {
 .logo {
     display: flex;
     align-items: center;
+}
+
+.logo:hover {
+    cursor: pointer;
 }
 
 .logo h2 {

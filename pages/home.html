@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../styles/basics.css">
   <link rel="stylesheet" href="../styles/home.css">
   <link rel="icon" href="../imgs/favicon.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <title>Home</title>
-
 </head>
 <body>
 
@@ -37,14 +34,12 @@
           <p>Home</p>
         </a>
       </li>
-
       <li class="controls">
         <div class="search">
           <input type="text" placeholder="Search">
           <svg width="29" height="29" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M17 11C17 14.3137 14.3137 17 11 17C7.68629 17 5 14.3137 5 11C5 7.68629 7.68629 5 11 5C14.3137 5 17 7.68629 17 11ZM15.9056 17.3199C14.551 18.3729 12.8487 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11C19 12.8487 18.3729 14.551 17.3199 15.9056L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0976 20.6834 22.0976 20.2929 21.7071L15.9056 17.3199Z" fill="currentColor"/>
           </svg>
-
         </div>
         <button class="create">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +54,6 @@
               </clipPath>
             </defs>
           </svg>
-
         </button>
         <div class="drop__menu">
           <div class="items__list">
@@ -69,7 +63,6 @@
             <button class="menu__elem newMonthGoalBtn">New month goal</button>
           </div>
         </div>
-
         <button class="notifs__btn">
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_2437)">
@@ -145,18 +138,15 @@
           </svg>
           <span>Productivity</span></a></li>
     </ul>
-
     <ul class="special">
       <li><button class="changeTheme">Switch UI theme</button></li>
       <li class="special__buttons">
         <div class="buttons">
-
           <div class="controls__mobile">
             <button class="search">Find</button>
             <button class="create">Create</button>
             <button class="notifs__btn">Reminders</button>
           </div>
-
         </div>
       </li>
       <li>
@@ -188,7 +178,6 @@
 </aside>
 
 <div class="notifications">
-
   <div class="container">
     <h3>Notifications</h3>
 
@@ -210,13 +199,11 @@
     </div>
 
     <ul class="notif__list" style="padding: 0;">
-
       <li class="notif">
         <div class="main__data">
           <p class="title">Make a presentation</p>
           <p class="project"><span>Project: </span><span class="project__name">Fitness App</span></p>
         </div>
-
         <div class="deadline">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.7502 3.56V2C16.7502 1.59 16.4102 1.25 16.0002 1.25C15.5902 1.25 15.2502 1.59 15.2502 2V3.5H8.75023V2C8.75023 1.59 8.41023 1.25 8.00023 1.25C7.59023 1.25 7.25023 1.59 7.25023 2V3.56C4.55023 3.81 3.24023 5.42 3.04023 7.81C3.02023 8.1 3.26023 8.34 3.54023 8.34H20.4602C20.7502 8.34 20.9902 8.09 20.9602 7.81C20.7602 5.42 19.4502 3.81 16.7502 3.56Z" fill="currentColor"/>
@@ -225,7 +212,6 @@
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
       </li>
-
       <li class="notif">
         <div class="main__data">
           <p class="title">Send the report</p>
@@ -241,7 +227,6 @@
         </div>
 
       </li>
-
       <li class="notif">
         <div class="main__data">
           <p class="title">Call to James</p>
@@ -257,7 +242,6 @@
         </div>
 
       </li>
-
       <li class="notif">
         <div class="main__data">
           <p class="title">Write a message</p>
@@ -272,37 +256,28 @@
           <p class="deadline__date"><span>deadline: </span> 1 May</p>
         </div>
       </li>
-
     </ul>
   </div>
 
 </div>
 
 <div id="popWindowTask" class="pop__up">
-
   <img class="close__button" src="../imgs/popup/close__button.png" alt="close">
-
   <div class="heading">
     <h3>Set task</h3>
   </div>
-
   <form id="setTask" action="#">
-
     <input type="text" name="title" required placeholder="Task's name">
     <div class="special__inputs">
-
       <div class="time__input">
         <p>task's deadline</p>
         <input name="deadline" type="time" required>
       </div>
-
       <div class="date__input">
         <p>task's date</p>
         <input name="date" type="date" required>
       </div>
-
     </div>
-
     <div class="selectProject">
       <label for="chooseProject">Choose project:</label>
       <select name="chooseProject" id="chooseProject">
@@ -311,10 +286,7 @@
         <option>Project_three</option>
       </select>
     </div>
-
-
     <input type="submit" value="Create">
-
   </form>
 
 </div>
@@ -616,7 +588,7 @@
       <div class="date">
         <p class="day">Today</p>
         <p class="date__title"></p>
-      </div>
+      </div> <!-- Показывается текущая дата -->
       <div class="weekdays">
         <button class="day" id="monday"><span class="weekday">Mon</span><span class="day__date"></span></button>
         <button class="day" id="tuesday"><span class="weekday">Tue</span><span class="day__date"></span></button>
@@ -626,18 +598,16 @@
         <button class="day weekend" id="saturday"><span class="weekday">Sat</span><span class="day__date"></span></button>
         <button class="day weekend" id="sunday"><span class="weekday">Sun</span><span class="day__date"></span></button>
       </div>
-
       <div class="tasks__order">
-
         <div class="task__division">
           <div class="timeline">
             <p class="time">8:00 am</p>
             <div class="line"></div>
-          </div>
+          </div> <!-- время на которое запланирована задача -->
           <div class="task">
             <p class="heading">Task planing</p>
             <p class="description">Review daily tasks and set properties</p>
-          </div>
+          </div> <!-- название и описание задачи -->
         </div>
 
         <div class="task__division">
