@@ -1,4 +1,4 @@
-import {popUp, addEmptyState, getTimeDef, createElem} from "./functions.js";
+import {addEmptyState, createElem} from "./functions.js";
 
 $(document).ready(function() {
 
@@ -17,10 +17,6 @@ $(document).ready(function() {
 
     const createBtn = $(".create")
     const dropMenu = $(".drop__menu")
-    // const createTask = $(".newTaskBtn")
-    // const createProject = $(".createProject, .newProjectBtn")
-    // const createWGoal = $(".newWeekGoalBtn")
-    const createMGoal = $(".newMonthGoalBtn")
 
     createBtn.click(function () {
         dropMenu.toggleClass("active__drop__menu")

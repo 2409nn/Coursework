@@ -124,7 +124,7 @@ button span:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px 0;
+    margin: 15px auto;
     border: none;
     width: 333px;
     transition: 0.25s;
@@ -218,4 +218,11 @@ input[type="email"].error {
 input[type="password"].error {
     border-color: var(--badTextColor);
     background-color: var(--badBackgroundColor);
+}
+
+@media screen and (max-width: 536px) {
+    main {
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
 }

@@ -415,7 +415,7 @@ main {
 #calendar .weekdays .day.current {
     background-color: #105EF5;
     border-color: #105EF5;
-    color: #FFFFFF; !important;
+    color: #FFFFFF;
 }
 
 #calendar .tasks__order {

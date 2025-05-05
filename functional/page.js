@@ -60,10 +60,10 @@ $(document).ready(function () {
             else {thisElem.remove()}
             hideContextMenu($("#contextMenu"))
 
-            let weekGoalsList = $("#projects .weekGoals") // берутся li и игнорируются те, что содержат h5
-            let monthGoalsList = $("#projects .monthGoals") // берутся li и игнорируются те, что содержат h5
+            let weekGoalsList = $("#projects .weekGoals")
+            let monthGoalsList = $("#projects .monthGoals")
 
-            if (monthGoalsList.children("li").length === 0 && weekGoalsList.children("li").length === 0) {
+            if (monthGoalsList.children("li").not(":has(h5)").length === 0 && weekGoalsList.children("li").not(":has(h5)").length === 0) {
                 $(".goals").css("display", "none")
 
                     monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")

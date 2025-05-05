@@ -245,10 +245,6 @@ export function createElem(elemType) {
         $(`#${popName}`).find("input[required]:not([type=submit]), textarea[required]").each(function() {
             if ($(this).val().trim() === "") {
                 allowSubmit = false;
-                // Можно добавить подсветку или сообщение об ошибке
-                $(this).addClass("error-field");
-            } else {
-                $(this).removeClass("error-field");
             }
         });
 
@@ -374,7 +370,7 @@ export function createElem(elemType) {
 
                 let lastChild, goalId
 
-                if ($("#projects .weekGoals").children("li").length > 0) {
+                if ($("#projects .weekGoals").children("li").not(":has(h5)").length > 0) {
                     lastChild = $("#projects .weekGoals").children().last()
                     goalId = "weekGoal" + (Number((lastChild.find("input[type='checkbox']").attr("id")).replace("weekGoal", "")) + 1)
                 } else {
@@ -391,7 +387,7 @@ export function createElem(elemType) {
 
                 let lastChild, goalId
 
-                if ($("#projects .monthGoals").children("li").length > 0) {
+                if ($("#projects .monthGoals").children("li").not(":has(h5)").length > 0) {
                     lastChild = $("#projects .monthGoals").children().last()
                     goalId = "monthGoal" + (Number(lastChild.find("input[type='checkbox']").attr("id").replace("monthGoal", "")) + 1)
                 } else {

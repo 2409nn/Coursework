@@ -290,14 +290,8 @@
 
       <div class="time__input">
         <p>task's deadline</p>
-        <input name="deadline" type="time" required placeholder="Task's deadline">
+        <input name="deadline" type="time" required style="width: 100%;">
       </div>
-
-      <div class="date__input">
-        <p>task's date</p>
-        <input name="date" type="date" required placeholder="Task's deadline">
-      </div>
-
     </div>
 
     <div class="selectProject">
@@ -429,14 +423,14 @@
     <div class="goals">
 
       <ul class="weekGoals">
-        <h5>Aims for this week</h5>
+        <li><h5>Aims for this week</h5></li>
         <li class="goal week__goal" data-popup-name="popWindowWeekGoal"><input id="weekGoal1" type="checkbox" name="weekGoal"><label data-info-type="title" class="goal__label" for="weekGoal1">Design new dashboard</label></li>
         <li class="goal week__goal" data-popup-name="popWindowWeekGoal"><input id="weekGoal2" type="checkbox" name="weekGoal"><label data-info-type="title" class="goal__label" for="weekGoal2">Print the documents</label></li>
         <li class="goal week__goal" data-popup-name="popWindowWeekGoal"><input id="weekGoal3" type="checkbox" name="weekGoal"><label data-info-type="title" class="goal__label" for="weekGoal3">Sell 99+ licences</label></li>
 
       </ul>
       <ul class="monthGoals">
-        <h5>Aims for this month</h5>
+        <li><h5>Aims for this month</h5></li>
         <li class="goal month__goal" data-popup-name="popWindowMonthGoal"><input id="monthGoal1" type="checkbox" name="monthGoal"><label data-info-type="title" class="goal__label" for="monthGoal1">Increase productivity in 2X times</label></li>
       </ul>
     </div>
@@ -551,7 +545,6 @@
 <script type="module">
 
   import {switchElement} from "../functional/functions.js"
-  let now = new Date()
 
   $(document).ready(function () {
 
@@ -567,8 +560,6 @@
 
     const items = localStorage.getItem("projects").split(",")
     switchElement(items, $("#projects .projectName"), $("#projects .back"), $("#projects .next"))
-
-
   })
 
 </script> <!-- переключения месяцев / проектов и добавление стольких дней в календарь, сколько должно быть в месяце -->
@@ -612,21 +603,7 @@
 
   }
 
-</script>
-<script>
-
-  $(document).ready(function () {
-
-    const submit = $(`#popWindowMonthGoal input[type="submit"]`)
-
-    submit.on("click", function (event) {
-
-      event.preventDefault()
-    })
-
-  })
-
-</script>
+</script> <!-- подключение данных для прогресс-бара -->
 <script type="module">
 
   import { getMonthDays } from "../functional/functions.js"
@@ -671,6 +648,6 @@
 
 
   })
-</script>
+</script> <!-- добавление дней для месяца -->
 </body>
 </html>

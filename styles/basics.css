@@ -190,6 +190,12 @@ button {
     white-space: nowrap;
 }
 
+.more__btn {
+    border: 1px solid #105EF5;
+    color: #105EF5;
+    border-radius: 8px;
+}
+
 * {
     font-family: "Work Sans", sans-serif;
     margin: 0;

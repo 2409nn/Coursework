@@ -2,14 +2,6 @@ const $button = $(".changeTheme")
 const $upgradeBackgroundImage = $(".upgradeImage")
 const $backgroundImage = $("#headingOfBanner")
 
-// function changePicture(picture, lightVersion, darkVersion) {
-//     if (theme === "dark") {
-//
-//         console.log(picture.url)
-//
-//     }
-// }
-
 function applyTheme(theme) {
     if (theme === "dark") {
         $(":root").css({
@@ -25,12 +17,12 @@ function applyTheme(theme) {
             "--bodyColor": "#181b20"
         });
 
+        // смена на темную тему
+
         $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro__dark.png")')
         if ($backgroundImage.length) {
             $backgroundImage.css("background-image", 'url("../imgs/main/background__dark.png")')
         }
-
-        // менять на темную суда
 
         if ($("#head").find(".picture").length > 0) {
             $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_dark.png")
@@ -65,7 +57,7 @@ function applyTheme(theme) {
             $backgroundImage.css("background-image", 'url("../imgs/main/background.png")')
         }
 
-        // менять на светлую суда
+        // смена на светлую тему
 
         if ($("#head").find(".picture").length > 0) {
             $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_light.png")

@@ -3,22 +3,6 @@
 
 
 :root {
-    --whiteColor: #FFFFFF;
-    --grayDarkColor: #1e1e1e;
-    --borderColor: #F4F4F5;
-    --textColor: black;
-    --textDarkerColor: #1B1B1B;
-    --pColor: #858587;
-    --inputColor: black;
-    --backgroundColor: #FAFCFEFF;
-    --hoverButtonColor: black;
-    --hoverElementColor: #E3F5FF;
-    --goodBackgroundColor: #E7FFE3;
-    --goodTextColor: #29D381;
-    --mediumBackgroundColor: #FFF9D4;
-    --mediumTextColor: #FFAE00;
-    --badBackgroundColor: #FFD8D8;
-    --badTextColor: #F44747;
     --bodyColor: #CBEDFF;
     --pFontSize: 16px;
 }
