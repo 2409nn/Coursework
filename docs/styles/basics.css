@@ -1192,6 +1192,10 @@ aside ul .lists li {
 
 .task, .project, .week__goal, .month__goal {
     user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 
