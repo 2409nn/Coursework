@@ -246,7 +246,7 @@ main {
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
-    max-width: 67.72vw;
+    max-width: 90%;
     overflow-x: scroll;
 }
 

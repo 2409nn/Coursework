@@ -4,7 +4,6 @@ import { addEmptyState, defToTime, createElem } from "./functions.js";
 $(document).ready(function () {
 
     // контекстное меню (только с кнопкой удалить)
-
     $(document).on("contextmenu", ".notifications .notif, #chats .project", function (event) {
         let thisElem = $(this)
         event.preventDefault()
@@ -32,7 +31,6 @@ $(document).ready(function () {
     })
 
     // контекстное меню (с кнопками "изменить" и "удалить")
-
     $(document).on("contextmenu", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
 
         event.preventDefault()
@@ -71,8 +69,6 @@ $(document).ready(function () {
 
 
             addEmptyState(list, list.siblings(".empty__state"))
-
-            // if (list.children("li").length === 0 && list)
         })
 
         $("body").click(function (event) {
@@ -82,7 +78,8 @@ $(document).ready(function () {
         })
     })
 
-    // другое
+    // обработка нажатия пальцем
+
 
     $(".new__project").click(function () {
         createElem("project")

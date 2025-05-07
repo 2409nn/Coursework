@@ -456,21 +456,22 @@
     var inputValue
 
     function sendMessage() {
-        inputValue = textInput.val()
+      inputValue = textInput.val()
 
-      $('#chat').append(`<div class="message message__own">
+      if (inputValue.length > 0) {
+
+        $('#chat').append(`<div class="message message__own">
   <div class="user__data">
     <img src="../imgs/nav/Avatar.png" alt="avatar" class="avatar">
     <p class="user__name">You</p>
   </div>
   <p class="text">${inputValue}</p>
 </div>`)
+        textInput.val("")
 
-      textInput.val("")
-
-      let currentWindowHeight = $(document).height()
-
-      $("html, body").animate({scrollTop: currentWindowHeight}, 400)
+        let currentWindowHeight = $(document).height()
+        $("html, body").animate({scrollTop: currentWindowHeight}, 400)
+      }
 
     }
 
