@@ -86,12 +86,10 @@ $(document).ready(function () {
 
     $(document).on("touchstart", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
         const thisElem = $(this); // сохраняем элемент, как в contextmenu
-
-        console.log("нажатие")
+        event.preventDefault();
 
         touchTimer = setTimeout(() => {
             // Имитируем клик ПКМ через 2 секунды
-            event.preventDefault();
             dropContextMenu("Change", "Remove");
             const touch = event.originalEvent.touches[0];
 

@@ -1190,6 +1190,9 @@ aside ul .lists li {
 
 /* --- пользовательские эффекты --- */
 
+.task, .project, .week__goal, .month__goal {
+    user-select: none;
+}
 
 
 /* --- адаптация --- */
