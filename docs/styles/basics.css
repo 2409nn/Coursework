@@ -193,6 +193,14 @@ button {
     border: 1px solid #105EF5;
     color: #105EF5;
     border-radius: 8px;
+    transition: 0.25s background-color, color;
+}
+
+.more__btn:hover {
+    cursor: pointer;
+    background-color: #105EF5;
+    color: white;
+    transition: 0.25s background-color, color;
 }
 
 * {

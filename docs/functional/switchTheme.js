@@ -1,6 +1,6 @@
-const $button = $(".changeTheme")
-const $upgradeBackgroundImage = $(".upgradeImage")
-const $backgroundImage = $("#headingOfBanner")
+const button = $(".changeTheme")
+const upgradeBackgroundImage = $(".upgradeImage")
+const backgroundImage = $("#headingOfBanner")
 
 function applyTheme(theme) {
     if (theme === "dark") {
@@ -19,23 +19,23 @@ function applyTheme(theme) {
 
         // смена на темную тему
 
-        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro__dark.png")')
-        if ($backgroundImage.length) {
-            $backgroundImage.css("background-image", 'url("../imgs/main/background__dark.png")')
+        upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro__dark.png")')
+        if (backgroundImage.length) {
+            backgroundImage.css("background-image", 'url("../imgs/main/background__dark.png")')
         }
 
         if ($("#head").find(".picture").length > 0) {
-            $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_dark.png")
-            $("#head").find(".picture").attr("src", "../imgs/introdution/DesktopHomepage-dark.jpg")
+            $("#head picture").find("source").attr("srcset", "./imgs/introdution/mobile_version_dark.png")
+            $("#head").find(".picture").attr("src", "./imgs/introdution/DesktopHomepage-dark.jpg")
         }
 
         if ($("#productivity .images").length > 0) {
-            $("#productivity .images .back").attr("src", "../imgs/introdution/lin_graph_desktop_dark.png")
-            $("#productivity .images .forward").attr("src", "../imgs/introdution/bar_graph_desktop_dark.png")
+            $("#productivity .images .back").attr("src", "./imgs/introdution/lin_graph_desktop_dark.png")
+            $("#productivity .images .forward").attr("src", "./imgs/introdution/bar_graph_desktop_dark.png")
         }
 
         if ($("#reminders .info .images").length > 0) {
-            $("#reminders .info .images img").attr("src", "../imgs/introdution/reminders_dark.png")
+            $("#reminders .info .images img").attr("src", "./imgs/introdution/reminders_dark.png")
         }
 
     } else {
@@ -52,25 +52,25 @@ function applyTheme(theme) {
             "--bodyColor": "#CBEDFF"
         });
 
-        $upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro.png")')
-        if ($backgroundImage.length) {
-            $backgroundImage.css("background-image", 'url("../imgs/main/background.png")')
+        upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro.png")')
+        if (backgroundImage.length) {
+            backgroundImage.css("background-image", 'url("../imgs/main/background.png")')
         }
 
         // смена на светлую тему
 
         if ($("#head").find(".picture").length > 0) {
-            $("#head picture").find("source").attr("srcset", "../imgs/introdution/mobile_version_light.png")
-            $("#head").find(".picture").attr("src", "../imgs/introdution/DesktopHomepage-light.jpg")
+            $("#head picture").find("source").attr("srcset", "./imgs/introdution/mobile_version_light.png")
+            $("#head").find(".picture").attr("src", "./imgs/introdution/DesktopHomepage-light.jpg")
         }
 
         if ($("#productivity .images").length > 0) {
-            $("#productivity .images .back").attr("src", "../imgs/introdution/lin_graph_desktop_light.png")
-            $("#productivity .images .forward").attr("src", "../imgs/introdution/bar_graph_desktop_light.png")
+            $("#productivity .images .back").attr("src", "./imgs/introdution/lin_graph_desktop_light.png")
+            $("#productivity .images .forward").attr("src", "./imgs/introdution/bar_graph_desktop_light.png")
         }
 
         if ($("#reminders .info .images").length > 0) {
-            $("#reminders .info .images img").attr("src", "../imgs/introdution/reminders_light.png")
+            $("#reminders .info .images img").attr("src", "./imgs/introdution/reminders_light.png")
         }
     }
 }
@@ -79,7 +79,7 @@ let theme = localStorage.getItem("theme") || "light"
 
 applyTheme(theme)
 
-$button.on("click", function() {
+button.on("click", function() {
 
     theme = theme === "dark" ? "light" : "dark"
 
