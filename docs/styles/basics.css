@@ -604,7 +604,11 @@ aside ul .lists li {
 }
 
 .logout__icon {
-    color: var(--textColor) !important;
+    color: var(--textColor);
+}
+
+.logout:hover > .logout__icon {
+    color: #105EF5;
 }
 
 .special__buttons {
@@ -1195,7 +1199,6 @@ aside ul .lists li {
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
-    -webkit-touch-callout: none;
 }
 
 
@@ -1326,7 +1329,7 @@ aside ul .lists li {
 
     .special .controls__mobile button svg,
     .special svg {
-        color: white;
+        color: var(--textColor);
     }
 
     .controls__mobile button span {
