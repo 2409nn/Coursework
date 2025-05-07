@@ -349,7 +349,7 @@ select::-webkit-validation-bubble-arrow {
     /* --- upgrade --- */
 
 .upgrade {
-    background-image: url("../imgs/aside/background_upgrade_pro.png");
+    background-image: url("../imgs/aside/Background_upgrade_pro.png");
     background-size: contain;
     background-repeat: no-repeat;
     padding: 10px 20px;
@@ -1186,6 +1186,8 @@ aside ul .lists li {
 
 /* --- адаптация --- */
 
+/* выборочное изменение CSS свойств */
+
 @media screen and (max-width: 1200px) {
     aside .changeTheme {
         font-size: 10px;
@@ -1273,6 +1275,7 @@ aside ul .lists li {
     }
 }
 
+/* переход на мобильную версию */
 @media screen and (max-width: 700px) {
     aside {
         display: none;

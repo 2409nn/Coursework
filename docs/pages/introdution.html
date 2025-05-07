@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PlanIt — Organize your day. Own your future.</title>
-    <link rel="stylesheet" href="styles/introdution.css">
-    <link rel="icon" href="imgs/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../styles/introdution.css">
+    <link rel="icon" href="../imgs/favicon.png" type="image/png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <nav>
         <ul>
             <li class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 21px; color: #105EF5">
-                <img src="imgs/aside/logo.png" alt="logo" style="width: 40px"><span>Planit</span></li>
+                <img src="../imgs/aside/logo.png" alt="logo" style="width: 40px"><span>Planit</span></li>
             <li class="navLinks">
                 <ul style="gap: 50px; font-weight: 500">
                     <li class="link"><a href="#head">Heading</a><span class="underline"></span></li>
@@ -28,7 +28,7 @@
             </li>
             <li class="buttons">
                 <button class="changeTheme">Switch theme</button>
-                <button class="get__btn" onclick="window.location='pages/login.html'">Get for free</button>
+                <button class="get__btn" onclick="window.location='login.html'">Get for free</button>
             </li>
         </ul>
     </nav>
@@ -44,13 +44,13 @@
         <div class="available__list">
                 <p style="color: var(--textColor)">Available for desktop</p>
                 <div class="available__icons">
-                    <img src="imgs/introdution/download_for_apple_light.png" alt="available for apple">
-                    <img src="imgs/introdution/download_for_google_light.png" alt="available for goole">
+                    <img src="../imgs/introdution/download_for_apple_light.png" alt="available for apple">
+                    <img src="../imgs/introdution/download_for_google_light.png" alt="available for goole">
                 </div>
             </div>
         <picture>
-            <source srcset="imgs/introdution/mobile_version_light.png" type="image/png" media="(max-width: 700px)">
-            <img class="picture" src="imgs/introdution/DesktopHomepage-light.jpg" alt="head image">
+            <source srcset="../imgs/introdution/mobile_version_light.png" type="image/png" media="(max-width: 700px)">
+            <img class="picture" src="../imgs/introdution/DesktopHomepage-light.jpg" alt="head image">
         </picture>
     </section>
 
@@ -139,8 +139,8 @@
                 </div>
             </div>
             <div class="images">
-                <img alt="graph_pic" class="back" src="imgs/introdution/lin_graph_desktop_light.png">
-                <img alt="graph_pic" class="forward" src="imgs/introdution/bar_graph_desktop_light.png">
+                <img alt="graph_pic" class="back" src="../imgs/introdution/lin_graph_desktop_light.png">
+                <img alt="graph_pic" class="forward" src="../imgs/introdution/bar_graph_desktop_light.png">
             </div>
         </div>
     </section>
@@ -170,7 +170,7 @@
                 </div>
             </div>
             <div class="images">
-                <img src="imgs/introdution/reminders_light.png" alt="notifications">
+                <img src="../imgs/introdution/reminders_light.png" alt="notifications">
             </div>
         </div>
     </section>
@@ -247,16 +247,16 @@
         </div>
 
         <div class="contacts">
-            <a id="instagram"><img alt="instagram" src="imgs/introdution/instagram.png"></a>
-            <a id="x"><img alt="twitter(x)" src="imgs/introdution/x.png"></a>
-            <a id="facebook"><img alt="facebook" src="imgs/introdution/facebook.png"></a>
-            <a id="linkedIn"><img alt="linkedIn" src="imgs/introdution/linkedIn.png"></a>
+            <a id="instagram"><img alt="instagram" src="../imgs/introdution/instagram.png"></a>
+            <a id="x"><img alt="twitter(x)" src="../imgs/introdution/x.png"></a>
+            <a id="facebook"><img alt="facebook" src="../imgs/introdution/facebook.png"></a>
+            <a id="linkedIn"><img alt="linkedIn" src="../imgs/introdution/linkedIn.png"></a>
         </div>
     </div>
 
 </footer>
 
-<script src="functional/switchTheme.js"></script>
+<script src="../functional/switchTheme.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -299,7 +299,7 @@
     $(document).ready(function () {
 
         $(".get__app").click(function () {
-            window.location = "pages/login.html"
+            window.location = "login.html"
         })
 
     })

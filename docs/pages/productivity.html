@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inbox</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Productivity</title>
   <link rel="stylesheet" href="../styles/basics.css">
-  <link rel="stylesheet" href="../styles/inbox.css">
+  <link rel="stylesheet" href="../styles/productivity.css">
   <link rel="icon" href="../imgs/favicon.png" type="image/png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -86,7 +88,7 @@
 </header>
 
 <aside>
-  <div class="logo" onclick="window.location='../introdution.html'">
+  <div class="logo" onclick="window.location='introdution.html'">
     <img src="../imgs/aside/logo.png" width="32" alt="logo">
     <h2>Planit</h2></div>
   <nav>
@@ -159,11 +161,11 @@
           <img src="../imgs/aside/cangs.png" width="50" alt="">
           <h3>Upgrade to PRO</h3>
           <p>Choose best plan for you</p>
-          <button class="active__btn" onclick="window.location='./plans.html'">Go to plans</button>
+          <button class="active__btn" onclick="window.location='plans.html'">Go to plans</button>
         </div>
       </li>
       <li>
-        <a href="../pages/login.html" class="logout">
+        <a href="ml" class="logout">
           <svg class="logout__icon" width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_253_544)">
               <path d="M15.1001 16.44C14.7901 20.04 12.9401 21.51 8.8901 21.51H8.7601C4.2901 21.51 2.5001 19.72 2.5001 15.25L2.5001 8.73001C2.5001 4.26001 4.2901 2.47001 8.7601 2.47001H8.8901C12.9101 2.47001 14.7601 3.92001 15.0901 7.46001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -288,12 +290,12 @@
 
       <div class="time__input">
         <p>task's deadline</p>
-        <input name="deadline" type="time">
+        <input name="deadline" type="time" required>
       </div>
 
       <div class="date__input">
         <p>task's date</p>
-        <input name="date" type="date">
+        <input name="date" type="date" required>
       </div>
 
     </div>
@@ -389,98 +391,308 @@
 
 <main>
 
-  <section id="chats">
-    <div class="empty__state">
-      <svg fill="currentColor" version="1.1" class="empty-state__pic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           width="800px" height="800px" viewBox="0 0 462.035 462.035"
-           xml:space="preserve">
-<g>
-	<path d="M457.83,158.441c-0.021-0.028-0.033-0.058-0.057-0.087l-50.184-62.48c-0.564-0.701-1.201-1.305-1.879-1.845
-		c-2.16-2.562-5.355-4.225-8.967-4.225H65.292c-3.615,0-6.804,1.661-8.965,4.225c-0.678,0.54-1.316,1.138-1.885,1.845l-50.178,62.48
-		c-0.023,0.029-0.034,0.059-0.057,0.087C1.655,160.602,0,163.787,0,167.39v193.07c0,6.5,5.27,11.771,11.77,11.771h438.496
-		c6.5,0,11.77-5.271,11.77-11.771V167.39C462.037,163.787,460.381,160.602,457.83,158.441z M408.516,134.615l16.873,21.005h-16.873
-		V134.615z M384.975,113.345v42.274H296.84c-2.514,0-4.955,0.805-6.979,2.293l-58.837,43.299l-58.849-43.305
-		c-2.023-1.482-4.466-2.287-6.978-2.287H77.061v-42.274H384.975z M53.523,155.62H36.65l16.873-21.005V155.62z M438.498,348.69H23.54
-		V179.16h137.796l62.711,46.148c4.15,3.046,9.805,3.052,13.954-0.005l62.698-46.144h137.799V348.69L438.498,348.69z"/>
-</g>
-</svg>
-      <p>List is empty</p>
+  <section id="myProdToday">
+    <div class="heading">
+      <h3>My productivity</h3>
+      <p>today</p>
     </div>
+    <div class="effectivity">
+      <div class="prod__label"><span>9/12 done</span></div>
+      <span class="prod__increase">+ 12% since yesterday</span>
+    </div>
+    <div class="progress__bar">
+      <p class="progress__percentages">72% done</p>
+      <div class="progress"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="projects">
+      <h4>Projects</h4>
+      <div class="projects__list">
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Saas dashboard</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Task manager</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Game-dev</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Saas dashboard</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Task manager</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+        <div class="project"><div class="project__name"><span class="name">Game-dev</span><span> project: </span></div><div class="prod__label">3/3</div></div>
 
-    <ul class="projects" style="padding: 0;">
-      <li class="project">
-        <div class="project__title">
-          <h3>project name</h3>
-          <span class="tag">project</span>
-          <span class="new__messages__amount">+12</span>
-        </div>
-        <div class="last_message">
-          <div class="user">
-            <img src="../imgs/nav/Avatar.png" width="28" alt="userLogo" class="user__logo">
-            <h4 class="user__name">Cave Johnson:</h4>
-            <p class="message">When life gives you lemons, don't...</p>
-          </div>
-        </div>
-        <div class="members">
-          <p class="members__amount">19 members</p>
-          <div class="members__list">
-            <span class="more__members">+15</span>
-            <img class="member member1" src="../imgs/nav/Avatar.png" alt="avatar">
-            <img class="member member2" src="../imgs/nav/Avatar.png" alt="avatar">
-            <img class="member member3" src="../imgs/nav/Avatar.png" alt="avatar">
-          </div>
-        </div>
-      </li>
+      </div>
+    </div>
+  </section>
 
-      <li class="project">
-        <div class="project__title">
-          <h3>project name</h3>
-          <span class="tag">project</span>
-          <span class="new__messages__amount">+12</span>
+  <section id="myProdWeek">
+    <div class="heading">
+      <h3>My productivity</h3>
+      <p>Last week</p>
+    </div>
+    <div class="effectivity">
+      <div class="prod__label"><span>9/12 done</span></div>
+      <span class="prod__increase">+ 12% since yesterday</span>
+    </div>
+    <div class="progress__bar">
+      <p class="progress__percentages">72% done</p>
+      <div class="progress"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="projects">
+      <h4>Projects</h4>
+      <div class="projects__list">
+        <div class="project"><div class="project__name"><span class="name">Fitness app</span><span> project: </span></div><div class="prod__label">3/3</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teamProductivity">
+    <div class="monthly">
+      <div class="heading">
+        <div class="text">
+          <h3>Team's productivity</h3>
+          <p>Monthly</p>
         </div>
-
-        <div class="last_message">
-          <div class="user">
-            <img src="../imgs/nav/Avatar.png" width="28" alt="userLogo" class="user__logo">
-            <h4 class="user__name">Cave Johnson:</h4>
-            <p class="message">When life gives you lemons, don't...</p>
-          </div>
+        <div class="choose__month">
+          <a class="back">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7524 8.50274L18.4024 14.1627C18.4962 14.2557 18.5706 14.3663 18.6213 14.4882C18.6721 14.61 18.6982 14.7407 18.6982 14.8727C18.6982 15.0048 18.6721 15.1355 18.6213 15.2573C18.5706 15.3792 18.4962 15.4898 18.4024 15.5827C18.2151 15.769 17.9616 15.8735 17.6974 15.8735C17.4333 15.8735 17.1798 15.769 16.9924 15.5827L11.9924 10.6327L7.04244 15.5827C6.85508 15.769 6.60163 15.8735 6.33744 15.8735C6.07326 15.8735 5.81981 15.769 5.63244 15.5827C5.53796 15.4901 5.46279 15.3797 5.41129 15.2578C5.35979 15.1359 5.33299 15.0051 5.33245 14.8727C5.33299 14.7404 5.35979 14.6096 5.41129 14.4877C5.46279 14.3658 5.53796 14.2554 5.63244 14.1627L11.2824 8.50274C11.3761 8.40124 11.4897 8.32023 11.6162 8.26482C11.7427 8.20941 11.8793 8.18081 12.0174 8.18081C12.1555 8.18081 12.2922 8.20941 12.4186 8.26482C12.5451 8.32023 12.6588 8.40124 12.7524 8.50274Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <span id="selectedMonth">August</span>
+          <a class="next">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7524 8.50274L18.4024 14.1627C18.4962 14.2557 18.5706 14.3663 18.6213 14.4882C18.6721 14.61 18.6982 14.7407 18.6982 14.8727C18.6982 15.0048 18.6721 15.1355 18.6213 15.2573C18.5706 15.3792 18.4962 15.4898 18.4024 15.5827C18.2151 15.769 17.9616 15.8735 17.6974 15.8735C17.4333 15.8735 17.1798 15.769 16.9924 15.5827L11.9924 10.6327L7.04244 15.5827C6.85508 15.769 6.60163 15.8735 6.33744 15.8735C6.07326 15.8735 5.81981 15.769 5.63244 15.5827C5.53796 15.4901 5.46279 15.3797 5.41129 15.2578C5.35979 15.1359 5.33299 15.0051 5.33245 14.8727C5.33299 14.7404 5.35979 14.6096 5.41129 14.4877C5.46279 14.3658 5.53796 14.2554 5.63244 14.1627L11.2824 8.50274C11.3761 8.40124 11.4897 8.32023 11.6162 8.26482C11.7427 8.20941 11.8793 8.18081 12.0174 8.18081C12.1555 8.18081 12.2922 8.20941 12.4186 8.26482C12.5451 8.32023 12.6588 8.40124 12.7524 8.50274Z" fill="currentColor"/>
+            </svg>
+          </a>
         </div>
-
-        <div class="members">
-          <p class="members__amount">19 members</p>
-          <div class="members__list">
-            <span class="more__members">+15</span>
-            <img class="member member1" src="../imgs/nav/Avatar.png" alt="avatar">
-            <img class="member member2" src="../imgs/nav/Avatar.png" alt="avatar">
-            <img class="member member3" src="../imgs/nav/Avatar.png" alt="avatar">
-          </div>
+      </div>
+      <canvas id="teamMonthlyProd"></canvas>
+    </div>
+    <div class="average">
+      <div class="heading">
+        <div class="text">
+          <p>Average productivity</p>
         </div>
-
-      </li>
-    </ul>
-
+      </div>
+      <canvas id="teamAverageProd"></canvas>
+    </div>
   </section>
 
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module">
+
+  import { switchElement } from "../functional/functions.js"
+
+  $(document).ready(function () {
+
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let currentElem = $(".choose__month span")
+    var storageMessage = `${currentElem.text().toLowerCase()}`
+
+    currentElem.on("select", function (event) {
+      event.preventDefault()
+    })
+
+    switchElement(months, currentElem, $(".choose__month .back"), $(".choose__month .next"))
+
+    const canvas = document.getElementById('teamMonthlyProd').getContext('2d')
+    const canvasTwo = document.getElementById('teamAverageProd').getContext('2d')
+
+    let linChart = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
+      datasets: [{
+        label: 'Cave Johnson',
+        data: [14, 18, 12, 21, 33],
+        borderColor: '#105EF5',
+        borderWidth: 2,
+        backgroundColor: '#105EF5'
+      },
+        {
+          label: 'Heisenberg',
+          data: [18, 20, 18, 27, 25],
+          borderColor: '#47C3F4',
+          borderWidth: 2,
+          backgroundColor: '#47C3F4'
+        },
+        {
+          label: 'Tony Stark',
+          data: [22, 11, 23, 15, 29],
+          borderColor: '#9747FF',
+          borderWidth: 2,
+          backgroundColor: '#9747FF'
+        }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            font: {
+              family: 'Work sans',
+              size: 12,
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            font: {
+              family: 'Work sans',
+              size: 12
+            }
+          },
+
+          grid: {
+            color: "rgba(151,151,151,0.56)"
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'tasks done',
+            font: {size: 12, family: 'Work sans'}
+          },
+          ticks: {
+            font: {
+              family: 'Work sans',
+              size: 12
+            }
+          },
+
+          grid: {
+            color: "rgba(151,151,151,0.56)"
+          }
+        }
+      }
+    }
+  })
+
+    let barChart = new Chart(canvasTwo, {
+    type: 'bar',
+    data: {
+      labels: ['first week', 'second week', 'third week', 'fourth week', 'fifth week'],
+      datasets: [{
+        label: 'Cave Johnson',
+        data: JSON.parse(localStorage.getItem(`${storageMessage}BarData`))[0],
+        borderColor: '#105EF5',
+        borderWidth: 2,
+        backgroundColor: '#105EF5',
+        borderRadius: 4
+      },
+        {
+          label: 'Heisenberg',
+          data: JSON.parse(localStorage.getItem(`${storageMessage}BarData`))[1],
+          borderColor: '#47C3F4',
+          borderWidth: 2,
+          backgroundColor: '#47C3F4',
+          borderRadius: 4
+        },
+        {
+          label: 'Tony Stark',
+          data: JSON.parse(localStorage.getItem(`${storageMessage}BarData`))[2],
+          borderColor: '#9747FF',
+          borderWidth: 2,
+          backgroundColor: '#9747FF',
+          borderRadius: 4
+        }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      scales: {
+        x: {
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          },
+
+          grid: {
+            color: "rgba(151,151,151,0.56)"
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'tasks done percentages',
+            font: {size: 12, family: 'work sans'}
+          },
+          ticks: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          },
+
+          grid: {
+            color: "rgba(151,151,151,0.56)"
+          }
+        }
+      },
+      beginAtZero: false,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            font: {
+              family: 'work sans',
+              size: 12
+            }
+          }
+        }
+      }
+    }
+  })
+
+    $(".choose__month .back").click(function () {
+      storageMessage = `${currentElem.text().toLowerCase()}`
+      let storageBarData = JSON.parse(localStorage.getItem(`${storageMessage}BarData`))
+      let storageLinData = JSON.parse(localStorage.getItem(`${storageMessage}LinData`))
+
+      barChart.data.datasets.forEach((dataset, index) => {
+        dataset.data = storageBarData[index]
+      })
+
+      linChart.data.datasets.forEach((dataset, index) => {
+        dataset.data = storageLinData[index]
+      })
+
+      barChart.update()
+      linChart.update()
+    })
+
+    $(".choose__month .next").click(function () {
+      storageMessage = `${currentElem.text().toLowerCase()}`
+      let storageBarData = JSON.parse(localStorage.getItem(`${storageMessage}BarData`))
+      let storageLinData = JSON.parse(localStorage.getItem(`${storageMessage}LinData`))
+
+      barChart.data.datasets.forEach((dataset, index) => {
+        dataset.data = storageBarData[index]
+      })
+
+      linChart.data.datasets.forEach((dataset, index) => {
+        dataset.data = storageLinData[index]
+      })
+
+      barChart.update()
+      linChart.update()
+    })
+  })
+
+</script>
 <script src="../functional/switchTheme.js"></script>
 <script type="module" src="../functional/init.js"></script>
 <script type="module" src="../functional/functions.js"></script>
 <script type="module" src="../functional/page.js"></script>
 <script type="module" src="../functional/navigation.js"></script>
-
-<script>
-
-  $(document).ready(function () {
-
-    $(".project").click(function () {
-      window.location.href = "chat.html"
-    })
-
-  })
-
-</script>
 
 </body>
 </html>
