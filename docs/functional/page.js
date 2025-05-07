@@ -84,55 +84,60 @@ $(document).ready(function () {
 
     let touchTimer;
 
-    $(document).on("touchstart", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
-        const thisElem = $(this); // сохраняем элемент, как в contextmenu
+    document.querySelectorAll("#tasks .task, #projects .goal, #todayTasks .task, #projects .project")
+        .forEach(elem => {
+            elem.addEventListener("touchstart", function (event) {
+                event.preventDefault(); // теперь работает, потому что passive: false
 
-        touchTimer = setTimeout(() => {
-            dropContextMenu("Change", "Remove");
-            const touch = event.originalEvent.touches[0];
+                const thisElem = $(this); // по-прежнему можно использовать jQuery
+                touchTimer = setTimeout(() => {
+                    dropContextMenu("Change", "Remove");
 
-            $("#contextMenu").css("transform", `translate(${touch.pageX}px, ${touch.pageY}px)`);
+                    const touch = event.touches[0];
+                    $("#contextMenu").css("transform", `translate(${touch.pageX}px, ${touch.pageY}px)`);
 
-            let elemClassName = thisElem.attr("class");
+                    let elemClassName = thisElem.attr("class");
 
-            $(".changeBtn").off("click").on("click", function () {
-                changeElem(thisElem);
-                hideContextMenu($("#contextMenu"));
-            });
+                    $(".changeBtn").off("click").on("click", function () {
+                        changeElem(thisElem);
+                        hideContextMenu($("#contextMenu"));
+                    });
 
-            $(".removeBtn").off("click").on("click", function () {
-                let list = thisElem.closest("ul");
+                    $(".removeBtn").off("click").on("click", function () {
+                        let list = thisElem.closest("ul");
 
-                if (elemClassName === "project") {
-                    if (confirm("Are you sure you want to delete this project?")) {
-                        thisElem.remove();
-                    }
-                } else {
-                    thisElem.remove();
-                }
+                        if (elemClassName === "project") {
+                            if (confirm("Are you sure you want to delete this project?")) {
+                                thisElem.remove();
+                            }
+                        } else {
+                            thisElem.remove();
+                        }
 
-                hideContextMenu($("#contextMenu"));
+                        hideContextMenu($("#contextMenu"));
 
-                let weekGoalsList = $("#projects .weekGoals");
-                let monthGoalsList = $("#projects .monthGoals");
+                        let weekGoalsList = $("#projects .weekGoals");
+                        let monthGoalsList = $("#projects .monthGoals");
 
-                if (monthGoalsList.children("li").not(":has(h5)").length === 0 &&
-                    weekGoalsList.children("li").not(":has(h5)").length === 0) {
-                    $(".goals").css("display", "none");
-                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex");
-                }
+                        if (monthGoalsList.children("li").not(":has(h5)").length === 0 &&
+                            weekGoalsList.children("li").not(":has(h5)").length === 0) {
+                            $(".goals").css("display", "none");
+                            monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex");
+                        }
 
-                addEmptyState(list, list.siblings(".empty__state"));
-            });
+                        addEmptyState(list, list.siblings(".empty__state"));
+                    });
 
-            $("body").off("click").on("click", function (event) {
-                if (!event.target.closest("#contextMenu")) {
-                    hideContextMenu($("#contextMenu"));
-                }
-            });
+                    $("body").off("click").on("click", function (event) {
+                        if (!event.target.closest("#contextMenu")) {
+                            hideContextMenu($("#contextMenu"));
+                        }
+                    });
 
-        }, 2000); // 2 секунды
-    });
+                }, 2000); // удержание 2 секунды
+
+            }, { passive: false }); // <<< Ключевой момент
+        });
 
     $(document).on("touchend touchmove", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function () {
         clearTimeout(touchTimer); // если отпустили или сдвинули — сброс
