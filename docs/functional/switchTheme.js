@@ -52,7 +52,7 @@ function applyTheme(theme) {
             "--bodyColor": "#CBEDFF"
         });
 
-        upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/background_upgrade_pro.png")')
+        upgradeBackgroundImage.css("background-image", 'url("../imgs/aside/Background_upgrade_pro.png")')
         if (backgroundImage.length) {
             backgroundImage.css("background-image", 'url("../imgs/main/background.png")')
         }
