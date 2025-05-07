@@ -206,7 +206,7 @@ button {
 * {
     font-family: "Work Sans", sans-serif;
     margin: 0;
-    /*color: var(--textColor);*/
+    padding: 0;
 }
 
 
