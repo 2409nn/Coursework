@@ -81,9 +81,9 @@ $(document).ready(function () {
     // обработка нажатия пальцем
     const elems = $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project")
 
-    elems[0].each(function () {
+    elems.each(function () {
         const hammer = new Hammer(this)
-        hammer.on("tap", function (event) {
+        hammer.on("press", function (event) {
             const x = event.center.x
             const y = event.center.y
 
@@ -93,12 +93,12 @@ $(document).ready(function () {
             let thisElem = $(this)
             let elemClassName = thisElem.attr("class")
 
-            $(".changeBtn").on("touchstart", function () {
+            $(document).on("click", ".changeBtn", function ()  {
                 changeElem(thisElem)
                 hideContextMenu($("#contextMenu"))
             })
 
-            $(".removeBtn").on("touchstart", function () {
+            $(document).on("click", ".removeBtn", function ()  {
 
                 let list = thisElem.closest("ul")
 
