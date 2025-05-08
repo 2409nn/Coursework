@@ -243,13 +243,12 @@ main {
 }
 
 #about .cards {
-    margin: 0 auto;
     display: flex;
-    justify-content: space-evenly;
-    max-width: 90%;
-    overflow-x: scroll;
+    justify-content: flex-start;
+    padding-left: 16px;
+    gap: 20px;
+    overflow-x: auto;
     width: 100%;
-    height: 100%;
     scroll-padding-left: 16px;
 }
 
@@ -262,7 +261,6 @@ main {
     text-align: center;
     padding: 3vw 2.8vw;
     flex-shrink: 0;
-    margin: 0 10px;
 }
 
 #about .cards::-webkit-scrollbar {
