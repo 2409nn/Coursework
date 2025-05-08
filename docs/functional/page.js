@@ -53,9 +53,9 @@ $(document).ready(function () {
                 if (confirm("Are you sure you want to delete this project?")) {
                     thisElem.remove()
                 }
+            } else {
+                thisElem.remove()
             }
-
-            else {thisElem.remove()}
             hideContextMenu($("#contextMenu"))
 
             let weekGoalsList = $("#projects .weekGoals")
@@ -64,7 +64,7 @@ $(document).ready(function () {
             if (monthGoalsList.children("li").not(":has(h5)").length === 0 && weekGoalsList.children("li").not(":has(h5)").length === 0) {
                 $(".goals").css("display", "none")
 
-                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
+                monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
             }
 
 
@@ -79,13 +79,18 @@ $(document).ready(function () {
     })
 
     // обработка нажатия пальцем
-    $(document).on("selectstart", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
-        event.preventDefault()
-        alert("попытка выделить")
+    const elems = $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project")
+
+    elems[0].each(function () {
+        const hammer = new Hammer(this)
+        hammer.on("tap", function (event) {
+            const x = ev.center.x;
+            const y = ev.center.y;
+            alert(`Координаты: x=${x}, y=${y}`);
+        })
     })
 
     $(".new__project").click(function () {
         createElem("project")
     })
-
 })
