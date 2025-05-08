@@ -84,9 +84,50 @@ $(document).ready(function () {
     elems[0].each(function () {
         const hammer = new Hammer(this)
         hammer.on("tap", function (event) {
-            const x = ev.center.x;
-            const y = ev.center.y;
-            alert(`Координаты: x=${x}, y=${y}`);
+            const x = event.center.x
+            const y = event.center.y
+
+            dropContextMenu("Change", "Remove")
+            $("#contextMenu").css("transform", `translate(${x}px, ${y}px)`)
+
+            let thisElem = $(this)
+            let elemClassName = thisElem.attr("class")
+
+            $(".changeBtn").on("touchstart", function () {
+                changeElem(thisElem)
+                hideContextMenu($("#contextMenu"))
+            })
+
+            $(".removeBtn").on("touchstart", function () {
+
+                let list = thisElem.closest("ul")
+
+                if (elemClassName === "project") {
+                    if (confirm("Are you sure you want to delete this project?")) {
+                        thisElem.remove()
+                    }
+                } else {
+                    thisElem.remove()
+                }
+                hideContextMenu($("#contextMenu"))
+
+                let weekGoalsList = $("#projects .weekGoals")
+                let monthGoalsList = $("#projects .monthGoals")
+
+                if (monthGoalsList.children("li").not(":has(h5)").length === 0 && weekGoalsList.children("li").not(":has(h5)").length === 0) {
+                    $(".goals").css("display", "none")
+
+                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
+                }
+
+                addEmptyState(list, list.siblings(".empty__state"))
+            })
+
+            $("body").on("touchstart", function (event) {
+                if (!event.target.closest("#contextMenu")) {
+                    hideContextMenu($("#contextMenu"))
+                }
+            })
         })
     })
 
