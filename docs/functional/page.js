@@ -80,6 +80,7 @@ $(document).ready(function () {
 
     // обработка нажатия пальцем
     const elems = $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project")
+    $(document).on(elems, "selectstart", function (event) {event.preventDefault()})
 
     elems.each(function () {
         const hammer = new Hammer(this)
