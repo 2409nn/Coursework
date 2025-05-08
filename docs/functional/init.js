@@ -162,3 +162,4 @@ localStorage.setItem("decemberBarData", JSON.stringify([
     [69, 66, 68, 66, 70],
     [75, 55, 65, 56, 75],
 ]));
+

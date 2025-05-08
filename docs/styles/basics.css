@@ -190,6 +190,7 @@ button {
 }
 
 .more__btn {
+    padding: 1px 6px;
     border: 1px solid #105EF5;
     color: #105EF5;
     border-radius: 8px;
@@ -406,6 +407,7 @@ header {
 header nav .path {
     padding: 22px 26px;
     border-bottom: 2px #105EF5 solid;
+    margin-left: 40px;
 }
 
 header nav {
