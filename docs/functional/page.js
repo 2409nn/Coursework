@@ -79,7 +79,10 @@ $(document).ready(function () {
     })
 
     // обработка нажатия пальцем
-
+    $(document).on("selectstart", "#tasks .task, #projects .goal, #todayTasks .task, #projects .project", function (event) {
+        event.preventDefault()
+        alert("попытка выделить")
+    })
 
     $(".new__project").click(function () {
         createElem("project")
