@@ -88,22 +88,20 @@ $(document).ready(function () {
 
         hammer.on("press", function (event) {
 
+            let thisElem = $(this)
+            let elemClassName = thisElem.attr("class")
+
             $("#contextMenu").css("transform", `translate(${event.center.x}px, ${event.center.y}px)`)
             setTimeout(() => {
                 dropContextMenu("Change", "Remove")
             }, 0)
 
-            const touch = event.srcEvent
-            let thisElem = $(this)
-            let elemClassName = thisElem.attr("class")
-
-            $(".changeBtn").click(function () {
+            $(document).on("#contextMenu .changeBtn", "click", function () {
                 changeElem(thisElem)
                 hideContextMenu($("#contextMenu"))
             })
 
-            $(".removeBtn").click(function () {
-
+            $(document).on("#contextMenu .removeBtn", "click", function () {
                 let list = thisElem.closest("ul")
 
                 if (elemClassName === "project") {
@@ -123,8 +121,6 @@ $(document).ready(function () {
 
                     monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
                 }
-
-
                 addEmptyState(list, list.siblings(".empty__state"))
             })
 
