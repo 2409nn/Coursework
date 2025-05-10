@@ -79,57 +79,58 @@ $(document).ready(function () {
     })
 
     // для IOS
-    const elements = document.querySelectorAll("#tasks .task, #projects .goal, #todayTasks .task, #projects .project");
+    $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project").each(function () {
 
-    elements.forEach(el => {
-        const hammertime = new Hammer(el);
+        // если пользователь нажал и держит пол секунды, вызвать контекст меню
+        const el = this
+        const hammer = new Hammer(el)
+        hammer.get('press').set({ time: 400 })
 
-        // Настройка события press (удержание ~500ms)
-        hammertime.get('press').set({ time: 600 });
+        hammer.on("press", function (event) {
 
-        hammertime.on('press', function (event) {
-            const jEl = $(el);
-            const elemClassName = jEl.attr("class");
+            $("#contextMenu").css("transform", `translate(${event.center.x}px, ${event.center.y}px)`)
+            setTimeout(() => {
+                dropContextMenu("Change", "Remove")
+            }, 0)
 
-            dropContextMenu("Change", "Remove");
+            const touch = event.srcEvent
+            let thisElem = $(this)
+            let elemClassName = thisElem.attr("class")
 
-            // Координаты касания
-            const touch = event.srcEvent;
-            $("#contextMenu").css("transform", `translate(${touch.pageX}px, ${touch.pageY}px)`);
+            $(".changeBtn").click(function () {
+                changeElem(thisElem)
+                hideContextMenu($("#contextMenu"))
+            })
 
-            $(".changeBtn").off("click").on("click", function () {
-                changeElem(jEl);
-                hideContextMenu($("#contextMenu"));
-            });
+            $(".removeBtn").click(function () {
 
-            $(".removeBtn").off("click").on("click", function () {
-                let list = jEl.closest("ul");
+                let list = thisElem.closest("ul")
 
                 if (elemClassName === "project") {
                     if (confirm("Are you sure you want to delete this project?")) {
-                        jEl.remove();
+                        thisElem.remove()
                     }
                 } else {
-                    jEl.remove();
+                    thisElem.remove()
+                }
+                hideContextMenu($("#contextMenu"))
+
+                let weekGoalsList = $("#projects .weekGoals")
+                let monthGoalsList = $("#projects .monthGoals")
+
+                if (monthGoalsList.children("li").not(":has(h5)").length === 0 && weekGoalsList.children("li").not(":has(h5)").length === 0) {
+                    $(".goals").css("display", "none")
+
+                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
                 }
 
-                hideContextMenu($("#contextMenu"));
 
-                let weekGoalsList = $("#projects .weekGoals");
-                let monthGoalsList = $("#projects .monthGoals");
+                addEmptyState(list, list.siblings(".empty__state"))
+            })
 
-                if (monthGoalsList.children("li").not(":has(h5)").length === 0 &&
-                    weekGoalsList.children("li").not(":has(h5)").length === 0) {
-                    $(".goals").css("display", "none");
-                    monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex");
-                }
-
-                addEmptyState(list, list.siblings(".empty__state"));
-            });
-
-            $("body").off("click.contextmenu").on("click.contextmenu", function (e) {
-                if (!e.target.closest("#contextMenu")) {
-                    hideContextMenu($("#contextMenu"));
+            $("body").click(function (event) {
+                if (!event.target.closest("#contextMenu")) {
+                    hideContextMenu($("#contextMenu"))
                 }
             })
         })
