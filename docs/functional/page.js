@@ -86,7 +86,7 @@ $(document).ready(function () {
         const hammer = new Hammer(el)
         hammer.get('press').set({ time: 400 })
 
-        hammer.on("press", function (event) {
+        hammer.on("press", function () {
 
             let thisElem = $(this)
             let elemClassName = thisElem.attr("class")
@@ -97,7 +97,7 @@ $(document).ready(function () {
             });
 
             $(".removeBtn").on("click", function () {
-                let $list = thisElem.closest("ul");
+                let list = thisElem.closest("ul");
 
                 if (elemClassName === "project") {
                     if (confirm("Are you sure you want to delete this project?")) {
