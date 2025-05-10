@@ -91,27 +91,23 @@ $(document).ready(function () {
             let thisElem = $(this)
             let elemClassName = thisElem.attr("class")
 
-            $("#contextMenu").css("transform", `translate(${event.center.x}px, ${event.center.y}px)`)
-            setTimeout(() => {
-                dropContextMenu("Change", "Remove")
-            }, 0)
+            $(".changeBtn").off("click").on("click", function () {
+                changeElem(thisElem);
+                hideContextMenu($("#contextMenu"));
+            });
 
-            $(document).on("#contextMenu .changeBtn", "click", function () {
-                changeElem(thisElem)
-                hideContextMenu($("#contextMenu"))
-            })
-
-            $(document).on("#contextMenu .removeBtn", "click", function () {
-                let list = thisElem.closest("ul")
+            $(".removeBtn").off("click").on("click", function () {
+                let $list = thisElem.closest("ul");
 
                 if (elemClassName === "project") {
                     if (confirm("Are you sure you want to delete this project?")) {
-                        thisElem.remove()
+                        thisElem.remove();
                     }
                 } else {
-                    thisElem.remove()
+                    thisElem.remove();
                 }
-                hideContextMenu($("#contextMenu"))
+
+                hideContextMenu($("#contextMenu"));
 
                 let weekGoalsList = $("#projects .weekGoals")
                 let monthGoalsList = $("#projects .monthGoals")
