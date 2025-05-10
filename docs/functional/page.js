@@ -78,60 +78,6 @@ $(document).ready(function () {
         })
     })
 
-    // обработка нажатия пальцем
-    // const elems = $("#tasks .task, #projects .goal, #todayTasks .task, #projects .project")
-    // $(document).on(elems, "selectstart", function (event) {event.preventDefault()})
-    //
-    // elems.each(function () {
-    //     const hammer = new Hammer(this)
-    //     hammer.on("press", function (event) {
-    //         const x = event.center.x
-    //         const y = event.center.y
-    //
-    //         dropContextMenu("Change", "Remove")
-    //         $("#contextMenu").css("transform", `translate(${x}px, ${y}px)`)
-    //
-    //         let thisElem = $(this)
-    //         let elemClassName = thisElem.attr("class")
-    //
-    //         $(document).on("click", ".changeBtn", function ()  {
-    //             changeElem(thisElem)
-    //             hideContextMenu($("#contextMenu"))
-    //         })
-    //
-    //         $(document).on("click", ".removeBtn", function ()  {
-    //
-    //             let list = thisElem.closest("ul")
-    //
-    //             if (elemClassName === "project") {
-    //                 if (confirm("Are you sure you want to delete this project?")) {
-    //                     thisElem.remove()
-    //                 }
-    //             } else {
-    //                 thisElem.remove()
-    //             }
-    //             hideContextMenu($("#contextMenu"))
-    //
-    //             let weekGoalsList = $("#projects .weekGoals")
-    //             let monthGoalsList = $("#projects .monthGoals")
-    //
-    //             if (monthGoalsList.children("li").not(":has(h5)").length === 0 && weekGoalsList.children("li").not(":has(h5)").length === 0) {
-    //                 $(".goals").css("display", "none")
-    //
-    //                 monthGoalsList.parent(".goals").siblings(".empty__state").css("display", "flex")
-    //             }
-    //
-    //             addEmptyState(list, list.siblings(".empty__state"))
-    //         })
-    //
-    //         $("body").on("touchstart", function (event) {
-    //             if (!event.target.closest("#contextMenu")) {
-    //                 hideContextMenu($("#contextMenu"))
-    //             }
-    //         })
-    //     })
-    // })
-
     $(".new__project").click(function () {
         createElem("project")
     })

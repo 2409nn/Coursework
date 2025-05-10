@@ -239,15 +239,13 @@ export function createElem(elemType) {
     popSubmit.val("Create")
 
     popSubmit.click(function () {
-
         let allowSubmit = true
 
         $(`#${popName}`).find("input[required]:not([type=submit]), textarea[required]").each(function() {
             if ($(this).val().trim() === "") {
                 allowSubmit = false;
             }
-        });
-
+        })
         if (allowSubmit) {
             // получение данных в inputData
 

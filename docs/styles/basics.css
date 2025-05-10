@@ -852,17 +852,6 @@ aside ul .lists li {
     transition: filter 0.25s;
 }
 
-/*#popWindowTask input {*/
-/*    background-color: var(--borderColor);*/
-/*    border: none;*/
-/*    display: block;*/
-/*    width: 85%;*/
-/*    margin: 10px auto;*/
-/*    padding: 14px 30px;*/
-/*    border-radius: 10px;*/
-/*    transition: box-shadow 0.1s;*/
-/*}*/
-
 #popWindowTask .special__inputs {
     display: flex;
     gap: 20px;
@@ -1197,12 +1186,11 @@ aside ul .lists li {
 /* --- пользовательские эффекты --- */
 
 .task, .project, .week__goal, .month__goal {
-    /*user-select: none;*/
-    /*-webkit-user-select: none;*/
-    /*-ms-user-select: none;*/
-    /*-moz-user-select: none;*/
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
 }
-
 
 /* --- адаптация --- */
 
