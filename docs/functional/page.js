@@ -91,12 +91,12 @@ $(document).ready(function () {
             let thisElem = $(this)
             let elemClassName = thisElem.attr("class")
 
-            $(".changeBtn").off("click").on("click", function () {
+            $(".changeBtn").on("click", function () {
                 changeElem(thisElem);
                 hideContextMenu($("#contextMenu"));
             });
 
-            $(".removeBtn").off("click").on("click", function () {
+            $(".removeBtn").on("click", function () {
                 let $list = thisElem.closest("ul");
 
                 if (elemClassName === "project") {
