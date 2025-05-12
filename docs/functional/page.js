@@ -13,8 +13,9 @@ function getDeviceType() {
 $(document).ready(function () {
     const selectors = "#tasks .task, #projects .goal, #todayTasks .task, #projects .project";
 
-    // контекстное меню (только с кнопкой удалить)
+    // контекстное меню
     if (getDeviceType() === "Desktop") {
+        // контекстное меню (только с кнопкой "удалить")
         $(document).on("contextmenu", ".notifications .notif, #chats .project", function (event) {
             let thisElem = $(this)
             event.preventDefault()
@@ -91,14 +92,14 @@ $(document).ready(function () {
     }
     else {
 
-        $(selectors).on("contextmenu", ".changeBtn", function (event) {event.preventDefault()})
+        $(selectors).on("contextmenu", function (event) {event.preventDefault()})
 
         $(selectors).each(function () {
             const el = this;
             let timer = null;
             let isLongPress = false;
 
-            $(el).on("touchstart", function (event) {
+            $(document).on("touchstart", el, function (event) {
                 isLongPress = false;
 
                 timer = setTimeout(() => {
