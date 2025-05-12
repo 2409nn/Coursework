@@ -743,6 +743,12 @@ main {
     }
 }
 
+@media screen and (max-width: 441px) {
+    #projects .projects {
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 419px) {
     #statistics {
     }

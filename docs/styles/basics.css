@@ -29,6 +29,33 @@ section::-webkit-scrollbar {
     display: none;
 }
 
+.project__description, .task .title, .goal__label {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Ограничение по количеству строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Межстрочный интервал */
+}
+
+.project .project__name {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Ограничение по количеству строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5em; /* Межстрочный интервал */
+}
+
+.last_message .message {
+    white-space: nowrap;    /* Запрет переноса строк */
+    overflow: hidden;      /* Скрытие выходящего за границы */
+    text-overflow: ellipsis; /* Троеточие */
+    width: 200px;         /* Фиксированная ширина */
+    /* или */
+    max-width: 100%;      /* Гибкая ширина */
+}
+
 .goodResult {
     background-color: var(--goodBackgroundColor);
     color: var(--goodTextColor);

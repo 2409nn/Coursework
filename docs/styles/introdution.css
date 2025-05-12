@@ -249,7 +249,6 @@ main {
     gap: 20px;
     overflow-x: auto;
     width: 100%;
-    scroll-padding-left: 16px;
 }
 
 #about .cards .card {
@@ -280,6 +279,10 @@ main {
 
 #about .cards .card .icon {
     font-size: 60px;
+}
+
+#about .cards .card .emoji {
+    width: 60px;
 }
 
 #about svg {
@@ -356,8 +359,8 @@ main {
     margin-top: 40px;
 }
 
-.part .emoji {
-    font-size: 25px;
+.parts .emoji {
+    width: 25px;
 }
 
 .part p {
@@ -866,6 +869,10 @@ footer .logo {
     #about .cards .card .info {
         font-size: 12px;
         margin-top: 20px;
+    }
+
+    #about .cards .card .emoji {
+        width: 40px;
     }
 
     #end .feedback__carousel .feedback .message {

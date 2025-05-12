@@ -107,6 +107,10 @@ main {
     padding-bottom: 60px;
 }
 
+main::-webkit-scrollbar {
+    display: none;
+}
+
 .message {
     display: flex;
     flex-direction: column;

@@ -248,6 +248,10 @@ main {
     margin: auto;
 }
 
+.emoji img {
+    width: 50px;
+}
+
 @media screen and (max-width: 1361px) {
 
     #plans .cards .card {
@@ -304,11 +308,6 @@ main {
         width: 70%;
         height: 600px;
         border-radius: 20px;
-    }
-
-    #plans .cards .card .heading img {
-        width: 100px;
-        margin-top: 20px;
     }
 
     #plans .cards .card .heading h3 {
